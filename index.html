@@ -22,17 +22,25 @@ Error generating stack: `+r.message+`
   let setupScrollMotion = () => {
     let applyStyle = (el, opacity, y, x, delay, duration = 1.0) => {
       if (!el) return;
+      el.style.transition = 'none';
       el.style.opacity = opacity;
       el.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
-      el.style.transition = 'opacity ' + duration + 's cubic-bezier(0.16, 1, 0.3, 1) ' + delay + 'ms, transform ' + duration + 's cubic-bezier(0.16, 1, 0.3, 1) ' + delay + 'ms';
       el.style.willChange = 'opacity, transform';
+      
+      // Force DOM reflow so browser registers the initial 0 opacity state before animating
+      void el.offsetHeight;
+      
+      el.style.transition = 'opacity ' + duration + 's cubic-bezier(0.16, 1, 0.3, 1) ' + delay + 'ms, transform ' + duration + 's cubic-bezier(0.16, 1, 0.3, 1) ' + delay + 'ms';
     };
 
     let trigger = (el) => {
       if (!el) return;
+      // Use double requestAnimationFrame to ensure the transition is respected
       requestAnimationFrame(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translate3d(0,0,0)';
+        requestAnimationFrame(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translate3d(0,0,0)';
+        });
       });
     };
 
@@ -40,12 +48,14 @@ Error generating stack: `+r.message+`
       // --- 1. HERO SLIGHT PREMIUM DELAYED REVEAL ---
       let hero = document.getElementById('hero');
       if (hero) {
-        let heroTextUnit = hero.querySelector('.z-10'); // Safe selector for text column
-        let heroImgUnit = hero.querySelector('.items-end'); // Safe selector for image column
+        let heroTextUnit = hero.querySelector('.z-10'); // text column
+        let heroImgUnit = hero.querySelector('.items-end'); // image column
 
-        applyStyle(heroTextUnit, '0', 28, 0, 150, 1.2);
-        applyStyle(heroImgUnit, '0', 36, 0, 300, 1.3);
+        // Apply initial hidden states and transition configs
+        applyStyle(heroTextUnit, '0', 36, 0, 400, 1.4); // Longer, elegant delay for text
+        applyStyle(heroImgUnit, '0', 44, 0, 600, 1.5); // Even longer for image
 
+        // Trigger the change to opacity 1
         setTimeout(() => {
           trigger(heroTextUnit);
           trigger(heroImgUnit);
@@ -55,7 +65,7 @@ Error generating stack: `+r.message+`
       // --- 2. HEADER NAV LINKS SLIDE OUT FROM RIGHT ---
       let navLinks = document.querySelectorAll('header nav a');
       navLinks.forEach((link, idx) => {
-        applyStyle(link, '0', 0, 45, 250 + idx * 80, 0.8);
+        applyStyle(link, '0', 0, 45, 300 + idx * 100, 0.9);
       });
       setTimeout(() => {
         navLinks.forEach(link => trigger(link));
@@ -69,7 +79,7 @@ Error generating stack: `+r.message+`
         scrollTargets.push(el);
       };
 
-      // Approach Section:
+      // Approach Section
       let approachSec = document.getElementById('approach');
       if (approachSec) {
         let headerUnit = approachSec.querySelector('.order-2');
@@ -80,7 +90,7 @@ Error generating stack: `+r.message+`
         addTarget(cardsUnit, 180);
       }
 
-      // Expertise Section:
+      // Expertise Section
       let expertiseSec = document.getElementById('expertise');
       if (expertiseSec) {
         let headerUnit = expertiseSec.querySelector('.text-center');
@@ -89,7 +99,7 @@ Error generating stack: `+r.message+`
         cards.forEach((card, idx) => addTarget(card, idx * 180));
       }
 
-      // Process Section:
+      // Process Section
       let processSec = document.getElementById('process');
       if (processSec) {
         let headerUnit = processSec.querySelector('.text-center');
@@ -98,7 +108,7 @@ Error generating stack: `+r.message+`
         steps.forEach((step, idx) => addTarget(step, idx * 180));
       }
 
-      // Testimonials Section:
+      // Testimonials Section
       let testimonialsSec = document.getElementById('testimonials');
       if (testimonialsSec) {
         let headerUnit = testimonialsSec.querySelector('.text-center');
@@ -107,7 +117,7 @@ Error generating stack: `+r.message+`
         tCards.forEach((card, idx) => addTarget(card, idx * 180));
       }
 
-      // Contact Me Section:
+      // Contact Me Section
       let contactSec = document.getElementById('contact');
       if (contactSec) {
         let leftCol = contactSec.querySelector('.flex-col.items-start');
@@ -134,7 +144,7 @@ Error generating stack: `+r.message+`
     }
   };
 
-  setTimeout(setupScrollMotion, 150);
+  setTimeout(setupScrollMotion, 200);
 
   return () => clearInterval(z);
 },[]);let c=[{label:"Expertise",href:"#expertise"},{label:"Testimonials",href:"#testimonials"},{label:"Contact",href:"#contact"}],w=(z)=>{if(z===g)P((z+1)%4);else P(z);i.current=Date.now()+6000},O=(z)=>{d.current=z.touches[0].clientX},H=(z)=>{if(d.current===null)return;let B=z.changedTouches[0].clientX-d.current;if(Math.abs(B)>50){if(B<0)P((l)=>(l+1)%4);else P((l)=>(l-1+4)%4);i.current=Date.now()+6000}d.current=null},R=[{n:"01",title:"Evidence, not volume",desc:"Photos, plans, timelines and expert language that holds up when it's challenged.",icon:C("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"white",strokeWidth:"1.5",children:[u("path",{d:"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"}),u("polyline",{points:"14 2 14 8 20 8"}),u("line",{x1:"16",y1:"13",x2:"8",y2:"13"}),u("line",{x1:"16",y1:"17",x2:"8",y2:"17"})]})},{n:"02",title:"Clarity before escalation",desc:"We frame your file so insurers and cities respond — without unnecessary litigation.",icon:C("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"white",strokeWidth:"1.5",children:[u("path",{d:"M12 3L4 7v6c0 4.418 3.582 8 8 8s8-3.582 8-8V7l-8-4z"}),u("path",{d:"M9 12l2 2 4-4"})]})},{n:"03",title:"Municipal know-how",desc:"Formerly trusted by cities and insurers, now exclusively on your side. We know how files are reviewed.",icon:u("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"white",strokeWidth:"1.5",children:u("path",{d:"M12 3L4 7v6c0 4.418 3.582 8 8 8s8-3.582 8-8V7l-8-4z"})})},{n:"04",title:"Weekly updates, always",desc:"You stay informed. No call center, no black box — direct senior handling, every week.",icon:C("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"white",strokeWidth:"1.5",children:[u("circle",{cx:"12",cy:"8",r:"3.5"}),u("path",{d:"M5 19c0-3.5 3-6 7-6s7 2.5 7 6"})]})}],a=[{n:"01",title:"Free 15-min review",desc:"Share your situation. We assess liability, documentation gaps, and whether we can add leverage — candidly."},{n:"02",title:"File clarification",desc:C(pf,{children:["We organize evidence, quantify, and"," ",u("span",{className:"font-inter font-semibold text-[#0E223F]",children:"reframe your claim"})," in the language"," ","insurers and cities respond to."]})},{n:"03",title:"Defended resolution",desc:C(pf,{children:["We advocate directly, keep you updated weekly, and push for a"," ",u("span",{className:"font-inter font-semibold text-[#0E223F]",children:"fair, documented outcome."})]})}];return C("div",{className:"bg-white text-[#111827] antialiased overflow-x-hidden selection:bg-[#0E223F] selection:text-white",children:[u("style",{children:`
