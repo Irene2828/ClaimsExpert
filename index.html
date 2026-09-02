@@ -49,6 +49,10 @@ Error generating stack: `+r.message+`
           will-change: opacity, transform;
         }
         .arrive-in-view.is-visible {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+        .arrive-in-view.is-visible {
           opacity: 1;
           transform: translateY(0);
         }
@@ -63,26 +67,42 @@ Error generating stack: `+r.message+`
   function initObserver() {
     var elements = document.querySelectorAll('.arrive-in-view');
     if (!elements.length) return;
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     
+    // Check initial viewport placement immediately
     elements.forEach(function(el) {
-      observer.observe(el);
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
+      }
     });
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '50px 0px 50px 0px' });
+      
+      elements.forEach(function(el) {
+        observer.observe(el);
+      });
+    } else {
+      elements.forEach(function(el) {
+        el.classList.add('is-visible');
+      });
+    }
   }
+
   if (document.readyState !== 'loading') {
     initObserver();
   } else {
     document.addEventListener('DOMContentLoaded', initObserver);
   }
-  // Also run after react renders
-  setTimeout(initObserver, 300);
-  setTimeout(initObserver, 1000);
+  
+  window.addEventListener('scroll', initObserver);
+  setInterval(initObserver, 500);
 })();
 </script>
 </body>
