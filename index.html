@@ -61,5 +61,76 @@ Error generating stack: `+r.message+`
 </script>
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  // 1. Hero fade-in
+  var hero = document.getElementById('hero');
+  if (hero) {
+    hero.style.opacity = '0';
+    hero.style.transform = 'translateY(16px)';
+    hero.style.transition = 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+    setTimeout(function() {
+      hero.style.opacity = '1';
+      hero.style.transform = 'translateY(0)';
+    }, 50);
+  }
+
+  // 2. Header nav slide in from right
+  var nav = document.querySelector('header nav');
+  if (nav) {
+    nav.style.opacity = '0';
+    nav.style.transform = 'translateX(40px)';
+    nav.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)';
+    setTimeout(function() {
+      nav.style.opacity = '1';
+      nav.style.transform = 'translateX(0)';
+    }, 150);
+  }
+
+  // 3. Arrive in motion for sections & cards as user scrolls
+  var animateTargets = [];
+  
+  // Sections starting under hero
+  var sections = document.querySelectorAll('section:not(#hero)');
+  sections.forEach(function(sec) {
+    animateTargets.push({ el: sec, delay: 0 });
+  });
+
+  // Expertise cards
+  var expCards = document.querySelectorAll('#expertise .grid > div');
+  expCards.forEach(function(card, idx) {
+    animateTargets.push({ el: card, delay: idx * 150 });
+  });
+
+  // Testimonials cards
+  var testCards = document.querySelectorAll('#testimonials .flex.gap-6 > div');
+  testCards.forEach(function(card, idx) {
+    animateTargets.push({ el: card, delay: idx * 150 });
+  });
+
+  animateTargets.forEach(function(item) {
+    var el = item.el;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(36px)';
+    el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1) ' + item.delay + 'ms, transform 0.8s cubic-bezier(0.16,1,0.3,1) ' + item.delay + 'ms';
+  });
+
+  function checkScroll() {
+    var triggerBottom = window.innerHeight * 0.92;
+    animateTargets.forEach(function(item) {
+      var rect = item.el.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        item.el.style.opacity = '1';
+        item.el.style.transform = 'translateY(0)';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkScroll);
+  setTimeout(checkScroll, 100);
+  setTimeout(checkScroll, 400);
+});
+</script>
 </body>
 </html>
