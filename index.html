@@ -20,84 +20,117 @@ Error generating stack: `+r.message+`
   let z=setInterval(()=>{if(Date.now()<i.current)return;P((B)=>(B+1)%4)},4500);
   
   let setupScrollMotion = () => {
-    // 1. Hero Load Fade In + Rise
-    let hero = document.getElementById('hero');
-    if (hero) {
-      hero.style.opacity = '0';
-      hero.style.transform = 'translateY(32px)';
-      hero.style.transition = 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          hero.style.opacity = '1';
-          hero.style.transform = 'translateY(0)';
-        }, 100);
-      });
-    }
+    let applyTransition = (el, delay = 0, yOffset = 45, duration = 1.0) => {
+      if (!el) return;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(' + yOffset + 'px)';
+      el.style.willChange = 'opacity, transform';
+      el.style.transition = 'opacity ' + duration + 's cubic-bezier(0.16, 1, 0.3, 1) ' + delay + 'ms, transform ' + duration + 's cubic-bezier(0.16, 1, 0.3, 1) ' + delay + 'ms';
+    };
 
-    // 2. Header Links Slide Out from Right Edge (staggered)
+    let triggerReveal = (el) => {
+      if (!el) return;
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    };
+
+    // --- 1. HERO PREMIUM MULTI-ELEMENT STAGGER REVEAL (ON LOAD) ---
+    let heroTag = document.querySelector('#hero span.tracking-\\[0\\.22em\\]');
+    let heroH1 = document.querySelector('#hero h1');
+    let heroP = document.querySelector('#hero p.max-w-\\[44ch\\]');
+    let heroBtns = document.querySelector('#hero div.flex-col.sm\\:flex-row');
+    let heroBadge = document.querySelector('#hero p.tracking-\\[0\\.16em\\]');
+    let heroImgCard = document.querySelector('#hero .order-1.lg\\:order-2');
+
+    applyTransition(heroTag, 100, 20);
+    applyTransition(heroH1, 240, 36);
+    applyTransition(heroP, 380, 24);
+    applyTransition(heroBtns, 500, 24);
+    applyTransition(heroBadge, 620, 16);
+    applyTransition(heroImgCard, 350, 40, 1.2);
+
+    setTimeout(() => {
+      [heroTag, heroH1, heroP, heroBtns, heroBadge, heroImgCard].forEach(el => triggerReveal(el));
+    }, 50);
+
+    // --- 2. HEADER NAV LINKS SLIDE OUT (ON LOAD) ---
     let navLinks = document.querySelectorAll('header nav a');
-    if (navLinks.length > 0) {
-      navLinks.forEach((link, idx) => {
-        link.style.display = 'inline-block';
-        link.style.opacity = '0';
-        link.style.transform = 'translateX(60px)';
-        link.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ' + (200 + idx * 100) + 'ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ' + (200 + idx * 100) + 'ms';
+    navLinks.forEach((link, idx) => {
+      link.style.display = 'inline-block';
+      applyTransition(link, 200 + idx * 100, 0, 0.8);
+      link.style.transform = 'translateX(50px)';
+    });
+    setTimeout(() => {
+      navLinks.forEach(link => {
+        requestAnimationFrame(() => {
+          link.style.opacity = '1';
+          link.style.transform = 'translateX(0)';
+        });
       });
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          navLinks.forEach(link => {
-            link.style.opacity = '1';
-            link.style.transform = 'translateX(0)';
-          });
-        }, 150);
+    }, 50);
+
+    // --- 3. ON-SCROLL OBSERVER FOR ALL SECTIONS & CARDS ---
+    let scrollElements = [];
+
+    // Helper to register element for scroll reveal
+    let register = (selectorOrEl, delay = 0, yOffset = 45) => {
+      let els = typeof selectorOrEl === 'string' ? document.querySelectorAll(selectorOrEl) : [selectorOrEl];
+      els.forEach((el, i) => {
+        if (el) {
+          let itemDelay = typeof delay === 'function' ? delay(i) : delay;
+          applyTransition(el, itemDelay, yOffset);
+          scrollElements.push(el);
+        }
       });
-    }
+    };
 
-    // 3. True Scroll IntersectionObserver (triggers ONLY when layer is in view)
-    let scrollTargets = [];
+    // Approach Section elements
+    register('#approach span.uppercase');
+    register('#approach h2', 120);
+    register('#approach p.max-w-\\[52ch\\]', 220);
+    register('#approach .relative.order-1', 280, 40);
 
-    // Sections below hero
-    document.querySelectorAll('section:not(#hero)').forEach(sec => {
-      scrollTargets.push({ el: sec, delay: 0 });
-    });
+    // Expertise Section elements & cards
+    register('#expertise span.uppercase');
+    register('#expertise h2', 120);
+    register('#expertise p.max-w-\\[60ch\\]', 220);
+    register('#expertise .grid > div', (i) => 150 + i * 200, 50);
 
-    // Expertise cards (loads one by one when section enters view)
-    document.querySelectorAll('#expertise .grid > div').forEach((card, idx) => {
-      scrollTargets.push({ el: card, delay: idx * 240 });
-    });
+    // Process Section elements & steps
+    register('#process span.uppercase');
+    register('#process h2', 120);
+    register('#process p.max-w-2xl', 220);
+    register('#process .grid > div', (i) => 150 + i * 200, 50);
 
-    // Testimonials cards (loads one by one when section enters view)
-    document.querySelectorAll('#testimonials .flex.gap-6 > div').forEach((card, idx) => {
-      scrollTargets.push({ el: card, delay: idx * 240 });
-    });
+    // Testimonials Section elements & cards
+    register('#testimonials span.uppercase');
+    register('#testimonials h2', 120);
+    register('#testimonials p.max-w-none', 220);
+    register('#testimonials .flex.gap-6 > div', (i) => 150 + i * 200, 50);
 
-    // Initially hide all scroll targets
-    scrollTargets.forEach(item => {
-      item.el.style.opacity = '0';
-      item.el.style.transform = 'translateY(48px)';
-      item.el.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ' + item.delay + 'ms, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ' + item.delay + 'ms';
-    });
+    // Contact Me Section elements & form card
+    register('#contact span.uppercase');
+    register('#contact h2', 120);
+    register('#contact p', 200);
+    register('#contact .mt-12.space-y-5', 280);
+    register('#contact .bg-white\\/5', 250, 50);
 
-    // Create IntersectionObserver to observe when element reaches viewport
+    // IntersectionObserver instance
     let observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          let targetObj = scrollTargets.find(t => t.el === entry.target);
-          if (targetObj) {
-            targetObj.el.style.opacity = '1';
-            targetObj.el.style.transform = 'translateY(0)';
-          }
+          triggerReveal(entry.target);
           observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.15,
+      threshold: 0.12,
       rootMargin: '0px 0px -40px 0px'
     });
 
-    scrollTargets.forEach(item => {
-      observer.observe(item.el);
-    });
+    scrollElements.forEach(el => observer.observe(el));
   };
 
   setTimeout(setupScrollMotion, 150);
