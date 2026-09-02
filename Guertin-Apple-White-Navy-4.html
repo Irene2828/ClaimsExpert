@@ -20,7 +20,7 @@ Error generating stack: `+r.message+`
   let z=setInterval(()=>{if(Date.now()<i.current)return;P((B)=>(B+1)%4)},4500);
   
   let setupScrollMotion = () => {
-    let applyStyle = (el, opacity, y, x, delay, duration = 0.9) => {
+    let applyStyle = (el, opacity, y, x, delay, duration = 1.0) => {
       if (!el) return;
       el.style.opacity = opacity;
       el.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
@@ -36,90 +36,107 @@ Error generating stack: `+r.message+`
       });
     };
 
-    // --- 1. HERO LUXURY STAGGER REVEAL ON PAGE LOAD ---
+    // --- 1. HERO SLIGHT PREMIUM DELAYED REVEAL (AS ONE ELEGANT UNIT) ---
     let hero = document.getElementById('hero');
     if (hero) {
-      // Find key elements in hero
-      let tag = hero.querySelector('span');
-      let h1 = hero.querySelector('h1');
-      let p = hero.querySelector('p');
-      let btns = hero.querySelector('.flex-col, .sm\\:flex-row');
-      let badge = hero.querySelectorAll('p')[1];
-      let imgCol = hero.querySelector('.order-1, .lg\\:order-2');
+      // Hero text content unit
+      let heroTextUnit = hero.querySelector('.order-2, .lg\\:order-1');
+      // Hero portrait image unit
+      let heroImgUnit = hero.querySelector('.order-1, .lg\\:order-2');
 
-      applyStyle(tag, '0', 20, 0, 100);
-      applyStyle(h1, '0', 36, 0, 250);
-      applyStyle(p, '0', 24, 0, 400);
-      applyStyle(btns, '0', 24, 0, 550);
-      applyStyle(badge, '0', 16, 0, 680);
-      applyStyle(imgCol, '0', 40, 0, 350, 1.2);
+      // Slight 300ms premium delay before fade reveal starts
+      applyStyle(heroTextUnit, '0', 28, 0, 300, 1.1);
+      applyStyle(heroImgUnit, '0', 36, 0, 420, 1.2);
 
       setTimeout(() => {
-        [tag, h1, p, btns, badge, imgCol].forEach(el => trigger(el));
-      }, 80);
+        trigger(heroTextUnit);
+        trigger(heroImgUnit);
+      }, 50);
     }
 
     // --- 2. HEADER NAV LINKS SLIDE OUT FROM RIGHT ---
     let navLinks = document.querySelectorAll('header nav a');
     navLinks.forEach((link, idx) => {
-      applyStyle(link, '0', 0, 50, 200 + idx * 100, 0.8);
+      applyStyle(link, '0', 0, 45, 350 + idx * 80, 0.8);
     });
     setTimeout(() => {
       navLinks.forEach(link => trigger(link));
-    }, 100);
+    }, 50);
 
-    // --- 3. ON SCROLL INTERSECTION OBSERVER FOR ALL OTHER SECTIONS ---
+    // --- 3. ON SCROLL INTERSECTION OBSERVER BY COMPONENT/SECTION UNITS ---
     let scrollTargets = [];
-    let addTarget = (el, delay = 0, y = 45) => {
+    let addTarget = (el, delay = 0, y = 36) => {
       if (!el) return;
-      applyStyle(el, '0', y, 0, delay);
+      applyStyle(el, '0', y, 0, delay, 0.95);
       scrollTargets.push(el);
     };
 
-    // Approach Section
+    // Approach Section:
     let approachSec = document.getElementById('approach');
     if (approachSec) {
-      let headings = approachSec.querySelectorAll('h2, p, span');
-      headings.forEach((el, idx) => addTarget(el, idx * 120));
-      let approachCard = approachSec.querySelector('.relative.order-1, .order-2');
-      if (approachCard) addTarget(approachCard, 240, 40);
+      // Unit 1: Header group (eyebrow, heading, subline together)
+      let headerUnit = approachSec.querySelector('.lg\\:sticky');
+      addTarget(headerUnit, 0);
+      // Unit 2: Card container
+      let cardsUnit = approachSec.querySelector('.relative.order-1, .order-2');
+      addTarget(cardsUnit, 180);
     }
 
-    // Process Section
-    let processSec = document.getElementById('process');
-    if (processSec) {
-      let headings = processSec.querySelectorAll('h2, p, span');
-      headings.forEach((el, idx) => addTarget(el, idx * 100));
-      let steps = processSec.querySelectorAll('.grid > div');
-      steps.forEach((step, idx) => addTarget(step, 200 + idx * 180, 45));
-    }
-
-    // Expertise Section
+    // Expertise Section:
     let expertiseSec = document.getElementById('expertise');
     if (expertiseSec) {
-      let headings = expertiseSec.querySelectorAll('h2, p, span');
-      headings.forEach((el, idx) => addTarget(el, idx * 100));
+      // Unit 1: Header group (eyebrow, heading, subline together)
+      let headerUnit = expertiseSec.querySelector('.text-center.max-w-3xl');
+      addTarget(headerUnit, 0);
+
+      // Unit 2, 3, 4: Each Card individually as an intact component
       let cards = expertiseSec.querySelectorAll('.grid > div');
-      cards.forEach((card, idx) => addTarget(card, 200 + idx * 180, 45));
+      cards.forEach((card, idx) => {
+        addTarget(card, idx * 180);
+      });
     }
 
-    // Testimonials Section
+    // Process Section:
+    let processSec = document.getElementById('process');
+    if (processSec) {
+      // Unit 1: Header group (eyebrow, heading, subline together)
+      let headerUnit = processSec.querySelector('.text-center.max-w-2xl');
+      addTarget(headerUnit, 0);
+
+      // Unit 2, 3, 4: Each step component as a unit
+      let steps = processSec.querySelectorAll('.grid > div');
+      steps.forEach((step, idx) => {
+        addTarget(step, idx * 180);
+      });
+    }
+
+    // Testimonials Section:
     let testimonialsSec = document.getElementById('testimonials');
     if (testimonialsSec) {
-      let headings = testimonialsSec.querySelectorAll('h2, p, span');
-      headings.forEach((el, idx) => addTarget(el, idx * 100));
+      // Unit 1: Header group (eyebrow, heading, subline together)
+      let headerUnit = testimonialsSec.querySelector('.w-full.flex.flex-col.items-center');
+      addTarget(headerUnit, 0);
+
+      // Unit 2, 3, 4: Each testimonial card component
       let tCards = testimonialsSec.querySelectorAll('.flex.gap-6 > div');
-      tCards.forEach((card, idx) => addTarget(card, 200 + idx * 180, 45));
+      tCards.forEach((card, idx) => {
+        addTarget(card, idx * 180);
+      });
     }
 
-    // Contact Me Section
+    // Contact Me Section:
     let contactSec = document.getElementById('contact');
     if (contactSec) {
-      let elements = contactSec.querySelectorAll('h2, p, span, form, .space-y-5');
-      elements.forEach((el, idx) => addTarget(el, idx * 100));
+      // Unit 1: Left info column (eyebrow, heading, subline, contact info together)
+      let leftCol = contactSec.querySelector('.flex.flex-col.items-start');
+      addTarget(leftCol, 0);
+
+      // Unit 2: Right Form Card
+      let formCard = contactSec.querySelector('.bg-white\\/5, form');
+      addTarget(formCard, 180);
     }
 
-    // Observe elements
+    // IntersectionObserver instance
     let observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -128,8 +145,8 @@ Error generating stack: `+r.message+`
         }
       });
     }, {
-      threshold: 0.10,
-      rootMargin: '0px 0px -30px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     });
 
     scrollTargets.forEach(el => observer.observe(el));
