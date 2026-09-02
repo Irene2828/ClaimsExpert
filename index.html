@@ -56,7 +56,10 @@ Error generating stack: `+r.message+`
         applyStyle(heroImgUnit, '0', 44, 0, 600, 1.5); // Even longer for image
 
         // Trigger the change to opacity 1
-        setTimeout(() => {
+        
+        let initStyle = document.getElementById('premium-motion-init');
+        if (initStyle) initStyle.remove();
+setTimeout(() => {
           trigger(heroTextUnit);
           trigger(heroImgUnit);
         }, 50);
