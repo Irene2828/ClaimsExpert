@@ -345,13 +345,14 @@ setTimeout(() => {
       flex-direction: column;
       gap: 6px;
       min-width: 220px;
+      max-width: 320px;
     }
     .fb-text-popover textarea {
       border: none;
       outline: none;
       resize: vertical;
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
       color: #ef4444;
       background: transparent;
@@ -545,13 +546,15 @@ setTimeout(() => {
       stamp.style.color = '#ef4444';
       stamp.style.fontFamily = "'Inter', system-ui, sans-serif";
       stamp.style.fontWeight = '700';
-      stamp.style.fontSize = '18px';
+      stamp.style.fontSize = '14px';
       stamp.style.lineHeight = '1.4';
       stamp.style.whiteSpace = 'pre-wrap';
       stamp.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
       stamp.style.borderRadius = '6px';
       stamp.style.zIndex = '99991';
       stamp.style.cursor = 'move';
+      stamp.style.maxWidth = '320px';
+      stamp.style.wordWrap = 'break-word';
       stamp.innerText = text;
 
       // Allow deleting stamped text on double click
