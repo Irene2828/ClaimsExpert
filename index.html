@@ -174,15 +174,15 @@ setTimeout(() => {
       bottom: 24px;
       right: 24px;
       z-index: 99999;
-      background: #0E223F;
+      background: #ef4444;
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: none;
       border-radius: 9999px;
       padding: 12px 20px;
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 14px;
       font-weight: 600;
-      box-shadow: 0 10px 25px rgba(14, 34, 63, 0.3);
+      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -191,40 +191,71 @@ setTimeout(() => {
     }
     #fb-trigger-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(14, 34, 63, 0.4);
-      background: #153059;
+      box-shadow: 0 14px 30px rgba(239, 68, 68, 0.5);
+      background: #dc2626;
     }
     #fb-modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 100000;
-      background: rgba(15, 23, 42, 0.96);
-      backdrop-filter: blur(10px);
+      background: #f8fafc;
       display: none;
       flex-direction: column;
       font-family: 'Inter', system-ui, sans-serif;
-      color: #ffffff;
+      color: #0f172a;
     }
     .fb-header-toolbar {
-      height: 60px;
-      background: #0E223F;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 56px;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       shrink: 0;
+    }
+    .fb-header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .fb-brand-icon {
+      width: 28px;
+      height: 28px;
+      background: #be185d;
+      color: #ffffff;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .fb-brand-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #0f172a;
+    }
+    .fb-brand-badge {
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid #e2e8f0;
     }
     .fb-tool-group {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .fb-tool-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      border-radius: 6px;
       padding: 6px 14px;
       font-size: 13px;
       font-weight: 500;
@@ -235,41 +266,58 @@ setTimeout(() => {
       transition: all 0.15s;
     }
     .fb-tool-btn:hover {
-      background: rgba(255, 255, 255, 0.18);
+      background: #f8fafc;
+      border-color: #94a3b8;
     }
     .fb-tool-btn.active {
-      background: #ef4444;
-      border-color: #f87171;
+      background: #be185d;
+      border-color: #be185d;
       color: #ffffff;
       font-weight: 600;
     }
-    .fb-btn-action {
-      background: #2563eb;
+    .fb-btn-export {
+      background: #be185d;
       border: none;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 9999px;
+      padding: 6px 18px;
     }
-    .fb-btn-action:hover {
-      background: #1d4ed8;
+    .fb-btn-export:hover {
+      background: #9d174d;
     }
     .fb-btn-close {
-      background: rgba(239, 68, 68, 0.2);
-      border-color: rgba(239, 68, 68, 0.4);
-      color: #fca5a5;
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 18px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
     }
     .fb-btn-close:hover {
-      background: rgba(239, 68, 68, 0.4);
+      background: #f1f5f9;
+      color: #0f172a;
     }
     .fb-canvas-container {
       flex: 1;
       overflow: auto;
       position: relative;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      padding: 20px;
-      background: #0f172a;
+      padding: 24px;
+      background: #f1f5f9;
     }
     #fb-canvas {
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      max-width: 92vw;
+      max-height: calc(100vh - 104px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
       cursor: crosshair;
       background: #ffffff;
     }
@@ -280,11 +328,11 @@ setTimeout(() => {
       border: 2px dashed #ef4444;
       border-radius: 8px;
       padding: 8px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       display: flex;
       flex-direction: column;
       gap: 6px;
-      min-width: 200px;
+      min-width: 220px;
     }
     .fb-text-popover textarea {
       border: none;
@@ -295,7 +343,7 @@ setTimeout(() => {
       font-weight: 700;
       color: #ef4444;
       background: transparent;
-      min-height: 50px;
+      min-height: 54px;
     }
     .fb-text-controls {
       display: flex;
@@ -330,32 +378,37 @@ setTimeout(() => {
     }
     .fb-toast {
       position: fixed;
-      top: 80px;
+      top: 72px;
       left: 50%;
       transform: translateX(-50%);
-      background: #22c55e;
+      background: #0f172a;
       color: #ffffff;
       padding: 10px 20px;
       border-radius: 9999px;
       font-size: 14px;
       font-weight: 600;
       z-index: 100020;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       display: none;
     }
   </style>
 
   <button id="fb-trigger-btn" onclick="fbStartFeedback()">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
     Leave Feedback
   </button>
 
   <div id="fb-modal-overlay">
     <div class="fb-header-toolbar">
+      <div class="fb-header-brand">
+        <div class="fb-brand-icon">📷</div>
+        <span class="fb-brand-title">Full Page Feedback</span>
+        <span class="fb-brand-badge" id="fb-size-badge">Snapshot</span>
+      </div>
+
       <div class="fb-tool-group">
-        <span style="font-weight: 700; font-size: 14px; margin-right: 12px; color: #94a3b8;">FEEDBACK EDITOR</span>
         <button id="fb-tool-text" class="fb-tool-btn active" onclick="fbSetTool('text')">
-          ✏️ Red Text Comment
+          ✏️ Text Comment
         </button>
         <button id="fb-tool-rect" class="fb-tool-btn" onclick="fbSetTool('rect')">
           🔲 Box Highlight
@@ -368,10 +421,10 @@ setTimeout(() => {
       <div class="fb-tool-group">
         <button class="fb-tool-btn" onclick="fbUndo()">↩️ Undo</button>
         <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear</button>
-        <span style="width: 1px; height: 24px; background: rgba(255,255,255,0.15); margin: 0 4px;"></span>
-        <button class="fb-tool-btn fb-btn-action" onclick="fbCopyClipboard()">📋 Copy PNG</button>
-        <button class="fb-tool-btn fb-btn-action" style="background:#10b981;" onclick="fbExportPNG()">💾 Export PNG</button>
-        <button class="fb-tool-btn fb-btn-close" onclick="fbClose()">✕ Close</button>
+        <span style="width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;"></span>
+        <button class="fb-tool-btn" onclick="fbCopyClipboard()">📋 Copy PNG</button>
+        <button class="fb-tool-btn fb-btn-export" onclick="fbExportPNG()">Export PNG 💾</button>
+        <button class="fb-btn-close" onclick="fbClose()" title="Close">✕</button>
       </div>
     </div>
 
@@ -407,8 +460,7 @@ setTimeout(() => {
       html2canvas(document.body, {
         useCORS: true,
         logging: false,
-        windowWidth: document.documentElement.scrollWidth,
-        windowHeight: document.documentElement.scrollHeight
+        scale: window.devicePixelRatio || 1
       }).then(canvas => {
         fbCanvas = document.getElementById('fb-canvas');
         fbCtx = fbCanvas.getContext('2d');
@@ -416,6 +468,8 @@ setTimeout(() => {
         fbCanvas.width = canvas.width;
         fbCanvas.height = canvas.height;
         fbCtx.drawImage(canvas, 0, 0);
+
+        document.getElementById('fb-size-badge').innerText = canvas.width + ' × ' + canvas.height;
 
         fbBaseSnapshot = fbCtx.getImageData(0, 0, fbCanvas.width, fbCanvas.height);
         fbHistory = [fbCtx.getImageData(0, 0, fbCanvas.width, fbCanvas.height)];
@@ -502,7 +556,7 @@ setTimeout(() => {
 
         fbIsDrawing = true;
         fbCtx.strokeStyle = '#ef4444';
-        fbCtx.lineWidth = 4;
+        fbCtx.lineWidth = Math.max(4, Math.round(fbCanvas.width / 400));
         fbCtx.lineCap = 'round';
 
         if (fbTool === 'draw') {
@@ -528,7 +582,7 @@ setTimeout(() => {
           fbCtx.beginPath();
           fbCtx.rect(fbStartX, fbStartY, currentX - fbStartX, currentY - fbStartY);
           fbCtx.strokeStyle = '#ef4444';
-          fbCtx.lineWidth = 4;
+          fbCtx.lineWidth = Math.max(4, Math.round(fbCanvas.width / 400));
           fbCtx.stroke();
         }
       };
@@ -581,12 +635,13 @@ setTimeout(() => {
     }
 
     function fbStampText(text, x, y) {
-      fbCtx.font = 'bold 24px Inter, system-ui, sans-serif';
+      const fontSize = Math.max(28, Math.round(fbCanvas.width / 60));
+      fbCtx.font = 'bold ' + fontSize + 'px Inter, system-ui, sans-serif';
       fbCtx.fillStyle = '#ef4444';
       fbCtx.textBaseline = 'top';
 
       const lines = text.split('\n');
-      const lineHeight = 30;
+      const lineHeight = fontSize * 1.25;
 
       let maxW = 0;
       lines.forEach(l => {
@@ -594,12 +649,12 @@ setTimeout(() => {
         if (w > maxW) maxW = w;
       });
 
-      fbCtx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-      fbCtx.fillRect(x - 6, y - 6, maxW + 12, (lines.length * lineHeight) + 12);
+      fbCtx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+      fbCtx.fillRect(x - 8, y - 8, maxW + 16, (lines.length * lineHeight) + 16);
 
       fbCtx.strokeStyle = '#ef4444';
-      fbCtx.lineWidth = 2;
-      fbCtx.strokeRect(x - 6, y - 6, maxW + 12, (lines.length * lineHeight) + 12);
+      fbCtx.lineWidth = Math.max(2, Math.round(fontSize / 10));
+      fbCtx.strokeRect(x - 8, y - 8, maxW + 16, (lines.length * lineHeight) + 16);
 
       fbCtx.fillStyle = '#ef4444';
       lines.forEach((line, index) => {
