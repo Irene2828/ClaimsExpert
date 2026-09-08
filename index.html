@@ -503,8 +503,10 @@ setTimeout(() => {
       }
     });
 
-    function fbCreateTextPopover(pageX, pageY) {
+    function fbCreateTextPopover(pageX, pageY, initialText = '', originalStamp = null) {
       fbRemovePopover();
+
+      if (originalStamp) originalStamp.style.display = 'none';
 
       const popover = document.createElement('div');
       popover.className = 'fb-text-popover';
@@ -513,9 +515,12 @@ setTimeout(() => {
 
       popover.innerHTML = `
         <textarea placeholder="Type red comment here..." id="fb-pop-input" autofocus></textarea>
-        <div class="fb-text-controls">
-          <button class="fb-pop-btn fb-pop-cancel" title="Cancel" onclick="fbRemovePopover()">✕</button>
-          <button class="fb-pop-btn fb-pop-confirm" title="Confirm text" id="fb-pop-check">✓</button>
+        <div class="fb-text-controls" style="display:flex; justify-content:space-between; width: 100%;">
+          <button class="fb-pop-btn fb-pop-cancel" title="Delete" id="fb-pop-delete" style="background:#fef2f2; color:#ef4444;">🗑️</button>
+          <div style="display:flex; gap:6px;">
+            <button class="fb-pop-btn fb-pop-cancel" title="Cancel" id="fb-pop-cancel">✕</button>
+            <button class="fb-pop-btn fb-pop-confirm" title="Confirm text" id="fb-pop-check">✓</button>
+          </div>
         </div>
       `;
 
@@ -523,13 +528,26 @@ setTimeout(() => {
       fbActivePopover = popover;
 
       const textarea = popover.querySelector('#fb-pop-input');
+      textarea.value = initialText;
       textarea.focus();
 
-      const confirmBtn = popover.querySelector('#fb-pop-check');
-      confirmBtn.onclick = () => {
+      popover.querySelector('#fb-pop-cancel').onclick = () => {
+        if (originalStamp) originalStamp.style.display = 'block';
+        fbRemovePopover();
+      };
+
+      popover.querySelector('#fb-pop-delete').onclick = () => {
+        if (originalStamp) originalStamp.remove();
+        fbRemovePopover();
+      };
+
+      popover.querySelector('#fb-pop-check').onclick = () => {
         const text = textarea.value.trim();
         if (text) {
           fbStampText(text, pageX, pageY);
+          if (originalStamp) originalStamp.remove();
+        } else {
+          if (originalStamp) originalStamp.remove();
         }
         fbRemovePopover();
       };
@@ -552,13 +570,16 @@ setTimeout(() => {
       stamp.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
       stamp.style.borderRadius = '6px';
       stamp.style.zIndex = '99991';
-      stamp.style.cursor = 'move';
+      stamp.style.cursor = 'pointer';
       stamp.style.maxWidth = '320px';
       stamp.style.wordWrap = 'break-word';
       stamp.innerText = text;
 
-      // Allow deleting stamped text on double click
-      stamp.ondblclick = () => stamp.remove();
+      // Click to edit
+      stamp.onclick = (e) => {
+        e.stopPropagation();
+        fbCreateTextPopover(pageX, pageY, text, stamp);
+      };
 
       fbLayer.appendChild(stamp);
     }
