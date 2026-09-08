@@ -641,8 +641,9 @@ setTimeout(() => {
           },
           body: JSON.stringify({
               _subject: "New Website Feedback Received",
-              message: "A client just left comments on the website preview link.\n\nClick the link below to view their exact comments:",
-              feedback_link: url.toString()
+              _template: "box",
+              "Update": "A client just left comments on the website preview link.",
+              "Click to View Comments": url.toString()
           })
       })
       .then(response => response.json())
