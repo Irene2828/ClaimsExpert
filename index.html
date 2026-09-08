@@ -205,7 +205,7 @@ setTimeout(() => {
     .fb-header-toolbar {
       height: 52px;
       background: #ffffff;
-      border: 2px dashed #ef4444;
+      border: 1px solid #e2e8f0;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -433,7 +433,7 @@ setTimeout(() => {
   </div>
   <style>@keyframes fbSpin { to { transform: rotate(360deg); } }</style>
 
-  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; top: 48px; right: 24px;">
+  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: absolute; top: 48px; right: 24px;">
     <div class="fb-tool-group">
       <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear All Comments</button>
       <button id="fb-btn-undo" class="fb-tool-btn" style="display:none; color: #ef4444;" onclick="fbUndoClear()">↩️ Undo</button>
