@@ -431,7 +431,7 @@ setTimeout(() => {
   </div>
   <style>@keyframes fbSpin { to { transform: rotate(360deg); } }</style>
 
-  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);">
+  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; top: 48px; left: 50%; transform: translateX(-50%);">
     <div class="fb-tool-group">
       <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear All Comments</button>
       <button id="fb-btn-undo" class="fb-tool-btn" style="display:none; color: #ef4444;" onclick="fbUndoClear()">↩️ Undo</button>
@@ -445,7 +445,7 @@ setTimeout(() => {
     </div>
   </div>
 
-  <div id="fb-interaction-layer" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 99990; pointer-events: auto; cursor: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2v20M2 12h20\" stroke=\"%23ef4444\" stroke-width=\"2\"/></svg>') 12 12, crosshair;"></div>
+  <div id="fb-interaction-layer" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 99990; pointer-events: auto; cursor: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22><path d=%22M12 2v20M2 12h20%22 stroke=%22%23ef4444%22 stroke-width=%222%22/></svg>') 12 12, crosshair;"></div>
 
   <div id="fb-toast" class="fb-toast">Copied PNG to clipboard!</div>
 
