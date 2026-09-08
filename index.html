@@ -430,12 +430,6 @@ setTimeout(() => {
   <style>@keyframes fbSpin { to { transform: rotate(360deg); } }</style>
 
   <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; top: 0; left: 0; right: 0;">
-    <div class="fb-header-brand">
-      <div class="fb-brand-icon">📷</div>
-      <span class="fb-brand-title">Full Page Feedback</span>
-      <span class="fb-brand-badge" id="fb-size-badge">Live Overlay</span>
-    </div>
-
     <div class="fb-tool-group">
       <button id="fb-tool-text" class="fb-tool-btn active" onclick="fbSetTool('text')">
         ✏️ Text Comment
@@ -444,8 +438,8 @@ setTimeout(() => {
       <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear All</button>
     </div>
 
-    <div class="fb-tool-group">
-      <button class="fb-tool-btn fb-btn-export" onclick="fbCopyShareLink()">Copy Share Link 🔗</button>
+    <div class="fb-tool-group" style="margin-left: auto;">
+      <button class="fb-tool-btn fb-btn-export" onclick="fbCopyShareLink()">Email Share Link 🔗</button>
       <button class="fb-btn-close" onclick="fbClose()" title="Close">✕</button>
     </div>
   </div>
@@ -605,11 +599,18 @@ setTimeout(() => {
       const url = new URL(window.location.href);
       url.searchParams.set('fb', base64Data);
       
+      const emailBody = `Client just left comments on website preview link. Check them out:\n\n${url.toString()}`;
+      const mailtoLink = `mailto:iryna.herts@gmail.com?subject=${encodeURIComponent("Website Feedback")}&body=${encodeURIComponent(emailBody)}`;
+      
       if (navigator.clipboard) {
         navigator.clipboard.writeText(url.toString()).then(() => {
-          fbShowToast('🔗 Copied Share Link to Clipboard!');
+          fbShowToast('🔗 Link copied! Opening Email...');
         });
+      } else {
+        fbShowToast('✉️ Opening Email...');
       }
+      
+      window.location.href = mailtoLink;
     }
 
     // URL Re-hydration Logic
