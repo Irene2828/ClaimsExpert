@@ -431,249 +431,60 @@ setTimeout(() => {
   </div>
   <style>@keyframes fbSpin { to { transform: rotate(360deg); } }</style>
 
-  <div id="fb-modal-overlay">
-    <div class="fb-header-toolbar">
-      <div class="fb-header-brand">
-        <div class="fb-brand-icon">📷</div>
-        <span class="fb-brand-title">Full Page Feedback</span>
-        <span class="fb-brand-badge" id="fb-size-badge">Snapshot</span>
-      </div>
-
-      <div class="fb-tool-group">
-        <button id="fb-tool-text" class="fb-tool-btn active" onclick="fbSetTool('text')">
-          ✏️ Text Comment
-        </button>
-        <button id="fb-tool-rect" class="fb-tool-btn" onclick="fbSetTool('rect')">
-          🔲 Box
-        </button>
-        <button id="fb-tool-draw" class="fb-tool-btn" onclick="fbSetTool('draw')">
-          🖊️ Freehand
-        </button>
-        <span style="width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;"></span>
-        <button class="fb-tool-btn" onclick="fbZoomStep(-0.15)">-</button>
-        <span class="fb-zoom-readout" id="fb-zoom-percent">100%</span>
-        <button class="fb-tool-btn" onclick="fbZoomStep(0.15)">+</button>
-        <button class="fb-tool-btn" onclick="fbSetZoomMode('fit')">Fit Width</button>
-        <button class="fb-tool-btn" onclick="fbSetZoomMode('100')">100%</button>
-      </div>
-
-      <div class="fb-tool-group">
-        <button class="fb-tool-btn" onclick="fbUndo()">↩️ Undo</button>
-        <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear</button>
-        <span style="width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;"></span>
-        <button class="fb-tool-btn" onclick="fbCopyClipboard()">📋 Copy PNG</button>
-        <button class="fb-tool-btn fb-btn-export" onclick="fbExportPNG()">Export PNG 💾</button>
-        <button class="fb-btn-close" onclick="fbClose()" title="Close">✕</button>
-      </div>
+  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; top: 0; left: 0; right: 0;">
+    <div class="fb-header-brand">
+      <div class="fb-brand-icon">📷</div>
+      <span class="fb-brand-title">Full Page Feedback</span>
+      <span class="fb-brand-badge" id="fb-size-badge">Live Overlay</span>
     </div>
 
-    <div class="fb-canvas-container" id="fb-container">
-      <div id="fb-canvas-wrapper">
-        <canvas id="fb-canvas"></canvas>
-      </div>
+    <div class="fb-tool-group">
+      <button id="fb-tool-text" class="fb-tool-btn active" onclick="fbSetTool('text')">
+        ✏️ Text Comment
+      </button>
+      <span style="width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;"></span>
+      <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear All</button>
+    </div>
+
+    <div class="fb-tool-group">
+      <button class="fb-tool-btn" onclick="fbCopyClipboard()">📋 Copy PNG</button>
+      <button class="fb-tool-btn fb-btn-export" onclick="fbExportPNG()">Export PNG 💾</button>
+      <button class="fb-btn-close" onclick="fbClose()" title="Close">✕</button>
     </div>
   </div>
+
+  <div id="fb-interaction-layer" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 99990; pointer-events: auto; cursor: crosshair;"></div>
 
   <div id="fb-toast" class="fb-toast">Copied PNG to clipboard!</div>
 
   <script>
     let fbTool = 'text';
-    let fbCanvas, fbCtx;
-    let fbHistory = [];
-    let fbIsDrawing = false;
-    let fbStartX = 0, fbStartY = 0;
-    let fbBaseSnapshot = null;
     let fbActivePopover = null;
-    let fbZoomScale = 1.0;
-    let fbCanvasNativeWidth = 0;
+    const fbLayer = document.getElementById('fb-interaction-layer');
+    const fbToolbar = document.getElementById('fb-header-toolbar');
 
     function fbSetTool(tool) {
       fbTool = tool;
-      document.querySelectorAll('.fb-tool-group .fb-tool-btn').forEach(btn => {
-        if(btn.id && btn.id.startsWith('fb-tool-')) btn.classList.remove('active');
-      });
-      document.getElementById('fb-tool-' + tool).classList.add('active');
-      if (fbActivePopover) fbRemovePopover();
     }
 
     function fbStartFeedback() {
-      const triggerBtn = document.getElementById('fb-trigger-btn');
-      const loading = document.getElementById('fb-loading');
-      triggerBtn.style.display = 'none';
-      loading.style.display = 'flex';
-
-      window.scrollTo(0, 0);
-
-      setTimeout(() => {
-        html2canvas(document.body, {
-          useCORS: true,
-          logging: false,
-          scale: 1,
-          scrollX: 0,
-          scrollY: 0,
-          windowWidth: document.documentElement.scrollWidth,
-          windowHeight: document.documentElement.scrollHeight
-        }).then(canvas => {
-          loading.style.display = 'none';
-          fbCanvas = document.getElementById('fb-canvas');
-          fbCtx = fbCanvas.getContext('2d');
-
-          fbCanvas.width = canvas.width;
-          fbCanvas.height = canvas.height;
-          fbCanvasNativeWidth = canvas.width;
-          fbCtx.drawImage(canvas, 0, 0);
-
-          document.getElementById('fb-size-badge').innerText = canvas.width + ' × ' + canvas.height;
-
-          fbBaseSnapshot = fbCtx.getImageData(0, 0, fbCanvas.width, fbCanvas.height);
-          fbHistory = [fbCtx.getImageData(0, 0, fbCanvas.width, fbCanvas.height)];
-
-          document.getElementById('fb-modal-overlay').style.display = 'flex';
-          fbSetZoomMode('fit');
-          fbInitEvents();
-        }).catch(err => {
-          console.error('Feedback snapshot error:', err);
-          loading.style.display = 'none';
-          triggerBtn.style.display = 'flex';
-          alert('Could not generate screenshot preview. Please try again.');
-        });
-      }, 150);
-    }
-
-    function fbUpdateZoomDisplay() {
-      const wrapper = document.getElementById('fb-canvas-wrapper');
-      const container = document.getElementById('fb-container');
-      const targetWidth = Math.round(fbCanvasNativeWidth * fbZoomScale);
-      wrapper.style.width = targetWidth + 'px';
-      document.getElementById('fb-zoom-percent').innerText = Math.round(fbZoomScale * 100) + '%';
-    }
-
-    function fbSetZoomMode(mode) {
-      const container = document.getElementById('fb-container');
-      if (mode === 'fit') {
-        const availableW = container.clientWidth - 60;
-        fbZoomScale = Math.min(1.0, availableW / fbCanvasNativeWidth);
-      } else if (mode === '100') {
-        fbZoomScale = 1.0;
-      }
-      fbUpdateZoomDisplay();
-    }
-
-    function fbZoomStep(delta) {
-      fbZoomScale = Math.max(0.2, Math.min(2.5, fbZoomScale + delta));
-      fbUpdateZoomDisplay();
-    }
-
-    function fbSaveState() {
-      if (fbCtx) {
-        fbHistory.push(fbCtx.getImageData(0, 0, fbCanvas.width, fbCanvas.height));
-      }
-    }
-
-    function fbUndo() {
-      if (fbHistory.length > 1) {
-        fbHistory.pop();
-        const lastState = fbHistory[fbHistory.length - 1];
-        fbCtx.putImageData(lastState, 0, 0);
-      }
-    }
-
-    function fbClear() {
-      if (fbBaseSnapshot) {
-        fbCtx.putImageData(fbBaseSnapshot, 0, 0);
-        fbHistory = [fbCtx.getImageData(0, 0, fbCanvas.width, fbCanvas.height)];
-      }
+      document.getElementById('fb-trigger-btn').style.display = 'none';
+      fbToolbar.style.display = 'flex';
+      
+      // Update interaction layer height to match full document height
+      fbLayer.style.height = document.documentElement.scrollHeight + 'px';
+      fbLayer.style.display = 'block';
     }
 
     function fbClose() {
-      document.getElementById('fb-modal-overlay').style.display = 'none';
+      fbToolbar.style.display = 'none';
+      fbLayer.style.display = 'none';
       document.getElementById('fb-trigger-btn').style.display = 'flex';
       if (fbActivePopover) fbRemovePopover();
     }
 
-    function fbShowToast(msg) {
-      const toast = document.getElementById('fb-toast');
-      toast.innerText = msg;
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 2500);
-    }
-
-    function fbCopyClipboard() {
-      if (!fbCanvas) return;
-      fbCanvas.toBlob(blob => {
-        if (navigator.clipboard && window.ClipboardItem) {
-          navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => {
-            fbShowToast('📋 Copied PNG to Clipboard!');
-          }).catch(() => {
-            fbExportPNG();
-          });
-        } else {
-          fbExportPNG();
-        }
-      });
-    }
-
-    function fbExportPNG() {
-      if (!fbCanvas) return;
-      const link = document.createElement('a');
-      link.download = 'feedback-annotation.png';
-      link.href = fbCanvas.toDataURL('image/png');
-      link.click();
-      fbShowToast('💾 Exported feedback PNG!');
-    }
-
-    function fbInitEvents() {
-      fbCanvas.onmousedown = (e) => {
-        const rect = fbCanvas.getBoundingClientRect();
-        const scaleX = fbCanvas.width / rect.width;
-        const scaleY = fbCanvas.height / rect.height;
-        fbStartX = (e.clientX - rect.left) * scaleX;
-        fbStartY = (e.clientY - rect.top) * scaleY;
-
-        if (fbTool === 'text') {
-          fbCreateTextPopover(e.clientX, e.clientY, fbStartX, fbStartY);
-          return;
-        }
-
-        fbIsDrawing = true;
-        fbCtx.strokeStyle = '#ef4444';
-        fbCtx.lineWidth = Math.max(4, Math.round(fbCanvas.width / 400));
-        fbCtx.lineCap = 'round';
-
-        if (fbTool === 'draw') {
-          fbCtx.beginPath();
-          fbCtx.moveTo(fbStartX, fbStartY);
-        }
-      };
-
-      fbCanvas.onmousemove = (e) => {
-        if (!fbIsDrawing) return;
-        const rect = fbCanvas.getBoundingClientRect();
-        const scaleX = fbCanvas.width / rect.width;
-        const scaleY = fbCanvas.height / rect.height;
-        const currentX = (e.clientX - rect.left) * scaleX;
-        const currentY = (e.clientY - rect.top) * scaleY;
-
-        if (fbTool === 'draw') {
-          fbCtx.lineTo(currentX, currentY);
-          fbCtx.stroke();
-        } else if (fbTool === 'rect') {
-          const lastState = fbHistory[fbHistory.length - 1];
-          fbCtx.putImageData(lastState, 0, 0);
-          fbCtx.beginPath();
-          fbCtx.rect(fbStartX, fbStartY, currentX - fbStartX, currentY - fbStartY);
-          fbCtx.strokeStyle = '#ef4444';
-          fbCtx.lineWidth = Math.max(4, Math.round(fbCanvas.width / 400));
-          fbCtx.stroke();
-        }
-      };
-
-      fbCanvas.onmouseup = () => {
-        if (fbIsDrawing) {
-          fbIsDrawing = false;
-          fbSaveState();
-        }
-      };
+    function fbClear() {
+      fbLayer.innerHTML = '';
     }
 
     function fbRemovePopover() {
@@ -683,13 +494,21 @@ setTimeout(() => {
       }
     }
 
-    function fbCreateTextPopover(clientX, clientY, canvasX, canvasY) {
+    fbLayer.addEventListener('mousedown', (e) => {
+      // Don't trigger if clicking on an existing comment
+      if (e.target !== fbLayer) return;
+      if (fbTool === 'text') {
+        fbCreateTextPopover(e.pageX, e.pageY);
+      }
+    });
+
+    function fbCreateTextPopover(pageX, pageY) {
       fbRemovePopover();
 
       const popover = document.createElement('div');
       popover.className = 'fb-text-popover';
-      popover.style.left = clientX + 'px';
-      popover.style.top = clientY + 'px';
+      popover.style.left = pageX + 'px';
+      popover.style.top = pageY + 'px';
 
       popover.innerHTML = `
         <textarea placeholder="Type red comment here..." id="fb-pop-input" autofocus></textarea>
@@ -699,7 +518,7 @@ setTimeout(() => {
         </div>
       `;
 
-      document.body.appendChild(popover);
+      fbLayer.appendChild(popover);
       fbActivePopover = popover;
 
       const textarea = popover.querySelector('#fb-pop-input');
@@ -709,41 +528,93 @@ setTimeout(() => {
       confirmBtn.onclick = () => {
         const text = textarea.value.trim();
         if (text) {
-          fbStampText(text, canvasX, canvasY);
+          fbStampText(text, pageX, pageY);
         }
         fbRemovePopover();
       };
     }
 
-    function fbStampText(text, x, y) {
-      const fontSize = Math.max(28, Math.round(fbCanvas.width / 60));
-      fbCtx.font = 'bold ' + fontSize + 'px Inter, system-ui, sans-serif';
-      fbCtx.fillStyle = '#ef4444';
-      fbCtx.textBaseline = 'top';
+    function fbStampText(text, pageX, pageY) {
+      const stamp = document.createElement('div');
+      stamp.style.position = 'absolute';
+      stamp.style.left = pageX + 'px';
+      stamp.style.top = pageY + 'px';
+      stamp.style.background = 'rgba(255, 255, 255, 0.94)';
+      stamp.style.border = '2px dashed #ef4444';
+      stamp.style.padding = '8px 12px';
+      stamp.style.color = '#ef4444';
+      stamp.style.fontFamily = "'Inter', system-ui, sans-serif";
+      stamp.style.fontWeight = '700';
+      stamp.style.fontSize = '18px';
+      stamp.style.lineHeight = '1.4';
+      stamp.style.whiteSpace = 'pre-wrap';
+      stamp.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+      stamp.style.borderRadius = '6px';
+      stamp.style.zIndex = '99991';
+      stamp.style.cursor = 'move';
+      stamp.innerText = text;
 
-      const lines = text.split('\n');
-      const lineHeight = fontSize * 1.25;
+      // Allow deleting stamped text on double click
+      stamp.ondblclick = () => stamp.remove();
 
-      let maxW = 0;
-      lines.forEach(l => {
-        const w = fbCtx.measureText(l).width;
-        if (w > maxW) maxW = w;
+      fbLayer.appendChild(stamp);
+    }
+
+    function fbShowToast(msg) {
+      const toast = document.getElementById('fb-toast');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    }
+
+    function fbGetCaptureOptions() {
+      fbToolbar.style.display = 'none';
+      const loading = document.getElementById('fb-loading');
+      loading.style.display = 'flex';
+      
+      return {
+        useCORS: true,
+        logging: false,
+        scale: 2, // High-res capture
+        x: window.scrollX,
+        y: window.scrollY,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight
+      };
+    }
+
+    function fbCopyClipboard() {
+      const opts = fbGetCaptureOptions();
+      html2canvas(document.body, opts).then(canvas => {
+        document.getElementById('fb-loading').style.display = 'none';
+        fbToolbar.style.display = 'flex';
+        
+        canvas.toBlob(blob => {
+          if (navigator.clipboard && window.ClipboardItem) {
+            navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => {
+              fbShowToast('📋 Copied PNG to Clipboard!');
+            });
+          }
+        });
       });
+    }
 
-      fbCtx.fillStyle = 'rgba(255, 255, 255, 0.94)';
-      fbCtx.fillRect(x - 8, y - 8, maxW + 16, (lines.length * lineHeight) + 16);
-
-      fbCtx.strokeStyle = '#ef4444';
-      fbCtx.lineWidth = Math.max(2, Math.round(fontSize / 10));
-      fbCtx.strokeRect(x - 8, y - 8, maxW + 16, (lines.length * lineHeight) + 16);
-
-      fbCtx.fillStyle = '#ef4444';
-      lines.forEach((line, index) => {
-        fbCtx.fillText(line, x, y + (index * lineHeight));
+    function fbExportPNG() {
+      const opts = fbGetCaptureOptions();
+      html2canvas(document.body, opts).then(canvas => {
+        document.getElementById('fb-loading').style.display = 'none';
+        fbToolbar.style.display = 'flex';
+        
+        const link = document.createElement('a');
+        link.download = 'claims-expert-feedback.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        fbShowToast('💾 Exported feedback PNG!');
       });
-
-      fbSaveState();
     }
   </script>
+</script>
 </body>
 </html>
