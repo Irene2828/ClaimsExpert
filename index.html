@@ -445,8 +445,7 @@ setTimeout(() => {
     </div>
 
     <div class="fb-tool-group">
-      <button class="fb-tool-btn" onclick="fbCopyClipboard()">📋 Copy PNG</button>
-      <button class="fb-tool-btn fb-btn-export" onclick="fbExportPNG()">Export PNG 💾</button>
+      <button class="fb-tool-btn fb-btn-export" onclick="fbCopyShareLink()">Copy Share Link 🔗</button>
       <button class="fb-btn-close" onclick="fbClose()" title="Close">✕</button>
     </div>
   </div>
@@ -552,6 +551,9 @@ setTimeout(() => {
 
     function fbStampText(text, pageX, pageY) {
       const stamp = document.createElement('div');
+      stamp.className = 'fb-stamp';
+      stamp.dataset.x = pageX;
+      stamp.dataset.y = pageY;
       stamp.style.position = 'absolute';
       stamp.style.left = pageX + 'px';
       stamp.style.top = pageY + 'px';
@@ -588,53 +590,48 @@ setTimeout(() => {
       setTimeout(() => { toast.style.display = 'none'; }, 2500);
     }
 
-    function fbGetCaptureOptions() {
-      fbToolbar.style.display = 'none';
-      const loading = document.getElementById('fb-loading');
-      loading.style.display = 'flex';
-      
-      return {
-        useCORS: true,
-        logging: false,
-        scale: 2, // High-res capture
-        x: window.scrollX,
-        y: window.scrollY,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight
-      };
-    }
-
-    function fbCopyClipboard() {
-      const opts = fbGetCaptureOptions();
-      html2canvas(document.body, opts).then(canvas => {
-        document.getElementById('fb-loading').style.display = 'none';
-        fbToolbar.style.display = 'flex';
-        
-        canvas.toBlob(blob => {
-          if (navigator.clipboard && window.ClipboardItem) {
-            navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => {
-              fbShowToast('📋 Copied PNG to Clipboard!');
-            });
-          }
+    function fbCopyShareLink() {
+      const stamps = document.querySelectorAll('.fb-stamp');
+      const data = [];
+      stamps.forEach(stamp => {
+        data.push({
+          x: parseInt(stamp.dataset.x, 10),
+          y: parseInt(stamp.dataset.y, 10),
+          t: stamp.innerText
         });
       });
+      
+      const base64Data = btoa(encodeURIComponent(JSON.stringify(data)));
+      const url = new URL(window.location.href);
+      url.searchParams.set('fb', base64Data);
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url.toString()).then(() => {
+          fbShowToast('🔗 Copied Share Link to Clipboard!');
+        });
+      }
     }
 
-    function fbExportPNG() {
-      const opts = fbGetCaptureOptions();
-      html2canvas(document.body, opts).then(canvas => {
-        document.getElementById('fb-loading').style.display = 'none';
-        fbToolbar.style.display = 'flex';
-        
-        const link = document.createElement('a');
-        link.download = 'claims-expert-feedback.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-        fbShowToast('💾 Exported feedback PNG!');
-      });
-    }
+    // URL Re-hydration Logic
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fbData = urlParams.get('fb');
+      if (fbData) {
+        try {
+          const parsed = JSON.parse(decodeURIComponent(atob(fbData)));
+          fbStartFeedback();
+          parsed.forEach(comment => {
+            fbStampText(comment.t, comment.x, comment.y);
+          });
+          // Clean the URL so refreshing doesn't duplicate
+          const cleanUrl = new URL(window.location.href);
+          cleanUrl.searchParams.delete('fb');
+          window.history.replaceState({}, document.title, cleanUrl.toString());
+        } catch (e) {
+          console.error("Failed to parse feedback data:", e);
+        }
+      }
+    });
   </script>
 </script>
 </body>
