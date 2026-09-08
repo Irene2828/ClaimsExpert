@@ -205,12 +205,14 @@ setTimeout(() => {
     .fb-header-toolbar {
       height: 52px;
       background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      justify-content: center;
+      gap: 8px;
+      padding: 0 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       flex-shrink: 0;
       z-index: 100005;
     }
@@ -429,22 +431,21 @@ setTimeout(() => {
   </div>
   <style>@keyframes fbSpin { to { transform: rotate(360deg); } }</style>
 
-  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; top: 0; left: 0; right: 0;">
+  <div id="fb-header-toolbar" class="fb-header-toolbar" style="display: none; position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);">
     <div class="fb-tool-group">
-      <button id="fb-tool-text" class="fb-tool-btn active" onclick="fbSetTool('text')">
-        ✏️ Text Comment
-      </button>
-      <span style="width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;"></span>
-      <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear All</button>
+      <button class="fb-tool-btn" onclick="fbClear()">🗑️ Clear All Comments</button>
+      <button id="fb-btn-undo" class="fb-tool-btn" style="display:none; color: #ef4444;" onclick="fbUndoClear()">↩️ Undo</button>
     </div>
 
-    <div class="fb-tool-group" style="margin-left: auto;">
+    <span style="width: 1px; height: 20px; background: #e2e8f0; margin: 0 4px;"></span>
+
+    <div class="fb-tool-group">
       <button class="fb-tool-btn fb-btn-export" onclick="fbCopyShareLink()">Email Share Link 🔗</button>
       <button class="fb-btn-close" onclick="fbClose()" title="Close">✕</button>
     </div>
   </div>
 
-  <div id="fb-interaction-layer" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 99990; pointer-events: auto; cursor: crosshair;"></div>
+  <div id="fb-interaction-layer" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 99990; pointer-events: auto; cursor: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M12 2v20M2 12h20\" stroke=\"%23ef4444\" stroke-width=\"2\"/></svg>') 12 12, crosshair;"></div>
 
   <div id="fb-toast" class="fb-toast">Copied PNG to clipboard!</div>
 
@@ -474,8 +475,26 @@ setTimeout(() => {
       if (fbActivePopover) fbRemovePopover();
     }
 
+    let fbLastCleared = [];
+
     function fbClear() {
+      const stamps = document.querySelectorAll('.fb-stamp');
+      if (stamps.length === 0) return;
+      
+      fbLastCleared = Array.from(stamps).map(stamp => ({
+        x: parseInt(stamp.dataset.x, 10),
+        y: parseInt(stamp.dataset.y, 10),
+        t: stamp.innerText
+      }));
+      
       fbLayer.innerHTML = '';
+      document.getElementById('fb-btn-undo').style.display = 'inline-flex';
+    }
+
+    function fbUndoClear() {
+      fbLastCleared.forEach(c => fbStampText(c.t, c.x, c.y));
+      fbLastCleared = [];
+      document.getElementById('fb-btn-undo').style.display = 'none';
     }
 
     function fbRemovePopover() {
