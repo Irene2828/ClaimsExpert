@@ -599,18 +599,32 @@ setTimeout(() => {
       const url = new URL(window.location.href);
       url.searchParams.set('fb', base64Data);
       
-      const emailBody = `Client just left comments on website preview link. Check them out:\n\n${url.toString()}`;
-      const mailtoLink = `mailto:iryna.herts@gmail.com?subject=${encodeURIComponent("Website Feedback")}&body=${encodeURIComponent(emailBody)}`;
+      fbShowToast('✉️ Sending feedback to Iryna...');
       
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(url.toString()).then(() => {
-          fbShowToast('🔗 Link copied! Opening Email...');
-        });
-      } else {
-        fbShowToast('✉️ Opening Email...');
-      }
-      
-      window.location.href = mailtoLink;
+      fetch("https://formsubmit.co/ajax/iryna.herts@gmail.com", {
+          method: "POST",
+          headers: { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+              _subject: "New Website Feedback Received",
+              message: "A client just left comments on the website preview link.\n\nClick the link below to view their exact comments:",
+              feedback_link: url.toString()
+          })
+      })
+      .then(response => response.json())
+      .then(data => {
+          fbShowToast('✅ Feedback Sent Successfully!');
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url.toString()); // Still copy to clipboard as a backup
+          }
+      })
+      .catch(error => {
+          console.error(error);
+          fbShowToast('❌ Error sending email. Link copied to clipboard instead.');
+          if (navigator.clipboard) navigator.clipboard.writeText(url.toString());
+      });
     }
 
     // URL Re-hydration Logic
