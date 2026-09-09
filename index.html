@@ -745,8 +745,14 @@
       .max-w-\[44ch\] {
         max-width: 44ch;
       }
+      .max-w-\[48ch\] {
+        max-width: 48ch;
+      }
       .max-w-\[50ch\] {
         max-width: 50ch;
+      }
+      .max-w-\[55ch\] {
+        max-width: 55ch;
       }
       .max-w-\[520px\] {
         max-width: 520px;
@@ -1167,6 +1173,14 @@
       .pt-10 {
         padding-top: 2.5rem;
       }
+      .pt-6 {
+        padding-top: 1.5rem;
+      }
+      @media (min-width: 1024px) {
+        .lg\:pt-8 {
+          padding-top: 2rem;
+        }
+      }
       .text-left {
         text-align: left;
       }
@@ -1217,6 +1231,9 @@
       }
       .text-\[32px\] {
         font-size: 32px;
+      }
+      .text-\[28px\] {
+        font-size: 28px;
       }
       .text-\[36px\] {
         font-size: 36px;
@@ -1655,6 +1672,9 @@
         .sm\:flex-row {
           flex-direction: row;
         }
+        .sm\:text-\[33px\] {
+          font-size: 33px;
+        }
         .sm\:text-\[47px\] {
           font-size: 47px;
         }
@@ -1873,6 +1893,9 @@
         .lg\:text-\[28px\] {
           font-size: 28px;
         }
+        .lg\:text-\[40px\] {
+          font-size: 40px;
+        }
         .lg\:text-\[42px\] {
           font-size: 42px;
         }
@@ -1893,6 +1916,9 @@
         }
       }
       @media (min-width: 1280px) {
+        .xl\:text-\[45px\] {
+          font-size: 45px;
+        }
         .xl\:text-\[64px\] {
           font-size: 64px;
         }
@@ -11954,7 +11980,7 @@ Error generating stack: ` +
                     "grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-center py-12 lg:py-10 relative",
                   children: [
                     C("div", {
-                      className: "order-2 lg:order-1 relative z-10",
+                      className: "order-2 lg:order-1 relative z-10 pt-6 lg:pt-8",
                       children: [
                         u("div", {
                           className: "inline-flex items-center",
@@ -11966,29 +11992,24 @@ Error generating stack: ` +
                         }),
                         u("h1", {
                           className:
-                            "mt-4 text-[40.5px] sm:text-[47px] lg:text-[57px] xl:text-[64px] tracking-[-0.05em] leading-[1.05] font-inter text-[#0E223F]",
+                            "mt-4 text-[28px] sm:text-[33px] lg:text-[40px] xl:text-[45px] tracking-[-0.05em] leading-[1.05] font-inter text-[#0E223F]",
                           children: [
                             u("span", {
-                              className: "font-medium block",
-                              children: "Independent expertise.",
+                              className: "font-bold uppercase block",
+                              children: "From Informed decisions -",
                             }),
                             u("span", {
                               className:
-                                "italic font-light tracking-[-0.02em] text-[#1E3358] block",
-                              children: "Informed decisions.",
-                            }),
-                            u("span", {
-                              className:
-                                "italic font-light tracking-[-0.02em] text-[#1E3358] block",
-                              children: "Fair outcomes.",
+                                "italic font-light uppercase tracking-[-0.02em] text-[#1E3358] block mt-1 lg:mt-2",
+                              children: "to Fair outcomes.",
                             }),
                           ],
                         }),
                         u("p", {
                           className:
-                            "font-inter font-normal text-[16px] lg:text-[17px] leading-[1.8] text-[#4B5563] max-w-[44ch] mt-8",
+                            "font-inter font-normal text-[14.5px] lg:text-[15.5px] leading-[1.8] text-[#4B5563] max-w-[55ch] mt-8",
                           children:
-                            "Independent claims adjuster specializing in municipal civil liability, with extensive experience in property damage and bodily injury claims. I also bring that same technical expertise directly to policyholders, helping them understand, document and navigate their own insurance claims.",
+                            "Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury. I bring technical expertise directly to policyholders to help them document and navigate their claims.",
                         }),
                         C("div", {
                           className: "flex flex-col sm:flex-row gap-4 mt-10",
@@ -12012,7 +12033,7 @@ Error generating stack: ` +
                         u("p", {
                           className:
                             "font-inter text-[11px] tracking-[0.16em] uppercase mt-8",
-                          style: { color: "#7A8DB0" },
+style: { color: "#7A8DB0" },
                           children:
                             "20 years of experience",
                         }),
@@ -12020,71 +12041,99 @@ Error generating stack: ` +
                     }),
                     C("div", {
                       className:
-                        "order-1 lg:order-2 relative flex items-end justify-end lg:justify-end self-stretch min-h-[380px] lg:min-h-[560px] w-full",
+                        "order-1 lg:order-2 relative flex items-center justify-center lg:justify-end w-full py-2 lg:py-0 hero-img-col",
                       children: [
+                        // Soft ambient background glow
                         u("div", {
-                          className:
-                            "absolute w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[480px] lg:h-[480px] rounded-[32px] bg-[#0E223F]/[0.04] right-0 lg:right-0 top-1/2 -translate-y-1/2",
+                          style: {
+                            position: "absolute",
+                            width: "360px",
+                            height: "360px",
+                            backgroundColor: "rgba(0, 0, 0, 0.02)",
+                            borderRadius: "50%",
+                            filter: "blur(54px)",
+                            pointerEvents: "none",
+                            zIndex: 1,
+                          },
                         }),
-                        u("div", {
-                          className:
-                            "absolute w-[320px] h-[320px] rounded-[32px] bg-[#0E223F]/[0.03] right-6 lg:right-12 top-1/2 -translate-y-[44%]",
-                        }),
-                        u("div", {
-                          className:
-                            "relative z-10 w-full max-w-[520px] flex items-end justify-end ml-auto",
-                          children: u("img", {
-                            src: "isabelle-portrait.jpg",
-                            alt: "Isabelle Guertin - Claims Advisory",
-                            className:
-                              "w-full h-[420px] sm:h-[520px] lg:h-[560px] object-contain object-right-bottom select-none pointer-events-none ml-auto",
-                            draggable: !1,
-                          }),
-                        }),
-                        u("div", {
-                          className:
-                            "absolute left-0 sm:-left-1 lg:-left-10 -bottom-1 sm:bottom-8 lg:bottom-10 z-20 max-w-[300px] lg:max-w-[340px]",
-                          children: C("div", {
-                            className:
-                              "relative bg-white rounded-[24px] shadow-[0_12px_40px_rgba(14,34,63,0.12)] border border-[#0E223F]/[0.08] p-5 lg:p-6",
-                            children: [
-                              u("p", {
-                                className:
-                                  "font-inter font-medium text-[15px] leading-[1.45] tracking-[-0.015em] text-[#0E223F]",
-                                children:
-                                  "[Client QUOTE PLACEHOLDER — real client quote goes here]",
-                              }),
-                              u("div", {
-                                className:
-                                  "w-full h-px bg-[#0E223F]/10 mt-4 mb-3.5",
-                              }),
-                              C("div", {
-                                className: "flex items-center gap-2.5",
-                                children: [
-                                  u("div", {
-                                    className:
-                                      "w-5 h-px bg-[#0E223F]/20 shrink-0",
-                                  }),
-                                  u("p", {
-                                    className:
-                                      "font-inter text-[11px] leading-[1.4] tracking-[0.01em] text-[#6B7280] font-normal",
-                                    children:
-                                      "Isabelle Guertin, Claims adjuster",
-                                  }),
-                                ],
-                              }),
-                              u("div", {
-                                className:
-                                  "absolute top-[52%] -right-[6px] w-[12px] h-[12px] bg-white rotate-45 border-r border-t border-[#0E223F]/[0.08] hidden sm:block",
-                                style: { borderTopRightRadius: "2px" },
-                              }),
-                              u("div", {
-                                className:
-                                  "absolute -bottom-[5px] right-[36px] w-[10px] h-[10px] bg-white rotate-45 border-r border-b border-[#0E223F]/[0.08] sm:hidden",
-                                style: { borderBottomRightRadius: "2px" },
-                              }),
-                            ],
-                          }),
+                        // Main decorative frame wrapper (sized 30% larger)
+                        C("div", {
+                          style: {
+                            position: "relative",
+                            zIndex: 10,
+                            display: "flex",
+                            alignItems: "flex-end",
+                            justifyContent: "center",
+                            width: "100%",
+                            maxWidth: "460px",
+                            height: "500px",
+                          },
+                          children: [
+                            // Soft backdrop gradient fading naturally to left and right edges
+                            u("div", {
+                              style: {
+                                position: "absolute",
+                                bottom: "-60px",
+                                top: "-60px",
+                                right: "-350px",
+                                left: "-250px",
+                                background: "radial-gradient(ellipse 80% 75% at 62% 55%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, rgba(245, 246, 248, 0.15) 75%, transparent 100%)",
+                                pointerEvents: "none",
+                                zIndex: 2,
+                              },
+                            }),
+                            // Portrait image (30% larger, 50% lighter shadow)
+                            u("img", {
+                              src: "isabelle-portrait-nobg.png",
+                              alt: "Isabelle Guertin - Claims Advisory",
+                              style: {
+                                userSelect: "none",
+                                pointerEvents: "none",
+                                position: "relative",
+                                zIndex: 10,
+                                width: "auto",
+                                height: "100%",
+                                maxHeight: "468px",
+                                maxWidth: "400px",
+                                objectFit: "contain",
+                                objectPosition: "bottom",
+                                filter: "drop-shadow(0 6px 14px rgba(0, 0, 0, 0.05))",
+                              },
+                              draggable: !1,
+                            }),
+                            // Floating quote badge
+                            u("div", {
+                              style: {
+                                position: "absolute",
+                                zIndex: 20,
+                                right: "-10px",
+                                bottom: "20px",
+                                maxWidth: "245px",
+                                background: "rgba(255, 255, 255, 0.95)",
+                                backdropFilter: "blur(16px)",
+                                borderRadius: "16px",
+                                boxShadow: "0 5px 15px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
+                                border: "1px solid rgba(255, 255, 255, 0.9)",
+                                padding: "12px 15px",
+                              },
+                              children: [
+                                u("p", {
+                                  className:
+                                    "font-inter italic text-[12px] leading-[1.5] tracking-[-0.01em] text-[#374151]",
+                                  style: { fontSize: "12px", fontStyle: "italic" },
+                                  children:
+                                    "“Bringing technical knowledge and claims expertise to assess files objectively and make informed decisions.”",
+                                }),
+                                u("p", {
+                                  className:
+                                    "font-inter text-[11px] leading-[1.3] tracking-[0.01em] text-[#6B7280] font-medium",
+                                  style: { marginTop: "18px" },
+                                  children:
+                                    "Isabelle Guertin, Claims adjuster",
+                                }),
+                              ],
+                            }),
+                          ],
                         }),
                       ],
                     }),
