@@ -12015,16 +12015,8 @@ Error generating stack: ` +
                           children: [
                             u("div", {
                               className: "uppercase block",
-                              children: [
-                                u("span", {
-                                  style: { fontWeight: "400" },
-                                  children: "FROM ",
-                                }),
-                                u("span", {
-                                  style: { fontWeight: "800" },
-                                  children: "INFORMED",
-                                }),
-                              ],
+                              style: { fontWeight: "400" },
+                              children: "FROM INFORMED",
                             }),
                             u("div", {
                               className: "uppercase block",
@@ -12033,16 +12025,8 @@ Error generating stack: ` +
                             }),
                             u("div", {
                               className: "uppercase block",
-                              children: [
-                                u("span", {
-                                  style: { fontWeight: "400", fontStyle: "italic" },
-                                  children: "TO ",
-                                }),
-                                u("span", {
-                                  style: { fontWeight: "800", fontStyle: "italic" },
-                                  children: "FAIR OUTCOMES.",
-                                }),
-                              ],
+                              style: { fontWeight: "400", fontStyle: "italic" },
+                              children: "TO FAIR OUTCOMES.",
                             }),
                           ],
                         }),
@@ -12050,9 +12034,17 @@ Error generating stack: ` +
                           className:
                             "font-inter font-normal text-[17px] lg:text-[17.5px] leading-[1.8] text-[#4B5563] max-w-[72ch] mt-8",
                           children: [
-                            "Independent claims adjuster specializing in municipal civil liability, ",
+                            "Independent claims adjuster ",
+                            u("span", {
+                              className: "font-semibold text-[#0E223F]",
+                              children: "specializing in municipal civil liability, ",
+                            }),
                             u("br", { className: "hidden sm:block" }),
-                            "property damage, and bodily injury. I bring technical expertise directly ",
+                            u("span", {
+                              className: "font-semibold text-[#0E223F]",
+                              children: "property damage, and bodily injury.",
+                            }),
+                            " I bring technical expertise directly ",
                             u("br", { className: "hidden sm:block" }),
                             "to policyholders to help them document and navigate their claims.",
                           ],
