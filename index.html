@@ -12006,20 +12006,36 @@ Error generating stack: ` +
                           className:
                             "mt-4 text-[36px] sm:text-[42px] lg:text-[52px] xl:text-[57px] tracking-[-0.035em] leading-[1.15] font-inter text-[#0E223F]",
                           children: [
-                            u("span", {
+                            u("div", {
+                              className: "uppercase block",
+                              children: [
+                                u("span", {
+                                  style: { fontWeight: "400" },
+                                  children: "FROM ",
+                                }),
+                                u("span", {
+                                  style: { fontWeight: "800" },
+                                  children: "INFORMED",
+                                }),
+                              ],
+                            }),
+                            u("div", {
                               className: "uppercase block",
                               style: { fontWeight: "400" },
-                              children: "FROM ",
+                              children: "DECISIONS —",
                             }),
-                            u("span", {
-                              className: "uppercase block",
-                              style: { fontWeight: "800" },
-                              children: "INFORMED DECISIONS —",
-                            }),
-                            u("span", {
+                            u("div", {
                               className: "uppercase block text-[#1E3358]",
-                              style: { fontWeight: "700", fontStyle: "italic" },
-                              children: "TO FAIR OUTCOMES.",
+                              children: [
+                                u("span", {
+                                  style: { fontWeight: "400", fontStyle: "italic" },
+                                  children: "TO ",
+                                }),
+                                u("span", {
+                                  style: { fontWeight: "800", fontStyle: "italic" },
+                                  children: "FAIR OUTCOMES.",
+                                }),
+                              ],
                             }),
                           ],
                         }),
