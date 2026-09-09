@@ -1235,6 +1235,9 @@
       .text-\[28px\] {
         font-size: 28px;
       }
+      .text-\[31px\] {
+        font-size: 31px;
+      }
       .text-\[36px\] {
         font-size: 36px;
       }
@@ -1675,6 +1678,9 @@
         .sm\:text-\[33px\] {
           font-size: 33px;
         }
+        .sm\:text-\[36px\] {
+          font-size: 36px;
+        }
         .sm\:text-\[47px\] {
           font-size: 47px;
         }
@@ -1866,6 +1872,9 @@
         .lg\:text-\[14px\] {
           font-size: 14px;
         }
+        .lg\:text-\[13\.5px\] {
+          font-size: 13.5px;
+        }
         .lg\:text-\[15px\] {
           font-size: 15px;
         }
@@ -1918,6 +1927,9 @@
       @media (min-width: 1280px) {
         .xl\:text-\[45px\] {
           font-size: 45px;
+        }
+        .xl\:text-\[50px\] {
+          font-size: 50px;
         }
         .xl\:text-\[64px\] {
           font-size: 64px;
@@ -11971,43 +11983,47 @@ Error generating stack: ` +
             u("section", {
               id: "hero",
               className:
-                "bg-[#F5F6F8] min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative",
+                "bg-[#F5F6F8] min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-6 pb-12 lg:pb-16",
               children: u("div", {
                 className:
                   "max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative",
                 children: C("div", {
                   className:
-                    "grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-center py-12 lg:py-10 relative",
+                    "grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-stretch py-6 lg:py-4 relative",
                   children: [
                     C("div", {
-                      className: "order-2 lg:order-1 relative z-10 pt-6 lg:pt-8",
+                      className: "order-2 lg:order-1 relative z-10 flex flex-col justify-end pt-16 sm:pt-24 lg:pt-36 xl:pt-44",
                       children: [
                         u("div", {
                           className: "inline-flex items-center",
                           children: u("span", {
                             className:
                               "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium",
-                            children: "— INDEPENDENT CONSULTANT —",
+                            children: "INDEPENDENT CONSULTANT / 20 YEARS OF EXPERIENCE",
                           }),
                         }),
                         u("h1", {
                           className:
-                            "mt-4 text-[28px] sm:text-[33px] lg:text-[40px] xl:text-[45px] tracking-[-0.05em] leading-[1.05] font-inter text-[#0E223F]",
+                            "mt-4 text-[36px] sm:text-[42px] lg:text-[52px] xl:text-[57px] tracking-[-0.035em] leading-[1.15] font-inter text-[#0E223F]",
                           children: [
                             u("span", {
-                              className: "font-bold uppercase block",
-                              children: "From Informed decisions -",
+                              className: "font-extrabold uppercase block",
+                              children: "From Informed",
+                            }),
+                            u("span", {
+                              className: "font-extrabold uppercase block",
+                              children: "Decisions —",
                             }),
                             u("span", {
                               className:
-                                "italic font-light uppercase tracking-[-0.02em] text-[#1E3358] block mt-1 lg:mt-2",
+                                "italic font-normal uppercase tracking-[-0.02em] text-[#1E3358] block",
                               children: "to Fair outcomes.",
                             }),
                           ],
                         }),
                         u("p", {
                           className:
-                            "font-inter font-normal text-[14.5px] lg:text-[15.5px] leading-[1.8] text-[#4B5563] max-w-[55ch] mt-8",
+                            "font-inter font-normal text-[15px] lg:text-[15.5px] leading-[1.8] text-[#4B5563] max-w-[55ch] mt-8",
                           children:
                             "Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury. I bring technical expertise directly to policyholders to help them document and navigate their claims.",
                         }),
@@ -12029,13 +12045,6 @@ Error generating stack: ` +
                               children: "See how I work",
                             }),
                           ],
-                        }),
-                        u("p", {
-                          className:
-                            "font-inter text-[11px] tracking-[0.16em] uppercase mt-8",
-style: { color: "#7A8DB0" },
-                          children:
-                            "20 years of experience",
                         }),
                       ],
                     }),
@@ -12173,35 +12182,9 @@ style: { color: "#7A8DB0" },
                           }),
                           C("p", {
                             className:
-                              "font-inter text-[17.5px] lg:text-[18.5px] leading-[1.6] tracking-[-0.01em] text-[#4B5563] mt-6 max-w-[52ch] font-light",
+                              "font-inter text-[15px] lg:text-[15.5px] leading-[1.8] tracking-[-0.01em] text-[#4B5563] mt-6 max-w-[52ch] font-normal",
                             children: [
                               "The person you hire is the person who handles your file. Every mandate I accept is handled directly by me, providing continuity, experienced judgment and direct communication from initial review through resolution. I approach every file with the same care and attention I would expect if it were my own.",
-                            ],
-                          }),
-                          C("div", {
-                            className:
-                              "mt-8 p-5 bg-[#F5F6F8] rounded-[20px] border border-[#0E223F]/10",
-                            children: [
-                              u("p", {
-                                className:
-                                  "font-inter text-[14.5px] italic leading-[1.65] text-[#0E223F]",
-                                children:
-                                  "“My role is to bring the technical knowledge and claims expertise needed to fully understand a file, assess the information objectively, and make informed decisions throughout the claims process.”",
-                              }),
-                              C("p", {
-                                className:
-                                  "font-inter text-[11px] uppercase tracking-wider text-[#6B7280] font-medium mt-6 flex items-center gap-1.5 flex-wrap",
-                                children: [
-                                  "— Isabelle Guertin",
-                                  " ",
-                                  u("span", {
-                                    className:
-                                      "text-amber-800 bg-amber-100 px-2 py-0.5 rounded text-[9.5px] tracking-normal font-semibold lowercase ml-3",
-                                    children:
-                                      "[your value in your own words goes here]",
-                                  }),
-                                ],
-                              }),
                             ],
                           }),
                         ],
