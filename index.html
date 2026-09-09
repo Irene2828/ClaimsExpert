@@ -11988,8 +11988,11 @@ Error generating stack: ` +
             u("section", {
               id: "hero",
               className:
-                "bg-[#F5F6F8] min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-6 lg:pt-14 lg:pb-8",
-              style: { paddingBottom: "64px" },
+                "min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-6 lg:pt-14 lg:pb-8",
+              style: { 
+                paddingBottom: "64px",
+                background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, #F5F6F8 80%)"
+              },
               children: u("div", {
                 className:
                   "max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative",
