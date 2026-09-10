@@ -1937,12 +1937,6 @@
       }
     </style>
     <style id="premium-motion-init">
-      #hero .z-10,
-      #hero .hero-portrait-img,
-      #hero .hero-quote-card,
-      header nav a {
-        opacity: 0;
-      }
     </style>
     <style>
       /* Hide Vercel native toolbar */
@@ -11478,8 +11472,10 @@ Error generating stack: ` +
       function A9() {
         let [A, e] = BA.useState(!1),
           [n, t] = BA.useState(!1),
+          [isAboutOpen, setIsAboutOpen] = BA.useState(!1),
           [f, r] = BA.useState({ name: "", email: "", message: "" }),
           [v, o] = BA.useState(!1),
+          [expandedCards, setExpandedCards] = BA.useState({}),
           [g, P] = BA.useState(0),
           i = BA.useRef(0),
           d = BA.useRef(null);
@@ -11502,7 +11498,7 @@ Error generating stack: ` +
             ((Q.id = "guertin-google-fonts"),
               (Q.rel = "stylesheet"),
               (Q.href =
-                "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap"),
+                "https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Reenie+Beanie&family=Great+Vibes&family=Parisienne&family=Caveat:wght@500;600&family=Dancing+Script:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap"),
               document.head.appendChild(Q));
           }
         }, []),
@@ -11528,164 +11524,11 @@ Error generating stack: ` +
               P((B) => (B + 1) % 4);
             }, 3000);
 
-            let setupScrollMotion = () => {
-              let applyStyle = (el, opacity, y, x, delay, duration = 1.0) => {
-                if (!el) return;
-                el.style.transition = "none";
-                el.style.opacity = opacity;
-                el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
-                el.style.willChange = "opacity, transform";
-
-                // Force DOM reflow so browser registers the initial 0 opacity state before animating
-                void el.offsetHeight;
-
-                el.style.transition =
-                  "opacity " +
-                  duration +
-                  "s cubic-bezier(0.16, 1, 0.3, 1) " +
-                  delay +
-                  "ms, transform " +
-                  duration +
-                  "s cubic-bezier(0.16, 1, 0.3, 1) " +
-                  delay +
-                  "ms";
-              };
-
-              let trigger = (el) => {
-                if (!el) return;
-                // Use double requestAnimationFrame to ensure the transition is respected
-                requestAnimationFrame(() => {
-                  requestAnimationFrame(() => {
-                    el.style.opacity = "1";
-                    el.style.transform = "translate3d(0,0,0)";
-                  });
-                });
-              };
-
-              try {
-                // --- 1. HERO SLIGHT PREMIUM DELAYED REVEAL ---
-                let hero = document.getElementById("hero");
-                if (hero) {
-                  let heroTextUnit = hero.querySelector(".z-10"); // text column
-                  let heroImg = hero.querySelector(".hero-portrait-img"); // portrait image
-                  let heroQuote = hero.querySelector(".hero-quote-card"); // floating quote badge
-
-                  // Apply synchronized arrival motion configs
-                  applyStyle(heroTextUnit, "0", 36, 0, 400, 1.4); // Text column
-                  applyStyle(heroImg, "0", 36, 0, 400, 1.4);      // Portrait image
-                  applyStyle(heroQuote, "0", 36, 0, 480, 1.4);    // Quote card (subtle complementary 80ms offset)
-
-                  // Trigger the reveal
-                  let initStyle = document.getElementById(
-                    "premium-motion-init",
-                  );
-                  if (initStyle) initStyle.remove();
-                  setTimeout(() => {
-                    trigger(heroTextUnit);
-                    trigger(heroImg);
-                    trigger(heroQuote);
-                  }, 50);
-                }
-
-                // --- 2. HEADER NAV LINKS SLIDE OUT FROM RIGHT ---
-                let navLinks = document.querySelectorAll("header nav a");
-                navLinks.forEach((link, idx) => {
-                  applyStyle(link, "0", 0, 45, 300 + idx * 100, 0.9);
-                });
-                setTimeout(() => {
-                  navLinks.forEach((link) => trigger(link));
-                }, 50);
-
-                // --- 3. ON SCROLL INTERSECTION OBSERVER BY COMPONENT/SECTION UNITS ---
-                let scrollTargets = [];
-                let addTarget = (el, delay = 0, y = 36) => {
-                  if (!el) return;
-                  applyStyle(el, "0", y, 0, delay, 0.95);
-                  scrollTargets.push(el);
-                };
-
-                // Approach Section
-                let approachSec = document.getElementById("approach");
-                if (approachSec) {
-                  let headerUnit = approachSec.querySelector(".order-2");
-                  if (!headerUnit)
-                    headerUnit = approachSec.querySelector("h2").parentElement;
-                  addTarget(headerUnit, 0);
-                  let cardsUnit = approachSec.querySelector(".order-1");
-                  if (!cardsUnit)
-                    cardsUnit =
-                      approachSec.querySelector(
-                        ".relative.min-h-\\[340px\\]",
-                      ) || approachSec.querySelectorAll("div")[5];
-                  addTarget(cardsUnit, 180);
-                }
-
-                // Expertise Section
-                let expertiseSec = document.getElementById("expertise");
-                if (expertiseSec) {
-                  let headerUnit = expertiseSec.querySelector(".text-center");
-                  addTarget(headerUnit, 0);
-                  let cards = expertiseSec.querySelectorAll(".grid > div");
-                  cards.forEach((card, idx) => addTarget(card, idx * 180));
-                }
-
-                // Process Section
-                let processSec = document.getElementById("process");
-                if (processSec) {
-                  let headerUnit = processSec.querySelector(".text-center");
-                  addTarget(headerUnit, 0);
-                  let steps = processSec.querySelectorAll(".grid > div");
-                  steps.forEach((step, idx) => addTarget(step, idx * 180));
-                }
-
-                // Testimonials Section
-                let testimonialsSec = document.getElementById("testimonials");
-                if (testimonialsSec) {
-                  let headerUnit =
-                    testimonialsSec.querySelector(".text-center");
-                  addTarget(headerUnit, 0);
-                  let tCards =
-                    testimonialsSec.querySelectorAll(".flex.gap-6 > div");
-                  tCards.forEach((card, idx) => addTarget(card, idx * 180));
-                }
-
-                // Contact Me Section
-                let contactSec = document.getElementById("contact");
-                if (contactSec) {
-                  let leftCol = contactSec.querySelector(
-                    ".flex-col.items-start",
-                  );
-                  addTarget(leftCol, 0);
-                  let formCard = contactSec.querySelector("form").parentElement;
-                  addTarget(formCard, 180);
-                }
-
-                let observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        trigger(entry.target);
-                        observer.unobserve(entry.target);
-                      }
-                    });
-                  },
-                  {
-                    threshold: 0.12,
-                    rootMargin: "0px 0px -40px 0px",
-                  },
-                );
-
-                scrollTargets.forEach((el) => observer.observe(el));
-              } catch (e) {
-                console.error("Scroll motion error:", e);
-              }
-            };
-
-            setTimeout(setupScrollMotion, 200);
-
             return () => clearInterval(z);
           }, []));
+
         let c = [
+            { label: "About Me", href: "#about", onClick: (e) => { e.preventDefault(); setIsAboutOpen(true); } },
             { label: "Expertise", href: "#expertise" },
             { label: "Testimonials", href: "#testimonials" },
             { label: "Contact", href: "#contact" },
@@ -11806,11 +11649,12 @@ Error generating stack: ` +
           children: [
             u("style", {
               children: `
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Caveat:wght@500;600&family=Dancing+Script:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap');
         * { font-variant-ligatures: common-ligatures; }
         body { margin:0; }
         .font-inter { font-family: "Inter", system-ui, -apple-system, sans-serif; }
         .font-newsreader { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 300; }
+        .font-signature { font-family: 'Caveat', 'Kalam', 'Reenie Beanie', cursive; font-weight: 600; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         
@@ -11842,7 +11686,7 @@ Error generating stack: ` +
               children: [
                 C("div", {
                   className:
-                    "max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between",
+                    "max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative",
                   children: [
                     C("a", {
                       href: "#hero",
@@ -11872,11 +11716,13 @@ Error generating stack: ` +
                     }),
                     u("nav", {
                       className: "hidden lg:flex items-center gap-8",
+                      style: { position: "absolute", left: "50%", transform: "translateX(-50%)" },
                       children: c.map((z) =>
                         u(
                           "a",
                           {
                             href: z.href,
+                            onClick: z.onClick,
                             className:
                               "font-inter text-[13.65px] lg:text-[14px] font-normal text-white/70 hover:text-white transition-colors tracking-[0.04em]",
                             children: z.label,
@@ -11943,7 +11789,10 @@ Error generating stack: ` +
                           "a",
                           {
                             href: z.href,
-                            onClick: () => e(!1),
+                            onClick: (evt) => {
+                              e(!1);
+                              if (z.onClick) z.onClick(evt);
+                            },
                             className:
                               "font-inter text-[16px] text-white/80 hover:text-white",
                             children: z.label,
@@ -11988,9 +11837,9 @@ Error generating stack: ` +
             u("section", {
               id: "hero",
               className:
-                "min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-6 lg:pt-14 lg:pb-8",
+                "min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-3 lg:pt-14 lg:pb-4",
               style: { 
-                paddingBottom: "64px",
+                paddingBottom: "32px",
                 background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, #F5F6F8 80%)"
               },
               children: u("div", {
@@ -12002,6 +11851,7 @@ Error generating stack: ` +
                   children: [
                     C("div", {
                       className: "order-2 lg:order-1 relative z-10 flex flex-col justify-center pt-0 lg:pt-4 pb-4 lg:pb-8",
+                      style: { transform: "translateY(0%)" },
                       children: [
                         u("div", {
                           className: "inline-flex items-center",
@@ -12013,38 +11863,31 @@ Error generating stack: ` +
                         }),
                         u("h1", {
                           className:
-                            "mt-4 font-inter italic text-[#1E3358]",
-                          style: { fontSize: "clamp(41px, 5vw, 67px)", letterSpacing: "-0.035em", lineHeight: "1.02", fontStyle: "italic" },
+                            "mt-4 font-inter text-[#1E3358]",
+                          style: { fontSize: "clamp(41px, 5vw, 67px)", letterSpacing: "-0.05em", lineHeight: "1.08" },
                           children: [
                             u("div", {
-                              className: "block sm:whitespace-nowrap",
-                              style: { fontWeight: "400", fontStyle: "italic", lineHeight: "1.02" },
+                              className: "block sm:whitespace-nowrap font-normal italic",
+                              style: { fontWeight: "400", fontStyle: "italic", lineHeight: "1.08", letterSpacing: "-0.05em" },
                               children: "Informed decisions.",
                             }),
                             u("div", {
-                              className: "block sm:whitespace-nowrap",
-                              style: { fontWeight: "400", fontStyle: "italic", lineHeight: "1.02" },
+                              className: "block sm:whitespace-nowrap mt-[0.05em] font-normal italic",
+                              style: { fontWeight: "400", fontStyle: "italic", lineHeight: "1.08", letterSpacing: "-0.05em" },
                               children: "Fair outcomes.",
                             }),
                           ],
                         }),
                         C("p", {
                           className:
-                            "font-inter font-normal text-[17px] lg:text-[17.5px] leading-[1.8] text-[#4B5563] max-w-[72ch] mt-8",
+                            "mt-6 text-[#4B5563] text-lg sm:text-[19px] leading-relaxed max-w-xl font-normal tracking-[0.01em]",
                           children: [
                             "Independent claims adjuster ",
                             u("span", {
-                              className: "font-semibold text-[#0E223F]",
-                              children: "specializing in municipal civil liability, ",
+                              className: "font-semibold text-[#1E3358]",
+                              children: "specializing in municipal civil liability, property damage, and bodily injury.",
                             }),
-                            u("br", { className: "hidden sm:block" }),
-                            u("span", {
-                              className: "font-semibold text-[#0E223F]",
-                              children: "property damage, and bodily injury.",
-                            }),
-                            " I bring technical expertise directly ",
-                            u("br", { className: "hidden sm:block" }),
-                            "to policyholders to help them document and navigate their claims.",
+                            " I bring technical expertise directly to policyholders to help them document and navigate their claims.",
                           ],
                         }),
                         C("div", {
@@ -12053,12 +11896,13 @@ Error generating stack: ` +
                             u("a", {
                               href: "#contact",
                               className:
-                                "font-inter inline-flex items-center justify-center gap-2.5 rounded-full h-[46px] px-7 text-[14px] font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)]",
-                              style: { backgroundColor: zn },
+                                "font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)]",
+                              style: { backgroundColor: zn, height: "48.3px", paddingLeft: "29.4px", paddingRight: "29.4px", fontSize: "14.7px", whiteSpace: "nowrap" },
                               children: [
+                                "Book an appointment",
                                 u("svg", {
-                                  width: "15",
-                                  height: "15",
+                                  width: "16",
+                                  height: "16",
                                   viewBox: "0 0 24 24",
                                   fill: "none",
                                   stroke: "currentColor",
@@ -12073,19 +11917,18 @@ Error generating stack: ` +
                                     u("line", { x1: "3", y1: "10", x2: "21", y2: "10" }),
                                   ],
                                 }),
-                                "Book an appointment",
                               ],
                             }),
                             u("a", {
                               href: "#approach",
                               className:
-                                "font-inter group inline-flex items-center justify-center gap-2.5 rounded-full h-[46px] px-7 text-[14px] font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8]",
-                              style: { borderColor: zn, color: zn },
+                                "font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8]",
+                              style: { borderColor: zn, color: zn, height: "48.3px", paddingLeft: "29.4px", paddingRight: "29.4px", fontSize: "14.7px", whiteSpace: "nowrap" },
                               children: [
                                 "See how I work",
                                 u("svg", {
-                                  width: "15",
-                                  height: "15",
+                                  width: "16",
+                                  height: "16",
                                   viewBox: "0 0 24 24",
                                   fill: "none",
                                   stroke: "currentColor",
@@ -12108,97 +11951,136 @@ Error generating stack: ` +
                       className:
                         "order-1 lg:order-2 relative flex items-center justify-center lg:justify-end w-full py-2 lg:py-0 hero-img-col",
                       children: [
-                        // Soft ambient background glow
-                        u("div", {
-                          style: {
-                            position: "absolute",
-                            width: "360px",
-                            height: "360px",
-                            backgroundColor: "rgba(0, 0, 0, 0.02)",
-                            borderRadius: "50%",
-                            filter: "blur(54px)",
-                            pointerEvents: "none",
-                            zIndex: 1,
-                          },
-                        }),
-                        // Main decorative frame wrapper (sized 30% larger)
-                        C("div", {
-                          style: {
-                            position: "relative",
-                            zIndex: 10,
-                            display: "flex",
-                            alignItems: "flex-end",
-                            justifyContent: "center",
-                            width: "100%",
-                            maxWidth: "460px",
-                            height: "500px",
-                          },
-                          children: [
-                            // Soft backdrop gradient fading naturally to left and right edges
+                            // Soft ambient background glow
                             u("div", {
                               style: {
                                 position: "absolute",
-                                bottom: "-60px",
-                                top: "-60px",
-                                right: "-350px",
-                                left: "-250px",
-                                background: "radial-gradient(ellipse 80% 75% at 62% 55%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, rgba(245, 246, 248, 0.15) 75%, transparent 100%)",
+                                width: "360px",
+                                height: "360px",
+                                backgroundColor: "rgba(0, 0, 0, 0.02)",
+                                borderRadius: "50%",
+                                filter: "blur(54px)",
                                 pointerEvents: "none",
-                                zIndex: 2,
+                                zIndex: 1,
                               },
                             }),
-                            // Portrait image (Optimized WebP with eager high-priority loading)
-                            u("img", {
-                              src: "isabelle-portrait-opt.webp",
-                              alt: "Isabelle Guertin - Claims Advisory",
-                              className: "hero-portrait-img",
-                              fetchpriority: "high",
-                              loading: "eager",
+                            // Main decorative frame wrapper (sized 30% larger)
+                            C("div", {
                               style: {
-                                userSelect: "none",
-                                pointerEvents: "none",
                                 position: "relative",
                                 zIndex: 10,
-                                width: "auto",
-                                height: "100%",
-                                maxHeight: "468px",
-                                maxWidth: "400px",
-                                objectFit: "contain",
-                                objectPosition: "bottom",
-                                filter: "drop-shadow(0 6px 14px rgba(0, 0, 0, 0.05))",
-                              },
-                              draggable: !1,
-                            }),
-                            // Floating quote badge
-                            u("div", {
-                              className: "hero-quote-card",
-                              style: {
-                                position: "absolute",
-                                zIndex: 20,
-                                right: "-10px",
-                                bottom: "20px",
-                                maxWidth: "245px",
-                                background: "rgba(255, 255, 255, 0.95)",
-                                backdropFilter: "blur(16px)",
-                                borderRadius: "16px",
-                                boxShadow: "0 5px 15px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
-                                border: "1px solid rgba(255, 255, 255, 0.9)",
-                                padding: "12px 15px",
+                                display: "flex",
+                                alignItems: "flex-end",
+                                justifyContent: "center",
+                                width: "100%",
+                                maxWidth: "460px",
+                                height: "500px",
                               },
                               children: [
-                                u("p", {
-                                  className:
-                                    "font-inter italic text-[12px] leading-[1.5] tracking-[-0.01em] text-[#374151]",
-                                  style: { fontSize: "12px", fontStyle: "italic" },
-                                  children:
-                                    "“Bringing technical knowledge and claims expertise to assess files objectively and make informed decisions.”",
+                                // Soft backdrop gradient fading naturally to left and right edges
+                                u("div", {
+                                  style: {
+                                    position: "absolute",
+                                    bottom: "-60px",
+                                    top: "-60px",
+                                    right: "-350px",
+                                    left: "-250px",
+                                    background: "radial-gradient(ellipse 80% 75% at 62% 55%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, rgba(245, 246, 248, 0.15) 75%, transparent 100%)",
+                                    pointerEvents: "none",
+                                    zIndex: 2,
+                                  },
                                 }),
-                                u("p", {
-                                  className:
-                                    "font-inter text-[11px] leading-[1.3] tracking-[0.01em] text-[#6B7280] font-medium",
-                                  style: { marginTop: "18px" },
-                                  children:
-                                    "Isabelle Guertin, Claims adjuster",
+                                // Professional Name & Microcopy — no background fill
+                                C("div", {
+                                  className: "select-none pointer-events-none hidden sm:block",
+                                  style: {
+                                    position: "absolute",
+                                    left: "-5%",
+                                    bottom: "14px",
+                                    zIndex: 25,
+                                    textAlign: "left",
+                                    filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
+                                  },
+                                  children: [
+                                    C("div", {
+                                      className: "font-inter italic font-medium",
+                                      style: {
+                                        fontSize: "23.2px",
+                                        lineHeight: "0.95",
+                                        color: "#0E223F",
+                                        letterSpacing: "-0.01em",
+                                      },
+                                      children: [
+                                        u("span", { style: { display: "block" }, children: "Isabelle" }),
+                                        u("span", { style: { display: "block", paddingLeft: "12px" }, children: "Guertin" })
+                                      ],
+                                    }),
+                                    u("div", {
+                                      className: "font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563]",
+                                      style: { marginTop: "5px", paddingLeft: "0px", marginLeft: "-3px" },
+                                      children: "- claims adjuster",
+                                    })
+                                  ],
+                                }),
+                                // Portrait image (10% larger)
+                                u("img", {
+                                  src: "isabelle-portrait-opt.webp",
+                                  alt: "Isabelle Guertin - Claims Advisory",
+                                  className: "hero-portrait-img",
+                                  fetchpriority: "high",
+                                  loading: "eager",
+                                  style: {
+                                    userSelect: "none",
+                                    pointerEvents: "none",
+                                    position: "relative",
+                                    zIndex: 10,
+                                    width: "auto",
+                                    height: "100%",
+                                    maxHeight: "515px",
+                                    maxWidth: "440px",
+                                    objectFit: "contain",
+                                    objectPosition: "bottom",
+                                    filter: "drop-shadow(0 6px 14px rgba(0, 0, 0, 0.05))",
+                                  },
+                                  draggable: !1,
+                                }),
+                                // Floating quote badge
+                                C("div", {
+                                  className: "hero-quote-card flex items-start gap-2.5",
+                                  style: {
+                                    position: "absolute",
+                                    zIndex: 20,
+                                    right: "-25px",
+                                    bottom: "20px",
+                                    maxWidth: "260px",
+                                    background: "rgba(255, 255, 255, 0.95)",
+                                    backdropFilter: "blur(16px)",
+                                    borderRadius: "16px",
+                                    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
+                                    border: "1px solid rgba(255, 255, 255, 0.9)",
+                                    padding: "12px 15px",
+                                  },
+                                  children: [
+                                    u("svg", {
+                                      width: "18",
+                                      height: "18",
+                                      viewBox: "0 0 24 24",
+                                      fill: "#0E223F",
+                                      className: "shrink-0 mt-0.5 opacity-90",
+                                      children: [
+                                        u("path", {
+                                          d: "M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                                        })
+                                      ]
+                                    }),
+                                    u("p", {
+                                      className:
+                                        "font-inter italic text-[12.6px] leading-[1.5] tracking-[-0.01em] text-[#374151]",
+                                      style: { fontSize: "12.6px", fontStyle: "italic" },
+                                      children:
+                                        "Bringing technical knowledge and claims expertise to assess files objectively and make informed decisions.",
+                                    }),
+                                  ],
                                 }),
                               ],
                             }),
@@ -12206,10 +12088,8 @@ Error generating stack: ` +
                         }),
                       ],
                     }),
-                  ],
+                  }),
                 }),
-              }),
-            }),
             u("section", {
               id: "approach",
               className: "bg-white border-t border-[#F3F4F6]",
@@ -12222,7 +12102,7 @@ Error generating stack: ` +
                     className: "w-full flex justify-start mb-8",
                     children: u("span", {
                       className:
-                        "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#0E223F] text-white border border-[#0E223F] text-[10.5px] tracking-[0.18em] uppercase font-medium",
+                        "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#E5E7EB] text-[#0E223F] border border-[#E5E7EB] text-[10.5px] tracking-[0.18em] uppercase font-medium",
                       children: "Approach",
                     }),
                   }),
@@ -12406,11 +12286,22 @@ Error generating stack: ` +
                             u("div", {
                               className: "w-full h-px bg-white/10 my-5",
                             }),
-                            u("p", {
+                            C("p", {
                               className:
                                 "font-inter text-[14px] lg:text-[15px] leading-7 text-white/70",
-                              children:
-                                "Investigation and handling of municipal liability claims involving property damage and bodily injury. With extensive experience working directly with municipalities, I understand their operational realities, procedures, and the particular considerations involved in municipal claims. Each file is assessed through factual investigation, liability analysis, and damage evaluation, leading to clear, practical recommendations tailored to the municipality’s specific circumstances.",
+                              children: [
+                                "Investigation and handling of municipal liability claims involving property damage and bodily injury.",
+                                expandedCards[1]
+                                  ? " With extensive experience working directly with municipalities, I understand their operational realities, procedures, and the particular considerations involved in municipal claims. Each file is assessed through factual investigation, liability analysis, and damage evaluation, leading to clear, practical recommendations tailored to the municipality’s specific circumstances."
+                                  : " ",
+                                u("button", {
+                                  type: "button",
+                                  onClick: () => setExpandedCards((z) => ({ ...z, 1: !z[1] })),
+                                  className:
+                                    "inline-flex items-center text-white/90 hover:text-white font-medium ml-1 transition-colors underline cursor-pointer",
+                                  children: expandedCards[1] ? "Read less" : "read more",
+                                }),
+                              ],
                             }),
                           ],
                         }),
@@ -12435,11 +12326,22 @@ Error generating stack: ` +
                             u("div", {
                               className: "w-full h-px bg-white/10 my-5",
                             }),
-                            u("p", {
+                            C("p", {
                               className:
                                 "font-inter text-[14px] lg:text-[15px] leading-7 text-white/70",
-                              children:
-                                "Independent claims assistance for property owners dealing with their own insurers, specializing in cases where municipal liability may also be involved. When a claim involves both a first-party insurer and a potential third-party claim against a municipality, I help policyholders document their damages, navigate the claims process, and coordinate effectively between all parties to ensure a fair and comprehensive resolution.",
+                              children: [
+                                "Independent claims assistance for property owners dealing with their own insurers, specializing in cases where municipal liability may also be involved.",
+                                expandedCards[2]
+                                  ? " When a claim involves both a first-party insurer and a potential third-party claim against a municipality, I help policyholders document their damages, navigate the claims process, and coordinate effectively between all parties to ensure a fair and comprehensive resolution."
+                                  : " ",
+                                u("button", {
+                                  type: "button",
+                                  onClick: () => setExpandedCards((z) => ({ ...z, 2: !z[2] })),
+                                  className:
+                                    "inline-flex items-center text-white/90 hover:text-white font-medium ml-1 transition-colors underline cursor-pointer",
+                                  children: expandedCards[2] ? "Read less" : "read more",
+                                }),
+                              ],
                             }),
                           ],
                         }),
@@ -12464,11 +12366,22 @@ Error generating stack: ` +
                             u("div", {
                               className: "w-full h-px bg-white/10 my-5",
                             }),
-                            u("p", {
+                            C("p", {
                               className:
                                 "font-inter text-[14px] lg:text-[15px] leading-7 text-white/70",
-                              children:
-                                "Investigation and handling of civil liability claims for businesses and professionals facing property damage or bodily injury claims. I provide objective factual investigation, detailed liability analysis, and damage evaluation to help organizations make informed decisions and resolve claims efficiently and fairly.",
+                              children: [
+                                "Investigation and handling of civil liability claims for businesses and professionals facing property damage or bodily injury claims.",
+                                expandedCards[3]
+                                  ? " I provide objective factual investigation, detailed liability analysis, and damage evaluation to help organizations make informed decisions and resolve claims efficiently and fairly."
+                                  : " ",
+                                u("button", {
+                                  type: "button",
+                                  onClick: () => setExpandedCards((z) => ({ ...z, 3: !z[3] })),
+                                  className:
+                                    "inline-flex items-center text-white/90 hover:text-white font-medium ml-1 transition-colors underline cursor-pointer",
+                                  children: expandedCards[3] ? "Read less" : "read more",
+                                }),
+                              ],
                             }),
                           ],
                         }),
@@ -12569,7 +12482,7 @@ Error generating stack: ` +
                     children: [
                       u("span", {
                         className:
-                          "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#0E223F] text-white border border-[#0E223F] text-[10.5px] tracking-[0.18em] uppercase font-medium",
+                          "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#E5E7EB] text-[#0E223F] border border-[#E5E7EB] text-[10.5px] tracking-[0.18em] uppercase font-medium",
                         children: "Testimonials",
                       }),
                       u("h2", {
