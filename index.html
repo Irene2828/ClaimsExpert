@@ -2503,6 +2503,13 @@
       pointer-events: none !important;
     }
 
+    /* Subtle negative space under hero image on desktop screens (1440px or similar) */
+    @media (min-width: 1024px) {
+      html body #hero {
+        padding-bottom: 24px !important;
+      }
+    }
+
     /* Base Hero CTAs Styling (for 1440px and below) */
     html body a.hero-cta-btn,
     html body .hero-cta-btn {
@@ -12529,7 +12536,6 @@ Error generating stack: ` +
             className:
               "min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-0 lg:pt-14 lg:pb-0",
             style: {
-              paddingBottom: "0px",
               background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, transparent 80%), radial-gradient(ellipse 70% 60% at 90% 85%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, transparent 80%), #F5F6F8"
             },
             children: u("div", {
