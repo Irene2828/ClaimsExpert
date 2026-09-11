@@ -12253,7 +12253,7 @@ Error generating stack: ` +
                           }),
                           C("p", {
                             className:
-                              "font-inter font-normal text-[17px] lg:text-[17.5px] leading-[1.8] text-[#4B5563] mt-6 max-w-[52ch]",
+                              "font-inter font-normal text-lg sm:text-[19px] leading-relaxed text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch]",
                             children: [
                               "The person you hire is the person who handles your file. Every mandate I accept is handled directly by me, providing continuity, experienced judgment and direct communication from initial review through resolution. ",
                               u("span", {
@@ -13847,8 +13847,8 @@ Error generating stack: ` +
 
           // --- 2. HEADER NAV LINKS SLIDE OUT FROM RIGHT ---
           let navLinks = document.querySelectorAll('header nav a');
-          navLinks.forEach((link, idx) => {
-            applyStyle(link, '0', 0, 45, 300 + idx * 100, 0.9);
+          navLinks.forEach((link) => {
+            applyStyle(link, '0', 0, 45, 300, 0.9);
           });
           setTimeout(() => {
             navLinks.forEach(link => trigger(link));
