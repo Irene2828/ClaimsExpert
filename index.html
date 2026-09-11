@@ -2548,6 +2548,18 @@
       filter: none !important;
     }
 
+    /* Testimonial Cards Author Spacing & Divider */
+    html body #testimonials .testimonial-author-footer {
+      margin-top: auto !important;
+      padding-top: 16px !important;
+      padding-bottom: 2px !important;
+      border-top: 1px solid rgba(14, 34, 63, 0.08) !important;
+    }
+
+    html body #testimonials .testimonial-author-footer.is-dark {
+      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+
     /* Desktop Width & Layout Scaling strictly for 1670px+ Viewports */
     @media (min-width: 1670px) {
 
@@ -13199,7 +13211,7 @@ Error generating stack: ` +
                             ]
                           }),
                           u("div", {
-                            className: "mt-auto pt-8 border-t border-[#0E223F]/05",
+                            className: "testimonial-author-footer mt-auto",
                             children: u("p", {
                               className: "font-inter font-medium text-[12px] tracking-[0.1em] uppercase text-[#0E223F]/50",
                               children: "— Peter, Montreal"
@@ -13264,7 +13276,7 @@ Error generating stack: ` +
                               ]
                             }),
                             u("div", {
-                              className: "mt-auto pt-8 border-t border-white/05",
+                              className: "testimonial-author-footer is-dark mt-auto",
                               children: u("p", {
                                 className:
                                   "font-inter font-medium text-[12px] tracking-[0.1em] uppercase text-white/50",
@@ -13318,7 +13330,7 @@ Error generating stack: ` +
                             ]
                           }),
                           u("div", {
-                            className: "mt-auto pt-8 border-t border-[#0E223F]/05",
+                            className: "testimonial-author-footer mt-auto",
                             children: u("p", {
                               className:
                                 "font-inter font-medium text-[12px] tracking-[0.1em] uppercase text-[#0E223F]/50",
