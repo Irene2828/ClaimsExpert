@@ -1963,6 +1963,16 @@
         .max-w-\[1336px\] {
           max-width: 1620px !important;
         }
+        /* Header UI +5% scale */
+        header nav a {
+          font-size: 14.7px !important;
+        }
+        header a[href="tel:4387941044"] {
+          font-size: 14.3px !important;
+          padding: 10px 20px !important;
+        }
+        
+        /* Hero Scaling & Proportions */
         #hero {
           min-height: calc(100svh - 108px) !important;
         }
@@ -1973,12 +1983,24 @@
           font-size: 20px !important;
         }
         .hero-img-col > div {
-          max-width: 540px !important;
+          max-width: 580px !important;
           height: clamp(470px, calc(100svh - 180px), 680px) !important;
         }
         .hero-portrait-img {
           max-height: 680px !important;
-          max-width: 520px !important;
+          max-width: 540px !important;
+        }
+
+        /* Quote frame ratio fix: wider max-width so text flows in fewer lines matching 1440px proportion */
+        .hero-quote-card {
+          max-width: 370px !important;
+          padding: 15px 18px !important;
+          right: -40px !important;
+          bottom: 25px !important;
+        }
+        .hero-quote-card p {
+          font-size: 13.5px !important;
+          line-height: 1.55 !important;
         }
       }
     </style>
