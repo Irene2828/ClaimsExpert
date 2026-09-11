@@ -1948,8 +1948,8 @@
         pointer-events: none !important;
       }
 
-      /* Desktop Width & Layout Scaling for 1400px+ Viewports */
-      @media (min-width: 1400px) {
+      /* Desktop Width & Layout Scaling strictly for 1670px+ Viewports */
+      @media (min-width: 1670px) {
         div[class*="max-w-[1336px]"],
         div.max-w-\[1336px\],
         .max-w-\[1336px\] {
@@ -2003,16 +2003,16 @@
           font-size: 12px !important;
         }
 
-        /* 7. Quote text explicitly SMALLER and sleek */
+        /* 7. Quote text on 1670px screens */
         html body .hero-quote-card {
-          max-width: 270px !important;
+          max-width: 320px !important;
+          right: 0px !important;
+          bottom: 28px !important;
           padding: 10px 14px !important;
-          right: -20px !important;
-          bottom: 20px !important;
         }
         html body .hero-quote-card p {
           font-size: 9.5px !important;
-          line-height: 1.4 !important;
+          line-height: 1.45 !important;
         }
 
         /* Hero Container Proportions */
@@ -2032,12 +2032,29 @@
         }
       }
 
-      @media (min-width: 1670px) {
-        /* Quote text 2px smaller on 1670px screens */
-        html body .hero-quote-card p {
-          font-size: 9px !important;
-          line-height: 1.45 !important;
-        }
+      /* Base Quote Card Styling (for 1440px and below) */
+      html body .hero-quote-card {
+        position: absolute !important;
+        z-index: 20 !important;
+        right: 0px !important;
+        bottom: 20px !important;
+        max-width: 300px !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.9) !important;
+        padding: 10px 14px !important;
+      }
+      html body .hero-quote-card p {
+        font-family: 'Inter', sans-serif !important;
+        font-style: italic !important;
+        font-size: 11px !important;
+        line-height: 1.45 !important;
+        letter-spacing: -0.01em !important;
+        color: #374151 !important;
+        margin: 0 !important;
       }
       /* Remove blue glow / drop-shadow from hero portrait on all screens */
       html body .hero-portrait-img {
@@ -12116,20 +12133,7 @@ Error generating stack: ` +
                                 }),
                                 // Floating quote badge
                                 C("div", {
-                                  className: "hero-quote-card flex items-start gap-2.5",
-                                  style: {
-                                    position: "absolute",
-                                    zIndex: 20,
-                                    right: "-25px",
-                                    bottom: "20px",
-                                    maxWidth: "260px",
-                                    background: "rgba(255, 255, 255, 0.95)",
-                                    backdropFilter: "blur(16px)",
-                                    borderRadius: "16px",
-                                    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
-                                    border: "1px solid rgba(255, 255, 255, 0.9)",
-                                    padding: "12px 15px",
-                                  },
+                                  className: "hero-quote-card flex items-start gap-2.5 select-none",
                                   children: [
                                     u("svg", {
                                       width: "14",
@@ -12144,9 +12148,6 @@ Error generating stack: ` +
                                       ]
                                     }),
                                     u("p", {
-                                      className:
-                                        "font-inter italic text-[9.5px] leading-[1.4] tracking-[-0.01em] text-[#374151]",
-                                      style: { fontStyle: "italic" },
                                       children:
                                         "Bringing technical knowledge and claims expertise to assess files objectively and make informed decisions.",
                                     }),
