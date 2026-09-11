@@ -2011,7 +2011,7 @@
           bottom: 20px !important;
         }
         html body .hero-quote-card p {
-          font-size: 11px !important;
+          font-size: 9.5px !important;
           line-height: 1.4 !important;
         }
 
@@ -2029,6 +2029,14 @@
         html body .hero-portrait-img {
           max-height: 680px !important;
           max-width: 540px !important;
+        }
+      }
+
+      @media (min-width: 1670px) {
+        /* Quote text 2px smaller on 1670px screens */
+        html body .hero-quote-card p {
+          font-size: 9px !important;
+          line-height: 1.45 !important;
         }
       }
     </style>
@@ -12133,7 +12141,7 @@ Error generating stack: ` +
                                     }),
                                     u("p", {
                                       className:
-                                        "font-inter italic text-[11px] leading-[1.4] tracking-[-0.01em] text-[#374151]",
+                                        "font-inter italic text-[9.5px] leading-[1.4] tracking-[-0.01em] text-[#374151]",
                                       style: { fontStyle: "italic" },
                                       children:
                                         "Bringing technical knowledge and claims expertise to assess files objectively and make informed decisions.",
