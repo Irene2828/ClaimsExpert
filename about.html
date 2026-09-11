@@ -3,22 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>React Artifact</title>
+    <title>About Me - Isabelle Guertin</title>
     <style>
-      .testimonial-scrollbar::-webkit-scrollbar {
-        width: 5px;
-      }
-      .testimonial-scrollbar::-webkit-scrollbar-track {
-        background: rgba(14, 34, 63, 0.06);
-        border-radius: 4px;
-      }
-      .testimonial-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(14, 34, 63, 0.3);
-        border-radius: 4px;
-      }
-      .testimonial-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(14, 34, 63, 0.5);
-      }
       *,
       :after,
       :before {
@@ -614,12 +600,6 @@
       .h-\[320px\] {
         height: 320px;
       }
-      .h-\[85px\] {
-        height: 85px;
-      }
-      .h-\[145px\] {
-        height: 145px;
-      }
       .h-\[360px\] {
         height: 360px;
       }
@@ -674,9 +654,6 @@
       .min-h-\[calc\(100svh-108px\)\] {
         min-height: calc(100svh - 108px);
       }
-      .min-h-\[460px\] {
-        min-height: 460px;
-      }
       .w-10 {
         width: 2.5rem;
       }
@@ -716,17 +693,8 @@
       .w-\[320px\] {
         width: 320px;
       }
-      .w-\[340px\] {
-        width: 340px;
-      }
       .w-\[360px\] {
         width: 360px;
-      }
-      .w-\[380px\] {
-        width: 380px;
-      }
-      .w-\[410px\] {
-        width: 410px;
       }
       .w-\[480px\] {
         width: 480px;
@@ -1016,12 +984,6 @@
       }
       .border-\[\#0E223F\]\/10 {
         border-color: rgba(14, 34, 63, 0.1);
-      }
-      .border-\[\#0E223F\]\/15 {
-        border-color: rgba(14, 34, 63, 0.15);
-      }
-      .border-\[\#0E223F\]\/20 {
-        border-color: rgba(14, 34, 63, 0.2);
       }
       .border-\[\#0E223F\]\/\[0\.06\] {
         border-color: rgba(14, 34, 63, 0.06);
@@ -1707,9 +1669,6 @@
         .sm\:w-\[340px\] {
           width: 340px;
         }
-        .sm\:w-\[380px\] {
-          width: 380px;
-        }
         .sm\:w-\[440px\] {
           width: 440px;
         }
@@ -1836,9 +1795,6 @@
         }
         .lg\:w-\[380px\] {
           width: 380px;
-        }
-        .lg\:w-\[410px\] {
-          width: 410px;
         }
         .lg\:w-\[480px\] {
           width: 480px;
@@ -11645,7 +11601,6 @@ Error generating stack: ` +
           [isAboutOpen, setIsAboutOpen] = BA.useState(!1),
           [f, r] = BA.useState({ name: "", email: "", message: "" }),
           [v, o] = BA.useState(!1),
-          [isTestimonialExpanded, setIsTestimonialExpanded] = BA.useState(!1),
           [expandedCards, setExpandedCards] = BA.useState({}),
           [g, P] = BA.useState(0),
           i = BA.useRef(0),
@@ -11715,9 +11670,9 @@ Error generating stack: ` +
 
         let c = [
             { label: "About Me", href: "about.html" },
-            { label: "Expertise", href: "#expertise" },
-            { label: "Testimonials", href: "#testimonials" },
-            { label: "Contact", href: "#contact" },
+            { label: "Expertise", href: "index.html#expertise" },
+            { label: "Testimonials", href: "index.html#testimonials" },
+            { label: "Contact", href: "index.html#contact" },
           ],
           w = (z) => {
             if (z === g) P((z + 1) % 3);
@@ -11857,7 +11812,7 @@ Error generating stack: ` +
                     "max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative",
                   children: [
                     C("a", {
-                      href: "#hero",
+                      href: "index.html",
                       className: "flex items-center gap-3 group",
                       children: [
                         u("div", {
@@ -12002,844 +11957,119 @@ Error generating stack: ` +
                 }),
               ],
             }),
-            u("section", {
-              id: "hero",
-              className:
-                "min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-0 lg:pt-14 lg:pb-0",
-              style: { 
-                paddingBottom: "0px",
-                background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, #F5F6F8 80%)"
-              },
-              children: u("div", {
-                className:
-                  "max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative",
-                children: C("div", {
-                  className:
-                    "grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-center pt-6 pb-0 lg:pt-8 lg:pb-0 relative",
-                  children: [
-                    C("div", {
-                      className: "order-2 lg:order-1 relative z-10 flex flex-col justify-center pt-0 lg:pt-0 pb-4 lg:pb-0",
-                      style: { transform: "translateY(-5%)" },
-                      children: [
-                        u("div", {
-                          className: "inline-flex items-center",
-                          children: u("span", {
-                            className:
-                              "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line",
-                            children: "- INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -",
-                          }),
-                        }),
-                        u("h1", {
-                          className:
-                            "mt-4 font-inter text-[#1E3358]",
-                          style: { fontSize: "clamp(41px, 5vw, 67px)", letterSpacing: "-0.05em", lineHeight: "1.08" },
-                          children: [
-                            u("div", {
-                              className: "block sm:whitespace-nowrap font-normal italic",
-                              style: { fontWeight: "400", fontStyle: "italic", lineHeight: "1.08", letterSpacing: "-0.05em" },
-                              children: "Informed decisions.",
-                            }),
-                            u("div", {
-                              className: "block sm:whitespace-nowrap mt-[0.05em] font-normal italic",
-                              style: { fontWeight: "400", fontStyle: "italic", lineHeight: "1.08", letterSpacing: "-0.05em" },
-                              children: "Fair outcomes.",
-                            }),
-                          ],
-                        }),
-                        C("p", {
-                          className:
-                            "mt-6 text-[#4B5563] text-lg sm:text-[19px] leading-relaxed font-normal tracking-[0.01em]",
-                          style: { maxWidth: "680px" },
-                          children: [
-                            "Independent claims adjuster specializing in municipal civil liability,",
-                            u("br", {}),
-                            "property damage, and bodily injury — bringing that same expertise ",
-                            u("br", {}),
-                            "directly to policyholders navigating their own insurance claims."
-                          ],
-                        }),
-                        C("div", {
-                          className: "flex flex-col sm:flex-row gap-4 mt-10",
-                          children: [
-                            u("a", {
-                              href: "#contact",
-                              className:
-                                "font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]",
-                              style: { backgroundColor: zn, whiteSpace: "nowrap" },
-                              children: [
-                                "Book an appointment",
-                                u("svg", {
-                                  width: "16",
-                                  height: "16",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  strokeWidth: "1.8",
-                                  strokeLinecap: "round",
-                                  strokeLinejoin: "round",
-                                  className: "shrink-0 opacity-90 transition-transform group-hover:scale-110",
-                                  children: [
-                                    u("path", { d: "M8 2v4M16 2v4" }),
-                                    u("rect", { x: "3", y: "4", width: "18", height: "18", rx: "3" }),
-                                    u("path", { d: "M3 10h18" }),
-                                    u("path", { d: "M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" }),
-                                  ],
-                                }),
-                              ],
-                            }),
-                            u("a", {
-                              href: "#approach",
-                              className:
-                                "font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]",
-                              style: { borderColor: zn, color: zn, whiteSpace: "nowrap" },
-                              children: [
-                                "See how I work",
-                                u("svg", {
-                                  width: "16",
-                                  height: "16",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  strokeWidth: "2",
-                                  strokeLinecap: "round",
-                                  strokeLinejoin: "round",
-                                  className: "shrink-0 opacity-80 transition-transform group-hover:translate-y-0.5",
-                                  children: [
-                                    u("line", { x1: "12", y1: "5", x2: "12", y2: "19" }),
-                                    u("polyline", { points: "19 12 12 19 5 12" }),
-                                  ],
-                                }),
-                              ],
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                    C("div", {
-                      className:
-                        "order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col",
-                      children: [
-                              // Main decorative frame wrapper (sized 30% larger)
-                            C("div", {
-                              style: {
-                                position: "relative",
-                                zIndex: 10,
-                                display: "flex",
-                                alignItems: "flex-end",
-                                justifyContent: "center",
-                                width: "100%",
-                                maxWidth: "460px",
-                                height: "clamp(400px, calc(100svh - 180px), 560px)",
-                              },
-                              children: [
-                                // Professional Name & Microcopy — no background fill
-                                C("div", {
-                                  className: "hero-name-badge select-none pointer-events-none hidden sm:block",
-                                  style: {
-                                    position: "absolute",
-                                    left: "-7%",
-                                    bottom: "14px",
-                                    zIndex: 25,
-                                    textAlign: "left",
-                                    filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
-                                  },
-                                  children: [
-                                    C("div", {
-                                      className: "font-inter italic font-medium text-right",
-                                      style: {
-                                        fontSize: "23.2px",
-                                        lineHeight: "0.95",
-                                        color: "#0E223F",
-                                        letterSpacing: "-0.01em",
-                                      },
-                                      children: [
-                                        u("span", { style: { display: "block" }, children: "Isabelle" }),
-                                        u("span", { style: { display: "block", paddingLeft: "12px" }, children: "Guertin" })
-                                      ],
-                                    }),
-                                    u("div", {
-                                      className: "font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563] about-claims-adjuster",
-                                      style: { marginTop: "5px", paddingLeft: "0px", marginLeft: "-3px" },
-                                      children: "- claims adjuster",
-                                    })
-                                  ],
-                                }),
-                                // Portrait image (10% larger)
-                                u("img", {
-                                  src: "isabelle-portrait-opt.webp",
-                                  alt: "Isabelle Guertin - Claims Advisory",
-                                  className: "hero-portrait-img",
-                                  fetchpriority: "high",
-                                  loading: "eager",
-                                  style: {
-                                    userSelect: "none",
-                                    pointerEvents: "none",
-                                    position: "relative",
-                                    zIndex: 10,
-                                    width: "auto",
-                                    height: "100%",
-                                    maxHeight: "575px",
-                                    maxWidth: "440px",
-                                    objectFit: "contain",
-                                    objectPosition: "bottom",
-                                    filter: "none",
-                                  },
-                                  draggable: !1,
-                                }),
-                                // Floating quote badge
-                                C("div", {
-                                  className: "hero-quote-card flex items-start gap-2.5 select-none",
-                                  children: [
-                                    u("svg", {
-                                      width: "14",
-                                      height: "14",
-                                      viewBox: "0 0 24 24",
-                                      fill: "#0E223F",
-                                      className: "shrink-0 mt-0.5 opacity-90",
-                                      children: [
-                                        u("path", {
-                                          d: "M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-                                        })
-                                      ]
-                                    }),
-                                    u("p", {
-                                      children:
-                                        "My role is to bring the technical knowledge and claims expertise needed to fully understand a file, assess the information objectively, and make informed decisions throughout the claims process.",
-                                    }),
-                                  ],
-                                }),
-                              ],
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                  }),
-                }),
-            u("section", {
-              id: "approach",
-              className: "bg-white border-t border-[#F3F4F6]",
-              style: { backgroundColor: "#FFFFFF" },
+            C("main", {
+              className: "max-w-[1336px] mx-auto px-8 lg:px-12 py-12 lg:py-16 w-full my-auto flex-1 flex flex-col justify-center",
               children: C("div", {
-                className:
-                  "max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36",
+                className: "grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center",
                 children: [
-                  u("div", {
-                    className: "w-full flex justify-start mb-8",
-                    children: u("span", {
-                      className:
-                        "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#E5E7EB] text-[#0E223F] border border-[#E5E7EB] text-[10.5px] tracking-[0.18em] uppercase font-medium",
-                      children: "Approach",
-                    }),
-                  }),
                   C("div", {
-                    className:
-                      "grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-start",
+                    className: "flex flex-col items-start text-left",
                     children: [
-                      C("div", {
-                        className: "lg:sticky lg:top-28 order-2 lg:order-1",
+                      u("span", {
+                        className: "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium",
+                        children: "- ABOUT THE PRACTICE - LEGACY -",
+                      }),
+                      u("h1", {
+                        className: "font-inter italic font-light tracking-[-0.04em] leading-[1.08] text-[#1E3358] text-[36px] sm:text-[44px] lg:text-[52px] mt-4",
+                        children: "R. Guertin & Ass.",
+                      }),
+                      u("div", {
+                        className: "w-16 h-px bg-[#1E3358]/25 my-6",
+                      }),
+                      C("p", {
+                        className: "font-inter text-[16px] sm:text-[17.5px] lg:text-[18px] leading-[1.8] text-[#1E3358]/85 max-w-[54ch] [text-wrap:pretty]",
                         children: [
-                          u("h2", {
-                            className:
-                              "font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px] max-w-[18ch]",
-                            children:
-                              "An independent practice — one file at a time.",
-                          }),
-                          C("p", {
-                            className:
-                              "font-inter font-normal text-[17px] lg:text-[17.5px] leading-[1.8] text-[#4B5563] mt-6 max-w-[52ch]",
+                          "R. Guertin & Ass. grew from a family passion for claims adjusting. Founded by Roy Guertin, the firm built a strong reputation over the years based on integrity, thoroughness, and a commitment to providing high-quality service to its clients.",
+                          u("br", {}),
+                          u("br", {}),
+                          "Following Roy’s retirement in early 2026, Isabelle continues that legacy, carrying forward the same values while bringing her own experience and approach to the practice.",
+                        ],
+                      }),
+                      C("div", {
+                        className: "flex flex-wrap items-center gap-4 mt-8",
+                        children: [
+                          C("a", {
+                            href: "index.html",
+                            className: "font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide bg-[#0E223F] text-white hover:bg-[#0E223F]/90 transition-all px-7 py-3 text-[14.5px]",
                             children: [
-                              "The person you hire is the person who handles your file. Every mandate I accept is handled directly by me, providing continuity, experienced judgment and direct communication from initial review through resolution. ",
-                              u("span", {
-                                className: "font-semibold text-[#0E223F]",
-                                children:
-                                  "I approach every file with the same care and attention I would expect if it were my own.",
+                              C("svg", {
+                                width: "16",
+                                height: "16",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                strokeWidth: "2",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                children: [
+                                  u("line", { x1: "19", y1: "12", x2: "5", y2: "12" }),
+                                  u("polyline", { points: "12 19 5 12 12 5" }),
+                                ],
                               }),
+                              "Back to Home",
                             ],
                           }),
                         ],
                       }),
-                      u("div", {
-                        className:
-                          "relative order-1 lg:order-2 lg:sticky lg:top-28",
-                        children: C("div", {
-                          className: "relative",
-                          onTouchStart: O,
-                          onTouchEnd: H,
-                          children: [
-                            u("div", {
-                              className:
-                                "relative min-h-[340px] sm:min-h-[360px] overflow-hidden",
-                              children: R.map((z, B) =>
-                                u(
-                                  "div",
-                                  {
-                                    className: `absolute inset-0 will-change-transform ${g === B ? "opacity-100 translate-y-0 scale-100" : B < g ? "opacity-0 -translate-y-[20%] scale-95 pointer-events-none" : "opacity-0 translate-y-[30%] scale-95 pointer-events-none"}`,
-                                    style: {
-                                      transition:
-                                        "transform 700ms cubic-bezier(0.25, 1, 0.5, 1), opacity 600ms ease-out",
-                                    },
-                                    children: C("div", {
-                                      className:
-                                        "rounded-[24px] p-6 lg:p-8 border border-[#0E223F]/15 shadow-none min-h-[320px] flex flex-col",
-                                      style: {
-                                        background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, #F5F6F8 80%)"
-                                      },
-                                      children: [
-                                        C("div", {
-                                          className:
-                                            "flex items-start justify-between",
-                                          children: [
-                                            u("span", {
-                                              className:
-                                                "font-inter text-[11px] tracking-[0.16em] font-medium",
-                                              style: { color: zn },
-                                              children: z.n,
-                                            }),
-                                            u("div", {
-                                              className:
-                                                "w-9 h-9 rounded-full flex items-center justify-center",
-                                              style: { backgroundColor: zn },
-                                              children: z.icon,
-                                            }),
-                                          ],
-                                        }),
-                                        u("h3", {
-                                          className:
-                                            "font-inter font-medium text-[19px] lg:text-[20px] leading-[1.3] tracking-[-0.01em] text-[#0E223F] mt-6",
-                                          children: z.title,
-                                        }),
-                                        u("div", {
-                                          className:
-                                            "w-full h-px bg-[#0E223F]/10 my-5",
-                                        }),
-                                        u("p", {
-                                          className:
-                                            "font-inter text-[15px] leading-7 text-[#475569]",
-                                          children: z.desc,
-                                        }),
-                                      ],
-                                    }),
-                                  },
-                                  z.n,
-                                ),
-                              ),
-                            }),
-                            u("div", {
-                              className:
-                                "flex items-center justify-center gap-2.5 mt-8",
-                              children: R.map((z, B) =>
-                                u(
-                                  "button",
-                                  {
-                                    onClick: () => w(B),
-                                    "aria-label": `Go to ${B + 1}`,
-                                    className: `h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${g === B ? "w-8 bg-[#0E223F]" : "w-2 bg-[#0E223F]/20 hover:bg-[#0E223F]/30"}`,
-                                  },
-                                  B,
-                                ),
-                              ),
-                            }),
-                          ],
-                        }),
-                      }),
-                    ],
-                  }),
-                ],
-              }),
-            }),
-            C("section", {
-              id: "expertise",
-              className: "bg-[#0E223F] relative overflow-hidden",
-              children: [
-                u("div", {
-                  className: "absolute inset-0 opacity-[0.06]",
-                  style: {
-                    backgroundImage:
-                      "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-                    backgroundSize: "28px 28px",
-                  },
-                }),
-                u("div", {
-                  className:
-                    "absolute -top-32 -right-24 w-[480px] h-[480px] rounded-full bg-white/[0.04] pointer-events-none",
-                }),
-                C("div", {
-                  className:
-                    "w-full max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36 relative",
-                  children: [
-                    C("div", {
-                      className: "text-center max-w-3xl mx-auto",
-                      children: [
-                        u("span", {
-                          className:
-                            "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#F5F6F8] text-[#0E223F] border border-transparent text-[10.5px] tracking-[0.18em] uppercase font-medium",
-                          children: "Expertise",
-                        }),
-                        u("h2", {
-                          className:
-                            "font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[36px] lg:text-[52px] mt-6",
-                          children:
-                            "Technical expertise. Clear analysis. Informed decisions.",
-                        }),
-                        u("p", {
-                          className:
-                            "font-inter text-[17px] lg:text-[18px] leading-[1.7] text-white/70 mt-6 mx-auto max-w-[60ch]",
-                          children:
-                            "Independent claims expertise for municipalities and policyholders, with a focus on thorough investigation, technical analysis and fair, well-supported outcomes.",
-                        }),
-                      ],
-                    }),
-                    C("div", {
-                      className:
-                        "mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-6 w-full max-w-full min-w-0",
-                      children: [
-                        C("div", {
-                          className:
-                            "bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 min-h-[360px] w-full min-w-0 flex flex-col",
-                          children: [
-                            u("span", {
-                              className:
-                                "font-inter text-[12px] tracking-[0.2em] font-medium text-white/50",
-                              children: "01",
-                            }),
-                            u("h3", {
-                              className:
-                                "font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left",
-                              children: "Municipal Civil Liability",
-                            }),
-                            u("p", {
-                              className: "font-inter text-[12px] tracking-[0.05em] uppercase text-white/50 mt-2 font-medium text-left",
-                              children: "Primary Practice",
-                            }),
-                            u("div", {
-                              className: "w-full h-px bg-white/10 my-5",
-                            }),
-                            C("p", {
-                              className:
-                                "font-inter text-[14px] lg:text-[15px] leading-7 text-white/70 text-left [text-wrap:pretty]",
-                              style: { textWrap: "pretty", textAlign: "left" },
-                              children: [
-                                "Investigation and handling of municipal liability claims involving property damage and bodily\u00A0injury.",
-                                expandedCards[1]
-                                  ? " With extensive experience working directly with municipalities, I\u00A0understand their operational realities, procedures, and the particular considerations involved in municipal\u00A0claims. Each file is assessed through factual investigation, liability analysis, and damage evaluation, leading to clear, practical recommendations tailored to the municipality’s specific\u00A0circumstances."
-                                  : " ",
-                                " ",
-                                u("button", {
-                                  type: "button",
-                                  onClick: () => setExpandedCards((z) => ({ ...z, 1: !z[1] })),
-                                  className:
-                                    "inline-flex items-center text-white/90 hover:text-white font-medium ml-1.5 transition-colors underline cursor-pointer",
-                                  children: expandedCards[1] ? "Read less" : "read more",
-                                }),
-                              ],
-                            }),
-                          ],
-                        }),
-                        C("div", {
-                          className:
-                            "bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 min-h-[360px] w-full min-w-0 flex flex-col",
-                          children: [
-                            u("span", {
-                              className:
-                                "font-inter text-[12px] tracking-[0.2em] font-medium text-white/50",
-                              children: "02",
-                            }),
-                            u("h3", {
-                              className:
-                                "font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left",
-                              children: "Public Adjuster Services",
-                            }),
-                            u("p", {
-                              className: "font-inter text-[12px] tracking-[0.05em] uppercase text-white/50 mt-2 font-medium text-left",
-                              children: "For Policyholders",
-                            }),
-                            u("div", {
-                              className: "w-full h-px bg-white/10 my-5",
-                            }),
-                            C("p", {
-                              className:
-                                "font-inter text-[14px] lg:text-[15px] leading-7 text-white/70 text-left [text-wrap:pretty]",
-                              style: { textWrap: "pretty", textAlign: "left" },
-                              children: [
-                                "Independent claims assistance for individuals navigating a property insurance\u00A0claim.",
-                                expandedCards[2]
-                                  ? " I\u00A0provide policyholders with the technical knowledge and claims expertise needed to understand their coverage, assess the information presented, and make informed decisions throughout the claims process, with the objective of reaching a fair settlement in accordance with their insurance\u00A0policy."
-                                  : " ",
-                                " ",
-                                u("button", {
-                                  type: "button",
-                                  onClick: () => setExpandedCards((z) => ({ ...z, 2: !z[2] })),
-                                  className:
-                                    "inline-flex items-center text-white/90 hover:text-white font-medium ml-1.5 transition-colors underline cursor-pointer",
-                                  children: expandedCards[2] ? "Read less" : "read more",
-                                }),
-                              ],
-                            }),
-                          ],
-                        }),
-                        C("div", {
-                          className:
-                            "bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 min-h-[360px] w-full min-w-0 flex flex-col",
-                          children: [
-                            u("span", {
-                              className:
-                                "font-inter text-[12px] tracking-[0.2em] font-medium text-white/50",
-                              children: "03",
-                            }),
-                            u("h3", {
-                              className:
-                                "font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left",
-                              children: "Damage Assessment & Technical Analysis",
-                            }),
-                            u("p", {
-                              className: "font-inter text-[12px] tracking-[0.05em] uppercase text-white/50 mt-2 font-medium text-left",
-                              children: "Technical Expertise",
-                            }),
-                            u("div", {
-                              className: "w-full h-px bg-white/10 my-5",
-                            }),
-                            C("p", {
-                              className:
-                                "font-inter text-[14px] lg:text-[15px] leading-7 text-white/70 text-left [text-wrap:pretty]",
-                              style: { textWrap: "pretty", textAlign: "left" },
-                              children: [
-                                "Detailed analysis of property damage, causation, repair estimates, and supporting\u00A0documentation.",
-                                expandedCards[3]
-                                  ? " I\u00A0assess the scope and value of a loss to identify what can reasonably be attributed to the event and provide a clear, well-supported evaluation of the\u00A0damages."
-                                  : " ",
-                                " ",
-                                u("button", {
-                                  type: "button",
-                                  onClick: () => setExpandedCards((z) => ({ ...z, 3: !z[3] })),
-                                  className:
-                                    "inline-flex items-center text-white/90 hover:text-white font-medium ml-1.5 transition-colors underline cursor-pointer",
-                                  children: expandedCards[3] ? "Read less" : "read more",
-                                }),
-                              ],
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                  ],
-                }),
-              ],
-            }),
-            u("section", {
-              id: "process",
-              className: "bg-[#E0F2FE] border-t border-[#0E223F]/[0.06]",
-              children: C("div", {
-                className:
-                  "max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36",
-                children: [
-                  C("div", {
-                    className:
-                      "text-center max-w-2xl mx-auto flex flex-col items-center",
-                    children: [
-                      u("span", {
-                        className:
-                          "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#F5F6F8] text-[#0E223F] border border-[#0E223F]/10 text-[10.5px] tracking-[0.18em] uppercase font-medium",
-                        children: "How I Work",
-                      }),
-                      u("h2", {
-                        className:
-                          "font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[36px] lg:text-[48px] mt-6 text-center",
-                        children: "A clear, structured approach.",
-                      }),
-                      u("p", {
-                        className:
-                          "font-inter text-[17px] lg:text-[18px] leading-[1.7] text-[#0E223F]/70 mt-6 mx-auto max-w-[60ch] text-center",
-                        children: "Every file begins with understanding the facts, identifying the issues, and determining the appropriate path forward.",
-                      }),
                     ],
                   }),
                   C("div", {
-                    className: "relative mt-16 lg:mt-20 w-full",
+                    className: "relative flex justify-center items-end self-end w-full max-w-[420px] lg:max-w-none pt-4 lg:pt-0 hero-portrait-container",
+                    style: { 
+                      height: "clamp(400px, calc(100svh - 180px), 560px)",
+                    },
                     children: [
-                      u("div", {
-                        className:
-                          "hidden md:block absolute top-[48px] lg:top-[56px] left-0 right-0 h-px bg-[#0E223F]/15",
-                        "aria-hidden": "true",
-                      }),
-                      u("div", {
-                        className:
-                          "md:hidden absolute left-[28px] top-[12px] bottom-[12px] w-px bg-[#0E223F]/15",
-                        "aria-hidden": "true",
-                      }),
-                      u("div", {
-                        className:
-                          "grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-8 w-full relative z-10",
-                        children: a.map((z) =>
-                          C(
-                            "div",
-                            {
-                              className:
-                                "relative flex flex-row md:flex-col items-start md:items-center text-left md:text-center min-w-0 gap-5 md:gap-0",
-                              children: [
-                                u("span", {
-                                  className:
-                                    "font-inter not-italic font-normal text-[64px] lg:text-[80px] leading-none tracking-[-0.05em] text-[#0E223F] bg-[#E0F2FE] px-4 md:px-5 select-none shrink-0 relative z-10 -ml-4 md:ml-0",
-                                  children: z.n,
-                                }),
-                                C("div", {
-                                  className:
-                                    "flex flex-col items-start md:items-center text-left md:text-center min-w-0 flex-1 md:flex-initial",
-                                  children: [
-                                    u("h3", {
-                                      className:
-                                        "font-inter font-semibold text-[20px] lg:text-[22px] leading-[1.25] tracking-[-0.01em] text-[#0F172A] mt-1 md:mt-6",
-                                      children: z.title,
-                                    }),
-                                    u("p", {
-                                      className:
-                                        "font-inter text-[15px] leading-7 text-[#4B5563] mt-2 md:mt-3 max-w-[42ch] md:max-w-[32ch] md:mx-auto",
-                                      children: z.desc,
-                                    }),
-                                  ],
-                                }),
-                              ],
-                            },
-                            z.n,
-                          ),
-                        ),
-                      }),
-                    ],
-                  }),
-                ],
-              }),
-            }),
-            u("section", {
-              id: "testimonials",
-              className: "bg-white border-t border-[#E5E7EB]",
-              children: C("div", {
-                className:
-                  "max-w-[1336px] mx-auto px-8 lg:px-12 py-24 lg:py-28 flex flex-col items-center",
-                children: [
-                  C("div", {
-                    className:
-                      "w-full flex flex-col items-center text-center mb-12 lg:mb-16",
-                    children: [
-                      u("span", {
-                        className:
-                          "font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#E5E7EB] text-[#0E223F] border border-[#E5E7EB] text-[10.5px] tracking-[0.18em] uppercase font-medium",
-                        children: "Testimonials",
-                      }),
-                      u("h2", {
-                        className:
-                          "font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[32px] lg:text-[44px] mt-6 max-w-[24ch] mx-auto text-center",
-                        children: "A track record clients trust.",
-                      }),
-                    ],
-                  }),
-                  C("div", {
-                    className:
-                      "w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1280px] mx-auto items-stretch",
-                    children: [
-                      // Card 1 (White Card)
-                      u("div", {
-                        className:
-                          "bg-white rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 border border-[#0E223F]/15 min-h-[360px] flex flex-col justify-between text-left relative overflow-hidden shadow-sm hover:shadow-md transition-all duration-300",
-                        children: C("div", {
-                          className:
-                            "flex flex-col justify-between h-full w-full",
-                          children: [
-                            C("div", {
-                              className: "flex items-center justify-between w-full mb-3",
-                              children: [
-                                u("p", {
-                                  className:
-                                    "font-inter font-semibold text-[12px] tracking-[0.14em] uppercase text-[#0E223F]/70",
-                                  children: "Homeowner & Policyholder",
-                                }),
-                                u("div", {
-                                  className: "flex text-[#EAB308] gap-0.5 text-sm",
-                                  children: "★★★★★"
-                                })
-                              ]
-                            }),
-                            C("div", {
-                              className: "flex flex-col justify-center my-auto py-1",
-                              children: [
-                                u("h3", {
-                                  className:
-                                    "font-inter font-bold text-[17px] lg:text-[18.5px] leading-[1.3] tracking-[-0.02em] text-[#0E223F] mb-3 text-left",
-                                  children: "“She obtained results in one week that I was not able to get in 2.5 years.”",
-                                }),
-                                u("div", {
-                                  className: "w-full h-px bg-[#0E223F]/10 mb-3",
-                                }),
-                                u("div", {
-                                  style: { maxHeight: isTestimonialExpanded ? "140px" : "80px", overflowY: "auto" },
-                                  className: "testimonial-scrollbar pr-1",
-                                  children: u("p", {
-                                    className:
-                                      "font-inter font-normal text-[13.5px] lg:text-[14px] leading-[1.65] text-[#0E223F]/85 text-left whitespace-pre-line",
-                                    children: "I highly recommend Isabelle Guertin – her expertise made a massive difference for my family.\n\nFollowing an extremely expensive incident in my house, I made a claim to my insurance company – the only claim I made in my life. For over two and a half years, the insurance dragged out the claim, did not reply to follow up emails nor calls in a timely fashion – sometimes, not replying at all. I staggered to follow ups to give the insurance firm plenty of time to reply – it made no difference. At one point, the insurance firm even cancelled my claim, sending me a letter during a Canada Post strike that I only received months later. They wound up re-opening my file when and then did not get back to me for months.\n\nI wound up hiring the services of Isabelle Guertin. After a brief call outlining the case, she told me her hourly rate and her estimate of how many hours it would take for her to work on my claim, representing my interests. It was a perfectly reasonable estimate.\n\nWithin one week, she got results. The insurance company wrote a significant, 5 figure cheque to reimburse me for work done to rectify the incident. Her fixed consulting fee came to approx. 5% of the total reimbursement, and she manage to obtain results in one week that I was not able to get in 2.5 years.\n\nNext, she continued intervening and negotiating with the insurer for more work. They made an offer that I was ready to accept. However, she noticed that there were items that they should cover, resulting in an extra $10,000 payment, on top their initial offer, to fix/replace the items that were damaged.\n\nShe is an insurance expert. She knows details about insurance that the average consumer, the average household, does not know. She is extremely professional, knowledgeable, ethical. She is very, very good at what she does – representing your interests on insurance claims. I highly recommend her."
-                                  })
-                                }),
-                              ]
-                            }),
-                            C("div", {
-                              className: "mt-auto pt-3 flex items-center justify-between border-t border-[#0E223F]/05",
-                              children: [
-                                u("button", {
-                                  type: "button",
-                                  onClick: () => setIsTestimonialExpanded(!isTestimonialExpanded),
-                                  className:
-                                    "font-inter text-[12.5px] font-semibold text-[#0E223F] hover:text-[#1E3358] underline underline-offset-4 inline-flex items-center gap-1 cursor-pointer",
-                                  children: isTestimonialExpanded ? "Read less" : "Read more",
-                                }),
-                                u("span", {
-                                  className: "font-inter font-medium text-[12px] tracking-[0.1em] uppercase text-[#0E223F]/50",
-                                  children: "— Verified Client"
-                                })
-                              ]
-                            })
-                          ],
-                        }),
-                      }),
-
-                      // Card 2 (Dark Blue Card)
+                      // Professional Name & Microcopy
                       C("div", {
-                        className:
-                          "bg-[#0E223F] rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 relative overflow-hidden shadow-[0_24px_64px_rgba(14,34,63,0.14)] border border-white/15 min-h-[360px] flex flex-col justify-between text-left",
+                        className: "hero-name-badge select-none pointer-events-none hidden sm:block",
+                        style: {
+                          position: "absolute",
+                          right: "2%",
+                          top: "20%",
+                          zIndex: 25,
+                          textAlign: "left",
+                          filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
+                        },
                         children: [
-                          u("div", {
-                            className: "absolute inset-0 opacity-[0.06]",
-                            style: {
-                              backgroundImage:
-                                "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-                              backgroundSize: "28px 28px",
-                            },
-                          }),
-                          u("div", {
-                            className:
-                              "absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-white/[0.04] pointer-events-none",
-                          }),
                           C("div", {
-                            className:
-                              "relative flex flex-col justify-between h-full w-full z-10",
+                            className: "font-inter italic font-medium text-left",
+                            style: {
+                              fontSize: "23.2px",
+                              lineHeight: "0.95",
+                              color: "#0E223F",
+                              letterSpacing: "-0.01em",
+                            },
                             children: [
-                              C("div", {
-                                className: "flex items-center justify-between w-full mb-3",
-                                children: [
-                                  u("p", {
-                                    className:
-                                      "font-inter font-semibold text-[12px] tracking-[0.14em] uppercase text-white/70",
-                                    children: "Municipal Client",
-                                  }),
-                                  u("div", {
-                                    className: "flex text-[#EAB308] gap-0.5 text-sm",
-                                    children: "★★★★★"
-                                  })
-                                ]
-                              }),
-                              C("div", {
-                                className: "flex flex-col justify-center my-auto py-1",
-                                children: [
-                                  u("h3", {
-                                    className:
-                                      "font-inter font-bold text-[17px] lg:text-[18.5px] leading-[1.3] tracking-[-0.02em] text-white mb-3 text-left",
-                                    children: "“Rigorous analysis and dependable claims handling for our municipality.”",
-                                  }),
-                                  u("div", {
-                                    className: "w-full h-px bg-white/15 mb-3",
-                                  }),
-                                  u("div", {
-                                    style: { maxHeight: "140px", overflowY: "auto" },
-                                    className: "testimonial-scrollbar pr-1",
-                                    children: u("p", {
-                                      className:
-                                        "font-inter font-normal text-[13.5px] lg:text-[14px] leading-[1.65] text-white/80 text-left",
-                                      children:
-                                        "Extensive experience in municipal civil liability, handling property damage and bodily injury claims with absolute precision, speed, and professionalism.",
-                                    })
-                                  }),
-                                ]
-                              }),
-                              u("div", {
-                                className: "mt-auto pt-3 border-t border-white/05",
-                                children: u("p", {
-                                  className:
-                                    "font-inter font-medium text-[12px] tracking-[0.1em] uppercase text-white/50",
-                                  children: "— City Clerk",
-                                })
-                              })
+                              u("span", { style: { display: "block" }, children: "Isabelle" }),
+                              u("span", { style: { display: "block", paddingLeft: "12px" }, children: "Guertin" })
                             ],
                           }),
+                          u("div", {
+                            className: "font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563] about-claims-adjuster",
+                            style: { marginTop: "5px", paddingLeft: "0px", marginLeft: "0px" },
+                            children: "- claims adjuster",
+                          })
                         ],
                       }),
-
-                      // Card 3 (White Card)
-                      u("div", {
-                        className:
-                          "bg-white rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 border border-[#0E223F]/15 min-h-[360px] flex flex-col justify-between text-left relative overflow-hidden shadow-sm hover:shadow-md transition-all duration-300",
-                        children: C("div", {
-                          className:
-                            "flex flex-col justify-between h-full w-full",
-                          children: [
-                            C("div", {
-                              className: "flex items-center justify-between w-full mb-3",
-                              children: [
-                                u("p", {
-                                  className:
-                                    "font-inter font-semibold text-[12px] tracking-[0.14em] uppercase text-[#0E223F]/70",
-                                  children: "Commercial Property Owner",
-                                }),
-                                u("div", {
-                                  className: "flex text-[#EAB308] gap-0.5 text-sm",
-                                  children: "★★★★★"
-                                })
-                              ]
-                            }),
-                            C("div", {
-                              className: "flex flex-col justify-center my-auto py-1",
-                              children: [
-                                u("h3", {
-                                  className:
-                                    "font-inter font-bold text-[17px] lg:text-[18.5px] leading-[1.3] tracking-[-0.02em] text-[#0E223F] mb-3 text-left",
-                                  children: "“Invaluable technical expertise during complex claim negotiation.”",
-                                }),
-                                u("div", {
-                                  className: "w-full h-px bg-[#0E223F]/10 mb-3",
-                                }),
-                                u("div", {
-                                  style: { maxHeight: "140px", overflowY: "auto" },
-                                  className: "testimonial-scrollbar pr-1",
-                                  children: u("p", {
-                                    className:
-                                      "font-inter font-normal text-[13.5px] lg:text-[14px] leading-[1.65] text-[#0E223F]/85 text-left",
-                                    children:
-                                      "Isabelle’s thorough documentation and understanding of policy terms ensured an accurate and fair settlement for our property loss.",
-                                  })
-                                }),
-                              ]
-                            }),
-                            u("div", {
-                              className: "mt-auto pt-3 border-t border-[#0E223F]/05",
-                              children: u("p", {
-                                className:
-                                  "font-inter font-medium text-[12px] tracking-[0.1em] uppercase text-[#0E223F]/50",
-                                children: "— Commercial Policyholder",
-                              })
-                            })
-                          ],
-                        }),
-                      }),
-                    ],
-                  }),
-                  C("div", {
-                    className: "flex items-center justify-center gap-2 mt-2",
-                    children: [
-                      u("span", {
-                        className: "h-2 w-8 rounded-full bg-[#0E223F]/20",
-                      }),
-                      u("span", {
-                        className: "h-2 w-2 rounded-full bg-[#0E223F]",
-                      }),
-                      u("span", {
-                        className: "h-2 w-2 rounded-full bg-[#0E223F]/20",
+                      u("img", {
+                        src: "isabelle-portrait-opt.webp",
+                        alt: "Isabelle Guertin - Claims Advisory",
+                        className: "hero-portrait-img",
+                        fetchpriority: "high",
+                        loading: "eager",
+                        style: {
+                          userSelect: "none",
+                          pointerEvents: "none",
+                          position: "relative",
+                          zIndex: 10,
+                          width: "auto",
+                          height: "100%",
+                          maxHeight: "575px",
+                          maxWidth: "440px",
+                          objectFit: "contain",
+                          objectPosition: "bottom",
+                          filter: "drop-shadow(0 25px 25px rgba(0, 0, 0, 0.05))"
+                        }
                       }),
                     ],
                   }),
@@ -13199,6 +12429,175 @@ Error generating stack: ` +
                 ],
               }),
             }),
+            false &&
+              C("div", {
+                className:
+                  "fixed inset-0 z-50 overflow-y-auto bg-[#0E223F] text-white flex flex-col justify-between transition-all duration-300",
+                style: {
+                  background:
+                    "radial-gradient(ellipse 80% 70% at 20% 20%, rgba(218, 227, 238, 0.14) 0%, rgba(14, 34, 63, 1) 85%), #0E223F",
+                },
+                children: [
+                  C("header", {
+                    className:
+                      "w-full border-b border-white/10 bg-[#0E223F]/90 backdrop-blur-md sticky top-0 z-10",
+                    children: C("div", {
+                      className:
+                        "max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between",
+                      children: [
+                        C("a", {
+                          href: "index.html",
+                          onClick: (e) => {
+                            e.preventDefault();
+                            setIsAboutOpen(false);
+                          },
+                          className: "flex items-center gap-3 group cursor-pointer",
+                          children: [
+                            u("div", {
+                              className:
+                                "w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center",
+                              children: "G",
+                            }),
+                            C("div", {
+                              className: "flex flex-col justify-center",
+                              children: [
+                                u("span", {
+                                  className:
+                                    "font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1]",
+                                  children: "GUERTIN",
+                                }),
+                                u("span", {
+                                  className:
+                                    "font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px]",
+                                  children: "ISABELLE",
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        C("button", {
+                          type: "button",
+                          onClick: () => setIsAboutOpen(false),
+                          className:
+                            "inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 text-white text-[13px] font-inter font-medium transition-colors cursor-pointer",
+                          children: [
+                            "Close",
+                            C("svg", {
+                              width: "14",
+                              height: "14",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              strokeWidth: "2",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round",
+                              children: [
+                                u("line", { x1: "18", y1: "6", x2: "6", y2: "18" }),
+                                u("line", { x1: "6", y1: "6", x2: "18", y2: "18" }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  }),
+                  C("main", {
+                    className:
+                      "max-w-[1336px] mx-auto px-8 lg:px-12 py-12 lg:py-16 w-full my-auto",
+                    children: C("div", {
+                      className:
+                        "grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center",
+                      children: [
+                        C("div", {
+                          className: "flex flex-col items-start text-left",
+                          children: [
+                            u("span", {
+                              className:
+                                "font-inter text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium",
+                              children: "- ABOUT THE PRACTICE - LEGACY -",
+                            }),
+                            u("h1", {
+                              className:
+                                "font-inter italic font-light tracking-[-0.04em] leading-[1.08] text-white text-[36px] sm:text-[44px] lg:text-[52px] mt-4",
+                              children: "R. Guertin & Ass.",
+                            }),
+                            u("div", {
+                              className: "w-16 h-px bg-white/25 my-6",
+                            }),
+                            C("p", {
+                              className:
+                                "font-inter text-[16px] sm:text-[17.5px] lg:text-[18px] leading-[1.8] text-white/85 max-w-[54ch] [text-wrap:pretty]",
+                              children: [
+                                "R. Guertin & Ass. grew from a family passion for claims adjusting. Founded by Roy Guertin, the firm built a strong reputation over the years based on integrity, thoroughness, and a commitment to providing high-quality service to its clients.",
+                                u("br", {}),
+                                u("br", {}),
+                                "Following Roy’s retirement in early 2026, Isabelle continues that legacy, carrying forward the same values while bringing her own experience and approach to the practice.",
+                              ],
+                            }),
+                            C("div", {
+                              className: "flex flex-wrap items-center gap-4 mt-8",
+                              children: [
+                                C("a", {
+                                  href: "#contact",
+                                  onClick: () => setIsAboutOpen(false),
+                                  className:
+                                    "font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide bg-white text-[#0E223F] hover:bg-white/90 transition-all px-7 py-3 text-[14.5px]",
+                                  children: [
+                                    "Contact Isabelle",
+                                    C("svg", {
+                                      width: "16",
+                                      height: "16",
+                                      viewBox: "0 0 24 24",
+                                      fill: "none",
+                                      stroke: "currentColor",
+                                      strokeWidth: "2",
+                                      strokeLinecap: "round",
+                                      strokeLinejoin: "round",
+                                      children: [
+                                        u("line", { x1: "5", y1: "12", x2: "19", y2: "12" }),
+                                        u("polyline", { points: "12 5 19 12 12 19" }),
+                                      ],
+                                    }),
+                                  ],
+                                }),
+                                u("button", {
+                                  type: "button",
+                                  onClick: () => setIsAboutOpen(false),
+                                  className:
+                                    "font-inter inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-colors px-6 py-3 text-[14.5px] cursor-pointer",
+                                  children: "Back to Home",
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        C("div", {
+                          className:
+                            "relative flex justify-center items-end min-h-[380px] lg:min-h-[480px] rounded-[28px] border border-white/10 bg-gradient-to-b from-white/10 via-white/5 to-transparent p-6 overflow-hidden",
+                          children: [
+                            u("img", {
+                              src: "isabelle-portrait-opt.webp",
+                              alt: "Isabelle Guertin - R. Guertin & Ass.",
+                              className:
+                                "relative z-10 max-h-[500px] w-auto object-contain object-bottom select-none pointer-events-none",
+                              draggable: !1,
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  }),
+                  u("footer", {
+                    className:
+                      "w-full border-t border-white/10 py-6 bg-[#0E223F]/80 text-center",
+                    children: u("p", {
+                      className:
+                        "font-inter text-[12px] tracking-[0.14em] uppercase text-white/50",
+                      children: "R. Guertin & Ass. • Guertin Claims Advisory • Greater Montreal",
+                    }),
+                  }),
+                ],
+              }),
           ],
         });
       }
@@ -13890,7 +13289,7 @@ Error generating stack: ` +
           if (testimonialsSec) {
             let headerUnit = testimonialsSec.querySelector('.text-center');
             addTarget(headerUnit, 0);
-            let tCards = testimonialsSec.querySelectorAll('.grid > div');
+            let tCards = testimonialsSec.querySelectorAll('.flex.gap-6 > div');
             tCards.forEach((card, idx) => addTarget(card, idx * 180));
           }
 
@@ -13899,8 +13298,7 @@ Error generating stack: ` +
           if (contactSec) {
             let leftCol = contactSec.querySelector('.flex-col.items-start');
             addTarget(leftCol, 0);
-            let formEl = contactSec.querySelector('form');
-            let formCard = formEl ? formEl.parentElement : null;
+            let formCard = contactSec.querySelector('form').parentElement;
             addTarget(formCard, 180);
           }
 
@@ -13917,27 +13315,8 @@ Error generating stack: ` +
           });
 
           scrollTargets.forEach(el => observer.observe(el));
-
-          // Safety fallback: make everything visible after 2s regardless
-          setTimeout(() => {
-            scrollTargets.forEach(el => {
-              if (el && parseFloat(el.style.opacity) < 1) {
-                el.style.opacity = '1';
-                el.style.transform = 'translate3d(0,0,0)';
-              }
-            });
-          }, 2000);
-
         } catch(e) {
           console.error('Scroll motion error:', e);
-          // On any error, make all testimonials cards visible immediately
-          let tSec = document.getElementById('testimonials');
-          if (tSec) {
-            tSec.querySelectorAll('.flex.gap-6 > div').forEach(el => {
-              el.style.opacity = '1';
-              el.style.transform = 'none';
-            });
-          }
         }
       };
 
