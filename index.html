@@ -12007,8 +12007,22 @@ Error generating stack: ` +
                         C("p", {
                           className:
                             "mt-6 text-[#4B5563] text-lg sm:text-[19px] leading-relaxed max-w-xl font-normal tracking-[0.01em]",
-                          children:
-                            "Independent claims adjuster specializing in municipal civil liability, with extensive experience in property damage and bodily injury claims. I also bring that same technical expertise directly to policyholders, helping them understand, document and navigate their own insurance claims.",
+                          children: [
+                            "Independent claims adjuster ",
+                            u("span", {
+                              className: "font-semibold text-[#1E3358]",
+                              children: "specializing in municipal civil liability,",
+                            }),
+                            u("br", {}),
+                            u("span", {
+                              className: "font-semibold text-[#1E3358]",
+                              children: "property damage, and bodily injury.",
+                            }),
+                            u("br", {}),
+                            " I bring technical expertise directly to ",
+                            u("br", {}),
+                            "policyholders to help them document and navigate their claims.",
+                          ],
                         }),
                         C("div", {
                           className: "flex flex-col sm:flex-row gap-4 mt-10",
