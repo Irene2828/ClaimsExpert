@@ -2039,6 +2039,10 @@
           line-height: 1.45 !important;
         }
       }
+      /* Remove blue glow / drop-shadow from hero portrait on all screens */
+      html body .hero-portrait-img {
+        filter: none !important;
+      }
     </style>
   </head>
   <body>
@@ -12106,7 +12110,7 @@ Error generating stack: ` +
                                     maxWidth: "440px",
                                     objectFit: "contain",
                                     objectPosition: "bottom",
-                                    filter: "drop-shadow(0 20px 40px rgba(11, 30, 58, 0.18)) drop-shadow(0 8px 16px rgba(11, 30, 58, 0.10))",
+                                    filter: "none",
                                   },
                                   draggable: !1,
                                 }),
