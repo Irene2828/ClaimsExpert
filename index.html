@@ -13797,7 +13797,13 @@ Error generating stack: ` +
               document.title,
               cleanUrl.toString(),
             );
-          } catch (e    <script>
+          } catch (e) {
+            console.error("Failed to parse feedback data:", e);
+          }
+        }
+      });
+    </script>
+    <script>
       let setupScrollMotion = () => {
         let applyStyle = (el, opacity, y, x, delay, duration = 0.9) => {
           if (!el || el.dataset.motionInit) return;
