@@ -1982,6 +1982,7 @@
       }
     </style>
     <style id="premium-motion-init">
+      #hero .z-10, #hero .hero-img-col, header nav a { opacity: 0; }
     </style>
     <style>
       /* Hide Vercel native toolbar */
@@ -13831,7 +13832,7 @@ Error generating stack: ` +
           let testimonials = document.getElementById('testimonials');
           let contact = document.getElementById('contact');
 
-          if (!hero && !approach && !expertise && attempts < 20) {
+          if (!hero && !approach && !expertise && attempts < 100) {
             setTimeout(init, 50);
             return;
           }
