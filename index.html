@@ -1948,12 +1948,13 @@
         pointer-events: none !important;
       }
 
-      /* Desktop Width & Layout Scaling for 1400px+ Viewports (including MacBook "More Space" mode) */
-      @media (min-width: 1400px) {
+      /* Desktop Width & Layout Scaling for 1400px+ Viewports */
+      @media (min-width: 1400px) and (max-width: 1499px) {
+        /* 1440px screens: decrease site content width by 5% (from 1520px to ~1444px / 1336px base * 1.08) */
         div[class*="max-w-[1336px]"],
         div.max-w-\[1336px\],
         .max-w-\[1336px\] {
-          max-width: 1520px !important;
+          max-width: 1444px !important;
         }
       }
 
@@ -1963,24 +1964,54 @@
         .max-w-\[1336px\] {
           max-width: 1620px !important;
         }
-        /* Header UI +5% scale */
+
+        /* 1. Header logo, nav links, CTA button, and top bar links +5% */
+        header a img,
+        header a .w-8.h-8 {
+          transform: scale(1.05) !important;
+          transform-origin: left center !important;
+        }
         header nav a {
           font-size: 14.7px !important;
         }
-        header a[href="tel:4387941044"] {
-          font-size: 14.3px !important;
+        header a[href="tel:4387941044"],
+        div[class*="bg-[#0E223F]"] a[href="tel:4387941044"] {
+          font-size: 14.33px !important;
           padding: 10px 20px !important;
         }
-        
-        /* Hero Scaling & Proportions */
+
+        /* 2. Both CTAs in hero +5% ("Book an appointment" & "See how I work") */
+        #hero a[href="#contact"],
+        #hero a[href="#approach"] {
+          height: 50.7px !important;
+          padding-left: 31px !important;
+          padding-right: 31px !important;
+          font-size: 15.4px !important;
+        }
+
+        /* 3. Cut line width for subline paragraph text by 5% */
+        #hero p {
+          max-width: 535px !important;
+        }
+
+        /* 4. Increase name and title next to image by 5% */
+        .hero-name-badge {
+          transform: scale(1.05) !important;
+          transform-origin: bottom left !important;
+        }
+
+        /* 5. Decrease quote text by 2px (from 13.5px / 12.6px down to ~11.5px / 11.6px) */
+        .hero-quote-card p {
+          font-size: 11.5px !important;
+          line-height: 1.5 !important;
+        }
+
+        /* Hero Scaling & Container Proportions */
         #hero {
           min-height: calc(100svh - 108px) !important;
         }
         #hero h1 {
           font-size: clamp(48px, 5.4vw, 76px) !important;
-        }
-        #hero p {
-          font-size: 20px !important;
         }
         .hero-img-col > div {
           max-width: 580px !important;
@@ -1991,16 +2022,12 @@
           max-width: 540px !important;
         }
 
-        /* Quote frame ratio fix: wider max-width so text flows in fewer lines matching 1440px proportion */
+        /* Quote frame container position & width */
         .hero-quote-card {
           max-width: 370px !important;
-          padding: 15px 18px !important;
+          padding: 14px 16px !important;
           right: -40px !important;
           bottom: 25px !important;
-        }
-        .hero-quote-card p {
-          font-size: 13.5px !important;
-          line-height: 1.55 !important;
         }
       }
     </style>
@@ -12022,7 +12049,7 @@ Error generating stack: ` +
                               children: [
                                 // Professional Name & Microcopy — no background fill
                                 C("div", {
-                                  className: "select-none pointer-events-none hidden sm:block",
+                                  className: "hero-name-badge select-none pointer-events-none hidden sm:block",
                                   style: {
                                     position: "absolute",
                                     left: "-7%",
