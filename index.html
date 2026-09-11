@@ -1958,56 +1958,57 @@
         }
       }
 
-      @media (min-width: 1500px) {
+      @media (min-width: 1670px) {
         div[class*="max-w-[1336px]"],
         div.max-w-\[1336px\],
         .max-w-\[1336px\] {
-          max-width: 1620px !important;
+          max-width: 1539px !important;
         }
 
-        /* 1. Top bar ("reclamations@rguertin.ca • Greater Montreal • EN | FR") +5% */
-        .top-banner p,
-        div.top-banner p {
+        /* 1. Top bar text */
+        .top-bar-text-item {
           font-size: 11.55px !important;
         }
 
-        /* 2. Header logo ("GUERTIN ISABELLE"), nav links, CTA button +5% */
-        header a div span {
-          font-size: 105% !important;
-        }
-        header nav a {
+        /* 2. Header nav links and CTA */
+        .header-nav-link {
           font-size: 14.7px !important;
         }
-        header a[href="tel:4387941044"] {
+        .header-cta-btn {
           font-size: 14.33px !important;
           padding: 9.45px 18.9px !important;
         }
 
-        /* 3. Hero subline paragraph text +5% size (from 19px base to ~20px) & constrained width */
+        /* 3. Hero subline paragraph text +5% size */
         #hero p.max-w-xl,
         #hero p {
           font-size: 20px !important;
-          max-width: 560px !important;
+          max-width: 577px !important; /* increased by 3% from 560px */
         }
 
-        /* 4. Hero CTAs +5% ("Book an appointment" & "See how I work") */
-        #hero a[href="#contact"],
-        #hero a[href="#approach"] {
+        /* 4. Hero CTAs +5% */
+        .hero-cta-btn {
           height: 50.7px !important;
           padding-left: 31px !important;
           padding-right: 31px !important;
           font-size: 15.4px !important;
         }
-
-        /* 5. Name and title next to image +5% */
-        .hero-name-badge {
-          transform: scale(1.05) !important;
-          transform-origin: bottom left !important;
+        .hero-cta-btn svg {
+          width: 16.8px !important;
+          height: 16.8px !important;
         }
 
-        /* 6. Quote text in the frame increased by 5% (from 12.6px base to 13.25px) */
+        /* 5. Name and title next to image */
+        .hero-name-badge {
+          /* "claims adjuster" +1px (11px base to 12px) */
+        }
+        .hero-name-badge .about-claims-adjuster {
+          font-size: 12px !important;
+        }
+
+        /* 6. Quote text - make 1px smaller than default 12.6px => 11.6px */
         .hero-quote-card p {
-          font-size: 13.25px !important;
+          font-size: 11.6px !important;
           line-height: 1.55 !important;
         }
 
@@ -11758,7 +11759,7 @@ Error generating stack: ` +
                   "max-w-[1336px] mx-auto px-8 lg:px-12 h-[36px] flex items-center justify-end",
                 children: C("p", {
                   className:
-                    "font-inter text-[11px] tracking-[0.14em] text-[#0E223F]/70 uppercase font-normal",
+                    "font-inter text-[11px] tracking-[0.14em] text-[#0E223F]/70 uppercase font-normal top-bar-text-item",
                   children: [
                     "reclamations@rguertin.ca ",
                     u("span", { className: "mx-2 opacity-20", children: "•" }),
@@ -11824,7 +11825,7 @@ Error generating stack: ` +
                       children: C("a", {
                         href: "tel:4387941044",
                         className:
-                          "font-inter inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]",
+                          "font-inter inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] header-cta-btn",
                         children: [
                           u("svg", {
                             width: "14",
@@ -11984,8 +11985,8 @@ Error generating stack: ` +
                             u("a", {
                               href: "#contact",
                               className:
-                                "font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)]",
-                              style: { backgroundColor: zn, height: "48.3px", paddingLeft: "29.4px", paddingRight: "29.4px", fontSize: "14.7px", whiteSpace: "nowrap" },
+                                "font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]",
+                              style: { backgroundColor: zn, whiteSpace: "nowrap" },
                               children: [
                                 "Book an appointment",
                                 u("svg", {
@@ -12010,8 +12011,8 @@ Error generating stack: ` +
                             u("a", {
                               href: "#approach",
                               className:
-                                "font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8]",
-                              style: { borderColor: zn, color: zn, height: "48.3px", paddingLeft: "29.4px", paddingRight: "29.4px", fontSize: "14.7px", whiteSpace: "nowrap" },
+                                "font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]",
+                              style: { borderColor: zn, color: zn, whiteSpace: "nowrap" },
                               children: [
                                 "See how I work",
                                 u("svg", {
@@ -12078,7 +12079,7 @@ Error generating stack: ` +
                                       ],
                                     }),
                                     u("div", {
-                                      className: "font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563]",
+                                      className: "font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563] about-claims-adjuster",
                                       style: { marginTop: "5px", paddingLeft: "0px", marginLeft: "-3px" },
                                       children: "- claims adjuster",
                                     })
