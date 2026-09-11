@@ -1965,75 +1965,78 @@
           max-width: 1539px !important;
         }
 
-        /* 1. Top bar text */
-        .top-bar-text-item {
+        /* 1. Top bar text (+5% from 11px to 11.55px) */
+        html body .top-bar-text-item {
           font-size: 11.55px !important;
         }
 
-        /* 2. Header nav links and CTA */
-        .header-nav-link {
+        /* 2. Header nav links (+5% from 14px to 14.7px) and CTA (+5% from 13.65px to 14.33px) */
+        html body a.header-nav-link,
+        html body .header-nav-link {
           font-size: 14.7px !important;
         }
-        .header-cta-btn {
+        html body a.header-cta-btn,
+        html body .header-cta-btn {
           font-size: 14.33px !important;
           padding: 9.45px 18.9px !important;
         }
 
-        /* 3. Hero subline paragraph text +5% size */
-        #hero p.max-w-xl,
-        #hero p {
+        /* 3. Hero tag line (+5% from 11px to 11.55px) */
+        html body .hero-tag-line {
+          font-size: 11.55px !important;
+        }
+
+        /* 4. Hero subline paragraph text +5% size */
+        html body #hero p.max-w-xl,
+        html body #hero p {
           font-size: 20px !important;
           max-width: 577px !important; /* increased by 3% from 560px */
         }
 
-        /* 4. Hero CTAs +5% */
-        .hero-cta-btn {
+        /* 5. Hero CTAs +5% */
+        html body a.hero-cta-btn,
+        html body .hero-cta-btn {
           height: 50.7px !important;
           padding-left: 31px !important;
           padding-right: 31px !important;
           font-size: 15.4px !important;
         }
-        .hero-cta-btn svg {
+        html body .hero-cta-btn svg {
           width: 16.8px !important;
           height: 16.8px !important;
         }
 
-        /* 5. Name and title next to image */
-        .hero-name-badge {
-          /* "claims adjuster" +1px (11px base to 12px) */
-        }
-        .hero-name-badge .about-claims-adjuster {
+        /* 6. Name and title next to image */
+        html body .hero-name-badge .about-claims-adjuster {
           font-size: 12px !important;
         }
 
-        /* 6. Quote text - make 1px smaller than default 12.6px => 11.6px */
-        .hero-quote-card p {
+        /* 7. Quote text and card sizing */
+        html body .hero-quote-card {
+          max-width: 275px !important;
+          padding: 13px 16px !important;
+          right: -25px !important;
+          bottom: 20px !important;
+        }
+        html body .hero-quote-card p {
           font-size: 11.6px !important;
           line-height: 1.55 !important;
         }
 
         /* Hero Container Proportions */
-        #hero {
+        html body #hero {
           min-height: calc(100svh - 108px) !important;
         }
-        #hero h1 {
+        html body #hero h1 {
           font-size: clamp(48px, 5.4vw, 76px) !important;
         }
-        .hero-img-col > div {
+        html body .hero-img-col > div {
           max-width: 580px !important;
           height: clamp(470px, calc(100svh - 180px), 680px) !important;
         }
-        .hero-portrait-img {
+        html body .hero-portrait-img {
           max-height: 680px !important;
           max-width: 540px !important;
-        }
-
-        /* Quote frame container position & width */
-        .hero-quote-card {
-          max-width: 375px !important;
-          padding: 15px 18px !important;
-          right: -40px !important;
-          bottom: 25px !important;
         }
       }
     </style>
@@ -11813,7 +11816,7 @@ Error generating stack: ` +
                             href: z.href,
                             onClick: z.onClick,
                             className:
-                              "font-inter text-[13.65px] lg:text-[14px] font-normal text-white/70 hover:text-white transition-colors tracking-[0.04em]",
+                              "font-inter text-[13.65px] lg:text-[14px] font-normal text-white/70 hover:text-white transition-colors tracking-[0.04em] header-nav-link",
                             children: z.label,
                           },
                           z.label,
@@ -11946,7 +11949,7 @@ Error generating stack: ` +
                           className: "inline-flex items-center",
                           children: u("span", {
                             className:
-                              "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium",
+                              "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line",
                             children: "/ INDEPENDENT CONSULTANT / 20 YEARS OF EXPERIENCE /",
                           }),
                         }),
@@ -12139,7 +12142,7 @@ Error generating stack: ` +
                                     u("p", {
                                       className:
                                         "font-inter italic text-[12.6px] leading-[1.5] tracking-[-0.01em] text-[#374151]",
-                                      style: { fontSize: "12.6px", fontStyle: "italic" },
+                                      style: { fontStyle: "italic" },
                                       children:
                                         "Bringing technical knowledge and claims expertise to assess files objectively and make informed decisions.",
                                     }),
