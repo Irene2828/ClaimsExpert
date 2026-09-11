@@ -11647,7 +11647,7 @@ Error generating stack: ` +
           BA.useEffect(() => {
             let z = setInterval(() => {
               if (Date.now() < i.current) return;
-              P((B) => (B + 1) % 4);
+              P((B) => (B + 1) % 3);
             }, 3000);
 
             return () => clearInterval(z);
@@ -11660,7 +11660,7 @@ Error generating stack: ` +
             { label: "Contact", href: "#contact" },
           ],
           w = (z) => {
-            if (z === g) P((z + 1) % 4);
+            if (z === g) P((z + 1) % 3);
             else P(z);
             i.current = Date.now() + 6000;
           },
@@ -11671,8 +11671,8 @@ Error generating stack: ` +
             if (d.current === null) return;
             let B = z.changedTouches[0].clientX - d.current;
             if (Math.abs(B) > 50) {
-              if (B < 0) P((l) => (l + 1) % 4);
-              else P((l) => (l - 1 + 4) % 4);
+              if (B < 0) P((l) => (l + 1) % 3);
+              else P((l) => (l - 1 + 3) % 3);
               i.current = Date.now() + 6000;
             }
             d.current = null;
@@ -11720,22 +11720,6 @@ Error generating stack: ` +
             },
             {
               n: "03",
-              title: "Municipal claim experience",
-              desc: "[PLACEHOLDER: Prior municipal/insurer experience details]. Understanding how municipal claim files are processed.",
-              icon: u("svg", {
-                width: "16",
-                height: "16",
-                viewBox: "0 0 24 24",
-                fill: "none",
-                stroke: "white",
-                strokeWidth: "1.5",
-                children: u("path", {
-                  d: "M12 3L4 7v6c0 4.418 3.582 8 8 8s8-3.582 8-8V7l-8-4z",
-                }),
-              }),
-            },
-            {
-              n: "04",
               title: "Direct updates",
               desc: "Direct contact and regular updates on your file status — no call centers or automated queues.",
               icon: C("svg", {
@@ -12007,22 +11991,8 @@ Error generating stack: ` +
                         C("p", {
                           className:
                             "mt-6 text-[#4B5563] text-lg sm:text-[19px] leading-relaxed max-w-xl font-normal tracking-[0.01em]",
-                          children: [
-                            "Independent claims adjuster ",
-                            u("span", {
-                              className: "font-semibold text-[#1E3358]",
-                              children: "specializing in municipal civil liability,",
-                            }),
-                            u("br", {}),
-                            u("span", {
-                              className: "font-semibold text-[#1E3358]",
-                              children: "property damage, and bodily injury.",
-                            }),
-                            u("br", {}),
-                            " I bring technical expertise directly to ",
-                            u("br", {}),
-                            "policyholders to help them document and navigate their claims.",
-                          ],
+                          children:
+                            "Independent claims adjuster specializing in municipal civil liability, with extensive experience in property damage and bodily injury claims. I also bring that same technical expertise directly to policyholders, helping them understand, document and navigate their own insurance claims.",
                         }),
                         C("div", {
                           className: "flex flex-col sm:flex-row gap-4 mt-10",
