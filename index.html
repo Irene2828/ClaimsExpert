@@ -1947,6 +1947,40 @@
         opacity: 0 !important;
         pointer-events: none !important;
       }
+
+      /* Desktop Width & Layout Scaling for 1400px+ Viewports (including MacBook "More Space" mode) */
+      @media (min-width: 1400px) {
+        div[class*="max-w-[1336px]"],
+        div.max-w-\[1336px\],
+        .max-w-\[1336px\] {
+          max-width: 1520px !important;
+        }
+      }
+
+      @media (min-width: 1500px) {
+        div[class*="max-w-[1336px]"],
+        div.max-w-\[1336px\],
+        .max-w-\[1336px\] {
+          max-width: 1620px !important;
+        }
+        #hero {
+          min-height: calc(100svh - 108px) !important;
+        }
+        #hero h1 {
+          font-size: clamp(48px, 5.4vw, 76px) !important;
+        }
+        #hero p {
+          font-size: 20px !important;
+        }
+        .hero-img-col > div {
+          max-width: 540px !important;
+          height: clamp(470px, calc(100svh - 180px), 680px) !important;
+        }
+        .hero-portrait-img {
+          max-height: 680px !important;
+          max-width: 520px !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -11660,39 +11694,6 @@ Error generating stack: ` +
         
         /* Prevent double load glitch on hero elements */
         #hero .z-10, #hero .hero-img-col, header nav a { opacity: 0; }
-        
-        /* Scaling for larger desktop screens (1536px and above) */
-        @media (min-width: 1536px) {
-          .max-w-\[1336px\] {
-            max-width: 1520px !important;
-          }
-        }
-
-        /* Dedicated breakpoint for 1600px+ screens (e.g. 1670px display) */
-        @media (min-width: 1600px) {
-          .max-w-\[1336px\] {
-            max-width: 1620px !important;
-          }
-          #hero {
-            min-height: calc(100svh - 108px) !important;
-          }
-          #hero h1 {
-            font-size: clamp(48px, 5.4vw, 76px) !important;
-          }
-          #hero p {
-            font-size: 20px !important;
-          }
-          .hero-img-col > div {
-            max-width: 540px !important;
-            height: clamp(470px, calc(100svh - 180px), 680px) !important;
-          }
-          .hero-portrait-img {
-            max-height: 680px !important;
-            max-width: 520px !important;
-          }
-        }
-        }
-
       `,
             }),
             u("div", {
