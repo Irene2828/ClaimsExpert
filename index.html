@@ -11660,6 +11660,30 @@ Error generating stack: ` +
         
         /* Prevent double load glitch on hero elements */
         #hero .z-10, #hero .hero-img-col, header nav a { opacity: 0; }
+        
+        /* Scaling for larger desktop screens (1536px and above, e.g. 1670px display) */
+        @media (min-width: 1536px) {
+          .max-w-\[1336px\] {
+            max-width: 1470px !important;
+          }
+          #hero {
+            min-height: calc(100svh - 108px) !important;
+          }
+          #hero h1 {
+            font-size: clamp(45px, 5.2vw, 72px) !important;
+          }
+          #hero p {
+            font-size: 19.5px !important;
+          }
+          .hero-img-col > div {
+            max-width: 500px !important;
+            height: clamp(450px, calc(100svh - 180px), 640px) !important;
+          }
+          .hero-portrait-img {
+            max-height: 640px !important;
+            max-width: 480px !important;
+          }
+        }
         }
 
       `,
