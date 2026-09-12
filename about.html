@@ -1990,87 +1990,215 @@
         filter: none !important;
       }
 
-      /* Desktop Width & Layout Scaling strictly for 1670px+ Viewports */
-      @media (min-width: 1670px) {
-        div[class*="max-w-[1336px]"],
-        div.max-w-\[1336px\],
-        .max-w-\[1336px\] {
+      /* Desktop Width & Layout Scaling strictly for 1650px+ and 1670px+ Viewports */
+      @media (min-width: 1650px) {
+        html body div[class*="max-w-[1336px]"],
+        html body div[class*="max-w-\[1336px\]"],
+        html body div.max-w-\[1336px\],
+        html body .max-w-\[1336px\],
+        html body main,
+        html body main[class*="max-w-"],
+        html body .top-banner > div,
+        html body header > div,
+        html body #contact > div,
+        html body footer > div {
           max-width: 1539px !important;
         }
 
-        /* 1. Top bar text visibly larger */
-        html body .top-bar-text-item {
-          font-size: 12px !important;
+        /* 1. Top banner (white bar): scaled +5% to match homepage on 1670px */
+        html body .top-banner > div {
+          height: 38px !important;
         }
 
-        /* 2. Header nav links visibly larger */
+        html body .top-bar-text-item,
+        html body .top-banner p,
+        html body .top-banner span {
+          font-size: 12.6px !important;
+        }
+
+        /* 2. Main header (blue bar): container and all elements scaled +5% to match homepage on 1670px */
+        html body header > div {
+          height: 75.6px !important;
+        }
+
+        html body header a[href="#hero"],
+        html body header a[href="index.html"],
+        html body header a.group {
+          gap: 12.6px !important;
+        }
+
+        html body .header-logo-icon,
+        html body header div.header-logo-icon {
+          width: 33.6px !important;
+          height: 33.6px !important;
+          font-size: 13.65px !important;
+        }
+
+        html body .header-logo-guertin,
+        html body header span.header-logo-guertin {
+          font-size: 13.65px !important;
+        }
+
+        html body .header-logo-isabelle,
+        html body header span.header-logo-isabelle {
+          font-size: 10px !important;
+        }
+
+        html body header nav {
+          gap: 33.6px !important;
+        }
+
         html body a.header-nav-link,
         html body .header-nav-link {
-          font-size: 15px !important;
-        }
-        html body a.header-cta-btn,
-        html body .header-cta-btn {
-          font-size: 14.5px !important;
-          padding: 10px 20px !important;
+          font-size: 15.75px !important;
         }
 
-        /* 3. Hero tag line visibly larger */
-        html body .hero-tag-line {
-          font-size: 12px !important;
+        html body a.header-cta-btn,
+        html body .header-cta-btn {
+          font-size: 15.25px !important;
+          padding: 10.5px 21px !important;
+          gap: 6.3px !important;
+        }
+
+        html body a.header-cta-btn svg,
+        html body .header-cta-btn svg {
+          width: 15px !important;
+          height: 15px !important;
+        }
+
+        /* About Me Section: Eyebrow, Heading, Paragraph & Buttons on 1670px */
+        html body main h1 {
+          font-size: 56px !important;
+        }
+
+        html body main p {
+          font-size: 20px !important;
+          line-height: 1.75 !important;
+          max-width: 60ch !important;
+        }
+
+        html body main a.rounded-full {
+          font-size: 15.5px !important;
+          height: 52px !important;
+          padding: 0 32px !important;
+        }
+
+        /* Eyebrow (- ABOUT THE PRACTICE - LEGACY -) on 1670px */
+        html body .about-eyebrow,
+        html body main span.about-eyebrow,
+        html body main div > span:first-child {
+          font-size: 14px !important;
           letter-spacing: 0.24em !important;
         }
 
-        /* 4. Hero subline paragraph text */
-        html body #hero p.max-w-xl,
-        html body #hero p {
-          font-size: 20px !important;
-          max-width: 580px !important;
+        /* Name and title on about me section on 1670px: move 30% closer to the left side */
+        html body .hero-name-badge {
+          right: 32% !important;
         }
 
-        /* 5. Hero CTAs visibly larger */
-        html body a.hero-cta-btn,
-        html body .hero-cta-btn {
-          height: 52px !important;
-          padding-left: 32px !important;
-          padding-right: 32px !important;
-          font-size: 15.5px !important;
-        }
-        html body .hero-cta-btn svg {
-          width: 17px !important;
-          height: 17px !important;
+        html body .hero-name-badge > div:first-child,
+        html body .hero-name-badge div[style*="fontSize"] {
+          font-size: 24.2px !important;
         }
 
-        /* 6. Name and title next to image */
         html body .hero-name-badge .about-claims-adjuster {
-          font-size: 12px !important;
+          font-size: 14px !important;
         }
 
-        /* 7. Quote text on 1670px screens */
-        html body .hero-quote-card {
-          max-width: 320px !important;
-          right: 0px !important;
-          bottom: 28px !important;
-          padding: 10px 14px !important;
-        }
-        html body #hero .hero-quote-card p {
-          font-size: 14.5px !important;
-          line-height: 1.45 !important;
-        }
-
-        /* Hero Container Proportions */
-        html body #hero {
-          min-height: calc(100svh - 108px) !important;
-        }
-        html body #hero h1 {
-          font-size: clamp(48px, 5.4vw, 76px) !important;
-        }
-        html body .hero-img-col > div {
-          max-width: 580px !important;
+        html body .hero-portrait-container {
           height: clamp(470px, calc(100svh - 180px), 680px) !important;
         }
+
         html body .hero-portrait-img {
           max-height: 680px !important;
           max-width: 540px !important;
+        }
+
+        /* Section Eyebrow Pill Badges on 1670px */
+        html body section span.rounded-full.uppercase,
+        html body section span.rounded-full[class*="uppercase"],
+        html body section span.tracking-\[0\.18em\],
+        html body #contact span.rounded-full {
+          font-size: 12.5px !important;
+          padding: 5px 16px !important;
+        }
+
+        /* Contact Section Texts Scaling on 1670px */
+        html body #contact h2 {
+          font-size: 44px !important;
+        }
+
+        html body #contact div > p.max-w-\[50ch\],
+        html body #contact .lg\:grid-cols-\[1\.1fr_0\.9fr\] > div:first-child > p {
+          font-size: 18px !important;
+          line-height: 1.7 !important;
+        }
+
+        html body #contact .space-y-5 p.uppercase {
+          font-size: 13px !important;
+        }
+
+        html body #contact .space-y-5 p:not(.uppercase) {
+          font-size: 16px !important;
+        }
+
+        html body #contact .space-y-5 .w-9.h-9,
+        html body #contact .space-y-5 div.rounded-full {
+          width: 40px !important;
+          height: 40px !important;
+        }
+
+        html body #contact .rounded-\[24px\] {
+          padding: 36px !important;
+        }
+
+        html body #contact form label {
+          font-size: 13px !important;
+        }
+
+        html body #contact form input,
+        html body #contact form textarea {
+          font-size: 16px !important;
+        }
+
+        html body #contact form input {
+          height: 48px !important;
+        }
+
+        html body #contact form input::placeholder,
+        html body #contact form textarea::placeholder {
+          font-size: 16px !important;
+        }
+
+        html body #contact form button[type="submit"] {
+          font-size: 16px !important;
+          height: 52px !important;
+        }
+
+        html body #contact form p,
+        html body #contact form + p,
+        html body #contact .rounded-\[24px\] p,
+        html body #contact p.text-white\/50 {
+          font-size: 14px !important;
+        }
+
+        /* Footer: Match homepage on 1670px */
+        html body footer .flex.items-center.gap-3 span,
+        html body footer span.uppercase {
+          font-size: 13px !important;
+        }
+
+        html body footer .flex.gap-6 span,
+        html body footer .text-\[12px\] span,
+        html body footer span:not(.uppercase) {
+          font-size: 14px !important;
+        }
+
+        html body footer .w-7.h-7,
+        html body footer div.w-7.h-7 {
+          width: 30px !important;
+          height: 30px !important;
+          font-size: 13px !important;
         }
       }
     </style>
@@ -11817,7 +11945,7 @@ Error generating stack: ` +
                       children: [
                         u("div", {
                           className:
-                            "w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center",
+                            "w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center header-logo-icon",
                           children: "G",
                         }),
                         C("div", {
@@ -11825,12 +11953,12 @@ Error generating stack: ` +
                           children: [
                             u("span", {
                               className:
-                                "font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1]",
+                                "font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1] header-logo-guertin",
                               children: "GUERTIN",
                             }),
                             u("span", {
                               className:
-                                "font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px]",
+                                "font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px] header-logo-isabelle",
                               children: "ISABELLE",
                             }),
                           ],
@@ -11966,7 +12094,7 @@ Error generating stack: ` +
                     className: "flex flex-col items-start text-left",
                     children: [
                       u("span", {
-                        className: "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium",
+                        className: "font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium about-eyebrow",
                         children: "- ABOUT THE PRACTICE - LEGACY -",
                       }),
                       u("h1", {
@@ -12372,6 +12500,11 @@ Error generating stack: ` +
                                     "w-full h-[48px] rounded-full bg-white text-[#0E223F] font-inter text-[14px] font-medium tracking-wide hover:bg-white/90 transition-colors mt-2",
                                   children: "Discuss your file",
                                 }),
+                                u("p", {
+                                  className:
+                                    "font-inter text-center text-[12px] text-white/50 mt-3",
+                                  children: "I’ll get back to you within the next 48 hrs.",
+                                }),
                               ],
                             }),
                       }),
@@ -12455,7 +12588,7 @@ Error generating stack: ` +
                           children: [
                             u("div", {
                               className:
-                                "w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center",
+                                "w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center header-logo-icon",
                               children: "G",
                             }),
                             C("div", {
@@ -12463,12 +12596,12 @@ Error generating stack: ` +
                               children: [
                                 u("span", {
                                   className:
-                                    "font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1]",
+                                    "font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1] header-logo-guertin",
                                   children: "GUERTIN",
                                 }),
                                 u("span", {
                                   className:
-                                    "font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px]",
+                                    "font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px] header-logo-isabelle",
                                   children: "ISABELLE",
                                 }),
                               ],
@@ -12513,7 +12646,7 @@ Error generating stack: ` +
                           children: [
                             u("span", {
                               className:
-                                "font-inter text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium",
+                                "font-inter text-[11px] tracking-[0.22em] uppercase text-white/60 font-medium about-eyebrow",
                               children: "- ABOUT THE PRACTICE - LEGACY -",
                             }),
                             u("h1", {
