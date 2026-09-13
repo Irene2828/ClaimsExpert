@@ -14,9 +14,9 @@ export default function Hero() {
       }}
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
-        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-4 pb-0 lg:pt-6 lg:pb-0 relative">
+        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
           <div
-            className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start pt-2 lg:pt-4 pb-4 lg:pb-0"
+            className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start pt-8 lg:pt-14 pb-4 lg:pb-0"
           >
             <div className="inline-flex items-center">
               <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line">
