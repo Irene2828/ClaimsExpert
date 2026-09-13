@@ -10,14 +10,12 @@ export default function Hero() {
       style={{
         paddingBottom: "0px",
         background:
-          "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, transparent 80%), radial-gradient(ellipse 70% 60% at 90% 85%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, transparent 80%), #F5F6F8",
+          "radial-gradient(ellipse 80% 70% at 15% 20%, rgba(218, 227, 238, 0.65) 0%, rgba(240, 245, 250, 0.35) 45%, transparent 75%), linear-gradient(to right, transparent 25%, #FFFFFF 70%), #FFFFFF",
       }}
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
         <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
-          <div
-            className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start pt-8 lg:pt-14 pb-4 lg:pb-0"
-          >
+          <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-10 lg:mt-16 pb-4 lg:pb-0">
             <div className="inline-flex items-center">
               <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line">
                 - INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -
@@ -188,25 +186,25 @@ export default function Hero() {
                 }}
                 draggable={false}
               />
-              <div className="hero-quote-card flex items-start gap-2.5 select-none">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="#0E223F"
-                  className="shrink-0 mt-0.5 opacity-90"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p>
-                  My role is to bring the technical knowledge and claims
-                  expertise needed to fully understand a file, assess the
-                  information objectively, and make informed decisions throughout
-                  the claims process.
-                </p>
-              </div>
             </div>
           </div>
+        </div>
+        <div className="hero-quote-card flex items-start gap-2.5 select-none">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="#00ACC1"
+            className="shrink-0 mt-0.5 opacity-90"
+          >
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>
+            My role is to bring the technical knowledge and claims
+            expertise needed to fully understand a file, assess the
+            information objectively, and make informed decisions throughout
+            the claims process.
+          </p>
         </div>
       </div>
     </section>

@@ -31,7 +31,7 @@ export default function Expertise() {
         </div>
         <div className="mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-6 w-full max-w-full min-w-0">
           <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 min-h-[360px] w-full min-w-0 flex flex-col">
-            <span className="font-inter text-[12px] tracking-[0.2em] font-medium text-white/50">
+            <span className="font-inter text-[12px] tracking-[0.2em] font-medium" style={{ color: "#00ACC1" }}>
               01
             </span>
             <h3 className="font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left">
@@ -60,7 +60,7 @@ export default function Expertise() {
             </p>
           </div>
           <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 min-h-[360px] w-full min-w-0 flex flex-col">
-            <span className="font-inter text-[12px] tracking-[0.2em] font-medium text-white/50">
+            <span className="font-inter text-[12px] tracking-[0.2em] font-medium" style={{ color: "#00ACC1" }}>
               02
             </span>
             <h3 className="font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left">
@@ -89,7 +89,7 @@ export default function Expertise() {
             </p>
           </div>
           <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-8 min-h-[360px] w-full min-w-0 flex flex-col">
-            <span className="font-inter text-[12px] tracking-[0.2em] font-medium text-white/50">
+            <span className="font-inter text-[12px] tracking-[0.2em] font-medium" style={{ color: "#00ACC1" }}>
               03
             </span>
             <h3 className="font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left">

@@ -108,7 +108,7 @@ export default function Approach() {
                       }}
                     >
                       <div className="flex items-start justify-between">
-                        <span className="font-inter text-[11px] tracking-[0.16em] font-medium" style={{ color: "#0E223F" }}>
+                        <span className="font-inter text-[11px] tracking-[0.16em] font-medium text-[#00ACC1]">
                           {z.n}
                         </span>
                         <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ backgroundColor: "#0E223F" }}>

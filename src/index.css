@@ -2539,18 +2539,18 @@
       html body .hero-quote-card {
         position: absolute !important;
         z-index: 20 !important;
-        right: 0px !important;
-        bottom: 20px !important;
+        right: 32px !important;
+        bottom: 16px !important;
         max-width: 300px !important;
-        background: rgba(255, 255, 255, 0.95) !important;
+        background: rgba(255, 255, 255, 0.96) !important;
         backdrop-filter: blur(16px) !important;
         -webkit-backdrop-filter: blur(16px) !important;
         border-radius: 16px !important;
+        border: 1px solid rgba(14, 34, 63, 0.12) !important;
         box-shadow:
-          0 5px 15px rgba(0, 0, 0, 0.04),
-          0 1px 3px rgba(0, 0, 0, 0.02) !important;
-        border: 1px solid rgba(255, 255, 255, 0.9) !important;
-        padding: 10px 14px !important;
+          0 16px 36px -8px rgba(14, 34, 63, 0.10),
+          0 4px 12px rgba(14, 34, 63, 0.04) !important;
+        padding: 12px 16px !important;
       }
 
       html body #hero .hero-quote-card p {
@@ -2640,8 +2640,8 @@
         /* 7. Quote text on 1670px screens */
         html body .hero-quote-card {
           max-width: 320px !important;
-          right: 0px !important;
-          bottom: 28px !important;
+          right: 48px !important;
+          bottom: 20px !important;
           padding: 10px 14px !important;
         }
 
