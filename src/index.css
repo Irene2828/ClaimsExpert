@@ -2530,8 +2530,9 @@
         height: 16px !important;
       }
 
-      /* Base Quote Card Styling (for 1440px and below) */
+      /* Base Quote Card Styling (for desktop) */
       html body .hero-quote-card {
+        display: flex !important;
         position: absolute !important;
         z-index: 20 !important;
         right: 32px !important;
@@ -2540,12 +2541,12 @@
         background: rgba(255, 255, 255, 0.96) !important;
         backdrop-filter: blur(16px) !important;
         -webkit-backdrop-filter: blur(16px) !important;
-        border-radius: 16px !important;
-        border: 1px solid rgba(14, 34, 63, 0.12) !important;
+        border-radius: 18px !important;
+        border: 1px solid rgba(226, 232, 240, 0.8) !important;
         box-shadow:
-          0 16px 36px -8px rgba(14, 34, 63, 0.10),
-          0 4px 12px rgba(14, 34, 63, 0.04) !important;
-        padding: 12px 16px !important;
+          0 16px 36px -8px rgba(14, 34, 63, 0.14),
+          0 4px 16px rgba(14, 34, 63, 0.04) !important;
+        padding: 14px 18px !important;
       }
 
       html body #hero .hero-quote-card p {
@@ -2556,6 +2557,113 @@
         letter-spacing: -0.01em !important;
         color: #374151 !important;
         margin: 0 !important;
+      }
+
+      /* Desktop Eyebrow (visible and left-aligned on desktop >= 768px) */
+      html body .hero-eyebrow-desktop {
+        display: inline-flex !important;
+        align-items: center !important;
+      }
+
+      /* Mobile Eyebrow (hidden on desktop >= 768px) */
+      html body .hero-eyebrow-mobile {
+        display: none !important;
+      }
+
+      /* Mobile Hero Layout (< 768px ONLY) */
+      @media (max-width: 767px) {
+        /* Eyebrow switching on mobile < 768px */
+        html body .hero-eyebrow-desktop {
+          display: none !important;
+        }
+
+        html body .hero-eyebrow-mobile {
+          display: flex !important;
+        }
+
+        /* Hide Quote Card strictly on mobile < 768px */
+        html body .hero-quote-card {
+          display: none !important;
+        }
+
+        html body #hero,
+        html body #about-hero {
+          min-height: auto !important;
+          padding-top: 14px !important;
+          padding-bottom: 38px !important;
+        }
+
+        html body #hero .grid,
+        html body #about-hero .grid {
+          row-gap: 16px !important;
+        }
+
+        html body .hero-left-col {
+          align-items: flex-start !important;
+          text-align: left !important;
+          margin-top: 8px !important;
+          padding-bottom: 0px !important;
+        }
+
+        html body .hero-left-col h1 {
+          text-align: left !important;
+        }
+
+        html body .hero-left-col h1 div {
+          text-align: left !important;
+        }
+
+        html body .hero-left-col p {
+          text-align: left !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        html body .hero-ctas-wrapper {
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+          width: 100% !important;
+        }
+
+        html body .hero-img-col > div {
+          height: clamp(370px, 52vh, 460px) !important;
+          max-width: 400px !important;
+        }
+
+        /* Show Name Badge on Mobile with Apple Tahoe glassmorphism */
+        html body .hero-name-badge {
+          display: block !important;
+          left: 10px !important;
+          bottom: 16px !important;
+          z-index: 25 !important;
+          background: rgba(255, 255, 255, 0.90) !important;
+          backdrop-filter: blur(16px) saturate(180%) !important;
+          -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+          border: 1px solid rgba(255, 255, 255, 0.95) !important;
+          border-radius: 14px !important;
+          padding: 8px 14px !important;
+          box-shadow:
+            0 10px 25px -4px rgba(14, 34, 63, 0.12),
+            0 2px 8px rgba(14, 34, 63, 0.04) !important;
+          filter: none !important;
+        }
+
+        html body .hero-name-badge > div:first-child {
+          font-size: 18px !important;
+          line-height: 1.0 !important;
+          text-align: left !important;
+        }
+
+        html body .hero-name-badge > div:first-child span {
+          padding-left: 0px !important;
+        }
+
+        html body .hero-name-badge .about-claims-adjuster {
+          font-size: 10px !important;
+          margin-top: 3px !important;
+          margin-left: 0px !important;
+          letter-spacing: 0.03em !important;
+        }
       }
 
       /* Remove blue glow / drop-shadow from hero portrait on all screens */

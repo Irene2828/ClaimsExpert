@@ -14,9 +14,17 @@ export default function Hero() {
       }}
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
+        {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
+        <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
+          <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase text-[#0E223F]/70 font-medium hero-tag-line text-center">
+            - INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -
+          </span>
+        </div>
+
         <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
-          <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-10 lg:mt-16 pb-4 lg:pb-0">
-            <div className="inline-flex items-center">
+          {/* Left Column (100% original desktop layout) */}
+          <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
+            <div className="hero-eyebrow-desktop inline-flex items-center">
               <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line">
                 - INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -
               </span>
@@ -53,16 +61,16 @@ export default function Hero() {
               </div>
             </h1>
             <p
-              className="mt-6 text-[#4B5563] text-xl sm:text-[21px] leading-[1.75] font-normal tracking-[0.01em]"
+              className="mt-6 text-[#4B5563] text-xl sm:text-[21px] leading-[1.75] font-normal tracking-[0.01em] hero-subline"
               style={{ maxWidth: "680px" }}
             >
               Independent claims adjuster specializing in municipal civil liability,
-              <br />
-              property damage, and bodily injury — bringing that same expertise{" "}
-              <br />
+              <br className="hidden sm:inline" />
+              {" "}property damage, and bodily injury — bringing that same expertise{" "}
+              <br className="hidden sm:inline" />
               directly to policyholders navigating their own insurance claims.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
               <a
                 href="#contact"
                 className="font-inter inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]"
@@ -116,6 +124,8 @@ export default function Hero() {
               </a>
             </div>
           </div>
+
+          {/* Right Column: Image */}
           <div className="order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col">
             <div
               style={{
@@ -189,6 +199,8 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Quote card (visible on desktop, hidden on mobile via CSS) */}
         <div className="hero-quote-card flex items-start gap-2.5 select-none">
           <svg
             width="14"

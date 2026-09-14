@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import portraitImage from '../assets/isabelle-portrait-opt.webp';
 import Contact from '../components/Contact';
@@ -8,12 +7,7 @@ export default function About() {
   const primaryColor = '#0E223F';
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-    >
+    <main>
       <section
         id="about-hero"
         className="min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-0 lg:pt-14 lg:pb-0"
@@ -24,9 +18,17 @@ export default function About() {
         }}
       >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
+          {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
+          <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
+            <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase text-[#0E223F]/70 font-medium hero-tag-line text-center">
+              - ABOUT THE PRACTICE - LEGACY -
+            </span>
+          </div>
+
           <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
-            <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-10 lg:mt-16 pb-4 lg:pb-0">
-              <div className="inline-flex items-center">
+            {/* Left Column (100% original desktop layout) */}
+            <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
+              <div className="hero-eyebrow-desktop inline-flex items-center">
                 <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line">
                   - ABOUT THE PRACTICE - LEGACY -
                 </span>
@@ -63,7 +65,7 @@ export default function About() {
               >
                 Following Roy’s retirement in early 2026, Isabelle <span className="font-medium text-[#0E223F]">continues that legacy</span>, carrying forward the same values while bringing <span className="font-medium text-[#0E223F]">her own experience and approach</span> to the practice.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
                 <Link
                   to="/"
                   className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]"
@@ -91,6 +93,8 @@ export default function About() {
                 </Link>
               </div>
             </div>
+
+            {/* Right Column: Image */}
             <div className="order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col">
               <div
                 style={{
@@ -168,6 +172,6 @@ export default function About() {
       </section>
       <Contact />
       <Footer />
-    </motion.main>
+    </main>
   );
 }

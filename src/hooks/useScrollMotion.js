@@ -10,17 +10,28 @@ export default function useScrollMotion() {
     // Enable smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
 
-    // Remove CSS pre-hide style tag once JS takes over
-    const initStyle = document.getElementById('premium-motion-init');
-    if (initStyle) initStyle.remove();
-
-    // Do not apply element reveal motions to sub-pages (About Me).
-    // The page transition (Framer Motion) handles the entry cleanly and serenely.
+    // If on sub-page (About Me), do not run any reveal motion:
     if (location.pathname !== '/') {
+      const initStyle = document.getElementById('premium-motion-init');
+      if (initStyle) initStyle.remove();
+      const navLinks = document.querySelectorAll('header nav a');
+      navLinks.forEach((link) => {
+        link.style.opacity = '1';
+        link.style.transform = 'none';
+        link.style.transition = 'none';
+      });
       return;
     }
 
-    const applyStyle = (el, opacity, y, x, delay, duration = 0.9) => {
+    const applyStyle = (
+      el,
+      opacity,
+      y,
+      x,
+      delay,
+      duration = 0.9,
+      easing = 'cubic-bezier(0.22, 1, 0.36, 1)'
+    ) => {
       if (!el || el.dataset.motionInit) return;
       el.dataset.motionInit = 'true';
       el.style.transition = 'none';
@@ -28,7 +39,7 @@ export default function useScrollMotion() {
       el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       el.style.willChange = 'opacity, transform';
       void el.offsetHeight;
-      el.style.transition = `opacity ${duration}s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`;
+      el.style.transition = `opacity ${duration}s ${easing} ${delay}ms, transform ${duration}s ${easing} ${delay}ms`;
     };
 
     const trigger = (el) => {
@@ -52,31 +63,44 @@ export default function useScrollMotion() {
       const contact = document.getElementById('contact');
 
       if (!hero && !approach && !expertise && attempts < 50) {
-        setTimeout(init, 50);
+        setTimeout(init, 16);
         return;
       }
 
       try {
-        // 1. HERO REVEAL (Only on initial load of homepage)
+        // 1. HERO & HEADER REVEAL (Only on initial load of homepage)
         if (!hasAnimatedHero && hero) {
           const heroTextUnit = hero.querySelector('.z-10') || hero.firstElementChild;
           const heroImgUnit = hero.querySelector('.hero-img-col') || hero.lastElementChild;
-          const quoteCard = hero.querySelector('.hero-quote-card');
+          const quoteCards = hero.querySelectorAll('.hero-quote-card');
+          const navLinks = document.querySelectorAll('header nav a');
 
-          applyStyle(heroTextUnit, '0', 36, 0, 100, 1.2);
-          applyStyle(heroImgUnit, '0', 44, 0, 250, 1.3);
-          if (quoteCard) {
-            // Synchronized exactly with heroImgUnit
-            applyStyle(quoteCard, '0', 44, 0, 250, 1.3);
-          }
+          // Apply inline styles to hold opacity: 0 BEFORE removing style tag
+          applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
+          applyStyle(heroImgUnit, '0', 44, 0, 320, 1.75);
+          quoteCards.forEach((card) => {
+            applyStyle(card, '0', 44, 0, 320, 1.75);
+          });
+          navLinks.forEach((link, idx) => {
+            applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
+          });
 
-          setTimeout(() => {
+          // NOW that inline styles are applied, safely remove CSS pre-hide tag:
+          const initStyle = document.getElementById('premium-motion-init');
+          if (initStyle) initStyle.remove();
+
+          requestAnimationFrame(() => {
             trigger(heroTextUnit);
             trigger(heroImgUnit);
-            if (quoteCard) trigger(quoteCard);
-          }, 50);
+            quoteCards.forEach((card) => trigger(card));
+            navLinks.forEach((link) => trigger(link));
+          });
 
           hasAnimatedHero = true;
+        } else {
+          // If already animated, remove pre-hide tag
+          const initStyle = document.getElementById('premium-motion-init');
+          if (initStyle) initStyle.remove();
         }
 
         // 2. INTERSECTION OBSERVER SCROLL REVEAL (Homepage sections below the fold)
@@ -171,10 +195,9 @@ export default function useScrollMotion() {
       }
     };
 
-    const timer = setTimeout(init, 50);
+    init();
 
     return () => {
-      clearTimeout(timer);
       document.documentElement.style.scrollBehavior = '';
     };
   }, [location.pathname]);
