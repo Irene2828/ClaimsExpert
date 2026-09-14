@@ -2504,12 +2504,7 @@
     
 /* --- Style Block 2 --- */
 
-      #hero .z-10,
-      #hero .hero-img-col,
-      header nav a {
-        opacity: 0;
-      }
-    
+
 /* --- Style Block 3 --- */
 
       /* Hide Vercel native toolbar */

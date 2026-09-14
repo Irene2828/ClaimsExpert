@@ -1,9 +1,24 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+let hasAnimatedHero = false;
 
 export default function useScrollMotion() {
+  const location = useLocation();
+
   useEffect(() => {
     // Enable smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Remove CSS pre-hide style tag once JS takes over
+    const initStyle = document.getElementById('premium-motion-init');
+    if (initStyle) initStyle.remove();
+
+    // Do not apply element reveal motions to sub-pages (About Me).
+    // The page transition (Framer Motion) handles the entry cleanly and serenely.
+    if (location.pathname !== '/') {
+      return;
+    }
 
     const applyStyle = (el, opacity, y, x, delay, duration = 0.9) => {
       if (!el || el.dataset.motionInit) return;
@@ -42,34 +57,29 @@ export default function useScrollMotion() {
       }
 
       try {
-        // Remove CSS pre-hide style tag once JS takes over
-        const initStyle = document.getElementById('premium-motion-init');
-        if (initStyle) initStyle.remove();
-
-        // 1. HERO REVEAL
-        if (hero) {
+        // 1. HERO REVEAL (Only on initial load of homepage)
+        if (!hasAnimatedHero && hero) {
           const heroTextUnit = hero.querySelector('.z-10') || hero.firstElementChild;
           const heroImgUnit = hero.querySelector('.hero-img-col') || hero.lastElementChild;
+          const quoteCard = hero.querySelector('.hero-quote-card');
 
           applyStyle(heroTextUnit, '0', 36, 0, 100, 1.2);
           applyStyle(heroImgUnit, '0', 44, 0, 250, 1.3);
+          if (quoteCard) {
+            // Synchronized exactly with heroImgUnit
+            applyStyle(quoteCard, '0', 44, 0, 250, 1.3);
+          }
 
           setTimeout(() => {
             trigger(heroTextUnit);
             trigger(heroImgUnit);
+            if (quoteCard) trigger(quoteCard);
           }, 50);
+
+          hasAnimatedHero = true;
         }
 
-        // 2. HEADER NAV LINKS SLIDE IN
-        const navLinks = document.querySelectorAll('header nav a');
-        navLinks.forEach((link, idx) => {
-          applyStyle(link, '0', 0, 25, idx * 60 + 100, 0.8);
-        });
-        setTimeout(() => {
-          navLinks.forEach((link) => trigger(link));
-        }, 50);
-
-        // 3. INTERSECTION OBSERVER SCROLL REVEAL
+        // 2. INTERSECTION OBSERVER SCROLL REVEAL (Homepage sections below the fold)
         const scrollTargets = [];
         const addTarget = (el, delay = 0, y = 36) => {
           if (!el) return;
@@ -167,5 +177,5 @@ export default function useScrollMotion() {
       clearTimeout(timer);
       document.documentElement.style.scrollBehavior = '';
     };
-  }, []);
+  }, [location.pathname]);
 }

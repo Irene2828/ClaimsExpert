@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,10 +14,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "about.html", label: "About Me" },
-    { href: "#expertise", label: "Expertise" },
-    { href: "#testimonials", label: "Testimonials" },
-    { href: "#contact", label: "Contact" }
+    { href: "/about", label: "About Me", isRouterLink: true },
+    { href: "/#expertise", label: "Expertise" },
+    { href: "/#testimonials", label: "Testimonials" },
+    { href: "/#contact", label: "Contact" }
   ];
 
   return (
@@ -30,7 +31,7 @@ export default function Header() {
       </div>
       <header className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${isScrolled ? "bg-[#0E223F]/95 backdrop-blur-[14px] border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.06)]" : "bg-[#0E223F] border-white/10"}`}>
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
-          <a href="#hero" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center">
               G
             </div>
@@ -42,16 +43,26 @@ export default function Header() {
                 ISABELLE
               </span>
             </div>
-          </a>
+          </Link>
           <nav className="hidden lg:flex items-center gap-8" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-inter text-[13.65px] lg:text-[14px] font-normal text-white/70 hover:text-white transition-colors tracking-[0.04em] header-nav-link"
-              >
-                {link.label}
-              </a>
+              link.isRouterLink ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="font-inter text-[13.65px] lg:text-[14px] font-normal text-white/70 hover:text-white transition-colors tracking-[0.04em] header-nav-link"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="font-inter text-[13.65px] lg:text-[14px] font-normal text-white/70 hover:text-white transition-colors tracking-[0.04em] header-nav-link"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
           <div className="hidden lg:flex items-center">
@@ -81,14 +92,25 @@ export default function Header() {
         <div className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-white/10 ${mobileMenuOpen ? "max-h-[360px] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="px-6 py-8 bg-[#0E223F] flex flex-col gap-6">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-inter text-[16px] text-white/80 hover:text-white"
-              >
-                {link.label}
-              </a>
+              link.isRouterLink ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-inter text-[16px] text-white/80 hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-inter text-[16px] text-white/80 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
             <a
               href="tel:4387941044"
