@@ -25,7 +25,7 @@ export default function Process() {
             How I Work
           </span>
           <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[36px] lg:text-[48px] mt-6 text-center">
-            A clear, structured approach.
+            A clear, structured process.
           </h2>
           <p className="font-inter text-[17px] lg:text-[18px] leading-[1.7] text-[#0E223F]/70 mt-6 mx-auto max-w-[60ch] text-center">
             Every file begins with understanding the facts, identifying the issues, and determining the appropriate path forward.
