@@ -86,7 +86,10 @@ export default function Approach() {
             <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px] max-w-[18ch]">
               An independent practice — one file at a time.
             </h2>
-            <p className="font-inter font-normal text-lg sm:text-[19px] leading-relaxed text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch]">
+            <p
+              className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch]"
+              style={{ fontSize: "16px", lineHeight: "1.68" }}
+            >
               The person you hire is the person who handles your file. Every mandate I accept is handled directly by me, providing continuity, experienced judgment and direct communication from initial review through resolution. <span className="font-semibold text-[#0E223F]">I approach every file with the same care and attention I would expect if it were my own.</span>
             </p>
           </div>

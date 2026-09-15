@@ -1,173 +1,380 @@
 import { Link } from 'react-router-dom';
-import portraitImage from '../assets/isabelle-portrait-opt.webp';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 export default function About() {
-  const primaryColor = '#0E223F';
-
   return (
     <main>
+      <style>{`
+        html body #about-hero,
+        .about-hero-section {
+          position: relative;
+          overflow: hidden;
+          padding-top: 48px !important;
+          padding-bottom: 72px !important;
+          box-sizing: border-box;
+        }
+        @media (min-width: 1024px) {
+          html body #about-hero,
+          .about-hero-section {
+            padding-top: 84px !important;
+            padding-bottom: 96px !important;
+          }
+        }
+
+        .about-hero-container {
+          width: 100%;
+          max-width: 1336px;
+          margin: 0 auto;
+          padding: 0 24px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-sizing: border-box;
+        }
+        @media (min-width: 768px) {
+          .about-hero-container {
+            padding: 0 48px;
+          }
+        }
+
+        .about-header-wrapper {
+          width: 100%;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .about-top-row {
+          width: 100%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 46px;
+        }
+
+        .about-back-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        @media (min-width: 1024px) {
+          .about-back-wrapper {
+            position: absolute;
+            left: 0;
+            top: -42px;
+            width: auto;
+            z-index: 20;
+          }
+        }
+
+        @media (max-width: 1023px) {
+          .about-top-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            min-height: auto;
+          }
+          .about-header-wrapper {
+            align-items: flex-start;
+            text-align: left;
+          }
+          .about-eyebrow-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            text-align: left;
+          }
+          .about-headline {
+            text-align: left;
+            width: 100%;
+          }
+        }
+
+        .about-back-btn {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          height: 44px;
+          padding: 0 24px;
+          border-radius: 9999px;
+          border: none;
+          background-color: #FFFFFF;
+          color: #0E223F;
+          font-size: 14.5px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          text-decoration: none;
+          white-space: nowrap;
+          box-sizing: border-box;
+          transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+          box-shadow: 0 1px 3px rgba(14, 34, 63, 0.08);
+        }
+        .about-back-btn:hover {
+          background-color: #F5F6F8;
+          box-shadow: 0 2px 8px rgba(14, 34, 63, 0.1);
+        }
+        .about-back-btn .about-back-icon {
+          transition: transform 0.2s ease;
+        }
+        .about-back-btn:hover .about-back-icon {
+          transform: translateX(-3px);
+        }
+
+        .about-eyebrow-container {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .about-eyebrow-text {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: rgba(14, 34, 63, 0.6);
+          font-weight: 500;
+        }
+
+        .about-headline {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: clamp(28px, 3.4vw, 44.8px);
+          letter-spacing: -0.05em;
+          line-height: 1.08;
+          font-weight: 400;
+          color: #1E3358;
+          text-align: center;
+          margin-top: 18px;
+          margin-bottom: 0;
+        }
+
+        .about-story-container {
+          width: 100%;
+          max-width: 620px;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          text-align: left;
+          padding-top: 32px;
+          padding-bottom: 48px;
+          box-sizing: border-box;
+        }
+
+        .about-story-paragraph {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          font-size: 16px;
+          line-height: 1.68;
+          color: #4B5563;
+          font-weight: 400;
+          letter-spacing: 0.01em;
+          margin: 0;
+          text-align: left;
+        }
+        .about-story-paragraph + .about-story-paragraph {
+          margin-top: 20px;
+        }
+
+        .about-timeline-frame {
+          width: 100%;
+          max-width: 620px;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          position: relative;
+          box-sizing: border-box;
+          padding-bottom: 24px;
+        }
+
+        .timeline-container {
+          position: relative;
+          width: 100%;
+          padding: 8px 0;
+          background: transparent;
+        }
+        .timeline-stem {
+          position: absolute;
+          left: 16px;
+          top: 17px;
+          bottom: 20px;
+          width: 2px;
+          background: linear-gradient(180deg, #CBD5E1 0%, #00ACC1 60%, #0E223F 100%);
+          border-radius: 1px;
+        }
+        .timeline-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 22px;
+          position: relative;
+          z-index: 2;
+        }
+        .timeline-marker-past {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          border: 2.5px solid #CBD5E1;
+          box-shadow: 0 2px 8px rgba(14, 34, 63, 0.08);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 1px;
+        }
+        .timeline-marker-past-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #64748B;
+        }
+        .timeline-marker-now {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          background: #0E223F;
+          border: 3px solid #FFFFFF;
+          box-shadow: 0 0 0 2.5px #0E223F, 0 6px 16px rgba(14, 34, 63, 0.28);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 1px;
+          position: relative;
+        }
+        .timeline-marker-now-pulse {
+          position: absolute;
+          inset: -5px;
+          border-radius: 50%;
+          background: rgba(0, 172, 193, 0.3);
+          z-index: -1;
+        }
+        .timeline-badge {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 11.5px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #00ACC1;
+          font-weight: 600;
+          display: inline-block;
+          margin-bottom: 6px;
+        }
+        .timeline-stage-body {
+          font-family: 'Inter', system-ui, sans-serif;
+          font-size: 15px;
+          line-height: 1.65;
+          color: #4B5563;
+          font-weight: 400;
+          margin: 0;
+          max-width: 520px;
+          text-align: left;
+        }
+      `}</style>
+
       <section
         id="about-hero"
-        className="min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-0 lg:pt-14 lg:pb-0"
+        className="about-hero-section flex items-center overflow-hidden relative"
         style={{
-          paddingBottom: "0px",
           background:
             "radial-gradient(ellipse 80% 70% at 15% 20%, rgba(218, 227, 238, 0.65) 0%, rgba(240, 245, 250, 0.35) 45%, transparent 75%), linear-gradient(to right, transparent 25%, #FFFFFF 70%), #FFFFFF",
         }}
       >
-        <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
-          {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
-          <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
-            <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase text-[#0E223F]/70 font-medium hero-tag-line text-center">
-              - ABOUT THE PRACTICE - LEGACY -
-            </span>
-          </div>
-
-          <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
-            {/* Left Column (100% original desktop layout) */}
-            <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
-              <div className="hero-eyebrow-desktop inline-flex items-center">
-                <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line">
-                  - ABOUT THE PRACTICE - LEGACY -
-                </span>
-              </div>
-              <h1
-                className="mt-4 font-inter text-[#1E3358]"
-                style={{
-                  fontSize: "clamp(42.23px, 5.15vw, 69.01px)",
-                  letterSpacing: "-0.05em",
-                  lineHeight: "1.08",
-                }}
-              >
-                <div
-                  className="block sm:whitespace-nowrap font-normal"
-                  style={{
-                    fontWeight: "400",
-                    fontStyle: "normal",
-                    lineHeight: "1.08",
-                    letterSpacing: "-0.05em",
-                  }}
-                >
-                  R. Guertin & Ass.
-                </div>
-              </h1>
-              <p
-                className="mt-6 text-[#4B5563] text-xl sm:text-[21px] leading-[1.75] font-normal tracking-[0.01em]"
-                style={{ maxWidth: "680px" }}
-              >
-                R. Guertin & Ass. grew from a <span className="font-medium text-[#0E223F]">family passion for claims adjusting</span>. Founded by Roy Guertin, the firm built a strong reputation over the years based on <span className="font-medium text-[#0E223F]">integrity, thoroughness, and a commitment</span> to providing high-quality service to its clients.
-              </p>
-              <p
-                className="mt-4 text-[#4B5563] text-xl sm:text-[21px] leading-[1.75] font-normal tracking-[0.01em]"
-                style={{ maxWidth: "680px" }}
-              >
-                Following Roy’s retirement in early 2026, Isabelle <span className="font-medium text-[#0E223F]">continues that legacy</span>, carrying forward the same values while bringing <span className="font-medium text-[#0E223F]">her own experience and approach</span> to the practice.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
+        <div className="about-hero-container">
+          
+          {/* 1. Header Wrapper with [Back to Homepage] button on top left opposite the eyebrow */}
+          <div className="about-header-wrapper">
+            
+            <div className="about-top-row">
+              {/* [Back to Homepage] Button on the left */}
+              <div className="about-back-wrapper">
                 <Link
                   to="/"
-                  className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]"
-                  style={{
-                    borderColor: primaryColor,
-                    color: primaryColor,
-                    whiteSpace: "nowrap",
-                  }}
+                  className="about-back-btn"
                 >
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#0E223F"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="shrink-0 opacity-80 transition-transform group-hover:-translate-x-0.5"
+                    className="about-back-icon"
                   >
                     <line x1="19" y1="12" x2="5" y2="12" />
                     <polyline points="12 19 5 12 12 5" />
                   </svg>
-                  Back to Homepage
+                  <span>Back to Homepage</span>
                 </Link>
+              </div>
+
+              {/* Centered Eyebrow */}
+              <div className="about-eyebrow-container">
+                <span className="about-eyebrow-text">
+                  - ABOUT THE PRACTICE - LEGACY -
+                </span>
               </div>
             </div>
 
-            {/* Right Column: Image */}
-            <div className="order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col">
-              <div
-                style={{
-                  position: "relative",
-                  zIndex: 10,
-                  display: "flex",
-                  alignItems: "flex-end",
-                  justifyContent: "center",
-                  width: "100%",
-                  maxWidth: "460px",
-                  height: "clamp(400px, calc(100svh - 180px), 560px)",
-                }}
-              >
-                <div
-                  className="hero-name-badge select-none pointer-events-none hidden sm:block"
-                  style={{
-                    position: "absolute",
-                    left: "-7%",
-                    bottom: "14px",
-                    zIndex: 25,
-                    textAlign: "left",
-                    filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
-                  }}
-                >
-                  <div
-                    className="font-inter italic font-medium text-right"
-                    style={{
-                      fontSize: "23.2px",
-                      lineHeight: "0.95",
-                      color: "#0E223F",
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    <span style={{ display: "block" }}>Isabelle</span>
-                    <span style={{ display: "block", paddingLeft: "12px" }}>
-                      Guertin
-                    </span>
+            {/* Centered Headline */}
+            <h1 className="about-headline">
+              R. Guertin & Associates
+            </h1>
+          </div>
+
+          {/* 2. Story Block: Centered in hero, left-aligned text with doubled top padding */}
+          <div className="about-story-container">
+            <p className="about-story-paragraph">
+              R. Guertin & Ass. grew from a <span style={{ fontWeight: 500, color: "#0E223F" }}>family passion for claims adjusting</span>. Founded by Roy Guertin, the firm built a strong reputation over the years based on <span style={{ fontWeight: 500, color: "#0E223F" }}>integrity, thoroughness, and a commitment</span> to providing high-quality service to its clients.
+            </p>
+            <p className="about-story-paragraph">
+              Following Roy’s retirement in early 2026, Isabelle <span style={{ fontWeight: 500, color: "#0E223F" }}>continues that legacy</span>, carrying forward the same values while bringing <span style={{ fontWeight: 500, color: "#0E223F" }}>her own experience and approach</span> to the practice.
+            </p>
+          </div>
+
+          {/* 3. Timeline Frame: Centered in the middle of the screen */}
+          <div className="about-timeline-frame">
+            <div className="timeline-container">
+              {/* Vertical connecting stem line */}
+              <div className="timeline-stem" />
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '36px', position: 'relative', zIndex: 2 }}>
+                
+                {/* Milestone 1: Foundation */}
+                <div className="timeline-item">
+                  <div className="timeline-marker-past">
+                    <div className="timeline-marker-past-dot" />
                   </div>
-                  <div
-                    className="font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563] about-claims-adjuster"
-                    style={{
-                      marginTop: "5px",
-                      paddingLeft: "0px",
-                      marginLeft: "-3px",
-                    }}
-                  >
-                    - claims adjuster
+                  <div>
+                    <span className="timeline-badge">1990s — FOUNDATION</span>
+                    <p className="timeline-stage-body">
+                      The practice is established, building a reputation rooted deeply in integrity and thoroughness.
+                    </p>
                   </div>
                 </div>
-                <img
-                  src={portraitImage}
-                  alt="Isabelle Guertin - Claims Advisory"
-                  className="hero-portrait-img"
-                  fetchPriority="high"
-                  loading="eager"
-                  style={{
-                    userSelect: "none",
-                    pointerEvents: "none",
-                    position: "relative",
-                    zIndex: 10,
-                    width: "auto",
-                    height: "100%",
-                    maxHeight: "575px",
-                    maxWidth: "440px",
-                    objectFit: "contain",
-                    objectPosition: "bottom",
-                    filter: "none",
-                  }}
-                  draggable={false}
-                />
+
+                {/* Milestone 2: Present */}
+                <div className="timeline-item">
+                  <div className="timeline-marker-now">
+                    <div className="timeline-marker-now-pulse" />
+                    <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#FFFFFF' }} />
+                  </div>
+                  <div>
+                    <span className="timeline-badge">2026 — PRESENT</span>
+                    <p className="timeline-stage-body">
+                      Isabelle Guertin assumes leadership, bringing new experience while honoring the core values.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
+            
         </div>
       </section>
       <Contact />
@@ -175,3 +382,4 @@ export default function About() {
     </main>
   );
 }
+

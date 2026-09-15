@@ -61,8 +61,8 @@ export default function Hero() {
               </div>
             </h1>
             <p
-              className="mt-6 text-[#4B5563] text-xl sm:text-[21px] leading-[1.75] font-normal tracking-[0.01em] hero-subline"
-              style={{ maxWidth: "680px" }}
+              className="mt-6 text-[#4B5563] text-[16px] leading-[1.68] font-normal tracking-[0.01em] hero-subline"
+              style={{ maxWidth: "680px", fontSize: "16px", lineHeight: "1.68" }}
             >
               Independent claims adjuster specializing in municipal civil liability,
               <br className="hidden sm:inline" />
