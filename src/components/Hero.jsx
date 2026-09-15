@@ -61,14 +61,13 @@ export default function Hero() {
               </div>
             </h1>
             <p
-              className="mt-6 text-[#4B5563] text-[16px] leading-[1.68] font-normal tracking-[0.01em] hero-subline"
-              style={{ maxWidth: "680px", fontSize: "16px", lineHeight: "1.68" }}
+              className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch] hero-subline"
+              style={{ fontSize: "16px", lineHeight: "1.68" }}
             >
-              Independent claims adjuster specializing in municipal civil liability,
-              <br className="hidden sm:inline" />
-              {" "}property damage, and bodily injury — bringing that same expertise{" "}
-              <br className="hidden sm:inline" />
-              directly to policyholders navigating their own insurance claims.
+              Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury —{" "}
+              <span className="font-semibold text-[#0E223F]">
+                bringing that same expertise directly to policyholders navigating their own insurance claims.
+              </span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
               <a
