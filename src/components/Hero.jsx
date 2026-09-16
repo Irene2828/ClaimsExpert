@@ -55,6 +55,7 @@ export default function Hero() {
                   fontStyle: "italic",
                   lineHeight: "1.08",
                   letterSpacing: "-0.05em",
+                  color: "#64748B",
                 }}
               >
                 Fair outcomes.
@@ -65,9 +66,7 @@ export default function Hero() {
               style={{ fontSize: "16px", lineHeight: "1.68" }}
             >
               Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury —{" "}
-              <span className="font-semibold text-[#0E223F]">
-                bringing that same expertise directly to policyholders navigating their own insurance claims.
-              </span>
+              bringing that same expertise directly to policyholders navigating their own insurance claims.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
               <a
