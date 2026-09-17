@@ -74,7 +74,7 @@ export default function Approach() {
   };
 
   return (
-    <section id="approach" className="bg-white border-t border-[#F3F4F6]" style={{ backgroundColor: "#FFFFFF" }}>
+    <section id="approach" style={{ backgroundColor: "#F7F9FC", borderTop: "3px solid #CBD2DF" }}>
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36">
         <div className="w-full flex justify-start mb-8">
           <span className="font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#E5E7EB] text-[#0E223F] border border-[#E5E7EB] text-[10.5px] tracking-[0.18em] uppercase font-medium">

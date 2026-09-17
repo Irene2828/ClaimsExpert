@@ -10,7 +10,7 @@ export default function Hero() {
       style={{
         paddingBottom: "0px",
         background:
-          "radial-gradient(ellipse 80% 70% at 15% 20%, rgba(218, 227, 238, 0.65) 0%, rgba(240, 245, 250, 0.35) 45%, transparent 75%), linear-gradient(to right, transparent 25%, #FFFFFF 70%), #FFFFFF",
+          "radial-gradient(ellipse 75% 65% at 0% 0%, rgba(210, 222, 236, 0.92) 0%, rgba(218, 227, 238, 0.45) 45%, transparent 75%), radial-gradient(ellipse 80% 65% at 70% 15%, #FFFFFF 0%, rgba(255, 255, 255, 0.65) 50%, transparent 85%), #F2F5FA",
       }}
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
