@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-[calc(100svh-108px)] flex items-center overflow-hidden relative pt-10 pb-0 lg:pt-14 lg:pb-0"
+      className="min-h-[calc(100svh-108px)] flex items-center lg:items-end overflow-hidden relative pt-10 pb-0 lg:pt-14 lg:pb-0"
       style={{
         paddingBottom: "0px",
         background:
