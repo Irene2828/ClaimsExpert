@@ -2782,3 +2782,9 @@ body { margin: 0; }
 .font-signature { font-family: "Caveat", "Kalam", "Reenie Beanie", cursive; font-weight: 600; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+@media (min-width: 1024px) {
+  html body .hero-portrait-img {
+    transform: translateY(130px) !important;
+  }
+}
