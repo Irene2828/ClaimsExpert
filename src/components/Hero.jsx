@@ -176,7 +176,7 @@ export default function Hero() {
               <img
                 src={portraitImage}
                 alt="Isabelle Guertin - Claims Advisory"
-                className="hero-portrait-img"
+                className="hero-portrait-img transform lg:translate-y-5"
                 fetchPriority="high"
                 loading="eager"
                 style={{
