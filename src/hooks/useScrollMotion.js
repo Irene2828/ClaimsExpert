@@ -17,13 +17,14 @@ export default function useScrollMotion() {
       x,
       delay,
       duration = 0.9,
-      easing = 'cubic-bezier(0.22, 1, 0.36, 1)'
+      easing = 'cubic-bezier(0.22, 1, 0.36, 1)',
+      scale = 1
     ) => {
       if (!el || el.dataset.motionInit) return;
       el.dataset.motionInit = 'true';
       el.style.transition = 'none';
       el.style.opacity = opacity;
-      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
       el.style.willChange = 'opacity, transform';
       void el.offsetHeight;
       el.style.transition = `opacity ${duration}s ${easing} ${delay}ms, transform ${duration}s ${easing} ${delay}ms`;
@@ -34,7 +35,7 @@ export default function useScrollMotion() {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           el.style.opacity = '1';
-          el.style.transform = 'translate3d(0,0,0)';
+          el.style.transform = 'translate3d(0,0,0) scale(1)';
         });
       });
     };
@@ -119,8 +120,8 @@ export default function useScrollMotion() {
 
           // Apply inline styles to hold opacity: 0 BEFORE removing style tag
           applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
-          // 2.2s duration for slower fade-in, y=0, x=0 for fade only
-          applyStyle(heroImgUnit, '0', 0, 0, 320, 2.2);
+          // Cinematic fade & scale for image (from 95% to 100%)
+          applyStyle(heroImgUnit, '0', 0, 0, 320, 2.2, 'cubic-bezier(0.22, 1, 0.36, 1)', 0.95);
           
           navLinks.forEach((link, idx) => {
             applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
