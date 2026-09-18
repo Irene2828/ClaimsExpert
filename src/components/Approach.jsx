@@ -44,7 +44,6 @@ export default function Approach() {
       )
     }
   ];
-  const touchStartX = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
