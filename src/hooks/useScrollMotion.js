@@ -120,8 +120,8 @@ export default function useScrollMotion() {
 
           // Apply inline styles to hold opacity: 0 BEFORE removing style tag
           applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
-          // Cinematic fade & scale for image (from 95% to 100%)
-          applyStyle(heroImgUnit, '0', 0, 0, 320, 2.2, 'cubic-bezier(0.22, 1, 0.36, 1)', 0.95);
+          // Simple slow fade-in without scaling to avoid motion sickness
+          applyStyle(heroImgUnit, '0', 0, 0, 320, 2.2, 'cubic-bezier(0.22, 1, 0.36, 1)', 1);
           
           navLinks.forEach((link, idx) => {
             applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
