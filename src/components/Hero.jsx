@@ -125,7 +125,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col">
+          <div className="order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col transform lg:translate-x-8">
             <div
               style={{
                 position: "relative",
