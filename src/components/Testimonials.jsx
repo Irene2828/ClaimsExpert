@@ -84,10 +84,27 @@ export default function Testimonials() {
               min-height: 580px;
             }
           }
+          
+          /* Responsive Toggles */
+          .mobile-carousel {
+            display: block;
+          }
+          .desktop-grid {
+            display: none;
+          }
+          
+          @media (min-width: 768px) {
+            .mobile-carousel {
+              display: none !important;
+            }
+            .desktop-grid {
+              display: grid !important;
+            }
+          }
         `}</style>
         
         {/* MOBILE CAROUSEL (< md) */}
-        <div className="md:hidden block w-full max-w-[800px] mx-auto">
+        <div className="mobile-carousel w-full max-w-[800px] mx-auto">
           <div className="relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
             <div className="relative testimonial-carousel-container overflow-hidden">
               {testimonials.map((card, B) => {
@@ -174,7 +191,7 @@ export default function Testimonials() {
         </div>
 
         {/* DESKTOP GRID (>= md) */}
-        <div className="hidden md:grid w-full grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1280px] mx-auto items-stretch">
+        <div className="desktop-grid w-full grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1280px] mx-auto items-stretch">
           {testimonials.map((card) => (
             <div
               key={card.id}
