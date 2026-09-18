@@ -10,19 +10,6 @@ export default function useScrollMotion() {
     // Enable smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
 
-    // If on sub-page (About Me), do not run any reveal motion:
-    if (location.pathname !== '/') {
-      const initStyle = document.getElementById('premium-motion-init');
-      if (initStyle) initStyle.remove();
-      const navLinks = document.querySelectorAll('header nav a');
-      navLinks.forEach((link) => {
-        link.style.opacity = '1';
-        link.style.transform = 'none';
-        link.style.transition = 'none';
-      });
-      return;
-    }
-
     const applyStyle = (
       el,
       opacity,
@@ -51,6 +38,62 @@ export default function useScrollMotion() {
         });
       });
     };
+
+    if (location.pathname === '/about') {
+      let attempts = 0;
+      const initAbout = () => {
+        attempts++;
+        const aboutHero = document.getElementById('about-hero');
+        if (!aboutHero && attempts < 50) {
+          setTimeout(initAbout, 16);
+          return;
+        }
+
+        if (aboutHero) {
+          const leftCol = aboutHero.querySelector('.about-left-col');
+          const rightCol = aboutHero.querySelector('.about-right-col');
+          const navLinks = document.querySelectorAll('header nav a');
+
+          // Left col from left (x = -40, y = 0)
+          applyStyle(leftCol, '0', 0, -40, 150, 1.2);
+          // Right col from bottom (x = 0, y = 40)
+          applyStyle(rightCol, '0', 44, 0, 320, 1.4);
+          
+          navLinks.forEach((link, idx) => {
+            applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
+          });
+
+          const initStyle = document.getElementById('premium-motion-init');
+          if (initStyle) initStyle.remove();
+
+          requestAnimationFrame(() => {
+            trigger(leftCol);
+            trigger(rightCol);
+            navLinks.forEach((link) => trigger(link));
+          });
+        } else {
+          const initStyle = document.getElementById('premium-motion-init');
+          if (initStyle) initStyle.remove();
+        }
+      };
+      initAbout();
+      return;
+    }
+
+    // If on sub-page (not Home and not About), do not run any reveal motion:
+    if (location.pathname !== '/') {
+      const initStyle = document.getElementById('premium-motion-init');
+      if (initStyle) initStyle.remove();
+      const navLinks = document.querySelectorAll('header nav a');
+      navLinks.forEach((link) => {
+        link.style.opacity = '1';
+        link.style.transform = 'none';
+        link.style.transition = 'none';
+      });
+      return;
+    }
+
+
 
     let attempts = 0;
     const init = () => {
