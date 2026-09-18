@@ -52,24 +52,22 @@ export default function About() {
           align-items: center;
           justify-content: center;
           gap: 10px;
-          height: 44px;
-          padding: 0 24px;
+          height: 48.3px;
+          padding: 0 29.4px;
           border-radius: 9999px;
-          border: none;
+          border: 1px solid #0E223F;
           background-color: #FFFFFF;
           color: #0E223F;
-          font-size: 14.5px;
+          font-size: 14.7px;
           font-weight: 500;
-          letter-spacing: 0.02em;
+          letter-spacing: 0.025em;
           text-decoration: none;
           white-space: nowrap;
           box-sizing: border-box;
           transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-          box-shadow: 0 1px 3px rgba(14, 34, 63, 0.08);
         }
         .about-back-btn:hover {
           background-color: #F5F6F8;
-          box-shadow: 0 2px 8px rgba(14, 34, 63, 0.1);
         }
         .about-back-btn .about-back-icon {
           transition: transform 0.2s ease;
