@@ -170,7 +170,8 @@ export default function Hero() {
                   style={{
                     marginTop: "5px",
                     paddingLeft: "0px",
-                    letterSpacing: language === 'en' ? "0.085em" : "0.03em",
+                    letterSpacing: "0.03em",
+                    transform: language === 'en' ? "translateX(-2%)" : "none",
                   }}
                 >
                   {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
