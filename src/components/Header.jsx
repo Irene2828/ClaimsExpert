@@ -40,7 +40,7 @@ export default function Header() {
           </p>
         </div>
       </div>
-      <header className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${isScrolled ? "bg-[#0E223F]/95 backdrop-blur-[14px] border-white/10 shadow-[0_1px_0_0_rgba(255,255,255,0.06)]" : "bg-[#0E223F] border-white/10"}`}>
+      <header className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${isScrolled ? "bg-[#0E223F]/90 backdrop-blur-[16px] border-white/10 shadow-[0_8px_32px_rgba(14,34,63,0.35)]" : "bg-[#0E223F] border-white/10"}`}>
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center">

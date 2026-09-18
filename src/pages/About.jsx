@@ -50,30 +50,28 @@ export default function About() {
           font-family: 'Inter', system-ui, -apple-system, sans-serif;
           display: inline-flex;
           align-items: center;
-          justify-content: center;
-          gap: 10px;
-          height: 48.3px;
-          padding: 0 29.4px;
-          border-radius: 9999px;
-          border: 1px solid #0E223F;
-          background-color: #FFFFFF;
+          justify-content: flex-start;
+          gap: 8px;
+          border: none;
+          background: transparent;
           color: #0E223F;
-          font-size: 14.7px;
+          font-size: 14px;
           font-weight: 500;
-          letter-spacing: 0.025em;
+          letter-spacing: 0.01em;
           text-decoration: none;
           white-space: nowrap;
-          box-sizing: border-box;
-          transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+          padding: 0;
+          transition: color 0.2s ease;
         }
         .about-back-btn:hover {
-          background-color: #F5F6F8;
+          color: #00ACC1;
         }
         .about-back-btn .about-back-icon {
-          transition: transform 0.2s ease;
+          transition: transform 0.2s ease, stroke 0.2s ease;
+          stroke: currentColor;
         }
         .about-back-btn:hover .about-back-icon {
-          transform: translateX(-3px);
+          transform: translateX(-4px);
         }
 
         .about-eyebrow-text {
