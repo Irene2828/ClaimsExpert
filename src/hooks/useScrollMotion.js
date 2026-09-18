@@ -112,30 +112,26 @@ export default function useScrollMotion() {
 
       try {
         // 1. HERO & HEADER REVEAL (Only on initial load of homepage)
-        if (!hasAnimatedHero && hero) {
+        if (hasAnimatedHero === false && hero) {
           const heroTextUnit = hero.querySelector('.z-10') || hero.firstElementChild;
           const heroImgUnit = hero.querySelector('.hero-img-col') || hero.lastElementChild;
-          const quoteCards = hero.querySelectorAll('.hero-quote-card');
           const navLinks = document.querySelectorAll('header nav a');
 
           // Apply inline styles to hold opacity: 0 BEFORE removing style tag
           applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
-          applyStyle(heroImgUnit, '0', 0, 0, 320, 1.75);
-          quoteCards.forEach((card) => {
-            applyStyle(card, '0', 44, 0, 320, 1.75);
-          });
+          // 2.2s duration for slower fade-in, y=0, x=0 for fade only
+          applyStyle(heroImgUnit, '0', 0, 0, 320, 2.2);
+          
           navLinks.forEach((link, idx) => {
             applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
           });
 
-          // NOW that inline styles are applied, safely remove CSS pre-hide tag:
           const initStyle = document.getElementById('premium-motion-init');
           if (initStyle) initStyle.remove();
 
           requestAnimationFrame(() => {
             trigger(heroTextUnit);
             trigger(heroImgUnit);
-            quoteCards.forEach((card) => trigger(card));
             navLinks.forEach((link) => trigger(link));
           });
 
