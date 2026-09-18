@@ -34,7 +34,7 @@ export default function Header() {
               aria-label="Toggle language"
             >
               <span className={language === 'en' ? 'font-semibold text-[#0E223F]' : ''}>EN</span>
-              <span className="mx-1">|</span>
+              <span className="mx-2.5 opacity-40">|</span>
               <span className={language === 'fr' ? 'font-semibold text-[#0E223F]' : ''}>FR</span>
             </button>
           </p>
@@ -141,7 +141,7 @@ export default function Header() {
                 className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none"
               >
                 <span className={language === 'en' ? 'font-semibold text-white' : ''}>EN</span>
-                <span className="mx-2">|</span>
+                <span className="mx-2.5 opacity-40">|</span>
                 <span className={language === 'fr' ? 'font-semibold text-white' : ''}>FR</span>
               </button>
             </div>
