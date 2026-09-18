@@ -136,7 +136,7 @@ export default function Contact() {
                   {t('contact.form.submitBtn')}
                 </button>
                 <p className="font-inter text-center text-[12px] text-white/50 mt-3">
-                  {t('contact.form.successMsg')}
+                  {t('contact.form.footerNote')}
                 </p>
               </form>
             )}

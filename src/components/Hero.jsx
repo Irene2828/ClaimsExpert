@@ -100,6 +100,7 @@ export default function Hero() {
                 href="#approach"
                 className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] px-[29.4px] text-[14.7px]"
                 style={{
+                  borderWidth: '0.5px',
                   borderColor: primaryColor,
                   color: primaryColor,
                   whiteSpace: "nowrap",
@@ -144,7 +145,7 @@ export default function Hero() {
                 style={{
                   position: "absolute",
                   right: "5%",
-                  top: "22%",
+                  top: "10%",
                   zIndex: 25,
                   textAlign: "right",
                   filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
@@ -176,7 +177,22 @@ export default function Hero() {
               </div>
 
               {/* Quote Card (moved to bottom-left of portrait) */}
-              <div className="hero-quote-card flex items-start gap-2.5 select-none">
+              <style>{`
+                html body .hero-quote-card.fr-quote {
+                  padding-left: 10px !important;
+                  padding-right: 12px !important;
+                }
+                html body .hero-quote-card.fr-quote p {
+                  font-size: 12.5px !important;
+                  letter-spacing: -0.02em !important;
+                }
+                @media (min-width: 1024px) {
+                  html body .hero-img-col {
+                    transform: translateX(5%) !important;
+                  }
+                }
+              `}</style>
+              <div className={`hero-quote-card flex items-start gap-2.5 select-none ${language === 'fr' ? 'fr-quote' : ''}`}>
                 <svg
                   width="14"
                   height="14"

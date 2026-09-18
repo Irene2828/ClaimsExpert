@@ -167,6 +167,7 @@
 
       body {
         line-height: inherit;
+        overflow-x: hidden;
       }
 
       hr {
@@ -2634,8 +2635,10 @@
         /* Show Name Badge on Mobile with Apple Tahoe glassmorphism */
         html body .hero-name-badge {
           display: block !important;
-          left: 10px !important;
+          left: auto !important;
+          right: 10px !important;
           bottom: 16px !important;
+          top: auto !important;
           z-index: 25 !important;
           background: rgba(255, 255, 255, 0.90) !important;
           backdrop-filter: blur(16px) saturate(180%) !important;

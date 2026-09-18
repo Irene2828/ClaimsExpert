@@ -120,8 +120,6 @@ export default function About() {
 
         .about-story-container {
           width: 100%;
-          max-width: 81% !important;
-          margin: 0 !important;
           text-align: left;
           padding: 0;
           box-sizing: border-box;
@@ -145,6 +143,15 @@ export default function About() {
 
         .about-right-col {
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .about-text-wrapper {
+          width: 100%;
+          max-width: 81%;
+          margin: 0 auto;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -281,29 +288,7 @@ export default function About() {
       >
         <div className="about-hero-container">
           
-          {/* Top Row: [Back to Homepage] button */}
-          <div className="about-back-wrapper">
-            <Link
-              to="/"
-              className="about-back-btn"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#0E223F"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="about-back-icon"
-              >
-                <line x1="19" y1="12" x2="5" y2="12" />
-                <polyline points="12 19 5 12 12 5" />
-              </svg>
-              <span>{t('about.backBtn')}</span>
-            </Link>
-          </div>
+
 
           {/* 2-Column Grid */}
           <div className="about-content-grid">
@@ -378,17 +363,50 @@ export default function About() {
 
             {/* Right Column: Eyebrow + Headline + Story Block */}
             <div className="about-right-col">
-              <span className="about-eyebrow-text">
-                {t('about.eyebrow')}
-              </span>
-              <h1 className="about-headline">
-                {t('about.headline')}
-              </h1>
+              <div className="about-text-wrapper">
+                <span className="about-eyebrow-text">
+                  {t('about.eyebrow')}
+                </span>
+                <h1 className="about-headline">
+                  {t('about.headline')}
+                </h1>
 
-              <div className="about-story-container">
-                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
-                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
-                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
+                <div className="about-story-container">
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
+                </div>
+                
+                <div className="w-full flex justify-end mt-12">
+                  <Link
+                    to="/"
+                    className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] text-[14.7px]"
+                    style={{
+                      borderWidth: '0.5px',
+                      borderColor: '#0E223F',
+                      color: '#0E223F',
+                      whiteSpace: "nowrap",
+                      height: '48.3px',
+                      padding: '0 29.4px'
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="shrink-0 transition-transform group-hover:-translate-x-1"
+                    >
+                      <line x1="19" y1="12" x2="5" y2="12" />
+                      <polyline points="12 19 5 12 12 5" />
+                    </svg>
+                    {t('about.backBtn')}
+                  </Link>
+                </div>
               </div>
             </div>
 

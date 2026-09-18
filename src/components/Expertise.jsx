@@ -29,7 +29,10 @@ export default function Expertise() {
         <div className="mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-6 w-full max-w-full min-w-0 items-stretch">
           
           {/* Card 1 — Municipal Civil Liability */}
-          <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-16 lg:pb-20 w-full min-w-0 flex flex-col justify-between h-full">
+          <div 
+            className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] w-full min-w-0 flex flex-col justify-between h-full"
+            style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '32px', paddingRight: '32px' }}
+          >
             <div>
               <span className="font-inter text-[12px] tracking-[0.2em] font-medium" style={{ color: "#00ACC1" }}>
                 01
@@ -68,7 +71,10 @@ export default function Expertise() {
           </div>
 
           {/* Card 2 — Public Adjuster Services */}
-          <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-16 lg:pb-20 w-full min-w-0 flex flex-col justify-between h-full">
+          <div 
+            className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] w-full min-w-0 flex flex-col justify-between h-full"
+            style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '32px', paddingRight: '32px' }}
+          >
             <div>
               <span className="font-inter text-[12px] tracking-[0.2em] font-medium" style={{ color: "#00ACC1" }}>
                 02
@@ -107,7 +113,10 @@ export default function Expertise() {
           </div>
 
           {/* Card 3 — Damage Assessment & Technical Analysis */}
-          <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-16 lg:pb-20 w-full min-w-0 flex flex-col justify-between h-full">
+          <div 
+            className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] w-full min-w-0 flex flex-col justify-between h-full"
+            style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '32px', paddingRight: '32px' }}
+          >
             <div>
               <span className="font-inter text-[12px] tracking-[0.2em] font-medium" style={{ color: "#00ACC1" }}>
                 03

@@ -9,7 +9,9 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
+      // Trigger glass effect only when header actually sticks (after top banner scrolls away)
+      const threshold = window.innerWidth >= 768 ? 36 : 0;
+      setIsScrolled(window.scrollY > threshold);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -34,13 +36,16 @@ export default function Header() {
               aria-label="Toggle language"
             >
               <span className={language === 'en' ? 'font-semibold text-[#0E223F]' : ''}>EN</span>
-              <span className="mx-2.5 opacity-40">|</span>
+              <span className="opacity-40" style={{ margin: '0 12.5px' }}>|</span>
               <span className={language === 'fr' ? 'font-semibold text-[#0E223F]' : ''}>FR</span>
             </button>
           </p>
         </div>
       </div>
-      <header className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${isScrolled ? "bg-[#0E223F]/90 backdrop-blur-[16px] border-white/10 shadow-[0_8px_32px_rgba(14,34,63,0.35)]" : "bg-[#0E223F] border-white/10"}`}>
+      <header 
+        className={`sticky top-0 w-full transition-all duration-300 border-b ${isScrolled ? "border-white/10" : "bg-[#0E223F] border-white/10"}`}
+        style={isScrolled ? { zIndex: 50, backgroundColor: 'rgba(14,34,63,0.95)', backdropFilter: 'blur(12px)', boxShadow: '0 8px 32px rgba(14,34,63,0.35)' } : { zIndex: 50 }}
+      >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center">

@@ -1,19 +1,23 @@
+import { useLanguage } from '../i18n/LanguageContext';
+
 export default function Process() {
+  const { t } = useLanguage();
+
   const processSteps = [
     {
       n: "01",
-      title: "Review & Assessment",
-      desc: "Understanding the circumstances, reviewing the available documentation, and identifying the key factual, technical, and liability issues.",
+      title: t('process.step1.title').replace(/^01 — /, ''),
+      desc: t('process.step1.body'),
     },
     {
       n: "02",
-      title: "Investigation & Analysis",
-      desc: "Gathering and organizing the relevant evidence, assessing liability, causation and damages, and identifying any additional information required for a complete analysis.",
+      title: t('process.step2.title').replace(/^02 — /, ''),
+      desc: t('process.step2.body'),
     },
     {
       n: "03",
-      title: "Recommendations & Resolution",
-      desc: "Providing a clear, well-supported assessment of the file and practical recommendations to help my client make informed decisions and move toward an appropriate resolution.",
+      title: t('process.step3.title').replace(/^03 — /, ''),
+      desc: t('process.step3.body'),
     },
   ];
 
@@ -22,13 +26,13 @@ export default function Process() {
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36">
         <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
           <span className="font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#F5F6F8] text-[#0E223F] border border-[#0E223F]/10 text-[10.5px] tracking-[0.18em] uppercase font-medium">
-            How I Work
+            {t('process.eyebrow')}
           </span>
           <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[36px] lg:text-[48px] mt-6 text-center">
-            A clear, structured process.
+            {t('process.headline')}
           </h2>
           <p className="font-inter text-[17px] lg:text-[18px] leading-[1.7] text-[#0E223F]/70 mt-6 mx-auto max-w-[60ch] text-center">
-            Every file begins with understanding the facts, identifying the issues, and determining the appropriate path forward.
+            {t('process.body')}
           </p>
         </div>
         <div className="relative mt-16 lg:mt-20 w-full">

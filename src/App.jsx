@@ -28,7 +28,7 @@ function App() {
   useScrollMotion();
 
   return (
-    <div className="bg-white text-[#111827] antialiased overflow-x-hidden selection:bg-[#0E223F] selection:text-white">
+    <div className="bg-white text-[#111827] antialiased selection:bg-[#0E223F] selection:text-white">
       <ScrollToTop />
       <Header />
       <Routes>
