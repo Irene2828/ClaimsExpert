@@ -109,7 +109,7 @@ export default function About() {
         }
         @media (min-width: 1024px) {
           .about-content-grid {
-            grid-template-columns: 1.05fr 0.95fr;
+            grid-template-columns: 0.95fr 1.05fr;
             gap: 56px;
             align-items: start;
           }
@@ -119,8 +119,7 @@ export default function About() {
           width: 100%;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          text-align: left;
+          gap: 36px;
         }
 
         .about-story-container {
@@ -152,12 +151,8 @@ export default function About() {
           width: 100%;
           display: flex;
           flex-direction: column;
-          gap: 36px;
-        }
-        @media (min-width: 1024px) {
-          .about-right-col {
-            margin-top: -64px;
-          }
+          align-items: flex-start;
+          text-align: left;
         }
 
         .about-portrait-card {
@@ -317,24 +312,8 @@ export default function About() {
           {/* 2-Column Grid */}
           <div className="about-content-grid">
             
-            {/* Left Column: Eyebrow + Headline + Story Block */}
+            {/* Left Column: Portrait Image + Caption + Timeline Frame */}
             <div className="about-left-col">
-              <span className="about-eyebrow-text">
-                {t('about.eyebrow')}
-              </span>
-              <h1 className="about-headline">
-                {t('about.headline')}
-              </h1>
-
-              <div className="about-story-container">
-                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
-                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
-                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
-              </div>
-            </div>
-
-            {/* Right Column: Portrait Image + Caption + Timeline Frame */}
-            <div className="about-right-col">
               
               {/* Portrait Image & Caption */}
               <div className="about-portrait-card">
@@ -399,6 +378,22 @@ export default function About() {
                 </div>
               </div>
 
+            </div>
+
+            {/* Right Column: Eyebrow + Headline + Story Block */}
+            <div className="about-right-col">
+              <span className="about-eyebrow-text">
+                {t('about.eyebrow')}
+              </span>
+              <h1 className="about-headline">
+                {t('about.headline')}
+              </h1>
+
+              <div className="about-story-container">
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
+              </div>
             </div>
 
           </div>
