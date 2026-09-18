@@ -126,19 +126,20 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end hero-img-col transform lg:translate-x-8">
-            <div
-              style={{
-                position: "relative",
-                zIndex: 10,
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "center",
-                width: "100%",
-                maxWidth: "460px",
-                height: "clamp(400px, calc(100svh - 180px), 560px)",
-              }}
-            >
+          <div className="hero-desktop-shift order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end">
+            <div className="hero-img-col w-full flex items-end justify-center lg:justify-end">
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: 10,
+                  display: "flex",
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                  width: "100%",
+                  maxWidth: "460px",
+                  height: "clamp(400px, calc(100svh - 180px), 560px)",
+                }}
+              >
               {/* Name & Title Badge (adjusted position) */}
               <div
                 className="hero-name-badge select-none pointer-events-none hidden sm:block"
@@ -189,7 +190,7 @@ export default function Hero() {
                   letter-spacing: -0.02em !important;
                 }
                 @media (min-width: 1024px) {
-                  html body .hero-img-col {
+                  html body .hero-desktop-shift {
                     transform: translateX(5%) !important;
                   }
                 }
@@ -231,6 +232,7 @@ export default function Hero() {
                 draggable={false}
               />
             </div>
+          </div>
           </div>
         </div>
       </div>
