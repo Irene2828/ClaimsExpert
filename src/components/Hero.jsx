@@ -34,7 +34,7 @@ export default function Hero() {
             <h1
               className="mt-4 font-inter text-[#1E3358]"
               style={{
-                fontSize: "clamp(42.23px, 5.15vw, 69.01px)",
+                fontSize: "clamp(34px, 4.2vw, 58px)",
                 letterSpacing: "-0.05em",
                 lineHeight: "1.08",
               }}
