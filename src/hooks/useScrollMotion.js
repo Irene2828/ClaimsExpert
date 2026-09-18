@@ -120,7 +120,7 @@ export default function useScrollMotion() {
 
           // Apply inline styles to hold opacity: 0 BEFORE removing style tag
           applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
-          applyStyle(heroImgUnit, '0', 44, 0, 320, 1.75);
+          applyStyle(heroImgUnit, '0', 0, 0, 320, 1.75);
           quoteCards.forEach((card) => {
             applyStyle(card, '0', 44, 0, 320, 1.75);
           });
