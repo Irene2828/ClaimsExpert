@@ -84,13 +84,10 @@ export default function Testimonials() {
               min-height: 580px;
             }
           }
-          @media (min-width: 768px) {
-            .testimonial-carousel-container {
-              min-height: 480px;
-            }
-          }
         `}</style>
-        <div className="w-full max-w-[800px] mx-auto">
+        
+        {/* MOBILE CAROUSEL (< md) */}
+        <div className="md:hidden block w-full max-w-[800px] mx-auto">
           <div className="relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
             <div className="relative testimonial-carousel-container overflow-hidden">
               {testimonials.map((card, B) => {
@@ -174,6 +171,56 @@ export default function Testimonials() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* DESKTOP GRID (>= md) */}
+        <div className="hidden md:grid w-full grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1280px] mx-auto items-stretch">
+          {testimonials.map((card) => (
+            <div
+              key={card.id}
+              className={`${card.isDark ? "bg-[#0E223F] border-white/15 shadow-[0_24px_64px_rgba(14,34,63,0.14)]" : "bg-white border-[#0E223F]/15 shadow-sm hover:shadow-md transition-all duration-300"} rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-6 border min-h-[360px] flex flex-col justify-between text-left relative overflow-hidden`}
+            >
+              {card.isDark && (
+                <>
+                  <div
+                    className="absolute inset-0 opacity-[0.06]"
+                    style={{
+                      backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+                      backgroundSize: "28px 28px",
+                    }}
+                  />
+                  <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-white/[0.04] pointer-events-none" />
+                </>
+              )}
+              
+              <div className="relative flex flex-col justify-between h-full w-full z-10 gap-2">
+                <div className="flex items-center justify-between w-full mb-6">
+                  <p className="font-inter font-semibold text-[12px] tracking-[0.14em] uppercase" style={{ color: "#00ACC1" }}>
+                    {card.badge}
+                  </p>
+                </div>
+                <div className="flex-1 flex flex-col justify-between py-3 gap-6">
+                  <h3 className={`font-inter font-bold text-[17px] lg:text-[18.5px] leading-[1.35] tracking-[-0.02em] ${card.isDark ? "text-white" : "text-[#0E223F]"} mb-5 text-left`}>
+                    {card.title}
+                  </h3>
+                  <div className={`w-full h-px ${card.isDark ? "bg-white/15" : "bg-[#0E223F]/10"} mb-5`} />
+                  <div style={{ maxHeight: "116px", overflowY: "auto" }} className="testimonial-scrollbar pr-1">
+                    <p
+                      className={`font-inter font-normal text-[14px] leading-[1.65] ${card.isDark ? "text-white/80" : "text-[#0E223F]/85"} text-left whitespace-pre-line`}
+                      style={{ fontSize: "14px", lineHeight: "1.65" }}
+                    >
+                      {card.body}
+                    </p>
+                  </div>
+                </div>
+                <div className={`testimonial-author-footer ${card.isDark ? "is-dark" : ""} mt-auto flex justify-end items-center w-full text-right pt-4`}>
+                  <p className={`font-inter font-medium text-[12px] tracking-[0.1em] uppercase ${card.isDark ? "text-white/50" : "text-[#0E223F]/50"} text-right`}>
+                    {card.author}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
