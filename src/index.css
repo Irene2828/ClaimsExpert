@@ -2535,9 +2535,10 @@
         display: flex !important;
         position: absolute !important;
         z-index: 20 !important;
-        right: 32px !important;
-        bottom: 16px !important;
-        max-width: 300px !important;
+        left: -25% !important;
+        right: auto !important;
+        bottom: 14px !important;
+        max-width: 280px !important;
         background: rgba(255, 255, 255, 0.96) !important;
         backdrop-filter: blur(16px) !important;
         -webkit-backdrop-filter: blur(16px) !important;
@@ -2742,8 +2743,9 @@
 
         /* 7. Quote text on 1670px screens */
         html body .hero-quote-card {
-          max-width: 320px !important;
-          right: 48px !important;
+          max-width: 300px !important;
+          left: -28% !important;
+          right: auto !important;
           bottom: 20px !important;
           padding: 10px 14px !important;
         }
