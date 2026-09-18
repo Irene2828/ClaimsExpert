@@ -75,17 +75,46 @@ export default function Testimonials() {
           </h2>
         </div>
 
+        <style>{`
+          .testimonial-carousel-container {
+            min-height: 640px;
+          }
+          @media (min-width: 640px) {
+            .testimonial-carousel-container {
+              min-height: 580px;
+            }
+          }
+          @media (min-width: 768px) {
+            .testimonial-carousel-container {
+              min-height: 480px;
+            }
+          }
+        `}</style>
         <div className="w-full max-w-[800px] mx-auto">
           <div className="relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-            <div className="relative min-h-[640px] sm:min-h-[580px] md:min-h-[480px] overflow-hidden">
-              {testimonials.map((card, B) => (
-                <div
-                  key={card.id}
-                  className={`absolute inset-0 will-change-transform ${activeTab === B ? "opacity-100 translate-x-0 scale-100" : B < activeTab ? "opacity-0 -translate-x-[20%] scale-95 pointer-events-none" : "opacity-0 translate-x-[20%] scale-95 pointer-events-none"}`}
-                  style={{
-                    transition: "transform 700ms cubic-bezier(0.25, 1, 0.5, 1), opacity 600ms ease-out",
-                  }}
-                >
+            <div className="relative testimonial-carousel-container overflow-hidden">
+              {testimonials.map((card, B) => {
+                const isActive = activeTab === B;
+                const isPast = B < activeTab;
+                
+                let transformValue = "translateX(0) scale(1)";
+                let opacityValue = 1;
+                
+                if (!isActive) {
+                  transformValue = isPast ? "translateX(-20%) scale(0.95)" : "translateX(20%) scale(0.95)";
+                  opacityValue = 0;
+                }
+                
+                return (
+                  <div
+                    key={card.id}
+                    className={`absolute inset-0 will-change-transform ${isActive ? "pointer-events-auto" : "pointer-events-none"}`}
+                    style={{
+                      transform: transformValue,
+                      opacity: opacityValue,
+                      transition: "transform 700ms cubic-bezier(0.25, 1, 0.5, 1), opacity 600ms ease-out",
+                    }}
+                  >
                   <div
                     className={`${card.isDark ? "bg-[#0E223F] border-white/15 shadow-[0_24px_64px_rgba(14,34,63,0.14)]" : "bg-white border-[#0E223F]/15 shadow-sm"} rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-6 border h-full flex flex-col justify-between text-left relative overflow-hidden`}
                   >
@@ -130,7 +159,8 @@ export default function Testimonials() {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
             
             <div className="flex items-center justify-center gap-2.5 mt-8">
