@@ -166,10 +166,11 @@ export default function Hero() {
                   </span>
                 </div>
                 <div
-                  className="font-inter text-[11px] tracking-[0.03em] font-medium text-[#4B5563] about-claims-adjuster"
+                  className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster"
                   style={{
                     marginTop: "5px",
                     paddingLeft: "0px",
+                    letterSpacing: language === 'en' ? "0.085em" : "0.03em",
                   }}
                 >
                   {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
