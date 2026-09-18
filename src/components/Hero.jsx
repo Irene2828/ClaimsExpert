@@ -1,7 +1,9 @@
 import portraitImage from '../assets/isabelle-portrait-opt.webp';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Hero() {
   const primaryColor = '#0E223F';
+  const { t } = useLanguage();
 
   return (
     <section
@@ -17,7 +19,7 @@ export default function Hero() {
         {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
         <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
           <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase text-[#0E223F]/70 font-medium hero-tag-line text-center">
-            - INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -
+            {t('hero.eyebrow')}
           </span>
         </div>
 
@@ -26,7 +28,7 @@ export default function Hero() {
           <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
             <div className="hero-eyebrow-desktop inline-flex items-center">
               <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F]/60 font-medium hero-tag-line">
-                - INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -
+                {t('hero.eyebrow')}
               </span>
             </div>
             <h1
@@ -46,7 +48,7 @@ export default function Hero() {
                   letterSpacing: "-0.05em",
                 }}
               >
-                Informed decisions.
+                {t('hero.headlinePart1')}
               </div>
               <div
                 className="block sm:whitespace-nowrap mt-[0.05em]"
@@ -58,15 +60,14 @@ export default function Hero() {
                   color: "#64748B",
                 }}
               >
-                Fair outcomes.
+                {t('hero.headlinePart2')}
               </div>
             </h1>
             <p
               className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch] hero-subline"
               style={{ fontSize: "16px", lineHeight: "1.68" }}
             >
-              Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury —{" "}
-              bringing that same expertise directly to policyholders navigating their own insurance claims.
+              {t('hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
               <a
@@ -77,7 +78,7 @@ export default function Hero() {
                   whiteSpace: "nowrap",
                 }}
               >
-                Book an appointment
+                {t('hero.bookBtn')}
                 <svg
                   width="16"
                   height="16"
@@ -104,7 +105,7 @@ export default function Hero() {
                   whiteSpace: "nowrap",
                 }}
               >
-                See how I work
+                {t('hero.howIWorkBtn')}
                 <svg
                   width="16"
                   height="16"
@@ -170,7 +171,7 @@ export default function Hero() {
                     paddingLeft: "0px",
                   }}
                 >
-                  - claims adjuster
+                  {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
                 </div>
               </div>
 
@@ -186,7 +187,7 @@ export default function Hero() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p>
-                  My role is to bring the technical knowledge and claims expertise my clients need to make informed decisions.
+                  {t('hero.quote').replace(/^["«]\s*|\s*["»]$/g, '')}
                 </p>
               </div>
 

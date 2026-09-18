@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import royIsabellePortrait from '../assets/roy-isabelle-portrait.png';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <main>
       <style>{`
@@ -308,7 +310,7 @@ export default function About() {
                 <line x1="19" y1="12" x2="5" y2="12" />
                 <polyline points="12 19 5 12 12 5" />
               </svg>
-              <span>Back to Homepage</span>
+              <span>{t('about.backBtn')}</span>
             </Link>
           </div>
 
@@ -318,22 +320,16 @@ export default function About() {
             {/* Left Column: Eyebrow + Headline + Story Block */}
             <div className="about-left-col">
               <span className="about-eyebrow-text">
-                — ABOUT THE PRACTICE • LEGACY —
+                {t('about.eyebrow')}
               </span>
               <h1 className="about-headline">
-                R. Guertin & Associates
+                {t('about.headline')}
               </h1>
 
               <div className="about-story-container">
-                <p className="about-story-paragraph">
-                  R. Guertin & Ass. was founded in 2014 by Roy Guertin, building on his <span style={{ fontWeight: 500, color: "#0E223F" }}>extensive experience in claims adjusting</span> and a commitment to providing <span style={{ fontWeight: 500, color: "#0E223F" }}>thorough, independent and personalized service</span>.
-                </p>
-                <p className="about-story-paragraph">
-                  Isabelle Guertin <span style={{ fontWeight: 500, color: "#0E223F" }}>joined the family practice in 2016</span>, bringing her own experience and gradually taking on a greater role in the firm. Over the years, she developed a particular expertise in <span style={{ fontWeight: 500, color: "#0E223F" }}>municipal civil liability</span> while working closely with the firm's clients and continuing the values on which the practice was built.
-                </p>
-                <p className="about-story-paragraph">
-                  Following Roy's retirement in 2026, Isabelle became the <span style={{ fontWeight: 500, color: "#0E223F" }}>sole owner of R. Guertin & Ass.</span> Today, she continues the firm's tradition of <span style={{ fontWeight: 500, color: "#0E223F" }}>integrity, thoroughness and personal service</span> while developing the practice in her own direction — maintaining its strong focus on municipal civil liability and making her claims expertise directly available to policyholders through <span style={{ fontWeight: 500, color: "#0E223F" }}>public adjusting services</span>.
-                </p>
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
               </div>
             </div>
 
@@ -348,7 +344,7 @@ export default function About() {
                   className="about-portrait-img"
                 />
                 <p className="about-portrait-caption">
-                  Roy & Isabelle Guertin — Founding & Current Leadership
+                  {t('about.portraitCaption')}
                 </p>
               </div>
 
@@ -365,9 +361,9 @@ export default function About() {
                         <div className="timeline-marker-past-dot" />
                       </div>
                       <div>
-                        <span className="timeline-badge">2014 • FOUNDATION</span>
+                        <span className="timeline-badge">{t('about.timeline.year2014Badge')}</span>
                         <p className="timeline-stage-body">
-                          R. Guertin & Ass. is founded by Roy Guertin, building a reputation rooted deeply in integrity and thoroughness.
+                          {t('about.timeline.year2014Text')}
                         </p>
                       </div>
                     </div>
@@ -378,9 +374,9 @@ export default function About() {
                         <div className="timeline-marker-past-dot" />
                       </div>
                       <div>
-                        <span className="timeline-badge">2016 • EXPANSION</span>
+                        <span className="timeline-badge">{t('about.timeline.year2016Badge')}</span>
                         <p className="timeline-stage-body">
-                          Isabelle Guertin joins the family practice, developing deep expertise in municipal civil liability.
+                          {t('about.timeline.year2016Text')}
                         </p>
                       </div>
                     </div>
@@ -392,9 +388,9 @@ export default function About() {
                         <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#FFFFFF' }} />
                       </div>
                       <div>
-                        <span className="timeline-badge">2026 • PRESENT</span>
+                        <span className="timeline-badge">{t('about.timeline.year2026Badge')}</span>
                         <p className="timeline-stage-body">
-                          Isabelle Guertin assumes sole ownership, expanding into public adjusting services while honoring core values.
+                          {t('about.timeline.year2026Text')}
                         </p>
                       </div>
                     </div>

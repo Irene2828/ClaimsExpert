@@ -1,46 +1,49 @@
 import { useState, useRef, useEffect } from 'react';
-
-const R = [
-  {
-    n: "01",
-    title: "Direct file handling",
-    desc: "Documenting evidence, photos, plans, and technical details directly for your claim.",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-      </svg>
-    )
-  },
-  {
-    n: "02",
-    title: "Clear communication",
-    desc: "Framing claims clearly for insurers and municipalities to avoid unnecessary delays.",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-        <path d="M12 3L4 7v6c0 4.418 3.582 8 8 8s8-3.582 8-8V7l-8-4z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    )
-  },
-  {
-    n: "03",
-    title: "Direct updates",
-    desc: "Direct contact and regular updates on your file status — no call centers or automated queues.",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-        <circle cx="12" cy="8" r="3.5" />
-        <path d="M5 19c0-3.5 3-6 7-6s7 2.5 7 6" />
-      </svg>
-    )
-  }
-];
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Approach() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
   const pauseUntilRef = useRef(0);
+  const touchStartX = useRef(null);
+
+  const R = [
+    {
+      n: "01",
+      title: t('approach.card1Title'),
+      desc: t('approach.card1Body'),
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      )
+    },
+    {
+      n: "02",
+      title: t('approach.card2Title'),
+      desc: t('approach.card2Body'),
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+          <path d="M12 3L4 7v6c0 4.418 3.582 8 8 8s8-3.582 8-8V7l-8-4z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      )
+    },
+    {
+      n: "03",
+      title: t('approach.card3Title'),
+      desc: t('approach.card3Body'),
+      icon: (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+          <circle cx="12" cy="8" r="3.5" />
+          <path d="M5 19c0-3.5 3-6 7-6s7 2.5 7 6" />
+        </svg>
+      )
+    }
+  ];
   const touchStartX = useRef(null);
 
   useEffect(() => {
@@ -78,19 +81,20 @@ export default function Approach() {
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36">
         <div className="w-full flex justify-start mb-8">
           <span className="font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#E5E7EB] text-[#0E223F] border border-[#E5E7EB] text-[10.5px] tracking-[0.18em] uppercase font-medium">
-            Approach
+            {t('approach.eyebrow')}
           </span>
         </div>
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-start">
           <div className="lg:sticky lg:top-28 order-2 lg:order-1">
             <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px] max-w-[18ch]">
-              An independent practice — one file at a time.
+              {t('approach.headline')}
             </h2>
             <p
               className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch]"
               style={{ fontSize: "16px", lineHeight: "1.68" }}
             >
-              The person you hire is the person who handles your file. Every mandate I accept is handled directly by me, providing continuity, experienced judgment and direct communication from initial review through resolution. <span className="font-semibold text-[#0E223F]">I approach every file with the same care and attention I would expect if it were my own.</span>
+              {t('approach.body1')}
+              <span className="font-semibold text-[#0E223F]">{t('approach.body2')}</span>
             </p>
           </div>
           <div className="relative order-1 lg:order-2 lg:sticky lg:top-28">

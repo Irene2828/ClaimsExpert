@@ -1,4 +1,7 @@
+import { useLanguage } from '../i18n/LanguageContext';
+
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="relative border-t border-white/10 overflow-hidden" style={{ backgroundColor: "#0B1B35" }}>
       <div className="relative max-w-[1336px] mx-auto px-8 lg:px-12 py-12 flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
@@ -7,15 +10,15 @@ export default function Footer() {
             G
           </div>
           <span className="font-inter text-[11px] tracking-[0.18em] text-white/60 uppercase">
-            © {new Date().getFullYear()} Guertin Claims Advisory • Montreal, QC
+            {t('footer.copyright')}
           </span>
         </div>
         <div className="flex gap-6 font-inter text-[12px] text-white/50 items-center">
           <span className="hover:text-white transition-colors cursor-default font-medium">
-            Cookie Statements (CA)
+            {t('footer.cookies')}
           </span>
           <span className="hover:text-white transition-colors cursor-default font-medium">
-            Privacy statement (CA)
+            {t('footer.privacy')}
           </span>
           <span className="text-white/80">
             438 794-1044

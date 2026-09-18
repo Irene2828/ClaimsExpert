@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
@@ -18,13 +20,13 @@ export default function Contact() {
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
           <div className="flex flex-col items-start">
             <span className="font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#F5F6F8] text-[#0E223F] border border-transparent text-[10.5px] tracking-[0.18em] uppercase font-medium">
-              Contact Me
+              {t('contact.eyebrow')}
             </span>
             <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[32px] lg:text-[42px] mt-6 max-w-[16ch] text-left">
-              Let's discuss your file.
+              {t('contact.headline')}
             </h2>
             <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 max-w-[50ch]">
-              Whether you are a municipality looking for experienced claims support or a policyholder seeking independent guidance, tell me briefly about your file and how I can assist.
+              {t('contact.body')}
             </p>
             <div className="mt-12 space-y-5">
               <div className="flex gap-4">
@@ -34,7 +36,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">Phone</p>
+                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.phoneTitle')}</p>
                   <p className="font-inter text-[14px] text-white mt-1">438 794-1044</p>
                 </div>
               </div>
@@ -46,7 +48,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">Email</p>
+                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.emailTitle')}</p>
                   <p className="font-inter text-[14px] text-white mt-1">reclamations@rguertin.ca</p>
                 </div>
               </div>
@@ -58,8 +60,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">Territory</p>
-                  <p className="font-inter text-[14px] text-white mt-1">Greater Montreal • Province of Quebec</p>
+                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.territoryTitle')}</p>
+                  <p className="font-inter text-[14px] text-white mt-1">{t('contact.territoryDetails')}</p>
                 </div>
               </div>
             </div>
@@ -73,16 +75,16 @@ export default function Contact() {
                   </svg>
                 </div>
                 <p className="font-newsreader text-[22px] text-white mt-6">
-                  Thank you — I will reply shortly.
+                  {t('contact.form.thankYou')}
                 </p>
                 <p className="font-inter text-[13px] text-white/60 mt-2">
-                  Demo: no data sent. Copy this as email draft if needed.
+                  {t('contact.form.demoText')}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="font-inter mt-8 text-[13px] text-white/80 underline underline-offset-4"
                 >
-                  Send another
+                  {t('contact.form.sendAnother')}
                 </button>
               </div>
             ) : (
@@ -95,34 +97,34 @@ export default function Contact() {
               >
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/60">Name</label>
+                    <label className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/60">{t('contact.form.nameLabel')}</label>
                     <input
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      placeholder="Full name"
+                      placeholder={t('contact.form.namePlaceholder')}
                       className="mt-2 w-full h-[44px] rounded-xl bg-white/10 border border-white/20 px-4 font-inter text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/[0.12] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/60">Email</label>
+                    <label className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/60">{t('contact.form.emailLabel')}</label>
                     <input
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
                       type="email"
-                      placeholder="you@domain.ca"
+                      placeholder={t('contact.form.emailPlaceholder')}
                       className="mt-2 w-full h-[44px] rounded-xl bg-white/10 border border-white/20 px-4 font-inter text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/[0.12] transition-colors"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/60">Briefly, what happened?</label>
+                  <label className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/60">{t('contact.form.messageLabel')}</label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    placeholder="Type of damage, date, municipality involved..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                     rows={4}
                     className="mt-2 w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 font-inter text-[14px] text-white placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/[0.12] transition-colors resize-none"
                   />
@@ -131,10 +133,10 @@ export default function Contact() {
                   type="submit"
                   className="w-full h-[48px] rounded-full bg-white text-[#0E223F] font-inter text-[14px] font-medium tracking-wide hover:bg-white/90 transition-colors mt-2"
                 >
-                  Discuss your file
+                  {t('contact.form.submitBtn')}
                 </button>
                 <p className="font-inter text-center text-[12px] text-white/50 mt-3">
-                  I’ll get back to you within the next 48 hrs.
+                  {t('contact.form.successMsg')}
                 </p>
               </form>
             )}

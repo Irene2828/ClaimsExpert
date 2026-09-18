@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,18 +16,27 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: "/about", label: "About Me", isRouterLink: true },
-    { href: "/#expertise", label: "Expertise" },
-    { href: "/#testimonials", label: "Testimonials" },
-    { href: "/#contact", label: "Contact" }
+    { href: "/about", label: t('nav.about'), isRouterLink: true },
+    { href: "/#expertise", label: t('nav.expertise') },
+    { href: "/#testimonials", label: t('nav.testimonials') },
+    { href: "/#contact", label: t('nav.contact') }
   ];
 
   return (
     <>
       <div className="top-banner w-full bg-white border-b border-[#E5E7EB] hidden md:block">
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[36px] flex items-center justify-end">
-          <p className="font-inter text-[11px] tracking-[0.14em] text-[#0E223F]/70 uppercase font-normal top-bar-text-item">
-            reclamations@rguertin.ca <span className="mx-2 opacity-20">•</span> Greater Montreal <span className="mx-2 opacity-20">•</span> EN | FR
+          <p className="font-inter text-[11px] tracking-[0.14em] text-[#0E223F]/70 uppercase font-normal top-bar-text-item flex items-center">
+            {t('topBar.email')} <span className="mx-2 opacity-20">•</span> {t('topBar.region')} <span className="mx-2 opacity-20">•</span> 
+            <button 
+              onClick={toggleLanguage} 
+              className="hover:text-[#0E223F] hover:font-medium transition-colors ml-1 focus:outline-none"
+              aria-label="Toggle language"
+            >
+              <span className={language === 'en' ? 'font-semibold text-[#0E223F]' : ''}>EN</span>
+              <span className="mx-1">|</span>
+              <span className={language === 'fr' ? 'font-semibold text-[#0E223F]' : ''}>FR</span>
+            </button>
           </p>
         </div>
       </div>
@@ -74,7 +85,7 @@ export default function Header() {
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
                 <path d="M12 18h.01" />
               </svg>
-              Call me: 438-794-1044
+              {t('nav.callMe')} 438-794-1044
             </a>
           </div>
           <button
@@ -89,7 +100,7 @@ export default function Header() {
             </div>
           </button>
         </div>
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-white/10 ${mobileMenuOpen ? "max-h-[360px] opacity-100" : "max-h-0 opacity-0"}`}>
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-white/10 ${mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="px-6 py-8 bg-[#0E223F] flex flex-col gap-6">
             {navLinks.map((link) => (
               link.isRouterLink ? (
@@ -121,10 +132,22 @@ export default function Header() {
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
                 <path d="M12 18h.01" />
               </svg>
-              Call me: 438-794-1044
+              {t('nav.callMe')} 438-794-1044
             </a>
-            <p className="font-inter text-[11px] tracking-wide text-white/50 mt-2">
-              438 794-1044 • reclamations@rguertin.ca
+            
+            <div className="flex items-center gap-2 mt-2 pt-4 border-t border-white/10">
+              <button 
+                onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }} 
+                className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none"
+              >
+                <span className={language === 'en' ? 'font-semibold text-white' : ''}>EN</span>
+                <span className="mx-2">|</span>
+                <span className={language === 'fr' ? 'font-semibold text-white' : ''}>FR</span>
+              </button>
+            </div>
+            
+            <p className="font-inter text-[11px] tracking-wide text-white/50 mt-1">
+              438 794-1044 • {t('topBar.email').toLowerCase()}
             </p>
           </div>
         </div>

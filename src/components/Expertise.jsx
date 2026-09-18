@@ -1,4 +1,7 @@
+import { useLanguage } from '../i18n/LanguageContext';
+
 export default function Expertise() {
+  const { t } = useLanguage();
   return (
     <section id="expertise" className="bg-[#0E223F] relative overflow-hidden">
       <div
@@ -12,13 +15,14 @@ export default function Expertise() {
       <div className="w-full max-w-[1336px] mx-auto px-8 lg:px-12 py-28 lg:py-36 relative">
         <div className="text-center max-w-3xl mx-auto">
           <span className="font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#F5F6F8] text-[#0E223F] border border-transparent text-[10.5px] tracking-[0.18em] uppercase font-medium">
-            Expertise
+            {t('expertise.eyebrow')}
           </span>
           <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[36px] lg:text-[52px] mt-6">
-            Technical expertise. Clear analysis. Informed decisions.
+            {t('expertise.headline')}
           </h2>
           <p className="font-inter text-[17px] lg:text-[18px] leading-[1.7] text-white/70 mt-6 mx-auto max-w-[60ch]">
-            Independent claims expertise for municipalities and policyholders, with a focus on <span className="text-white font-medium">thorough investigation, technical analysis and fair, well-supported outcomes.</span>
+            {t('expertise.body1')}
+            <span className="text-white font-medium">{t('expertise.body2')}</span>
           </p>
         </div>
 
@@ -31,34 +35,34 @@ export default function Expertise() {
                 01
               </span>
               <h3 className="font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left">
-                Municipal Civil Liability
+                {t('expertise.card1.title')}
               </h3>
               <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50 mt-2 font-medium text-left">
-                - PRIMARY PRACTICE -
+                {t('expertise.card1.tag')}
               </p>
               <div className="w-full h-px bg-white/10 my-5" />
               
               <p className="font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left">
-                Investigation and handling of municipal liability claims involving property damage and bodily injury. With extensive experience working directly with municipalities, I understand their operational realities, procedures, and the particular considerations involved in municipal claims. Each file is assessed through:
+                {t('expertise.card1.body')}
               </p>
               
               <ul className="mt-6 mb-6 pl-4 sm:pl-5 space-y-3.5 font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left italic">
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Factual investigation</span>
+                  <span>{t('expertise.card1.bullet1')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Liability analysis</span>
+                  <span>{t('expertise.card1.bullet2')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Damage evaluation</span>
+                  <span>{t('expertise.card1.bullet3')}</span>
                 </li>
               </ul>
               
               <p className="font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left mt-6 mb-6">
-                leading to clear, practical recommendations tailored to the municipality's specific circumstances.
+                {t('expertise.card1.footer')}
               </p>
             </div>
           </div>
@@ -70,34 +74,34 @@ export default function Expertise() {
                 02
               </span>
               <h3 className="font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left">
-                Public Adjuster Services
+                {t('expertise.card2.title')}
               </h3>
               <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50 mt-2 font-medium text-left">
-                - FOR POLICYHOLDERS -
+                {t('expertise.card2.tag')}
               </p>
               <div className="w-full h-px bg-white/10 my-5" />
 
               <p className="font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left">
-                Independent claims assistance for individuals navigating a property insurance claim. I provide policyholders with the technical knowledge and claims expertise needed to:
+                {t('expertise.card2.body')}
               </p>
               
               <ul className="mt-6 mb-6 pl-4 sm:pl-5 space-y-3.5 font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left italic">
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Understand their coverage</span>
+                  <span>{t('expertise.card2.bullet1')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Assess the information presented</span>
+                  <span>{t('expertise.card2.bullet2')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Make informed decisions throughout the claims process</span>
+                  <span>{t('expertise.card2.bullet3')}</span>
                 </li>
               </ul>
               
               <p className="font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left mt-6 mb-6">
-                The objective is a fair settlement in accordance with their insurance policy.
+                {t('expertise.card2.footer')}
               </p>
             </div>
           </div>
@@ -109,25 +113,25 @@ export default function Expertise() {
                 03
               </span>
               <h3 className="font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-white mt-6 text-left">
-                Damage Assessment & Technical Analysis
+                {t('expertise.card3.title')}
               </h3>
               <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50 mt-2 font-medium text-left">
-                - TECHNICAL EXPERTISE -
+                {t('expertise.card3.tag')}
               </p>
               <div className="w-full h-px bg-white/10 my-5" />
 
               <p className="font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left">
-                Detailed analysis of property damage, causation, repair estimates, and supporting documentation. I assess the scope and value of a loss to:
+                {t('expertise.card3.body')}
               </p>
               
               <ul className="mt-6 mb-6 pl-4 sm:pl-5 space-y-3.5 font-inter text-[14px] lg:text-[14.5px] leading-relaxed text-white/80 text-left italic">
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Identify what can reasonably be attributed to the event</span>
+                  <span>{t('expertise.card3.bullet1')}</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#00ACC1] font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
-                  <span>Provide a clear, well-supported evaluation of the damages</span>
+                  <span>{t('expertise.card3.bullet2')}</span>
                 </li>
               </ul>
             </div>
