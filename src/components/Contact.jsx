@@ -27,7 +27,7 @@ export default function Contact() {
             </h2>
             <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 max-w-[50ch]">
               {t('contact.body1')}
-              <span className="font-semibold text-white">{t('contact.body2')}</span>
+              <span className="font-normal text-white">{t('contact.body2')}</span>
             </p>
             <div className="mt-12 space-y-5">
               <div className="flex gap-4">

@@ -25,7 +25,7 @@ export default function Expertise() {
             style={{ maxWidth: language === 'en' ? '68ch' : '60ch' }}
           >
             {t('expertise.body1')}
-            <span className="text-white font-semibold">{t('expertise.body2')}</span>
+            <span className="text-white font-normal">{t('expertise.body2')}</span>
           </p>
         </div>
 
