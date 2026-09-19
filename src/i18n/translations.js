@@ -169,7 +169,7 @@ export const translations = {
     },
     approach: {
       eyebrow: "APPROCHE",
-      headline: "Une pratique indépendante — un dossier à la fois.",
+      headline: "Une pratique indépendante — un\u00A0dossier à la fois.",
       body1: "La personne que vous engagez est celle qui traite votre dossier. Chaque mandat que j'accepte est géré directement par moi, ce qui assure une continuité, un jugement expérimenté et une communication directe, de l'examen initial jusqu'à la résolution. ",
       body2: "J'aborde chaque dossier avec le même soin et la même attention que j'attendrais si c'était le mien.",
       card1Title: "Traitement direct des dossiers",
