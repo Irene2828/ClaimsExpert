@@ -171,7 +171,7 @@ export const translations = {
     },
     approach: {
       eyebrow: "APPROCHE",
-      headlinePart1: "Une pratique indépendante — ",
+      headlinePart1: "Pratique indépendante —\u00A0",
       headlinePart2: "un\u00A0dossier à la fois.",
       body1: "La personne que vous engagez est celle qui traite votre dossier. Chaque mandat que j'accepte est géré directement par moi, ce qui assure une continuité, un jugement expérimenté et une communication directe, de l'examen initial jusqu'à la résolution. ",
       body2: "J'aborde chaque dossier avec le même soin et la même attention que j'attendrais si c'était le mien.",

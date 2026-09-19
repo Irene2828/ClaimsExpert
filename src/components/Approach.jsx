@@ -87,7 +87,10 @@ export default function Approach() {
           <div className="lg:sticky lg:top-28 order-2 lg:order-1">
             <h2
               className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px]"
-              style={{ maxWidth: language === 'fr' ? '18.9ch' : '18ch' }}
+              style={{
+                maxWidth: language === 'fr' ? '22ch' : '18ch',
+                fontSize: language === 'fr' ? 'calc(clamp(40px, 4.5vw, 48px) * 0.94)' : undefined
+              }}
             >
               {t('approach.headlinePart1')}
               <span style={{ color: "#64748B" }}>{t('approach.headlinePart2')}</span>
