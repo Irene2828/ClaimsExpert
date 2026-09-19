@@ -140,8 +140,8 @@ export default function Hero() {
                   alignItems: "flex-end",
                   justifyContent: "center",
                   width: "100%",
-                  maxWidth: "460px",
-                  height: "clamp(400px, calc(100svh - 180px), 560px)",
+                  maxWidth: "483px",
+                  height: "clamp(420px, calc(100svh - 170px), 588px)",
                 }}
               >
               {/* Name & Title Badge (moved to bottom-left of portrait) */}
@@ -227,8 +227,8 @@ export default function Hero() {
                   zIndex: 10,
                   width: "auto",
                   height: "100%",
-                  maxHeight: "575px",
-                  maxWidth: "440px",
+                  maxHeight: "604px",
+                  maxWidth: "462px",
                   objectFit: "contain",
                   objectPosition: "bottom",
                   filter: "none",

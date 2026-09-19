@@ -100,7 +100,7 @@ export default function Approach() {
               style={{
                 fontSize: "16px",
                 lineHeight: "1.68",
-                maxWidth: language === 'fr' ? '54.6ch' : '52ch',
+                maxWidth: '52ch',
               }}
             >
               {t('approach.body1')}
