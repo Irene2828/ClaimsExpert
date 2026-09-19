@@ -144,20 +144,20 @@ export default function Hero() {
                   height: "clamp(400px, calc(100svh - 180px), 560px)",
                 }}
               >
-              {/* Name & Title Badge (adjusted position) */}
+              {/* Name & Title Badge (moved to bottom-left of portrait) */}
               <div
                 className="hero-name-badge select-none pointer-events-none hidden sm:block"
                 style={{
                   position: "absolute",
-                  right: "5%",
-                  top: "10%",
+                  left: "-5%",
+                  bottom: "16px",
                   zIndex: 25,
-                  textAlign: "right",
+                  textAlign: "left",
                   filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
                 }}
               >
                 <div
-                  className="font-inter italic font-medium text-right"
+                  className="font-inter italic font-medium text-left"
                   style={{
                     fontSize: "23.2px",
                     lineHeight: "0.95",
@@ -166,24 +166,24 @@ export default function Hero() {
                   }}
                 >
                   <span style={{ display: "block" }}>Isabelle</span>
-                  <span style={{ display: "block", paddingLeft: "12px" }}>
+                  <span style={{ display: "block", paddingLeft: "0px" }}>
                     Guertin
                   </span>
                 </div>
                 <div
-                  className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster"
+                  className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster text-left"
                   style={{
                     marginTop: "5px",
                     paddingLeft: "0px",
                     letterSpacing: "0.015em",
-                    transform: language === 'en' ? "translateX(-2%)" : "none",
+                    transform: "none",
                   }}
                 >
                   {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
                 </div>
               </div>
 
-              {/* Quote Card (moved to bottom-left of portrait) */}
+              {/* Quote Card */}
               <style>{`
                 html body .hero-quote-card.fr-quote {
                   padding-left: 10px !important;
@@ -195,7 +195,7 @@ export default function Hero() {
                 }
                 @media (min-width: 1024px) {
                   html body .hero-desktop-shift {
-                    transform: translateX(5%) !important;
+                    transform: translateX(-5%) !important;
                   }
                 }
               `}</style>
