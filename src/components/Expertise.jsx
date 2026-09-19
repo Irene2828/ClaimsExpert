@@ -1,7 +1,7 @@
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Expertise() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <section id="expertise" className="bg-[#0E223F] relative overflow-hidden">
       <div
