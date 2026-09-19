@@ -175,7 +175,7 @@ export default function Hero() {
                   style={{
                     marginTop: "5px",
                     paddingLeft: "0px",
-                    letterSpacing: "0.03em",
+                    letterSpacing: "0.015em",
                     transform: language === 'en' ? "translateX(-2%)" : "none",
                   }}
                 >
