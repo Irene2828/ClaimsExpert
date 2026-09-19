@@ -12,7 +12,7 @@ export default function Hero() {
       style={{
         paddingBottom: "0px",
         background:
-          "radial-gradient(ellipse 75% 65% at 0% 0%, rgba(210, 222, 236, 0.92) 0%, rgba(218, 227, 238, 0.45) 45%, transparent 75%), radial-gradient(ellipse 55% 55% at 85% 20%, #FFFFFF 0%, rgba(255, 255, 255, 0.4) 55%, transparent 80%), #F2F5FA",
+          "radial-gradient(ellipse 75% 65% at 0% 0%, rgba(210, 222, 236, 0.92) 0%, rgba(218, 227, 238, 0.45) 45%, transparent 75%), radial-gradient(ellipse 75% 65% at 100% 0%, rgba(210, 222, 236, 0.92) 0%, rgba(218, 227, 238, 0.45) 45%, transparent 75%), #F2F5FA",
       }}
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
@@ -176,7 +176,7 @@ export default function Hero() {
                     marginTop: "5px",
                     paddingLeft: "0px",
                     letterSpacing: "0.015em",
-                    transform: "none",
+                    transform: language === 'fr' ? "translateX(-1%)" : "none",
                   }}
                 >
                   {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
