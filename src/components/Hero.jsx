@@ -32,10 +32,10 @@ export default function Hero() {
               </span>
             </div>
             <h1
-              className="mt-4 text-[#1E3358]"
+              className="mt-4"
               style={{
                 fontFamily: "'Instrument Serif', serif",
-                fontSize: language === 'fr' ? "clamp(34px, 4.2vw, 58px)" : "clamp(42.23px, 5.15vw, 69.01px)",
+                fontSize: language === 'fr' ? "clamp(35.7px, 4.41vw, 60.9px)" : "clamp(44.34px, 5.41vw, 72.46px)",
                 letterSpacing: "-0.01em",
                 lineHeight: "1.08",
               }}
@@ -48,6 +48,7 @@ export default function Hero() {
                   fontStyle: "normal",
                   lineHeight: "1.08",
                   letterSpacing: "-0.01em",
+                  color: "#64748B",
                 }}
               >
                 {t('hero.headlinePart1')}
@@ -60,7 +61,7 @@ export default function Hero() {
                   fontStyle: "normal",
                   lineHeight: "1.08",
                   letterSpacing: "-0.01em",
-                  color: "#64748B",
+                  color: "#1E3358",
                 }}
               >
                 {t('hero.headlinePart2')}
