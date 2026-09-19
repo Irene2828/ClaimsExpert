@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Approach() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState(0);
   const pauseUntilRef = useRef(0);
   const touchStartX = useRef(null);
@@ -85,13 +85,20 @@ export default function Approach() {
         </div>
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-start">
           <div className="lg:sticky lg:top-28 order-2 lg:order-1">
-            <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px] max-w-[18ch]">
+            <h2
+              className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px]"
+              style={{ maxWidth: language === 'fr' ? '18.9ch' : '18ch' }}
+            >
               {t('approach.headlinePart1')}
               <span style={{ color: "#64748B" }}>{t('approach.headlinePart2')}</span>
             </h2>
             <p
-              className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch]"
-              style={{ fontSize: "16px", lineHeight: "1.68" }}
+              className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6"
+              style={{
+                fontSize: "16px",
+                lineHeight: "1.68",
+                maxWidth: language === 'fr' ? '54.6ch' : '52ch',
+              }}
             >
               {t('approach.body1')}
               <span className="font-semibold text-[#0E223F]">{t('approach.body2')}</span>
