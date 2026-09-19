@@ -23,7 +23,8 @@ export const translations = {
     },
     approach: {
       eyebrow: "APPROACH",
-      headline: "An independent practice — one file at a time.",
+      headlinePart1: "An independent practice — ",
+      headlinePart2: "one file at a time.",
       body1: "The person you hire is the person who handles your file. Every mandate I accept is handled directly by me, providing continuity, experienced judgment and direct communication from initial review through resolution. ",
       body2: "I approach every file with the same care and attention I would expect if it were my own.",
       card1Title: "Direct file handling",
@@ -169,7 +170,8 @@ export const translations = {
     },
     approach: {
       eyebrow: "APPROCHE",
-      headline: "Une pratique indépendante — un\u00A0dossier à la fois.",
+      headlinePart1: "Une pratique indépendante — ",
+      headlinePart2: "un\u00A0dossier à la fois.",
       body1: "La personne que vous engagez est celle qui traite votre dossier. Chaque mandat que j'accepte est géré directement par moi, ce qui assure une continuité, un jugement expérimenté et une communication directe, de l'examen initial jusqu'à la résolution. ",
       body2: "J'aborde chaque dossier avec le même soin et la même attention que j'attendrais si c'était le mien.",
       card1Title: "Traitement direct des dossiers",

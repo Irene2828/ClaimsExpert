@@ -86,7 +86,8 @@ export default function Approach() {
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-start">
           <div className="lg:sticky lg:top-28 order-2 lg:order-1">
             <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px] max-w-[18ch]">
-              {t('approach.headline')}
+              {t('approach.headlinePart1')}
+              <span style={{ color: "#64748B" }}>{t('approach.headlinePart2')}</span>
             </h2>
             <p
               className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch]"
