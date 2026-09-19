@@ -36,7 +36,7 @@ export default function Hero() {
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontSize: language === 'fr' ? "clamp(34px, 4.2vw, 58px)" : "clamp(42.23px, 5.15vw, 69.01px)",
-                letterSpacing: "-0.03em",
+                letterSpacing: "-0.01em",
                 lineHeight: "1.08",
               }}
             >
@@ -47,7 +47,7 @@ export default function Hero() {
                   fontWeight: "400",
                   fontStyle: "normal",
                   lineHeight: "1.08",
-                  letterSpacing: "-0.03em",
+                  letterSpacing: "-0.01em",
                 }}
               >
                 {t('hero.headlinePart1')}
@@ -59,7 +59,7 @@ export default function Hero() {
                   fontWeight: "400",
                   fontStyle: "normal",
                   lineHeight: "1.08",
-                  letterSpacing: "-0.03em",
+                  letterSpacing: "-0.01em",
                   color: "#64748B",
                 }}
               >
