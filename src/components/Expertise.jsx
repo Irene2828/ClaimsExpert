@@ -21,11 +21,11 @@ export default function Expertise() {
             {t('expertise.headline')}
           </h2>
           <p
-            className="font-inter text-[15px] lg:text-[16px] leading-[1.7] mt-6 mx-auto"
-            style={{ color: "rgba(255, 255, 255, 0.85)", maxWidth: language === 'en' ? '68ch' : '60ch' }}
+            className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 mx-auto"
+            style={{ maxWidth: language === 'en' ? '68ch' : '60ch' }}
           >
             {t('expertise.body1')}
-            <span className="text-white font-medium">{t('expertise.body2')}</span>
+            <span className="text-white font-semibold">{t('expertise.body2')}</span>
           </p>
         </div>
 
