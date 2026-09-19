@@ -20,7 +20,7 @@ export default function Expertise() {
           <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[36px] lg:text-[52px] mt-6">
             {t('expertise.headline')}
           </h2>
-          <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 mx-auto max-w-[60ch]">
+          <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/85 mt-6 mx-auto max-w-[60ch]">
             {t('expertise.body1')}
             <span className="text-white font-medium">{t('expertise.body2')}</span>
           </p>
