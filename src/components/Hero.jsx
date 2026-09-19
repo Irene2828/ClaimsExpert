@@ -32,20 +32,22 @@ export default function Hero() {
               </span>
             </div>
             <h1
-              className="mt-4 font-inter text-[#1E3358]"
+              className="mt-4 text-[#1E3358]"
               style={{
+                fontFamily: "'Instrument Serif', serif",
                 fontSize: language === 'fr' ? "clamp(34px, 4.2vw, 58px)" : "clamp(42.23px, 5.15vw, 69.01px)",
-                letterSpacing: "-0.05em",
+                letterSpacing: "-0.03em",
                 lineHeight: "1.08",
               }}
             >
               <div
                 className="block sm:whitespace-nowrap font-normal"
                 style={{
+                  fontFamily: "'Instrument Serif', serif",
                   fontWeight: "400",
                   fontStyle: "normal",
                   lineHeight: "1.08",
-                  letterSpacing: "-0.05em",
+                  letterSpacing: "-0.03em",
                 }}
               >
                 {t('hero.headlinePart1')}
@@ -53,10 +55,11 @@ export default function Hero() {
               <div
                 className="block sm:whitespace-nowrap mt-[0.05em]"
                 style={{
-                  fontWeight: "200",
+                  fontFamily: "'Instrument Serif', serif",
+                  fontWeight: "400",
                   fontStyle: "normal",
                   lineHeight: "1.08",
-                  letterSpacing: "-0.05em",
+                  letterSpacing: "-0.03em",
                   color: "#64748B",
                 }}
               >
