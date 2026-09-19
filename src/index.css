@@ -2536,7 +2536,7 @@
         display: flex !important;
         position: absolute !important;
         z-index: 20 !important;
-        right: 0 !important;
+        right: -6% !important;
         left: auto !important;
         bottom: 14px !important;
         max-width: 280px !important;
@@ -2747,7 +2747,7 @@
         /* 7. Quote text on 1670px screens */
         html body .hero-quote-card {
           max-width: 300px !important;
-          right: 0 !important;
+          right: -6% !important;
           left: auto !important;
           bottom: 20px !important;
           padding: 10px 14px !important;

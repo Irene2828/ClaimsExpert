@@ -149,7 +149,7 @@ export default function Hero() {
                 className="hero-name-badge select-none pointer-events-none hidden sm:block"
                 style={{
                   position: "absolute",
-                  left: "-5%",
+                  left: language === 'fr' ? "-7%" : "-5%",
                   bottom: "16px",
                   zIndex: 25,
                   textAlign: "left",
