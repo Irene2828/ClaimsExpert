@@ -54,7 +54,7 @@ export default function Hero() {
                 className="block sm:whitespace-nowrap mt-[0.05em]"
                 style={{
                   fontWeight: "200",
-                  fontStyle: "italic",
+                  fontStyle: "normal",
                   lineHeight: "1.08",
                   letterSpacing: "-0.05em",
                   color: "#64748B",
