@@ -35,7 +35,7 @@ export default function Hero() {
               className="mt-4"
               style={{
                 fontFamily: "'Instrument Serif', serif",
-                fontSize: language === 'fr' ? "clamp(35.7px, 4.41vw, 60.9px)" : "clamp(44.34px, 5.41vw, 72.46px)",
+                fontSize: language === 'fr' ? "clamp(37.49px, 4.63vw, 63.95px)" : "clamp(46.56px, 5.68vw, 76.08px)",
                 letterSpacing: "-0.01em",
                 lineHeight: "1.08",
               }}
