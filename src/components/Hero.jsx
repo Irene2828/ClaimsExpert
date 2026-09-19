@@ -193,11 +193,6 @@ export default function Hero() {
                   font-size: 12.5px !important;
                   letter-spacing: -0.02em !important;
                 }
-                @media (min-width: 1024px) {
-                  html body .hero-desktop-shift {
-                    transform: translateX(-5%) !important;
-                  }
-                }
               `}</style>
               <div className={`hero-quote-card flex items-start gap-2.5 select-none ${language === 'fr' ? 'fr-quote' : ''}`}>
                 <svg
