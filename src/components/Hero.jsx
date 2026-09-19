@@ -35,7 +35,7 @@ export default function Hero() {
               className="mt-4"
               style={{
                 fontFamily: "'Instrument Serif', serif",
-                fontSize: language === 'fr' ? "clamp(35.7px, 4.41vw, 60.9px)" : "clamp(44.34px, 5.41vw, 72.46px)",
+                fontSize: language === 'fr' ? "clamp(37.49px, 4.63vw, 63.95px)" : "clamp(44.34px, 5.41vw, 72.46px)",
                 letterSpacing: "-0.01em",
                 lineHeight: "1.08",
               }}
@@ -71,9 +71,7 @@ export default function Hero() {
               className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch] hero-subline"
               style={{ fontSize: "16px", lineHeight: "1.68" }}
             >
-              {t('hero.bodyPart1')}
-              <span style={{ color: "#00ACC1", fontWeight: "500" }}>{t('hero.bodyHighlight')}</span>
-              {t('hero.bodyPart2')}
+              {t('hero.body')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
               <a
