@@ -25,8 +25,9 @@ export default function Contact() {
             <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[32px] lg:text-[42px] mt-6 max-w-[16ch] text-left">
               {t('contact.headline')}
             </h2>
-            <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 max-w-[50ch]">
-              {t('contact.body')}
+            <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/80 mt-6 max-w-[50ch]">
+              {t('contact.body1')}
+              <span className="font-medium text-white">{t('contact.body2')}</span>
             </p>
             <div className="mt-12 space-y-5">
               <div className="flex gap-4">

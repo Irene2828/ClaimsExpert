@@ -101,7 +101,8 @@ export const translations = {
     contact: {
       eyebrow: "CONTACT ME",
       headline: "Let's discuss your file.",
-      body: "Whether you are a municipality looking for experienced claims support or a policyholder seeking independent guidance, tell me briefly about your file and how I can assist.",
+      body1: "Whether you represent a municipality seeking experienced claims support or a policyholder navigating a complex claim, ",
+      body2: "briefly describe your situation and how I can assist.",
       phoneTitle: "PHONE",
       emailTitle: "EMAIL",
       territoryTitle: "TERRITORY",
@@ -248,7 +249,8 @@ export const translations = {
     contact: {
       eyebrow: "ME CONTACTER",
       headline: "Discutons de votre dossier.",
-      body: "Que vous soyez une municipalité à la recherche d'un soutien expérimenté en sinistres ou un assuré cherchant un accompagnement indépendant, décrivez-moi brièvement votre dossier et la façon dont je peux vous aider.",
+      body1: "Que vous soyez une municipalité à la recherche d'un soutien expérimenté en sinistres ou un assuré cherchant un accompagnement indépendant, ",
+      body2: "décrivez-moi brièvement votre dossier et la façon dont je peux vous aider.",
       phoneTitle: "TÉLÉPHONE",
       emailTitle: "COURRIEL",
       territoryTitle: "TERRITOIRE",
