@@ -71,7 +71,9 @@ export default function Hero() {
               className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch] hero-subline"
               style={{ fontSize: "16px", lineHeight: "1.68" }}
             >
-              {t('hero.body')}
+              {t('hero.bodyPart1')}
+              <span style={{ color: "#00ACC1", fontWeight: "500" }}>{t('hero.bodyHighlight')}</span>
+              {t('hero.bodyPart2')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8 hero-ctas-wrapper">
               <a
