@@ -140,10 +140,10 @@ export default function About() {
           margin-top: 16px;
         }
 
-        /* Row 2: Timeline aligned by left side of column 1 */
+        /* Row 2: Timeline aligned to left side of Column 1, ending at image right edge */
         .about-timeline-row {
           width: 100%;
-          max-width: 720px;
+          max-width: 540px;
           margin: 56px 0 0 0;
           display: flex;
           flex-direction: column;
@@ -239,7 +239,7 @@ export default function About() {
           color: #4B5563;
           font-weight: 400;
           margin: 0;
-          max-width: 580px;
+          max-width: 100%;
           text-align: left;
         }
       `}</style>
@@ -272,7 +272,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Column 2 (Right): Large Headline + Story Block (vertically centered opposite image) */}
+            {/* Column 2 (Right): Large Headline + Story Block + Back Button */}
             <div className="about-col-right">
               <h1 className="about-headline">
                 {t('about.headline')}
@@ -282,6 +282,38 @@ export default function About() {
                 <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('founded in 2014 by Roy Guertin', '<span style="font-weight: 500; color: #0E223F">founded in 2014 by Roy Guertin</span>').replace('fondée en 2014 par Roy Guertin', '<span style="font-weight: 500; color: #0E223F">fondée en 2014 par Roy Guertin</span>') }} />
                 <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('Isabelle Guertin joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin joined the family practice in 2016</span>').replace('Isabelle Guertin a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin a rejoint le cabinet familial en 2016</span>') }} />
                 <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
+              </div>
+
+              {/* Back Button moved under large text, aligned to right side */}
+              <div className="w-full flex justify-end mt-8">
+                <Link
+                  to="/"
+                  className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] text-[14.7px]"
+                  style={{
+                    borderWidth: '0.5px',
+                    borderColor: '#0E223F',
+                    color: '#0E223F',
+                    whiteSpace: "nowrap",
+                    height: '48.3px',
+                    padding: '0 29.4px'
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0 transition-transform group-hover:-translate-x-1"
+                  >
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                  </svg>
+                  {t('about.backBtn')}
+                </Link>
               </div>
             </div>
 
@@ -337,38 +369,6 @@ export default function About() {
 
                 </div>
               </div>
-            </div>
-
-            {/* Back Button */}
-            <div className="w-full flex justify-start mt-12">
-              <Link
-                to="/"
-                className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] text-[14.7px]"
-                style={{
-                  borderWidth: '0.5px',
-                  borderColor: '#0E223F',
-                  color: '#0E223F',
-                  whiteSpace: "nowrap",
-                  height: '48.3px',
-                  padding: '0 29.4px'
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="shrink-0 transition-transform group-hover:-translate-x-1"
-                >
-                  <line x1="19" y1="12" x2="5" y2="12" />
-                  <polyline points="12 19 5 12 12 5" />
-                </svg>
-                {t('about.backBtn')}
-              </Link>
             </div>
           </div>
 
