@@ -2501,6 +2501,13 @@ html body .hero-cta-btn {
   font-size: 14.5px !important;
 }
 
+html body a.hero-cta-btn.fr-btn,
+html body .hero-cta-btn.fr-btn,
+html body .hero-ctas-wrapper.fr-ctas a.hero-cta-btn {
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
 html body .hero-cta-btn svg {
   width: 16px !important;
   height: 16px !important;
