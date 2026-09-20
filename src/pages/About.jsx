@@ -63,6 +63,12 @@ export default function About() {
             gap: 52px;
             align-items: center;
           }
+          .about-portrait-img {
+            transform: translateX(10%);
+          }
+          .about-col-right {
+            transform: translateY(10%);
+          }
         }
 
         .about-col-left {
