@@ -99,7 +99,7 @@ export default function Header() {
             {/* Mobile-only CTA (Icon + 'Call me' / 'Appelez-moi' text ONLY) */}
             <a
               href="tel:4387941044"
-              className="lg:hidden font-inter inline-flex items-center justify-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full h-10 px-[16px] text-[13px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 shrink-0"
+              className="lg:hidden font-inter inline-flex items-center justify-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full h-10 px-[18px] sm:px-[20px] text-[13px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 shrink-0"
               aria-label={t('nav.callMe')}
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
@@ -152,7 +152,7 @@ export default function Header() {
                 className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none"
               >
                 <span className={language === 'en' ? 'font-semibold text-white' : ''}>EN</span>
-                <span className="mx-2.5 opacity-40">|</span>
+                <span className="mx-5 opacity-40">|</span>
                 <span className={language === 'fr' ? 'font-semibold text-white' : ''}>FR</span>
               </button>
             </div>
