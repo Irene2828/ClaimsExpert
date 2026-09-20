@@ -113,7 +113,9 @@ export default function About() {
 
         .about-story-container {
           width: 100%;
-          text-align: center;
+          max-width: 90%;
+          margin: 0 auto;
+          text-align: left;
           padding: 0;
           box-sizing: border-box;
         }
@@ -125,9 +127,8 @@ export default function About() {
           color: #4B5563;
           font-weight: 400;
           letter-spacing: 0.01em;
-          margin: 0 auto;
-          text-align: center;
-          max-width: 90%;
+          margin: 0;
+          text-align: left;
         }
         .about-story-paragraph + .about-story-paragraph {
           margin-top: 16px;
