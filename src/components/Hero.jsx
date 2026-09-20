@@ -155,7 +155,7 @@ export default function Hero() {
                   }}
                 >
                   <div
-                    className="font-inter italic font-medium text-left"
+                    className="font-inter italic font-medium text-right"
                     style={{
                       fontSize: "23.2px",
                       lineHeight: "0.95",
@@ -169,7 +169,7 @@ export default function Hero() {
                     </span>
                   </div>
                   <div
-                    className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster text-left"
+                    className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster text-right"
                     style={{
                       marginTop: "5px",
                       paddingLeft: "0px",
