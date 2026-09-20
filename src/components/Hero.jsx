@@ -18,13 +18,8 @@ export default function Hero() {
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
         {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
         <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
-          <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line text-center">
-            <span style={{ color: "#64748B" }}>
-              {language === 'fr' ? "- EXPERTISE INDÉPENDANTE -" : "- INDEPENDENT EXPERTISE -"}
-            </span>
-            <span style={{ color: "#1E3358" }}>
-              {language === 'fr' ? " 20 ANS D'EXPÉRIENCE -" : " 20 YEARS OF EXPERIENCE -"}
-            </span>
+          <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold text-[#64748B] hero-tag-line text-center">
+            {t('hero.eyebrow')}
           </span>
         </div>
 
@@ -32,13 +27,8 @@ export default function Hero() {
           {/* Left Column (100% original desktop layout) */}
           <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
             <div className="hero-eyebrow-desktop inline-flex items-center">
-              <span className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold hero-tag-line">
-                <span style={{ color: "#64748B" }}>
-                  {language === 'fr' ? "- EXPERTISE INDÉPENDANTE -" : "- INDEPENDENT EXPERTISE -"}
-                </span>
-                <span style={{ color: "#1E3358" }}>
-                  {language === 'fr' ? " 20 ANS D'EXPÉRIENCE -" : " 20 YEARS OF EXPERIENCE -"}
-                </span>
+              <span className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold text-[#64748B] hero-tag-line">
+                {t('hero.eyebrow')}
               </span>
             </div>
             <h1
@@ -59,7 +49,7 @@ export default function Hero() {
               <div
                 className="block whitespace-nowrap"
                 style={{
-                  color: "#64748B",
+                  color: "#1E3358",
                   marginTop: language === 'fr' ? "0.18em" : "0.05em",
                 }}
               >
@@ -148,10 +138,11 @@ export default function Hero() {
                 className="hero-name-badge select-none pointer-events-none hidden sm:block"
                 style={{
                   position: "absolute",
-                  left: language === 'fr' ? "-7%" : "-5%",
+                  right: "0px",
+                  left: "auto",
                   bottom: "16px",
                   zIndex: 25,
-                  textAlign: "left",
+                  textAlign: "right",
                   filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
                 }}
               >

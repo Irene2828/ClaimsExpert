@@ -2538,7 +2538,8 @@
         z-index: 20 !important;
         right: 0px !important;
         left: auto !important;
-        bottom: 7px !important;
+        top: 20px !important;
+        bottom: auto !important;
         max-width: 280px !important;
         background: rgba(255, 255, 255, 0.96) !important;
         backdrop-filter: blur(16px) !important;
