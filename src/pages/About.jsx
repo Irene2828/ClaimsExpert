@@ -77,7 +77,6 @@ export default function About() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: space-between;
           text-align: center;
         }
 
@@ -85,13 +84,7 @@ export default function About() {
           width: 100%;
           display: flex;
           justify-content: flex-end;
-          margin-top: 32px;
-        }
-        @media (min-width: 1024px) {
-          .about-back-btn-wrapper {
-            margin-top: auto;
-            padding-bottom: 4px;
-          }
+          margin-top: 40px;
         }
 
         .about-portrait-card {
@@ -332,21 +325,20 @@ export default function About() {
 
             </div>
 
-              {/* Column 2 (Right): Headline + Story Block */}
-              <div className="about-col-right" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyBetween: 'space-between' }}>
-                <div className="about-text-wrapper">
-                  <h1 className="about-headline">
-                    {t('about.headline')}
-                  </h1>
+            {/* Column 2 (Right): Headline + Story Block */}
+            <div className="about-col-right">
+              <div className="about-text-wrapper">
+                <h1 className="about-headline">
+                  {t('about.headline')}
+                </h1>
 
-                  <div className="about-story-container">
-                    <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('founded in 2014 by Roy Guertin', '<span style="font-weight: 500; color: #0E223F">founded in 2014 by Roy Guertin</span>').replace('fondée en 2014 par Roy Guertin', '<span style="font-weight: 500; color: #0E223F">fondée en 2014 par Roy Guertin</span>') }} />
-                    <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('Isabelle Guertin joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin joined the family practice in 2016</span>').replace('Isabelle Guertin a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin a rejoint le cabinet familial en 2016</span>') }} />
-                    <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
-                  </div>
+                <div className="about-story-container">
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('founded in 2014 by Roy Guertin', '<span style="font-weight: 500; color: #0E223F">founded in 2014 by Roy Guertin</span>').replace('fondée en 2014 par Roy Guertin', '<span style="font-weight: 500; color: #0E223F">fondée en 2014 par Roy Guertin</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('Isabelle Guertin joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin joined the family practice in 2016</span>').replace('Isabelle Guertin a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin a rejoint le cabinet familial en 2016</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
                 </div>
 
-                {/* Back Button positioned at bottom right of hero aligned with last timeline item in column 1 */}
+                {/* Back Button positioned at bottom right edge of the text block */}
                 <div className="about-back-btn-wrapper">
                   <Link
                     to="/"
@@ -374,6 +366,7 @@ export default function About() {
                   </Link>
                 </div>
               </div>
+            </div>
 
           </div>
 
