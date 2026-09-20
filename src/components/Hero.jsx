@@ -151,6 +151,7 @@ export default function Hero() {
                     zIndex: 25,
                     textAlign: "right",
                     filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
+                    transform: language === 'en' ? "translateX(-2%)" : "none",
                   }}
                 >
                   <div
