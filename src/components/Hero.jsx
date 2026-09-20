@@ -146,7 +146,7 @@ export default function Hero() {
                     position: "absolute",
                     right: "0px",
                     left: "auto",
-                    top: "20px",
+                    top: "calc(20px + 2%)",
                     bottom: "auto",
                     zIndex: 25,
                     textAlign: "right",
