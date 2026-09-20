@@ -32,22 +32,14 @@ export default function Hero() {
               </span>
             </div>
             <h1
-              className="mt-4"
+              className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] mt-4"
               style={{
-                fontFamily: "'Instrument Serif', serif",
-                fontSize: language === 'fr' ? "clamp(39.36px, 4.86vw, 67.15px)" : "clamp(44.34px, 5.41vw, 72.46px)",
-                letterSpacing: "-0.01em",
-                lineHeight: "1.08",
+                fontSize: language === 'fr' ? "clamp(38px, 4.8vw, 64px)" : "clamp(42px, 5.2vw, 68px)",
               }}
             >
               <div
-                className="block sm:whitespace-nowrap font-normal"
+                className="block sm:whitespace-nowrap"
                 style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontWeight: "400",
-                  fontStyle: "normal",
-                  lineHeight: "1.08",
-                  letterSpacing: "-0.01em",
                   color: "#64748B",
                 }}
               >
@@ -56,11 +48,6 @@ export default function Hero() {
               <div
                 className="block sm:whitespace-nowrap mt-[0.05em]"
                 style={{
-                  fontFamily: "'Instrument Serif', serif",
-                  fontWeight: "400",
-                  fontStyle: "normal",
-                  lineHeight: "1.08",
-                  letterSpacing: "-0.01em",
                   color: "#1E3358",
                 }}
               >
