@@ -61,15 +61,15 @@ export default function About() {
           .about-top-grid {
             grid-template-columns: 0.88fr 1.12fr;
             gap: 52px;
-            align-items: flex-end;
+            align-items: flex-start;
           }
           .about-portrait-img {
             transform: translateX(10%);
             display: block;
           }
           .about-col-right {
-            justify-content: flex-end !important;
-            align-self: flex-end !important;
+            justify-content: flex-start !important;
+            align-self: flex-start !important;
           }
         }
 
@@ -78,14 +78,16 @@ export default function About() {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          justify-content: flex-start;
+          align-self: flex-start;
         }
 
         .about-col-right {
           width: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
-          align-self: flex-end;
+          justify-content: flex-start;
+          align-self: flex-start;
         }
 
         .about-portrait-card {
