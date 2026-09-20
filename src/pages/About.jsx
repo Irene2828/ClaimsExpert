@@ -61,13 +61,14 @@ export default function About() {
           .about-top-grid {
             grid-template-columns: 0.88fr 1.12fr;
             gap: 52px;
-            align-items: center;
+            align-items: flex-end;
           }
           .about-portrait-img {
             transform: translateX(10%);
           }
           .about-col-right {
-            transform: translateY(10%);
+            justify-content: flex-end;
+            align-self: flex-end;
           }
         }
 
