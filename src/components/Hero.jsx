@@ -71,7 +71,7 @@ export default function Hero() {
             <div className={`flex flex-row items-center gap-3 mt-8 hero-ctas-wrapper ${language === 'fr' ? 'fr-ctas' : ''}`}>
               <a
                 href="#contact"
-                className={`font-inter inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] text-[14.7px] order-1 text-center w-auto ${language === 'fr' ? 'fr-btn px-[14px]' : 'px-[29.4px]'}`}
+                className={`font-inter inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] text-[14.7px] order-1 text-center w-auto ${language === 'fr' ? 'fr-btn px-[18px]' : 'px-[29.4px]'}`}
                 style={{
                   backgroundColor: primaryColor,
                   whiteSpace: "nowrap",
@@ -97,7 +97,7 @@ export default function Hero() {
               </a>
               <a
                 href="#approach"
-                className={`font-inter group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] text-[14.7px] order-2 text-center w-auto ${language === 'fr' ? 'fr-btn px-[14px]' : 'px-[29.4px]'}`}
+                className={`font-inter group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] text-[14.7px] order-2 text-center w-auto ${language === 'fr' ? 'fr-btn px-[18px]' : 'px-[29.4px]'}`}
                 style={{
                   borderWidth: '0.5px',
                   borderColor: primaryColor,
