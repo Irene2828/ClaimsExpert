@@ -293,7 +293,25 @@ export default function About() {
           {/* 2-Column Grid */}
           <div className="about-content-grid">
             
-            {/* Left Column: Portrait Image + Caption + Timeline Frame */}
+            {/* Column 1 (Left): Eyebrow + Headline + Story Block */}
+            <div className="about-right-col" style={{ width: '100%' }}>
+              <div className="about-text-wrapper" style={{ maxWidth: '100%' }}>
+                <span className="about-eyebrow-text">
+                  {t('about.eyebrow')}
+                </span>
+                <h1 className="about-headline">
+                  {t('about.headline')}
+                </h1>
+
+                <div className="about-story-container">
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2 (Right): Portrait Image + Caption + Timeline Frame */}
             <div className="about-left-col">
               
               {/* Portrait Image & Caption */}
@@ -360,22 +378,6 @@ export default function About() {
               </div>
 
             </div>
-
-            {/* Right Column: Eyebrow + Headline + Story Block */}
-            <div className="about-right-col">
-              <div className="about-text-wrapper">
-                <span className="about-eyebrow-text">
-                  {t('about.eyebrow')}
-                </span>
-                <h1 className="about-headline">
-                  {t('about.headline')}
-                </h1>
-
-                <div className="about-story-container">
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
-                </div>
                 
                 <div className="w-full flex justify-end mt-12">
                   <Link
@@ -407,11 +409,8 @@ export default function About() {
                     {t('about.backBtn')}
                   </Link>
                 </div>
-              </div>
-            </div>
 
           </div>
-
         </div>
       </section>
       <Contact />

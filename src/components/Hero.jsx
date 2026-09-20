@@ -40,8 +40,8 @@ export default function Hero() {
             <h1
               className="font-inter italic font-light tracking-[-0.03em] mt-4"
               style={{
-                fontSize: language === 'fr' ? "clamp(29px, 3.74vw, 61px)" : "clamp(35px, 4.84vw, 75px)",
-                lineHeight: language === 'fr' ? "1.15" : "1.05",
+                fontSize: language === 'fr' ? "clamp(30.5px, 3.93vw, 64px)" : "clamp(35px, 4.84vw, 75px)",
+                lineHeight: language === 'fr' ? "1.09" : "1.05",
               }}
             >
               <div
@@ -56,7 +56,7 @@ export default function Hero() {
                 className="block whitespace-nowrap"
                 style={{
                   color: "#1E3358",
-                  marginTop: language === 'fr' ? "0.18em" : "0.05em",
+                  marginTop: language === 'fr' ? "0.17em" : "0.05em",
                 }}
               >
                 {t('hero.headlinePart2')}
