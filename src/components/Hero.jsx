@@ -34,11 +34,11 @@ export default function Hero() {
             <h1
               className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] mt-4"
               style={{
-                fontSize: language === 'fr' ? "clamp(38px, 4.8vw, 64px)" : "clamp(42px, 5.2vw, 68px)",
+                fontSize: language === 'fr' ? "clamp(26px, 6.8vw, 64px)" : "clamp(32px, 5.2vw, 68px)",
               }}
             >
               <div
-                className="block sm:whitespace-nowrap"
+                className="block whitespace-nowrap"
                 style={{
                   color: "#64748B",
                 }}
@@ -46,7 +46,7 @@ export default function Hero() {
                 {t('hero.headlinePart1')}
               </div>
               <div
-                className="block sm:whitespace-nowrap mt-[0.05em]"
+                className="block whitespace-nowrap mt-[0.05em]"
                 style={{
                   color: "#1E3358",
                 }}
