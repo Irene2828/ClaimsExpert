@@ -1,4 +1,4 @@
-import portraitImage from '../assets/isabelle-portrait-opt.webp';
+import portraitImage from '../assets/isabelle-portrait-new.png';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Hero() {
