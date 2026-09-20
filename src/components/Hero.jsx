@@ -1,4 +1,4 @@
-import portraitImage from '../assets/isabelle-portrait-new.png';
+import portraitImage from '../assets/isabelle-portrait-opt.webp';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Hero() {
@@ -40,8 +40,8 @@ export default function Hero() {
             <h1
               className="font-inter italic font-light tracking-[-0.03em] mt-4"
               style={{
-                fontSize: language === 'fr' ? "clamp(30.5px, 3.93vw, 64px)" : "clamp(35px, 4.84vw, 75px)",
-                lineHeight: language === 'fr' ? "1.09" : "1.05",
+                fontSize: language === 'fr' ? "clamp(29px, 3.74vw, 61px)" : "clamp(35px, 4.84vw, 75px)",
+                lineHeight: language === 'fr' ? "1.15" : "1.05",
               }}
             >
               <div
@@ -56,7 +56,7 @@ export default function Hero() {
                 className="block whitespace-nowrap"
                 style={{
                   color: "#1E3358",
-                  marginTop: language === 'fr' ? "0.17em" : "0.05em",
+                  marginTop: language === 'fr' ? "0.18em" : "0.05em",
                 }}
               >
                 {t('hero.headlinePart2')}
@@ -139,49 +139,49 @@ export default function Hero() {
                   height: "clamp(420px, calc(100svh - 170px), 588px)",
                 }}
               >
-              {/* Name & Title Badge (moved to bottom-left of portrait) */}
-              <div
-                className="hero-name-badge select-none pointer-events-none hidden sm:block"
-                style={{
-                  position: "absolute",
-                  right: "0px",
-                  left: "auto",
-                  top: "20px",
-                  bottom: "auto",
-                  zIndex: 25,
-                  textAlign: "right",
-                  filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
-                }}
-              >
+                {/* Name & Title Badge (moved to bottom-left of portrait) */}
                 <div
-                  className="font-inter italic font-medium text-left"
+                  className="hero-name-badge select-none pointer-events-none hidden sm:block"
                   style={{
-                    fontSize: "23.2px",
-                    lineHeight: "0.95",
-                    color: "#0E223F",
-                    letterSpacing: "-0.01em",
+                    position: "absolute",
+                    right: "0px",
+                    left: "auto",
+                    top: "20px",
+                    bottom: "auto",
+                    zIndex: 25,
+                    textAlign: "right",
+                    filter: "drop-shadow(0 2px 4px rgba(14,34,63,0.15))",
                   }}
                 >
-                  <span style={{ display: "block" }}>Isabelle</span>
-                  <span style={{ display: "block", paddingLeft: "0px" }}>
-                    Guertin
-                  </span>
+                  <div
+                    className="font-inter italic font-medium text-left"
+                    style={{
+                      fontSize: "23.2px",
+                      lineHeight: "0.95",
+                      color: "#0E223F",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    <span style={{ display: "block" }}>Isabelle</span>
+                    <span style={{ display: "block", paddingLeft: "0px" }}>
+                      Guertin
+                    </span>
+                  </div>
+                  <div
+                    className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster text-left"
+                    style={{
+                      marginTop: "5px",
+                      paddingLeft: "0px",
+                      letterSpacing: "0.015em",
+                      transform: language === 'fr' ? "translateX(-1%)" : "none",
+                    }}
+                  >
+                    {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
+                  </div>
                 </div>
-                <div
-                  className="font-inter text-[11px] font-medium text-[#4B5563] about-claims-adjuster text-left"
-                  style={{
-                    marginTop: "5px",
-                    paddingLeft: "0px",
-                    letterSpacing: "0.015em",
-                    transform: language === 'fr' ? "translateX(-1%)" : "none",
-                  }}
-                >
-                  {t('hero.bioCaption').replace('Isabelle Guertin', '').trim()}
-                </div>
-              </div>
 
-              {/* Quote Card */}
-              <style>{`
+                {/* Quote Card */}
+                <style>{`
                 html body .hero-quote-card.fr-quote {
                   padding-left: 10px !important;
                   padding-right: 12px !important;
@@ -191,44 +191,44 @@ export default function Hero() {
                   letter-spacing: -0.02em !important;
                 }
               `}</style>
-              <div className={`hero-quote-card flex items-start gap-2.5 select-none ${language === 'fr' ? 'fr-quote' : ''}`}>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="#00ACC1"
-                  className="shrink-0 mt-0.5 opacity-90"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p>
-                  {t('hero.quote').replace(/^["«]\s*|\s*["»]$/g, '')}
-                </p>
-              </div>
+                <div className={`hero-quote-card flex items-start gap-2.5 select-none ${language === 'fr' ? 'fr-quote' : ''}`}>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="#00ACC1"
+                    className="shrink-0 mt-0.5 opacity-90"
+                  >
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p>
+                    {t('hero.quote').replace(/^["«]\s*|\s*["»]$/g, '')}
+                  </p>
+                </div>
 
-              <img
-                src={portraitImage}
-                alt="Isabelle Guertin - Claims Advisory"
-                className="hero-portrait-img transform"
-                fetchPriority="high"
-                loading="eager"
-                style={{
-                  userSelect: "none",
-                  pointerEvents: "none",
-                  position: "relative",
-                  zIndex: 10,
-                  width: "auto",
-                  height: "100%",
-                  maxHeight: "604px",
-                  maxWidth: "462px",
-                  objectFit: "contain",
-                  objectPosition: "bottom",
-                  filter: "none",
-                }}
-                draggable={false}
-              />
+                <img
+                  src={portraitImage}
+                  alt="Isabelle Guertin - Claims Advisory"
+                  className="hero-portrait-img transform"
+                  fetchPriority="high"
+                  loading="eager"
+                  style={{
+                    userSelect: "none",
+                    pointerEvents: "none",
+                    position: "relative",
+                    zIndex: 10,
+                    width: "auto",
+                    height: "100%",
+                    maxHeight: "604px",
+                    maxWidth: "462px",
+                    objectFit: "contain",
+                    objectPosition: "bottom",
+                    filter: "none",
+                  }}
+                  draggable={false}
+                />
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
