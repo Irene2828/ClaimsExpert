@@ -2797,6 +2797,6 @@ body { margin: 0; }
 
 @media (min-width: 1024px) {
   html body .hero-portrait-img {
-    transform: translate(13%, 36px) !important;
+    transform: translateY(36px) !important;
   }
 }
