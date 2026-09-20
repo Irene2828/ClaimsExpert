@@ -81,29 +81,46 @@ export default function Header() {
               )
             ))}
           </nav>
-          <div className="hidden lg:flex items-center">
+          <div className="flex items-center gap-3">
+            {/* Desktop CTA (100% untouched original) */}
+            <div className="hidden lg:flex items-center">
+              <a
+                href="tel:4387941044"
+                className="font-inter inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] header-cta-btn"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                  <path d="M12 18h.01" />
+                </svg>
+                {t('nav.callMe')} 438-794-1044
+              </a>
+            </div>
+
+            {/* Mobile-only CTA (Icon + 'Call me' / 'Appelez-moi' text ONLY) */}
             <a
               href="tel:4387941044"
-              className="font-inter inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] header-cta-btn"
+              className="lg:hidden font-inter inline-flex items-center justify-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full h-10 px-[16px] text-[13px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 shrink-0"
+              aria-label={t('nav.callMe')}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
                 <path d="M12 18h.01" />
               </svg>
-              {t('nav.callMe')} 438-794-1044
+              <span>{t('nav.callMe').replace(/[:\s]+$/, '')}</span>
             </a>
+
+            <button
+              aria-label="Menu"
+              className="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-[12px] flex items-center justify-center shrink-0"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <div className="w-[16px] h-[12px] relative">
+                <span className={`absolute left-0 w-full h-[1.5px] bg-white transition-all ${mobileMenuOpen ? "top-[5px] rotate-45" : "top-0"}`} />
+                <span className={`absolute left-0 top-[5px] w-full h-[1.5px] bg-white transition-opacity ${mobileMenuOpen ? "opacity-0" : "opacity-100"}`} />
+                <span className={`absolute left-0 w-full h-[1.5px] bg-white transition-all ${mobileMenuOpen ? "top-[5px] -rotate-45" : "top-[10px]"}`} />
+              </div>
+            </button>
           </div>
-          <button
-            aria-label="Menu"
-            className="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-[12px] flex items-center justify-center"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <div className="w-[16px] h-[12px] relative">
-              <span className={`absolute left-0 w-full h-[1.5px] bg-white transition-all ${mobileMenuOpen ? "top-[5px] rotate-45" : "top-0"}`} />
-              <span className={`absolute left-0 top-[5px] w-full h-[1.5px] bg-white transition-opacity ${mobileMenuOpen ? "opacity-0" : "opacity-100"}`} />
-              <span className={`absolute left-0 w-full h-[1.5px] bg-white transition-all ${mobileMenuOpen ? "top-[5px] -rotate-45" : "top-[10px]"}`} />
-            </div>
-          </button>
         </div>
         <div className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-white/10 ${mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="px-6 py-8 bg-[#0E223F] flex flex-col gap-6">
@@ -128,17 +145,6 @@ export default function Header() {
                 </a>
               )
             ))}
-            <a
-              href="tel:4387941044"
-              onClick={() => setMobileMenuOpen(false)}
-              className="font-inter mt-2 inline-flex w-fit items-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                <path d="M12 18h.01" />
-              </svg>
-              {t('nav.callMe')} 438-794-1044
-            </a>
             
             <div className="flex items-center gap-2 mt-2 pt-4 border-t border-white/10">
               <button 

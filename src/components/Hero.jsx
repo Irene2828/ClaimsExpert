@@ -18,8 +18,13 @@ export default function Hero() {
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
         {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
         <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
-          <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase text-[#0E223F] font-semibold hero-tag-line text-center">
-            {t('hero.eyebrow')}
+          <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line text-center">
+            <span style={{ color: "#64748B" }}>
+              {language === 'fr' ? "- EXPERTISE INDÉPENDANTE -" : "- INDEPENDENT EXPERTISE -"}
+            </span>
+            <span style={{ color: "#1E3358" }}>
+              {language === 'fr' ? " 20 ANS D'EXPÉRIENCE -" : " 20 YEARS OF EXPERIENCE -"}
+            </span>
           </span>
         </div>
 
@@ -27,28 +32,35 @@ export default function Hero() {
           {/* Left Column (100% original desktop layout) */}
           <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
             <div className="hero-eyebrow-desktop inline-flex items-center">
-              <span className="font-inter text-[11px] tracking-[0.22em] uppercase text-[#0E223F] font-semibold hero-tag-line">
-                {t('hero.eyebrow')}
+              <span className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold hero-tag-line">
+                <span style={{ color: "#64748B" }}>
+                  {language === 'fr' ? "- EXPERTISE INDÉPENDANTE -" : "- INDEPENDENT EXPERTISE -"}
+                </span>
+                <span style={{ color: "#1E3358" }}>
+                  {language === 'fr' ? " 20 ANS D'EXPÉRIENCE -" : " 20 YEARS OF EXPERIENCE -"}
+                </span>
               </span>
             </div>
             <h1
-              className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] mt-4"
+              className="font-inter italic font-light tracking-[-0.03em] mt-4"
               style={{
-                fontSize: language === 'fr' ? "clamp(26px, 6.8vw, 64px)" : "clamp(32px, 5.2vw, 68px)",
+                fontSize: language === 'fr' ? "clamp(29px, 3.74vw, 61px)" : "clamp(35px, 4.84vw, 75px)",
+                lineHeight: language === 'fr' ? "1.15" : "1.05",
               }}
             >
               <div
                 className="block whitespace-nowrap"
                 style={{
-                  color: "#64748B",
+                  color: "#1E3358",
                 }}
               >
                 {t('hero.headlinePart1')}
               </div>
               <div
-                className="block whitespace-nowrap mt-[0.05em]"
+                className="block whitespace-nowrap"
                 style={{
-                  color: "#1E3358",
+                  color: "#64748B",
+                  marginTop: language === 'fr' ? "0.18em" : "0.05em",
                 }}
               >
                 {t('hero.headlinePart2')}
