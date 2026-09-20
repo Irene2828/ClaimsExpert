@@ -106,15 +106,15 @@ export default function About() {
           line-height: 1.12;
           font-weight: 400;
           color: #1E3358;
-          text-align: center;
+          text-align: left;
           margin-top: 0;
           margin-bottom: 20px;
         }
 
         .about-story-container {
           width: 100%;
-          max-width: 90%;
-          margin: 0 auto;
+          max-width: 100%;
+          margin: 0;
           text-align: left;
           padding: 0;
           box-sizing: border-box;
@@ -311,7 +311,7 @@ export default function About() {
 
             </div>
 
-            {/* Column 2 (Right): Centered Headline + Story Block + Back Button */}
+            {/* Column 2 (Right): Headline + Story Block + Back Button */}
             <div className="about-col-right">
               <h1 className="about-headline">
                 {t('about.headline')}
@@ -323,8 +323,8 @@ export default function About() {
                 <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
               </div>
 
-              {/* Back Button centered under text */}
-              <div className="w-full flex justify-center mt-10">
+              {/* Back Button aligned to right side */}
+              <div className="w-full flex justify-end mt-10">
                 <Link
                   to="/"
                   className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] text-[14.7px]"
