@@ -113,8 +113,8 @@ export default function About() {
 
         .about-story-container {
           width: 100%;
-          max-width: 100%;
-          margin: 0;
+          max-width: 90%;
+          margin: 0 auto;
           text-align: left;
           padding: 0;
           box-sizing: border-box;
