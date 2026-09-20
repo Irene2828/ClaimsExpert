@@ -105,8 +105,8 @@ export default function About() {
         }
         @media (min-width: 1024px) {
           .about-content-grid {
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 56px;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
             align-items: start;
           }
         }
@@ -115,6 +115,7 @@ export default function About() {
           width: 100%;
           display: flex;
           flex-direction: column;
+          align-items: center;
           gap: 36px;
         }
 
@@ -145,12 +146,13 @@ export default function About() {
           width: 100%;
           display: flex;
           flex-direction: column;
+          align-items: center;
           justify-content: center;
         }
 
         .about-text-wrapper {
           width: 100%;
-          max-width: 81%;
+          max-width: 540px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
@@ -160,6 +162,7 @@ export default function About() {
 
         .about-portrait-card {
           width: 100%;
+          max-width: 540px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -167,7 +170,7 @@ export default function About() {
 
         .about-portrait-img {
           width: 100%;
-          max-width: 520px;
+          max-width: 540px;
           height: auto;
           border-radius: 0;
           object-fit: cover;
@@ -186,6 +189,7 @@ export default function About() {
 
         .about-timeline-frame {
           width: 100%;
+          max-width: 540px;
           position: relative;
           box-sizing: border-box;
           padding: 0;
@@ -294,8 +298,8 @@ export default function About() {
           <div className="about-content-grid">
             
             {/* Column 1 (Left): Eyebrow + Headline + Story Block */}
-            <div className="about-right-col" style={{ width: '100%' }}>
-              <div className="about-text-wrapper" style={{ maxWidth: '100%' }}>
+            <div className="about-right-col">
+              <div className="about-text-wrapper">
                 <span className="about-eyebrow-text">
                   {t('about.eyebrow')}
                 </span>
