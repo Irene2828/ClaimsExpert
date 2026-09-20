@@ -61,7 +61,7 @@ export default function About() {
           .about-top-grid {
             grid-template-columns: 0.88fr 1.12fr;
             gap: 52px;
-            align-items: start;
+            align-items: center;
           }
         }
 
@@ -76,7 +76,8 @@ export default function About() {
           width: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
+          justify-content: center;
+          align-self: center;
         }
 
         .about-portrait-card {
@@ -94,16 +95,6 @@ export default function About() {
           border-radius: 0;
           object-fit: cover;
           box-shadow: none;
-        }
-
-        .about-portrait-caption {
-          font-family: 'Inter', system-ui, sans-serif;
-          font-size: 13px;
-          font-weight: 500;
-          color: #1E3358;
-          margin-top: 12px;
-          text-align: left;
-          letter-spacing: -0.01em;
         }
 
         .about-headline {
@@ -258,7 +249,7 @@ export default function About() {
           {/* Row 1: 2-Column Layout */}
           <div className="about-top-grid">
             
-            {/* Column 1 (Left): Eyebrow + Portrait Image & Caption */}
+            {/* Column 1 (Left): Eyebrow + Portrait Image */}
             <div className="about-col-left">
               <span className="about-eyebrow-text">
                 {t('about.eyebrow')}
@@ -270,13 +261,10 @@ export default function About() {
                   alt="Roy & Isabelle Guertin — Founding & Current Leadership"
                   className="about-portrait-img"
                 />
-                <p className="about-portrait-caption">
-                  {t('about.portraitCaption')}
-                </p>
               </div>
             </div>
 
-            {/* Column 2 (Right): Large Headline + Story Block (fitted to image height) */}
+            {/* Column 2 (Right): Large Headline + Story Block (vertically centered opposite image) */}
             <div className="about-col-right">
               <h1 className="about-headline">
                 {t('about.headline')}
