@@ -39,41 +39,6 @@ export default function About() {
           }
         }
 
-        .about-back-wrapper {
-          width: 100%;
-          display: flex;
-          justify-content: flex-start;
-          margin-bottom: 32px;
-        }
-
-        .about-back-btn {
-          font-family: 'Inter', system-ui, -apple-system, sans-serif;
-          display: inline-flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 8px;
-          border: none;
-          background: transparent;
-          color: #0E223F;
-          font-size: 14px;
-          font-weight: 500;
-          letter-spacing: 0.01em;
-          text-decoration: none;
-          white-space: nowrap;
-          padding: 0;
-          transition: color 0.2s ease;
-        }
-        .about-back-btn:hover {
-          color: #00ACC1;
-        }
-        .about-back-btn .about-back-icon {
-          transition: transform 0.2s ease, stroke 0.2s ease;
-          stroke: currentColor;
-        }
-        .about-back-btn:hover .about-back-icon {
-          transform: translateX(-4px);
-        }
-
         .about-eyebrow-text {
           font-family: 'Inter', system-ui, sans-serif;
           font-size: 11px;
@@ -84,19 +49,8 @@ export default function About() {
           display: block;
         }
 
-        .about-headline {
-          font-family: 'Inter', system-ui, sans-serif;
-          font-size: clamp(32px, 3.8vw, 48px);
-          letter-spacing: -0.04em;
-          line-height: 1.08;
-          font-weight: 400;
-          color: #1E3358;
-          text-align: left;
-          margin-top: 14px;
-          margin-bottom: 28px;
-        }
-
-        .about-content-grid {
+        /* Top 2-Column Row */
+        .about-top-grid {
           width: 100%;
           display: grid;
           grid-template-columns: 1fr;
@@ -104,88 +58,86 @@ export default function About() {
           box-sizing: border-box;
         }
         @media (min-width: 1024px) {
-          .about-content-grid {
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 56px;
+          .about-top-grid {
+            grid-template-columns: 0.88fr 1.12fr;
+            gap: 52px;
             align-items: start;
           }
         }
 
-        .about-left-col {
+        .about-col-left {
           width: 100%;
-          display: flex;
-          flex-direction: column;
-          gap: 36px;
-        }
-
-        .about-story-container {
-          width: 100%;
-          text-align: left;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        .about-story-paragraph {
-          font-family: 'Inter', system-ui, -apple-system, sans-serif;
-          font-size: 14.5px;
-          line-height: 1.68;
-          color: #4B5563;
-          font-weight: 400;
-          letter-spacing: 0.01em;
-          margin: 0;
-          text-align: justify;
-          text-justify: inter-word;
-          hyphens: auto;
-        }
-        .about-story-paragraph + .about-story-paragraph {
-          margin-top: 20px;
-        }
-
-        .about-right-col {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        .about-text-wrapper {
-          width: 100%;
-          max-width: 81%;
-          margin: 0 auto;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          text-align: left;
+        }
+
+        .about-col-right {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
 
         .about-portrait-card {
           width: 100%;
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: flex-start;
+          margin-top: 14px;
         }
 
         .about-portrait-img {
           width: 100%;
-          max-width: 520px;
+          max-width: 490px;
           height: auto;
           border-radius: 0;
           object-fit: cover;
           box-shadow: none;
+          display: block;
         }
 
-        .about-portrait-caption {
+        .about-headline {
           font-family: 'Inter', system-ui, sans-serif;
-          font-size: 13.5px;
-          font-weight: 500;
+          font-size: clamp(28px, 3.2vw, 42px);
+          letter-spacing: -0.04em;
+          line-height: 1.12;
+          font-weight: 400;
           color: #1E3358;
-          margin-top: 14px;
           text-align: center;
-          letter-spacing: -0.01em;
+          margin-top: 0;
+          margin-bottom: 20px;
         }
 
+        .about-story-container {
+          width: 100%;
+          text-align: center;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .about-story-paragraph {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          font-size: 14px;
+          line-height: 1.62;
+          color: #4B5563;
+          font-weight: 400;
+          letter-spacing: 0.01em;
+          margin: 0 auto;
+          text-align: center;
+          max-width: 90%;
+        }
+        .about-story-paragraph + .about-story-paragraph {
+          margin-top: 16px;
+        }
+
+        /* Timeline in Column 1 under image */
         .about-timeline-frame {
           width: 100%;
+          max-width: 490px;
+          margin-top: 28px;
           position: relative;
           box-sizing: border-box;
           padding: 0;
@@ -268,12 +220,12 @@ export default function About() {
         }
         .timeline-stage-body {
           font-family: 'Inter', system-ui, sans-serif;
-          font-size: 14.5px;
-          line-height: 1.65;
+          font-size: 14px;
+          line-height: 1.62;
           color: #4B5563;
           font-weight: 400;
           margin: 0;
-          max-width: 468px;
+          max-width: 100%;
           text-align: left;
         }
       `}</style>
@@ -287,52 +239,31 @@ export default function About() {
         }}
       >
         <div className="about-hero-container">
+          
+          {/* Row 1: 2-Column Layout */}
+          <div className="about-top-grid">
+            
+            {/* Column 1 (Left): Eyebrow + Portrait Image + Timeline */}
+            <div className="about-col-left">
+              <span className="about-eyebrow-text">
+                {t('about.eyebrow')}
+              </span>
 
-
-
-          {/* 2-Column Grid */}
-          <div className="about-content-grid">
-
-            {/* Column 1 (Left): Eyebrow + Headline + Story Block */}
-            <div className="about-right-col" style={{ width: '100%' }}>
-              <div className="about-text-wrapper" style={{ maxWidth: '100%' }}>
-                <span className="about-eyebrow-text">
-                  {t('about.eyebrow')}
-                </span>
-                <h1 className="about-headline">
-                  {t('about.headline')}
-                </h1>
-
-                <div className="about-story-container">
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('extensive experience in claims adjusting', '<span style="font-weight: 500; color: #0E223F">extensive experience in claims adjusting</span>').replace('vaste expérience en règlement de sinistres', '<span style="font-weight: 500; color: #0E223F">vaste expérience en règlement de sinistres</span>').replace('thorough, independent and personalized service', '<span style="font-weight: 500; color: #0E223F">thorough, independent and personalized service</span>').replace('service approfondi, indépendant et personnalisé', '<span style="font-weight: 500; color: #0E223F">service approfondi, indépendant et personnalisé</span>') }} />
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">joined the family practice in 2016</span>').replace('a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">a rejoint le cabinet familial en 2016</span>').replace('municipal civil liability', '<span style="font-weight: 500; color: #0E223F">municipal civil liability</span>').replace('responsabilité civile municipale', '<span style="font-weight: 500; color: #0E223F">responsabilité civile municipale</span>') }} />
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace('sole owner of R. Guertin & Ass.', '<span style="font-weight: 500; color: #0E223F">sole owner of R. Guertin & Ass.</span>').replace("unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">unique propriétaire de R. Guertin & Ass.</span>').replace('integrity, thoroughness and personal service', '<span style="font-weight: 500; color: #0E223F">integrity, thoroughness and personal service</span>').replace('intégrité, de rigueur et de service personnalisé', '<span style="font-weight: 500; color: #0E223F">intégrité, de rigueur et de service personnalisé</span>').replace('public adjusting services', '<span style="font-weight: 500; color: #0E223F">public adjusting services</span>').replace("expert en sinistres au bénéfice de l'assuré", '<span style="font-weight: 500; color: #0E223F">expert en sinistres au bénéfice de l\'assuré</span>') }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Column 2 (Right): Portrait Image + Caption + Timeline Frame */}
-            <div className="about-left-col">
-
-              {/* Portrait Image & Caption */}
               <div className="about-portrait-card">
                 <img
                   src={royIsabellePortrait}
                   alt="Roy & Isabelle Guertin — Founding & Current Leadership"
                   className="about-portrait-img"
                 />
-                <p className="about-portrait-caption">
-                  {t('about.portraitCaption')}
-                </p>
               </div>
 
-              {/* Timeline Frame */}
+              {/* Timeline directly inside Column 1 under portrait image */}
               <div className="about-timeline-frame">
                 <div className="timeline-container">
                   <div className="timeline-stem" />
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', position: 'relative', zIndex: 2 }}>
-
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', position: 'relative', zIndex: 2 }}>
+                    
                     {/* Milestone 1: 2014 Foundation */}
                     <div className="timeline-item">
                       <div className="timeline-marker-past">
@@ -379,37 +310,53 @@ export default function About() {
 
             </div>
 
-            <div className="w-full flex justify-end mt-12">
-              <Link
-                to="/"
-                className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] text-[14.7px]"
-                style={{
-                  borderWidth: '0.5px',
-                  borderColor: '#0E223F',
-                  color: '#0E223F',
-                  whiteSpace: "nowrap",
-                  height: '48.3px',
-                  padding: '0 29.4px'
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="shrink-0 transition-transform group-hover:-translate-x-1"
+            {/* Column 2 (Right): Centered Headline + Story Block + Back Button */}
+            <div className="about-col-right">
+              <h1 className="about-headline">
+                {t('about.headline')}
+              </h1>
+
+              <div className="about-story-container">
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('founded in 2014 by Roy Guertin', '<span style="font-weight: 500; color: #0E223F">founded in 2014 by Roy Guertin</span>').replace('fondée en 2014 par Roy Guertin', '<span style="font-weight: 500; color: #0E223F">fondée en 2014 par Roy Guertin</span>') }} />
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('Isabelle Guertin joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin joined the family practice in 2016</span>').replace('Isabelle Guertin a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin a rejoint le cabinet familial en 2016</span>') }} />
+                <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
+              </div>
+
+              {/* Back Button centered under text */}
+              <div className="w-full flex justify-center mt-10">
+                <Link
+                  to="/"
+                  className="font-inter group inline-flex items-center justify-center gap-2.5 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] text-[14.7px]"
+                  style={{
+                    borderWidth: '0.5px',
+                    borderColor: '#0E223F',
+                    color: '#0E223F',
+                    whiteSpace: "nowrap",
+                    height: '48.3px',
+                    padding: '0 29.4px'
+                  }}
                 >
-                  <line x1="19" y1="12" x2="5" y2="12" />
-                  <polyline points="12 19 5 12 12 5" />
-                </svg>
-                {t('about.backBtn')}
-              </Link>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0 transition-transform group-hover:-translate-x-1"
+                  >
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                  </svg>
+                  {t('about.backBtn')}
+                </Link>
+              </div>
             </div>
+
           </div>
+
         </div>
       </section>
       <Contact />
