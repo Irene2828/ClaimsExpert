@@ -65,10 +65,11 @@ export default function About() {
           }
           .about-portrait-img {
             transform: translateX(10%);
+            display: block;
           }
           .about-col-right {
-            justify-content: flex-end;
-            align-self: flex-end;
+            justify-content: flex-end !important;
+            align-self: flex-end !important;
           }
         }
 
@@ -83,8 +84,8 @@ export default function About() {
           width: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-self: center;
+          justify-content: flex-end;
+          align-self: flex-end;
         }
 
         .about-portrait-card {
