@@ -2718,10 +2718,11 @@
           padding: 10px 20px !important;
         }
 
-        /* 3. Hero tag line visibly larger */
+        /* 3. Hero tag line visibly larger & silver grey */
         html body .hero-tag-line {
           font-size: 12px !important;
           letter-spacing: 0.24em !important;
+          color: #64748B !important;
         }
 
         /* 4. Hero subline paragraph text */

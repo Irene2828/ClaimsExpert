@@ -18,7 +18,10 @@ export default function Hero() {
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
         {/* Mobile-only Eyebrow (above image on mobile < 768px) */}
         <div className="hero-eyebrow-mobile flex justify-center w-full pt-0 pb-3">
-          <span className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold text-[#64748B] hero-tag-line text-center">
+          <span
+            className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line text-center"
+            style={{ color: "#64748B" }}
+          >
             {t('hero.eyebrow')}
           </span>
         </div>
@@ -27,7 +30,10 @@ export default function Hero() {
           {/* Left Column (100% original desktop layout) */}
           <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
             <div className="hero-eyebrow-desktop inline-flex items-center">
-              <span className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold text-[#64748B] hero-tag-line">
+              <span
+                className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold hero-tag-line"
+                style={{ color: "#64748B" }}
+              >
                 {t('hero.eyebrow')}
               </span>
             </div>
