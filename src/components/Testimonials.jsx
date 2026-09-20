@@ -9,9 +9,11 @@ export default function Testimonials() {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      // Disable autoloop on mobile screens (< 768px)
+      if (window.innerWidth < 768) return;
       if (Date.now() < pauseUntilRef.current) return;
       setActiveTab((prev) => (prev + 1) % 3);
-    }, 6000); // 6 seconds auto-loop
+    }, 6000); // 6 seconds auto-loop on desktop only
     return () => clearInterval(timer);
   }, []);
 
@@ -130,7 +132,8 @@ export default function Testimonials() {
                     }}
                   >
                   <div
-                    className={`${card.isDark ? "bg-[#0E223F] border-white/15 shadow-[0_24px_64px_rgba(14,34,63,0.14)]" : "bg-white border-[#0E223F]/15 shadow-sm"} rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-6 border h-full flex flex-col justify-between text-left relative overflow-hidden`}
+                    onClick={() => handleSelect((activeTab + 1) % 3)}
+                    className={`${card.isDark ? "bg-[#0E223F] border-white/15 shadow-[0_24px_64px_rgba(14,34,63,0.14)]" : "bg-white border-[#0E223F]/15 shadow-sm"} rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-6 border h-full flex flex-col justify-between text-left relative overflow-hidden cursor-pointer`}
                   >
                     {card.isDark && (
                       <>

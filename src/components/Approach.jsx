@@ -119,7 +119,8 @@ export default function Approach() {
                     }}
                   >
                     <div
-                      className="rounded-[24px] p-6 lg:p-8 border border-[#0E223F]/15 shadow-none min-h-[320px] flex flex-col"
+                      onClick={() => handleSelect((activeTab + 1) % 3)}
+                      className="rounded-[24px] p-6 lg:p-8 border border-[#0E223F]/15 shadow-none min-h-[320px] flex flex-col cursor-pointer"
                       style={{
                         background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, #F5F6F8 80%)",
                       }}

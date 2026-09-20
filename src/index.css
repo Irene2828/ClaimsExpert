@@ -2627,16 +2627,21 @@
           width: 100% !important;
         }
 
+        html body .hero-img-col {
+          justify-content: flex-end !important;
+        }
+
         html body .hero-img-col > div {
           height: clamp(370px, 52vh, 460px) !important;
           max-width: 400px !important;
+          justify-content: flex-end !important;
         }
 
-        /* Show Name Badge on Mobile with Apple Tahoe glassmorphism */
+        /* Show Name Badge on Mobile positioned to the left of portrait image */
         html body .hero-name-badge {
           display: block !important;
-          left: auto !important;
-          right: 10px !important;
+          left: 0px !important;
+          right: auto !important;
           bottom: 16px !important;
           top: auto !important;
           z-index: 25 !important;

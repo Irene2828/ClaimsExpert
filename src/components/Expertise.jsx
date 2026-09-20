@@ -21,7 +21,7 @@ export default function Expertise() {
             {t('expertise.headline')}
           </h2>
           <p
-            className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 mx-auto"
+            className="font-inter text-[17px] lg:text-[18px] leading-[1.7] text-white/70 mt-6 mx-auto"
             style={{ maxWidth: language === 'en' ? '68ch' : '60ch' }}
           >
             {t('expertise.body1')}
