@@ -2612,12 +2612,15 @@ html body .hero-eyebrow-mobile {
   }
 
   html body .hero-img-col {
-    justify-content: flex-end !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
     width: 100% !important;
     padding-right: 0 !important;
   }
 
-  html body .hero-img-col>div {
+  html body .hero-img-col>div:first-child {
     height: clamp(370px, 52vh, 460px) !important;
     width: 100% !important;
     max-width: 100% !important;
