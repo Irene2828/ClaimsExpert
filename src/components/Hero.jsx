@@ -24,7 +24,7 @@ export default function Hero() {
                 className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold hero-tag-line"
                 style={{ color: "#64748B" }}
               >
-                {t('hero.eyebrowLine1')} {t('hero.eyebrowLine2')}
+                {t('hero.eyebrow')}
               </span>
             </div>
             <h1
@@ -222,18 +222,18 @@ export default function Hero() {
 
               {/* Mobile-only Eyebrow (under image on mobile < 768px with two centered lines) */}
               <div className="hero-eyebrow-mobile flex-col items-center justify-center w-full pt-4 pb-1 text-center">
-                <span
-                  className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line block text-center"
-                  style={{ color: "#64748B" }}
-                >
-                  {t('hero.eyebrowLine1')}
-                </span>
-                <span
-                  className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line block text-center mt-1"
-                  style={{ color: "#64748B" }}
-                >
-                  {t('hero.eyebrowLine2')}
-                </span>
+                {t('hero.eyebrow')
+                  .split(' - ')
+                  .filter(Boolean)
+                  .map((part, index) => (
+                    <span
+                      key={index}
+                      className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line block text-center"
+                      style={{ color: "#64748B", marginTop: index > 0 ? "4px" : "0px" }}
+                    >
+                      - {part.trim()} -
+                    </span>
+                  ))}
               </div>
             </div>
           </div>

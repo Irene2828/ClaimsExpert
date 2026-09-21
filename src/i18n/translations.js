@@ -12,8 +12,7 @@ export const translations = {
       callMe: "Call me:",
     },
     hero: {
-      eyebrowLine1: "- INDEPENDENT EXPERTISE -",
-      eyebrowLine2: "- 20 YEARS OF EXPERIENCE -",
+      eyebrow: "- INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -",
       headlinePart1: "Informed decisions.",
       headlinePart2: "Fair outcomes.",
       body: "Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury — bringing that same expertise directly to policyholders navigating their own insurance claims.",
@@ -161,8 +160,7 @@ export const translations = {
       callMe: "Appelez-moi :",
     },
     hero: {
-      eyebrowLine1: "- EXPERTISE INDÉPENDANTE -",
-      eyebrowLine2: "- 20 ANS D'EXPÉRIENCE -",
+      eyebrow: "- EXPERTISE INDÉPENDANTE - 20 ANS D'EXPÉRIENCE -",
       headlinePart1: "Des décisions éclairées.",
       headlinePart2: "Des résultats équitables.",
       body: "Experte en sinistres indépendante, spécialisée en responsabilité civile municipale, dommages matériels et dommages corporels — mettant cette même expertise directement au service des assurés qui gèrent leurs propres réclamations d'assurance.",
