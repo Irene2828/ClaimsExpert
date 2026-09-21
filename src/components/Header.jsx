@@ -48,9 +48,6 @@ export default function Header() {
       >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-[10px] bg-white text-[#0E223F] font-inter font-medium text-[13px] flex items-center justify-center">
-              G
-            </div>
             <div className="flex flex-col justify-center">
               <span className="font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1]">
                 GUERTIN

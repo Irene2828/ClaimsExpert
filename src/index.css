@@ -2613,15 +2613,18 @@ html body .hero-eyebrow-mobile {
 
   html body .hero-img-col {
     justify-content: flex-end !important;
+    width: 100% !important;
+    padding-right: 0 !important;
   }
 
   html body .hero-img-col>div {
     height: clamp(370px, 52vh, 460px) !important;
-    max-width: 400px !important;
+    width: 100% !important;
+    max-width: 100% !important;
     justify-content: flex-end !important;
   }
 
-  /* Show Name Badge on Mobile positioned to the left of portrait image */
+  /* Show Name Badge on Mobile positioned to the left side aligning with left UI header padding */
   html body .hero-name-badge {
     display: block !important;
     left: 0px !important;
