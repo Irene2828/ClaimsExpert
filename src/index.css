@@ -2611,6 +2611,11 @@ html body .hero-eyebrow-mobile {
     width: 100% !important;
   }
 
+  html body .hero-desktop-shift {
+    width: 100% !important;
+    justify-content: flex-end !important;
+  }
+
   html body .hero-img-col {
     display: flex !important;
     flex-direction: column !important;
@@ -2620,11 +2625,27 @@ html body .hero-eyebrow-mobile {
     padding-right: 0 !important;
   }
 
-  html body .hero-img-col>div:first-child {
-    height: clamp(370px, 52vh, 460px) !important;
+  html body .hero-img-wrapper {
+    position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
+    height: clamp(330px, 46vh, 440px) !important;
+    display: flex !important;
     justify-content: flex-end !important;
+    align-items: flex-end !important;
+  }
+
+  html body .hero-portrait-img {
+    position: relative !important;
+    width: auto !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: bottom right !important;
+    margin-left: auto !important;
+    transform: none !important;
+    filter: none !important;
   }
 
   /* Show Name Badge on Mobile positioned to the left side aligning with left UI header padding */
@@ -2632,10 +2653,10 @@ html body .hero-eyebrow-mobile {
     display: block !important;
     left: 0px !important;
     right: auto !important;
-    bottom: 16px !important;
+    bottom: 12px !important;
     top: auto !important;
     z-index: 25 !important;
-    background: rgba(255, 255, 255, 0.90) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
     border: 1px solid rgba(255, 255, 255, 0.95) !important;
@@ -2645,6 +2666,7 @@ html body .hero-eyebrow-mobile {
       0 10px 25px -4px rgba(14, 34, 63, 0.12),
       0 2px 8px rgba(14, 34, 63, 0.04) !important;
     filter: none !important;
+    transform: none !important;
   }
 
   html body .hero-name-badge>div:first-child {
@@ -2662,6 +2684,8 @@ html body .hero-eyebrow-mobile {
     margin-top: 3px !important;
     margin-left: 0px !important;
     letter-spacing: 0.03em !important;
+    text-align: left !important;
+    transform: none !important;
   }
 }
 

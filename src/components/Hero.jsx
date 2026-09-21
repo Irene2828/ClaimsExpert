@@ -5,6 +5,11 @@ export default function Hero() {
   const primaryColor = '#0E223F';
   const { t, language } = useLanguage();
 
+  // Clean eyebrow splitting to prevent double dash issues
+  const rawEyebrow = t('hero.eyebrow') || '';
+  const cleanEyebrow = rawEyebrow.replace(/^[\s\-\u2014]+|[\s\-\u2014]+$/g, '');
+  const eyebrowParts = cleanEyebrow.split(/\s*[\-\u2014]\s*/).filter(Boolean);
+
   return (
     <section
       id="hero"
@@ -118,6 +123,7 @@ export default function Hero() {
           <div className="hero-desktop-shift order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end">
             <div className="hero-img-col w-full flex items-end justify-center lg:justify-end">
               <div
+                className="hero-img-wrapper"
                 style={{
                   position: "relative",
                   zIndex: 10,
@@ -129,7 +135,7 @@ export default function Hero() {
                   height: "clamp(420px, calc(100svh - 170px), 588px)",
                 }}
               >
-                {/* Name & Title Badge (moved to bottom-left of portrait) */}
+                {/* Name & Title Badge */}
                 <div
                   className="hero-name-badge select-none pointer-events-none hidden sm:block"
                   style={{
@@ -221,19 +227,16 @@ export default function Hero() {
               </div>
 
               {/* Mobile-only Eyebrow (under image on mobile < 768px with two centered lines) */}
-              <div className="hero-eyebrow-mobile flex-col items-center justify-center w-full pt-4 pb-1 text-center">
-                {t('hero.eyebrow')
-                  .split(' - ')
-                  .filter(Boolean)
-                  .map((part, index) => (
-                    <span
-                      key={index}
-                      className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line block text-center"
-                      style={{ color: "#64748B", marginTop: index > 0 ? "4px" : "0px" }}
-                    >
-                      - {part.trim()} -
-                    </span>
-                  ))}
+              <div className="hero-eyebrow-mobile flex-col items-center justify-center w-full pt-3 pb-1 text-center">
+                {eyebrowParts.map((part, index) => (
+                  <span
+                    key={index}
+                    className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line block text-center"
+                    style={{ color: "#64748B", marginTop: index > 0 ? "3px" : "0px" }}
+                  >
+                    - {part} -
+                  </span>
+                ))}
               </div>
             </div>
           </div>
