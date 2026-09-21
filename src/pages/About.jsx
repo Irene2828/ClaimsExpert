@@ -59,7 +59,7 @@ export default function About() {
         }
         @media (min-width: 1024px) {
           .about-top-grid {
-            grid-template-columns: 0.88fr 1.12fr;
+            grid-template-columns: 1.12fr 0.88fr;
             gap: 52px;
             align-items: start;
           }
@@ -83,7 +83,7 @@ export default function About() {
         .about-back-btn-wrapper {
           width: 100%;
           display: flex;
-          justify-content: flex-end;
+          justify-content: flex-start;
           margin-top: 40px;
         }
 
@@ -142,7 +142,7 @@ export default function About() {
           font-weight: 400;
           letter-spacing: 0.01em;
           margin: 0;
-          text-align: left;
+          text-align: justify;
         }
         .about-story-paragraph + .about-story-paragraph {
           margin-top: 16px;
@@ -258,22 +258,68 @@ export default function About() {
           {/* Row 1: 2-Column Layout */}
           <div className="about-top-grid">
             
-            {/* Column 1 (Left): Eyebrow + Portrait Image + Timeline */}
+            {/* Column 1 (Left): Eyebrow + Headline + Story Block */}
             <div className="about-col-left">
-              <span className="about-eyebrow-text">
-                {t('about.eyebrow')}
-              </span>
+              <div className="about-text-wrapper">
+                <span className="about-eyebrow-text" style={{ marginBottom: "20px" }}>
+                  {t('about.eyebrow')}
+                </span>
+                <h1 className="about-headline">
+                  {t('about.headline')}
+                </h1>
 
-              <div className="about-portrait-card">
+                <div className="about-story-container">
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('founded in 2014 by Roy Guertin', '<span style="font-weight: 500; color: #0E223F">founded in 2014 by Roy Guertin</span>').replace('fondée en 2014 par Roy Guertin', '<span style="font-weight: 500; color: #0E223F">fondée en 2014 par Roy Guertin</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('Isabelle Guertin joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin joined the family practice in 2016</span>').replace('Isabelle Guertin a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin a rejoint le cabinet familial en 2016</span>') }} />
+                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
+                </div>
+
+                {/* Back Button positioned at bottom right edge of the text block */}
+                <div className="about-back-btn-wrapper">
+                  <Link
+                    to="/"
+                    className="font-inter group inline-flex items-center justify-center gap-[6px] rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] border border-[#0E223F] bg-white text-[#0E223F] transition-all hover:bg-[#F5F6F8] hover:shadow-[0_8px_24px_rgba(14,34,63,0.12)]"
+                    style={{
+                      borderWidth: '1px',
+                      whiteSpace: "nowrap"
+                    }}
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="shrink-0 transition-transform group-hover:-translate-x-1"
+                    >
+                      <line x1="19" y1="12" x2="5" y2="12" />
+                      <polyline points="12 19 5 12 12 5" />
+                    </svg>
+                    {t('about.backBtn')}
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2 (Right): Portrait Image + Timeline */}
+            <div className="about-col-right" style={{ alignItems: "center" }}>
+              <div className="about-portrait-card" style={{ alignItems: "center" }}>
                 <img
                   src={royIsabellePortrait}
                   alt="Roy & Isabelle Guertin — Founding & Current Leadership"
                   className="about-portrait-img"
+                  style={{ margin: "0 auto" }}
                 />
+                <p className="font-inter text-[13px] text-[#4B5563]/80 mt-4 italic text-center w-full">
+                  Isabelle and Roy Guertin
+                </p>
               </div>
 
-              {/* Timeline directly inside Column 1 under portrait image */}
-              <div className="about-timeline-frame">
+              {/* Timeline directly inside Column 2 under portrait image */}
+              <div className="about-timeline-frame" style={{ margin: "56px auto 0 auto" }}>
                 <div className="timeline-container">
                   <div className="timeline-stem" />
 
@@ -320,50 +366,6 @@ export default function About() {
                     </div>
 
                   </div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Column 2 (Right): Headline + Story Block */}
-            <div className="about-col-right">
-              <div className="about-text-wrapper">
-                <h1 className="about-headline">
-                  {t('about.headline')}
-                </h1>
-
-                <div className="about-story-container">
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p1').replace('founded in 2014 by Roy Guertin', '<span style="font-weight: 500; color: #0E223F">founded in 2014 by Roy Guertin</span>').replace('fondée en 2014 par Roy Guertin', '<span style="font-weight: 500; color: #0E223F">fondée en 2014 par Roy Guertin</span>') }} />
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p2').replace('Isabelle Guertin joined the family practice in 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin joined the family practice in 2016</span>').replace('Isabelle Guertin a rejoint le cabinet familial en 2016', '<span style="font-weight: 500; color: #0E223F">Isabelle Guertin a rejoint le cabinet familial en 2016</span>') }} />
-                  <p className="about-story-paragraph" dangerouslySetInnerHTML={{ __html: t('about.p3').replace("Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">Following Roy\'s retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass.</span>').replace("À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass.", '<span style="font-weight: 500; color: #0E223F">À la suite de la retraite de Roy en 2026, Isabelle est devenue l\'unique propriétaire de R. Guertin & Ass.</span>') }} />
-                </div>
-
-                {/* Back Button positioned at bottom right edge of the text block */}
-                <div className="about-back-btn-wrapper">
-                  <Link
-                    to="/"
-                    className="font-inter group inline-flex items-center justify-center gap-[6px] rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] border border-[#0E223F] bg-white text-[#0E223F] transition-all hover:bg-[#F5F6F8] hover:shadow-[0_8px_24px_rgba(14,34,63,0.12)]"
-                    style={{
-                      borderWidth: '1px',
-                      whiteSpace: "nowrap"
-                    }}
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="shrink-0 transition-transform group-hover:-translate-x-1"
-                    >
-                      <line x1="19" y1="12" x2="5" y2="12" />
-                      <polyline points="12 19 5 12 12 5" />
-                    </svg>
-                    {t('about.backBtn')}
-                  </Link>
                 </div>
               </div>
             </div>

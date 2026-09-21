@@ -36,22 +36,21 @@ export default function Process() {
           </p>
         </div>
         <div className="relative mt-16 lg:mt-20 w-full">
-          <div className="hidden md:block absolute top-[48px] lg:top-[56px] left-0 right-0 h-px bg-[#0E223F]/15" aria-hidden="true" />
-          <div className="md:hidden absolute left-[28px] top-[12px] bottom-[12px] w-px bg-[#0E223F]/15" aria-hidden="true" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-8 w-full relative z-10">
-            {processSteps.map((step) => (
-              <div key={step.n} className="relative flex flex-row md:flex-col items-start md:items-center text-left md:text-center min-w-0 gap-5 md:gap-0">
-                <span className="font-inter not-italic font-normal text-[64px] lg:text-[80px] leading-none tracking-[-0.05em] text-[#0E223F] bg-[#E0F2FE] px-4 md:px-5 select-none shrink-0 relative z-10 -ml-4 md:ml-0">
-                  {step.n}
-                </span>
-                <div className="flex flex-col items-start md:items-center text-left md:text-center min-w-0 flex-1 md:flex-initial">
-                  <h3 className="font-inter font-semibold text-[20px] lg:text-[22px] leading-[1.25] tracking-[-0.01em] text-[#0F172A] mt-1 md:mt-6">
-                    {step.title}
-                  </h3>
-                  <p className="font-inter text-[15px] leading-7 text-[#4B5563] mt-2 md:mt-3 max-w-[42ch] md:max-w-[32ch] md:mx-auto">
-                    {step.desc}
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto_1fr] gap-10 md:gap-x-8 md:gap-y-0 lg:gap-x-8 w-full relative z-10">
+            {processSteps.map((step, index) => (
+              <div key={step.n} className="flex flex-col md:grid md:grid-rows-subgrid md:row-span-3 gap-y-3 md:gap-y-0 text-left">
+                <div className="flex items-center gap-4 md:gap-6 w-full">
+                  <span className="font-inter not-italic font-normal text-[64px] lg:text-[80px] leading-none tracking-[-0.05em] text-[#0E223F] select-none shrink-0">
+                    {step.n}
+                  </span>
+                  <div className="hidden md:block h-px bg-[#0E223F]/15 flex-1" aria-hidden="true" />
                 </div>
+                <h3 className="font-inter font-semibold text-[20px] lg:text-[22px] leading-[1.25] tracking-[-0.01em] text-[#0F172A] md:mt-6">
+                  {step.title}
+                </h3>
+                <p className="font-inter text-[15px] leading-[1.6] text-[#4B5563] text-left text-balance max-w-[32ch] mt-1 md:mt-3">
+                  {step.desc}
+                </p>
               </div>
             ))}
           </div>

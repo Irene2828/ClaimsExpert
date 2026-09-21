@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -8,8 +8,18 @@ import useScrollMotion from './hooks/useScrollMotion';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
+  const isFirstLoad = useRef(true);
 
   useEffect(() => {
+    if (isFirstLoad.current) {
+      isFirstLoad.current = false;
+      window.scrollTo(0, 0);
+      if (hash) {
+        window.history.replaceState(null, '', pathname);
+      }
+      return;
+    }
+
     if (!hash) {
       window.scrollTo(0, 0);
     } else {

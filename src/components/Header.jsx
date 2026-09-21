@@ -55,6 +55,12 @@ export default function Header() {
               <span className="font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px]">
                 ISABELLE
               </span>
+              <span 
+                className="font-inter italic font-light tracking-[0.06em] text-white/60 leading-[1] mt-[16px] block origin-top-left scale-[0.75] md:scale-[0.833]" 
+                style={{ fontSize: "12px" }}
+              >
+                {language === 'fr' ? 'Experte en sinistres' : 'Claims Adjuster'}
+              </span>
             </div>
           </Link>
           <nav className="hidden lg:flex items-center gap-8" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>

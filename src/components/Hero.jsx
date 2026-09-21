@@ -35,12 +35,12 @@ export default function Hero() {
             <h1
               className="font-inter italic font-light tracking-[-0.03em] mt-4"
               style={{
-                fontSize: language === 'fr' ? "clamp(29px, 3.74vw, 61px)" : "clamp(35px, 4.84vw, 75px)",
-                lineHeight: language === 'fr' ? "1.15" : "1.05",
+                fontSize: "clamp(38.5px, 4.84vw, 75px)",
+                lineHeight: "1.05",
               }}
             >
               <div
-                className="block whitespace-nowrap"
+                className="block whitespace-normal lg:whitespace-nowrap"
                 style={{
                   color: "#1E3358",
                 }}
@@ -48,7 +48,7 @@ export default function Hero() {
                 {t('hero.headlinePart1')}
               </div>
               <div
-                className="block whitespace-nowrap"
+                className="block whitespace-normal lg:whitespace-nowrap"
                 style={{
                   color: "#1E3358",
                   marginTop: language === 'fr' ? "0.18em" : "0.05em",
@@ -58,15 +58,15 @@ export default function Hero() {
               </div>
             </h1>
             <p
-              className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6 max-w-[52ch] hero-subline"
-              style={{ fontSize: "16px", lineHeight: "1.68" }}
+              className="font-inter font-normal text-[16px] leading-[1.68] tracking-[0.01em] mt-6 max-w-[52ch] hero-subline"
+              style={{ fontSize: "16px", lineHeight: "1.68", color: "#64748B" }}
             >
               {t('hero.body')}
             </p>
             <div className={`flex flex-row items-center gap-3 mt-8 hero-ctas-wrapper ${language === 'fr' ? 'fr-ctas' : ''}`}>
               <a
                 href="#contact"
-                className={`font-inter inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] text-[14.7px] order-1 text-center w-auto ${language === 'fr' ? 'fr-btn px-[18px]' : 'px-[29.4px]'}`}
+                className={`font-inter inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] hero-cta-btn h-[48.3px] text-[14.7px] order-1 text-center w-auto px-[29.4px]`}
                 style={{
                   backgroundColor: primaryColor,
                   whiteSpace: "nowrap",
@@ -92,7 +92,7 @@ export default function Hero() {
               </a>
               <a
                 href="#approach"
-                className={`font-inter group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] text-[14.7px] order-2 text-center w-auto ${language === 'fr' ? 'fr-btn px-[18px]' : 'px-[29.4px]'}`}
+                className={`font-inter group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide border bg-white transition-colors hover:bg-[#F5F6F8] hero-cta-btn h-[48.3px] text-[14.7px] order-2 text-center w-auto px-[29.4px]`}
                 style={{
                   borderWidth: '0.5px',
                   borderColor: primaryColor,
@@ -129,7 +129,7 @@ export default function Hero() {
                   zIndex: 10,
                   display: "flex",
                   alignItems: "flex-end",
-                  justifyContent: "center",
+                  justifyContent: "flex-end",
                   width: "100%",
                   maxWidth: "483px",
                   height: "clamp(420px, calc(100svh - 170px), 588px)",
@@ -137,7 +137,7 @@ export default function Hero() {
               >
                 {/* Name & Title Badge */}
                 <div
-                  className="hero-name-badge select-none pointer-events-none hidden sm:block"
+                  className="hero-name-badge select-none pointer-events-none hidden"
                   style={{
                     position: "absolute",
                     right: "0px",
@@ -206,37 +206,15 @@ export default function Hero() {
                 <img
                   src={portraitImage}
                   alt="Isabelle Guertin - Claims Advisory"
-                  className="hero-portrait-img transform"
+                  className="hero-portrait-img"
                   fetchPriority="high"
                   loading="eager"
                   style={{
                     userSelect: "none",
                     pointerEvents: "none",
-                    position: "relative",
-                    zIndex: 10,
-                    width: "auto",
-                    height: "100%",
-                    maxHeight: "604px",
-                    maxWidth: "462px",
-                    objectFit: "contain",
-                    objectPosition: "bottom",
-                    filter: "none",
                   }}
                   draggable={false}
                 />
-              </div>
-
-              {/* Mobile-only Eyebrow (under image on mobile < 768px with two centered lines) */}
-              <div className="hero-eyebrow-mobile flex-col items-center justify-center w-full pt-3 pb-1 text-center">
-                {eyebrowParts.map((part, index) => (
-                  <span
-                    key={index}
-                    className="font-inter text-[10.5px] tracking-[0.2em] uppercase font-semibold hero-tag-line block text-center"
-                    style={{ color: "#64748B", marginTop: index > 0 ? "3px" : "0px" }}
-                  >
-                    - {part} -
-                  </span>
-                ))}
               </div>
             </div>
           </div>

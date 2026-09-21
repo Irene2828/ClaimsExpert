@@ -51,14 +51,14 @@ export default function useScrollMotion() {
         }
 
         if (aboutHero) {
-          const leftCol = aboutHero.querySelector('.about-left-col');
-          const rightCol = aboutHero.querySelector('.about-right-col');
+          const leftCol = aboutHero.querySelector('.about-col-left');
+          const rightCol = aboutHero.querySelector('.about-col-right');
           const navLinks = document.querySelectorAll('header nav a');
 
           // Left col from left (x = -40, y = 0)
           applyStyle(leftCol, '0', 0, -40, 150, 1.2);
-          // Right col from bottom (x = 0, y = 40)
-          applyStyle(rightCol, '0', 44, 0, 320, 1.4);
+          // Right col from right (x = 40, y = 0)
+          applyStyle(rightCol, '0', 0, 40, 320, 1.4);
           
           navLinks.forEach((link, idx) => {
             applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
