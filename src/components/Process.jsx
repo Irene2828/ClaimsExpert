@@ -26,7 +26,7 @@ export default function Process() {
       <style>{`
         @media (max-width: 767px) {
           .process-step-title {
-            margin-top: 48px !important;
+            margin-top: 24px !important;
           }
           .process-connector-line {
             padding-left: 28px;
