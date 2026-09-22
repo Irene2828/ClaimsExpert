@@ -131,9 +131,27 @@ export default function Expertise() {
           </div>
           <div className="c-div w-full h-px my-5" />
           
-          <p className="c-body font-inter text-[15px] leading-[1.6] text-left">
-            {t(card.bodyKey)}
-          </p>
+          {(() => {
+            const fullText = t(card.bodyKey);
+            const colonIdx = fullText.lastIndexOf(':');
+            if (colonIdx !== -1) {
+              const sentenceStart = fullText.lastIndexOf('.', colonIdx);
+              const splitIdx = sentenceStart !== -1 ? sentenceStart + 1 : 0;
+              const mainText = fullText.slice(0, splitIdx);
+              const highlightText = fullText.slice(splitIdx);
+              return (
+                <p className="c-body font-inter text-[15px] leading-[1.6] text-left">
+                  {mainText}
+                  <span className="text-white font-medium">{highlightText}</span>
+                </p>
+              );
+            }
+            return (
+              <p className="c-body font-inter text-[15px] leading-[1.6] text-left">
+                {fullText}
+              </p>
+            );
+          })()}
           
           <ul className="c-bullet mt-6 mb-6 pl-4 sm:pl-5 space-y-3.5 font-inter text-[15px] leading-[1.6] text-left italic">
             {card.bulletKeys.map((bk, idx) => (
@@ -184,9 +202,27 @@ export default function Expertise() {
             </div>
             <div className="c-div w-full h-px my-5" />
           
-          <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left">
-            {t(card.bodyKey)}
-          </p>
+          {(() => {
+            const fullText = t(card.bodyKey);
+            const colonIdx = fullText.lastIndexOf(':');
+            if (colonIdx !== -1) {
+              const sentenceStart = fullText.lastIndexOf('.', colonIdx);
+              const splitIdx = sentenceStart !== -1 ? sentenceStart + 1 : 0;
+              const mainText = fullText.slice(0, splitIdx);
+              const highlightText = fullText.slice(splitIdx);
+              return (
+                <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left">
+                  {mainText}
+                  <span className="text-white font-medium">{highlightText}</span>
+                </p>
+              );
+            }
+            return (
+              <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left">
+                {fullText}
+              </p>
+            );
+          })()}
           
           {/* Doubled spacing above and below bullet list */}
           <ul className="c-bullet mt-12 mb-12 pl-4 space-y-3.5 font-inter text-[14.5px] leading-[1.65] text-left italic">
