@@ -276,9 +276,9 @@ export default function Expertise() {
           z-index: 1;
           transform: translateY(0);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
-          transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-                      box-shadow 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-                      border-color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                      border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           will-change: transform, box-shadow;
           isolation: isolate;
         }
@@ -289,39 +289,39 @@ export default function Expertise() {
           inset: 0;
           background: radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.95) 0%, rgba(235, 241, 248, 0.85) 45%, #F5F6F8 80%);
           opacity: 0;
-          transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           pointer-events: none;
           will-change: opacity;
-          transform: translateZ(0);
+          border-radius: inherit;
         }
 
         .exp-card .c-title {
           color: #ffffff;
-          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .exp-card .c-tag {
           color: rgba(255, 255, 255, 0.5);
-          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .exp-card .c-div {
           background-color: rgba(255, 255, 255, 0.1);
-          transition: background-color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .exp-card .c-body {
           color: rgba(255, 255, 255, 0.8);
-          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .exp-card .c-body-highlight {
           color: #ffffff;
-          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .exp-card .c-bullet {
           color: rgba(255, 255, 255, 0.8);
-          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .exp-card .c-bullet-dash {
           color: #00ACC1;
-          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (min-width: 768px) {
@@ -329,7 +329,6 @@ export default function Expertise() {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35);
             border-color: rgba(14, 34, 63, 0.14);
-            z-index: 10;
           }
           .exp-card:hover::before {
             opacity: 1;
