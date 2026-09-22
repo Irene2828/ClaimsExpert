@@ -186,6 +186,9 @@ export default function Hero() {
                   html body .hero-img-wrapper {
                     height: auto !important;
                     margin-top: -30px !important;
+                    width: 82% !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
                   }
                   html body .hero-quote-card.fr-quote {
                     max-width: 320px !important;
