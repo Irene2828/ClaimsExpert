@@ -84,7 +84,7 @@ export default function Approach() {
           </span>
         </div>
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-start">
-          <div className="lg:sticky lg:top-28 order-1">
+          <div className="order-1">
             <h2
               className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-[#0E223F] text-[40px] lg:text-[48px]"
               style={{
@@ -107,7 +107,7 @@ export default function Approach() {
               <span className="font-semibold text-[#0E223F]">{t('approach.body2')}</span>
             </p>
           </div>
-          <div className="relative order-2 lg:sticky lg:top-28">
+          <div className="relative order-2">
             <div className="relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
               <div className="relative min-h-[340px] sm:min-h-[360px] overflow-hidden">
                 {R.map((z, B) => (
