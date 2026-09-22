@@ -173,10 +173,19 @@ export default function Hero() {
 
                 {/* Quote Card */}
                 <style>{`
-                html body .hero-quote-card.fr-quote {
-                  max-width: 320px !important;
-                  left: -8% !important;
-                  padding: 13px 14px !important;
+                @media (min-width: 1024px) {
+                  html body .hero-quote-card.fr-quote {
+                    max-width: 320px !important;
+                    left: -8% !important;
+                    padding: 13px 14px !important;
+                  }
+                }
+                @media (max-width: 1023px) {
+                  html body .hero-quote-card.fr-quote {
+                    max-width: 320px !important;
+                    left: 2% !important;
+                    padding: 13px 14px !important;
+                  }
                 }
                 html body .hero-quote-card.fr-quote p {
                   font-size: 12.8px !important;
