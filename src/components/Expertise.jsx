@@ -142,7 +142,7 @@ export default function Expertise() {
               return (
                 <p className="c-body font-inter text-[15px] leading-[1.6] text-left">
                   {mainText}
-                  <span className="text-white font-medium">{highlightText}</span>
+                  <span className="c-body-highlight text-white font-medium">{highlightText}</span>
                 </p>
               );
             }
@@ -213,7 +213,7 @@ export default function Expertise() {
               return (
                 <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left">
                   {mainText}
-                  <span className="text-white font-medium">{highlightText}</span>
+                  <span className="c-body-highlight text-white font-medium">{highlightText}</span>
                 </p>
               );
             }
@@ -311,6 +311,10 @@ export default function Expertise() {
           color: rgba(255, 255, 255, 0.8);
           transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .exp-card .c-body-highlight {
+          color: #ffffff;
+          transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        }
         .exp-card .c-bullet {
           color: rgba(255, 255, 255, 0.8);
           transition: color 0.55s cubic-bezier(0.4, 0, 0.2, 1);
@@ -341,6 +345,9 @@ export default function Expertise() {
           }
           .exp-card:hover .c-body {
             color: #475569;
+          }
+          .exp-card:hover .c-body-highlight {
+            color: #0E223F !important;
           }
           .exp-card:hover .c-bullet {
             color: #475569;
