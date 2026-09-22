@@ -225,7 +225,7 @@ export default function Expertise() {
           })()}
           
           {/* Normal spacing above and below bullet list on mobile */}
-          <ul className="c-bullet mt-6 mb-6 pl-4 space-y-3.5 font-inter text-[14.5px] leading-[1.65] text-left italic">
+          <ul className="c-bullet mt-6 pl-4 space-y-3.5 font-inter text-[14.5px] leading-[1.65] text-left italic">
             {card.bulletKeys.map((bk, idx) => (
               <li key={idx} className="flex items-start gap-2.5">
                 <span className="c-bullet-dash font-bold text-base leading-none select-none shrink-0 mt-0.5 not-italic">–</span>
@@ -236,7 +236,7 @@ export default function Expertise() {
         </div>
         
         {card.footerKey && (
-          <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left mb-2 pr-12">
+          <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left mt-6 mb-2 pr-12">
             {t(card.footerKey)}
           </p>
         )}
