@@ -43,25 +43,25 @@ export const translations = {
       card1: {
         tag: "- PRIMARY PRACTICE -",
         title: "Municipal Civil Liability",
-        body: "Investigation and handling of municipal liability claims involving property damage and bodily injury. With extensive experience working directly with municipalities, I understand their operational realities, procedures, and the particular considerations involved in municipal claims. Each file is assessed through:",
+        body: "Investigation and handling of municipal liability claims involving property damage and bodily injury. With extensive experience working directly with municipalities, I understand their operational realities, procedures, and the particular considerations involved in municipal claims. **Each file is assessed through:**",
         bullet1: "factual investigation",
         bullet2: "liability analysis",
-        bullet3: "damage evaluation",
+        bullet3: "damage evaluation,",
         footer: "leading to clear, practical recommendations tailored to the municipality's specific circumstances."
       },
       card2: {
         tag: "- FOR POLICYHOLDERS -",
         title: "Public Adjuster Services",
-        body: "Independent claims assistance for individuals navigating a property insurance claim. I provide policyholders with the technical knowledge and claims expertise needed to:",
+        body: "Independent claims assistance for individuals navigating a property insurance claim. **I provide policyholders with the technical knowledge and claims expertise needed to:**",
         bullet1: "understand their coverage",
         bullet2: "assess the information presented",
-        bullet3: "make informed decisions throughout the claims process.",
-        footer: "The objective is a fair settlement in accordance with their insurance policy."
+        bullet3: "make informed decisions throughout the claims process,",
+        footer: "the objective is a fair settlement in accordance with their insurance policy."
       },
       card3: {
         tag: "- TECHNICAL EXPERTISE -",
         title: "Damage Assessment & Technical Analysis",
-        body: "Detailed analysis of property damage, causation, repair estimates, and supporting documentation. I assess the scope and value of a loss to:",
+        body: "Detailed analysis of property damage, causation, repair estimates, and supporting documentation. **I assess the scope and value of a loss to:**",
         bullet1: "identify what can reasonably be attributed to the event",
         bullet2: "provide a clear, well-supported evaluation of the damages.",
       }
@@ -193,25 +193,25 @@ export const translations = {
       card1: {
         tag: "- PRATIQUE PRINCIPALE -",
         title: "Responsabilité civile municipale",
-        body: "Enquête et traitement des réclamations en responsabilité municipale impliquant des dommages matériels et corporels. Grâce à une vaste expérience de travail directement avec les municipalités, je comprends leurs réalités opérationnelles, leurs procédures et les considérations particulières propres aux réclamations municipales. Chaque dossier est évalué selon :",
+        body: "Enquête et traitement des réclamations en responsabilité municipale impliquant des dommages matériels et corporels. Grâce à une vaste expérience de travail directement avec les municipalités, je comprends leurs réalités opérationnelles, leurs procédures et les considérations particulières propres aux réclamations municipales. **Chaque dossier est évalué selon :**",
         bullet1: "l'enquête factuelle",
         bullet2: "l'analyse de la responsabilité",
-        bullet3: "l'évaluation des dommages",
-        footer: "Ce qui mène à des recommandations claires et pratiques, adaptées à la situation particulière de la municipalité."
+        bullet3: "l'évaluation des dommages,",
+        footer: "ce qui mène à des recommandations claires et pratiques, adaptées à la situation particulière de la municipalité."
       },
       card2: {
         tag: "- POUR LES ASSURÉS -",
         title: "Services d'expertise en sinistres pour assurés",
-        body: "Accompagnement indépendant pour les particuliers dans le cadre d'une réclamation d'assurance habitation. J'offre aux assurés les connaissances techniques et l'expertise en sinistres nécessaires pour :",
+        body: "Accompagnement indépendant pour les particuliers dans le cadre d'une réclamation d'assurance habitation. **J'offre aux assurés les connaissances techniques et l'expertise en sinistres nécessaires pour :**",
         bullet1: "comprendre leur couverture",
         bullet2: "évaluer l'information présentée",
-        bullet3: "prendre des décisions éclairées tout au long du processus de réclamation.",
-        footer: "L'objectif est un règlement équitable, conforme à leur police d'assurance."
+        bullet3: "prendre des décisions éclairées tout au long du processus de réclamation,",
+        footer: "l'objectif est un règlement équitable, conforme à leur police d'assurance."
       },
       card3: {
         tag: "- EXPERTISE TECHNIQUE -",
         title: "Évaluation des dommages et analyse technique",
-        body: "Analyse détaillée des dommages matériels, de la cause du sinistre, des estimations de réparation et des documents à l'appui. J'évalue l'étendue et la valeur d'une perte afin de :",
+        body: "Analyse détaillée des dommages matériels, de la cause du sinistre, des estimations de réparation et des documents à l'appui. **J'évalue l'étendue et la valeur d'une perte afin de :**",
         bullet1: "déterminer ce qui peut raisonnablement être attribué à l'événement",
         bullet2: "fournir une évaluation claire et bien étayée des dommages.",
       }
