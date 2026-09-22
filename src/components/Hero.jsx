@@ -125,7 +125,6 @@ export default function Hero() {
                   justifyContent: "flex-end",
                   width: "100%",
                   maxWidth: "483px",
-                  height: "clamp(420px, calc(100svh - 170px), 588px)",
                 }}
               >
 
@@ -174,6 +173,9 @@ export default function Hero() {
                 {/* Quote Card */}
                 <style>{`
                 @media (min-width: 1024px) {
+                  html body .hero-img-wrapper {
+                    height: clamp(420px, calc(100svh - 170px), 588px) !important;
+                  }
                   html body .hero-quote-card.fr-quote {
                     max-width: 320px !important;
                     left: -8% !important;
@@ -181,6 +183,10 @@ export default function Hero() {
                   }
                 }
                 @media (max-width: 1023px) {
+                  html body .hero-img-wrapper {
+                    height: auto !important;
+                    margin-top: -30px !important;
+                  }
                   html body .hero-quote-card.fr-quote {
                     max-width: 320px !important;
                     left: 2% !important;
