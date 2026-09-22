@@ -55,8 +55,8 @@ export const translations = {
         body: "Independent claims assistance for individuals navigating a property insurance claim. I provide policyholders with the technical knowledge and claims expertise needed to:",
         bullet1: "understand their coverage",
         bullet2: "assess the information presented",
-        bullet3: "make informed decisions throughout the claims process,",
-        footer: "the objective is a fair settlement in accordance with their insurance policy."
+        bullet3: "make informed decisions throughout the claims process.",
+        footer: "The objective is a fair settlement in accordance with their insurance policy."
       },
       card3: {
         tag: "- TECHNICAL EXPERTISE -",
@@ -205,8 +205,8 @@ export const translations = {
         body: "Accompagnement indépendant pour les particuliers dans le cadre d'une réclamation d'assurance habitation. J'offre aux assurés les connaissances techniques et l'expertise en sinistres nécessaires pour :",
         bullet1: "comprendre leur couverture",
         bullet2: "évaluer l'information présentée",
-        bullet3: "prendre des décisions éclairées tout au long du processus de réclamation,",
-        footer: "l'objectif est un règlement équitable, conforme à leur police d'assurance."
+        bullet3: "prendre des décisions éclairées tout au long du processus de réclamation.",
+        footer: "L'objectif est un règlement équitable, conforme à leur police d'assurance."
       },
       card3: {
         tag: "- EXPERTISE TECHNIQUE -",
