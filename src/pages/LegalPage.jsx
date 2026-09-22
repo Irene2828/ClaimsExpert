@@ -76,7 +76,10 @@ export default function LegalPage() {
             })}
           </div>
 
-          <div className="mt-16 pt-8 border-t border-[#E2E8F0]">
+          <div 
+            className="border-t border-[#E2E8F0]"
+            style={{ marginTop: '80px', paddingTop: '40px' }}
+          >
             <Link 
               to="/" 
               className="font-inter group inline-flex items-center font-medium tracking-[-0.01em] text-[#0E223F] hover:underline underline-offset-4 transition-colors"

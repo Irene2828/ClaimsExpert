@@ -42,8 +42,16 @@ export default function Header() {
           </p>
         </div>
       </div>
+      <style>{`
+        @media (min-width: 1024px) {
+          .site-header-override {
+            position: relative !important;
+            top: auto !important;
+          }
+        }
+      `}</style>
       <header 
-        className={`sticky lg:relative top-0 lg:top-auto w-full transition-all duration-300 border-b ${isScrolled ? "border-white/10" : "bg-[#0E223F] border-white/10"}`}
+        className={`sticky top-0 site-header-override w-full transition-all duration-300 border-b ${isScrolled ? "border-white/10" : "bg-[#0E223F] border-white/10"}`}
         style={isScrolled ? { zIndex: 50, backgroundColor: 'rgba(14,34,63,0.95)', backdropFilter: 'blur(12px)', boxShadow: '0 8px 32px rgba(14,34,63,0.35)' } : { zIndex: 50 }}
       >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
