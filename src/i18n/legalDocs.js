@@ -85,9 +85,9 @@ export const legalDocs = {
             "Isabelle Guertin",
             "4388 rue St-Denis, Bureau 200, Montreal, Qc. H2J 2L1",
             "Canada",
-            "Website: https://rguertin.ca",
-            "Email: isabelle.guertin@rguertin.ca",
-            "Phone number: 438-794-1044",
+            "<em>Website:</em> https://rguertin.ca",
+            "<em>Email:</em> isabelle.guertin@rguertin.ca",
+            "<em>Phone number:</em> 438-794-1044",
             "We have appointed a contact person for the organization’s policies and practices and to whom complaints or inquiries can be forwarded:",
             "Isabelle Guertin",
             "4388 rue St-Denis, Bureau 200, Montreal, Qc. H2J 2L1"
@@ -145,9 +145,9 @@ export const legalDocs = {
             "Isabelle Guertin",
             "4388 rue St-Denis, Bureau 200, Montreal, Qc. H2J 2L1",
             "Canada",
-            "Website: https://rguertin.ca",
-            "Email: isabelle.guertin@rguertin.ca",
-            "Phone number: 438-794-1044"
+            "<em>Website:</em> https://rguertin.ca",
+            "<em>Email:</em> isabelle.guertin@rguertin.ca",
+            "<em>Phone number:</em> 438-794-1044"
           ]
         }
       ]
@@ -158,19 +158,19 @@ export const legalDocs = {
       intro: [
         "Filing a complaint regarding our services",
         "We ensure that complaints are handled promptly and processed as quickly as possible.",
-        "What is a complaint?",
+        "<strong>What is a complaint?</strong>",
         "A complaint expresses reproach or dissatisfaction with our services or a product we offer, and an expectation that we take action to remedy the situation.",
         "This is the case, for example, when you request a refund or wish for us to take action to resolve the situation that caused your complaint.",
-        "How to file a complaint?",
+        "<strong>How to file a complaint?</strong>",
         "You can file a complaint by contacting us in the manner that suits you. You can also fill out the online form provided by the Autorité des marchés financiers (the \"Autorité\"). We can help you formulate your complaint.",
-        "Contact Us:",
-        "Phone: 438-794-1044",
-        "Email: administration@rguertin.ca",
-        "Address: R. Guertin & Ass.",
+        "<strong>Contact Us:</strong>",
+        "<em>Phone:</em> 438-794-1044",
+        "<em>Email:</em> administration@rguertin.ca",
+        "<em>Address:</em> R. Guertin & Ass.",
         "4388 Saint-Denis, Suite 200",
         "Montreal, Qc H2L 2J1",
-        "Our offices are open Monday to Friday from 9 am to 5 pm.",
-        "Questions? Contact us to learn more about how we handle complaints."
+        "Our offices are open <strong>Monday to Friday from 9 am to 5 pm.</strong>",
+        "<strong>Questions?</strong> Contact us to learn more about how we handle complaints."
       ],
       sections: [
         {
@@ -312,9 +312,9 @@ export const legalDocs = {
             "Isabelle Guertin",
             "4388 rue St-Denis, Bureau 200, Montréal, Qc. H2J 2L1",
             "Canada",
-            "Site web : https://rguertin.ca",
-            "Courriel : isabelle.guertin@rguertin.ca",
-            "Numéro de téléphone : 438-794-1044"
+            "<em>Site web :</em> https://rguertin.ca",
+            "<em>Courriel :</em> isabelle.guertin@rguertin.ca",
+            "<em>Numéro de téléphone :</em> 438-794-1044"
           ]
         }
       ]
@@ -369,9 +369,9 @@ export const legalDocs = {
             "Isabelle Guertin",
             "4388 rue St-Denis, Bureau 200, Montréal, Qc. H2J 2L1",
             "Canada",
-            "Site web : https://rguertin.ca",
-            "Courriel : isabelle.guertin@rguertin.ca",
-            "Numéro de téléphone : 438-794-1044"
+            "<em>Site web :</em> https://rguertin.ca",
+            "<em>Courriel :</em> isabelle.guertin@rguertin.ca",
+            "<em>Numéro de téléphone :</em> 438-794-1044"
           ]
         }
       ]
@@ -382,19 +382,19 @@ export const legalDocs = {
       intro: [
         "Formuler une plainte à l’égard de nos services",
         "Nous veillons à ce que les plaintes soient prises en charge rapidement et qu’elles soient traitées dans les meilleurs délais.",
-        "Qu’est-ce qu’une plainte?",
+        "<strong>Qu’est-ce qu’une plainte?</strong>",
         "Une plainte exprime un reproche ou une insatisfaction à l’égard de nos services ou d’un produit que nous offrons et une attente de votre part que nous prenions des mesures pour y remédier.",
         "C’est le cas, par exemple, lorsque vous demandez un remboursement ou que vous souhaitez que nous posions des actions pour régler la situation à l’origine de votre plainte.",
-        "Comment formuler une plainte?",
+        "<strong>Comment formuler une plainte?</strong>",
         "Vous pouvez formuler votre plainte en communiquant avec nous par le moyen qui vous convient. Vous pouvez également remplir le formulaire mis en ligne de l’Autorité des marchés financiers (« l’Autorité »). Nous pouvons vous aider à formuler votre plainte.",
-        "Pour nous joindre",
-        "Téléphone : 438-794-1044",
-        "Courriel : administration@rguertin.ca",
-        "Adresse : R. Guertin & Ass.",
+        "<strong>Pour nous joindre</strong>",
+        "<em>Téléphone :</em> 438-794-1044",
+        "<em>Courriel :</em> administration@rguertin.ca",
+        "<em>Adresse :</em> R. Guertin & Ass.",
         "4388 Saint-Denis, Suite 200",
         "Montréal, Qc H2L 2J1",
-        "Nos bureaux sont ouverts du lundi au vendredi de 9 am à 5 pm.",
-        "Des questions? Communiquez avec nous pour connaître la façon dont nous traitons les plaintes."
+        "Nos bureaux sont ouverts <strong>du lundi au vendredi de 9 am à 5 pm.</strong>",
+        "<strong>Des questions?</strong> Communiquez avec nous pour connaître la façon dont nous traitons les plaintes."
       ],
       sections: [
         {

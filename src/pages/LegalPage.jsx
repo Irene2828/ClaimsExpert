@@ -72,7 +72,7 @@ export default function LegalPage() {
             {doc.intro && (
               <div className="space-y-4 mb-10">
                 {doc.intro.map((paragraph, idx) => (
-                  <p key={`intro-${idx}`}>{paragraph}</p>
+                  <p key={`intro-${idx}`} dangerouslySetInnerHTML={{ __html: paragraph }} />
                 ))}
               </div>
             )}
@@ -87,9 +87,11 @@ export default function LegalPage() {
                   </h2>
                   <div className="space-y-4">
                     {section.body.map((paragraph, pIdx) => (
-                      <p key={`p-${idx}-${pIdx}`} className={paragraph.startsWith('- ') ? 'pl-4' : ''}>
-                        {paragraph}
-                      </p>
+                      <p 
+                        key={`p-${idx}-${pIdx}`} 
+                        className={paragraph.startsWith('- ') ? 'pl-4' : ''}
+                        dangerouslySetInnerHTML={{ __html: paragraph }}
+                      />
                     ))}
                   </div>
                 </section>
