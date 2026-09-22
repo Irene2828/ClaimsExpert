@@ -55,7 +55,7 @@ export default function LegalPage() {
           </Link>
         </div>
 
-        <article className="bg-white rounded-[24px] shadow-sm border border-[#E2E8F0] p-8 md:p-12 lg:p-16 max-w-[900px] mx-auto">
+        <article className="max-w-[900px] mx-auto w-full">
           <header className="mb-12">
             <h1 className="font-inter font-light tracking-tight leading-[1.1] text-[#0E223F] text-[32px] md:text-[40px] mb-4">
               {doc.title}
