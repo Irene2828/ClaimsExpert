@@ -22,7 +22,13 @@ export default function LegalPage() {
 
   return (
     <main className="bg-[#F5F6F8] min-h-screen flex flex-col selection:bg-[#0E223F] selection:text-white">
-      <div className="flex-grow pt-12 pb-20 lg:pt-16 lg:pb-24 px-8 lg:px-12">
+      <div 
+        className="flex-grow px-8 lg:px-12 w-full"
+        style={{
+          paddingTop: 'clamp(48px, 6vw, 64px)',
+          paddingBottom: 'clamp(72px, 8vw, 96px)'
+        }}
+      >
         <div className="max-w-[1336px] mx-auto w-full">
         <div className="w-full flex justify-start mb-8">
           <Link 
