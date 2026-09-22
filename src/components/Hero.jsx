@@ -44,7 +44,7 @@ export default function Hero() {
                 className="block whitespace-normal lg:whitespace-nowrap"
                 style={{
                   color: "#1E3358",
-                  marginTop: language === 'fr' ? "0.18em" : "0.05em",
+                  marginTop: "0.05em",
                 }}
               >
                 {t('hero.headlinePart2')}
