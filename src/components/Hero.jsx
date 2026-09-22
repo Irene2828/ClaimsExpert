@@ -17,8 +17,8 @@ export default function Hero() {
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
         <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
-          {/* Left Column (100% original desktop layout) */}
-          <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
+          {/* Left Column: Text (Placed first on mobile for UX, desktop order-1) */}
+          <div className="order-1 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-2 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
             <span
               className="font-inter text-[11px] tracking-[0.22em] uppercase font-medium block mb-5"
               style={{ color: "rgba(14, 34, 63, 0.6)" }}
@@ -112,8 +112,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Image */}
-          <div className="hero-desktop-shift order-1 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end">
+          {/* Right Column: Image (Placed second on mobile, desktop order-2) */}
+          <div className="hero-desktop-shift order-2 lg:order-2 relative flex items-end justify-center lg:justify-end w-full py-0 lg:py-0 self-end">
             <div className="hero-img-col w-full flex items-end justify-center lg:justify-end">
               <div
                 className="hero-img-wrapper"

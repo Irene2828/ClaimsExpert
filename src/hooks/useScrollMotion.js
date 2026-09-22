@@ -118,8 +118,9 @@ export default function useScrollMotion() {
           const heroImgUnit = hero.querySelector('.hero-img-col') || hero.lastElementChild;
           const navLinks = document.querySelectorAll('header nav a');
 
-          // Apply exact same slide-up arrive motion for right image unit (image & quote card) as left text unit
-          applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
+          // Apply slide-up arrive motion for left text unit and right image unit
+          const textYOffset = window.innerWidth < 768 ? 12 : 36;
+          applyStyle(heroTextUnit, '0', textYOffset, 0, 150, 1.6);
           applyStyle(heroImgUnit, '0', 36, 0, 150, 1.6);
           
           navLinks.forEach((link, idx) => {

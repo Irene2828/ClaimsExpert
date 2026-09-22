@@ -2562,16 +2562,16 @@ html body .hero-eyebrow-mobile {
 
   html body #hero {
     min-height: auto !important;
-    padding-top: 12px !important;
+    padding-top: 32px !important;
     padding-bottom: 38px !important;
   }
 
   html body #hero > div {
-    padding-top: 4px !important;
+    padding-top: 8px !important;
   }
 
   html body #hero .grid {
-    padding-top: 4px !important;
+    padding-top: 8px !important;
     row-gap: 16px !important;
   }
 
@@ -2607,6 +2607,12 @@ html body .hero-eyebrow-mobile {
     margin-right: 0 !important;
   }
 
+  html body .hero-left-col > span:first-child {
+    font-size: 10px !important;
+    letter-spacing: 0.14em !important;
+    white-space: nowrap !important;
+  }
+
   html body .hero-ctas-wrapper {
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -2618,6 +2624,7 @@ html body .hero-eyebrow-mobile {
     width: 100% !important;
     min-width: 0 !important;
     justify-content: center !important;
+    margin-top: 48px !important;
   }
 
   html body .hero-img-col {
