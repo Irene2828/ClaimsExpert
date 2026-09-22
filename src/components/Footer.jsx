@@ -1,4 +1,5 @@
 import { useLanguage } from '../i18n/LanguageContext';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -10,14 +11,17 @@ export default function Footer() {
             {t('footer.copyright')}
           </span>
         </div>
-        <div className="flex gap-6 font-inter text-[12px] text-white/50 items-center">
-          <span className="text-[#00ACC1] hover:text-[#00ACC1]/80 transition-colors cursor-default font-medium">
+        <div className="flex gap-6 font-inter text-[12px] text-white/50 items-center flex-wrap">
+          <Link to="/legal/complaints" className="text-[#00ACC1] hover:text-[#00ACC1]/80 transition-colors font-medium">
+            {t('footer.complaints')}
+          </Link>
+          <Link to="/legal/cookies" className="text-[#00ACC1] hover:text-[#00ACC1]/80 transition-colors font-medium">
             {t('footer.cookies')}
-          </span>
-          <span className="text-[#00ACC1] hover:text-[#00ACC1]/80 transition-colors cursor-default font-medium">
+          </Link>
+          <Link to="/legal/privacy" className="text-[#00ACC1] hover:text-[#00ACC1]/80 transition-colors font-medium">
             {t('footer.privacy')}
-          </span>
-          <span className="text-white/80">
+          </Link>
+          <span className="text-white/80 whitespace-nowrap">
             438 794-1044
           </span>
         </div>

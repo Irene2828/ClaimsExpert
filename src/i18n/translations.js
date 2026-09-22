@@ -128,7 +128,8 @@ export const translations = {
     footer: {
       copyright: "© 2026 GUERTIN CLAIMS ADVISORY • MONTREAL, QC",
       cookies: "Cookie Statements (CA)",
-      privacy: "Privacy statement (CA)"
+      privacy: "Privacy statement (CA)",
+      complaints: "Complaints Procedure"
     },
     about: {
       backBtn: "Back to Homepage",
@@ -278,7 +279,8 @@ export const translations = {
     footer: {
       copyright: "© 2026 Guertin Claims Advisory • Montréal, QC",
       cookies: "Politique de témoins (CA)",
-      privacy: "Politique de confidentialité (CA)"
+      privacy: "Politique de confidentialité (CA)",
+      complaints: "Traitement des plaintes"
     },
     about: {
       backBtn: "Retour à l'accueil",

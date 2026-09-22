@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
+import LegalPage from './pages/LegalPage';
 import FeedbackWidget from './components/FeedbackWidget';
 import useScrollMotion from './hooks/useScrollMotion';
 
@@ -44,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/legal/:docId" element={<LegalPage />} />
       </Routes>
       <FeedbackWidget />
     </div>
