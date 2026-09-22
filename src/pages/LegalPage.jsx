@@ -73,7 +73,7 @@ export default function LegalPage() {
             )}
           </header>
 
-          <div className="space-y-8 font-inter text-[15px] leading-[1.75] text-[#334155]">
+          <div className="space-y-8 font-inter text-[14px] leading-[1.62] text-[#4B5563] tracking-[0.01em] text-justify">
             {/* Intro Paragraphs */}
             {doc.intro && (
               <div className="space-y-4 mb-10">
