@@ -5,11 +5,6 @@ export default function Hero() {
   const primaryColor = '#0E223F';
   const { t, language } = useLanguage();
 
-  // Clean eyebrow splitting to prevent double dash issues
-  const rawEyebrow = t('hero.eyebrow') || '';
-  const cleanEyebrow = rawEyebrow.replace(/^[\s\-\u2014]+|[\s\-\u2014]+$/g, '');
-  const eyebrowParts = cleanEyebrow.split(/\s*[\-\u2014]\s*/).filter(Boolean);
-
   return (
     <section
       id="hero"
@@ -24,14 +19,12 @@ export default function Hero() {
         <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-8 items-start pt-6 pb-0 lg:pt-10 lg:pb-0 relative">
           {/* Left Column (100% original desktop layout) */}
           <div className="order-2 lg:order-1 relative z-10 flex flex-col justify-start self-start mt-6 lg:mt-16 pb-4 lg:pb-0 hero-left-col">
-            <div className="hero-eyebrow-desktop inline-flex items-center">
-              <span
-                className="font-inter text-[11px] tracking-[0.22em] uppercase font-semibold hero-tag-line"
-                style={{ color: "#64748B" }}
-              >
-                {t('hero.eyebrow')}
-              </span>
-            </div>
+            <span
+              className="font-inter text-[11px] tracking-[0.22em] uppercase font-medium block mb-5"
+              style={{ color: "rgba(14, 34, 63, 0.6)" }}
+            >
+              {t('hero.eyebrow')}
+            </span>
             <h1
               className="font-inter italic font-light tracking-[-0.03em] mt-4"
               style={{
@@ -135,6 +128,7 @@ export default function Hero() {
                   height: "clamp(420px, calc(100svh - 170px), 588px)",
                 }}
               >
+
                 {/* Name & Title Badge */}
                 <div
                   className="hero-name-badge select-none pointer-events-none hidden"
@@ -180,27 +174,34 @@ export default function Hero() {
                 {/* Quote Card */}
                 <style>{`
                 html body .hero-quote-card.fr-quote {
-                  padding-left: 10px !important;
-                  padding-right: 12px !important;
+                  max-width: 320px !important;
+                  left: -8% !important;
+                  padding: 13px 14px !important;
                 }
                 html body .hero-quote-card.fr-quote p {
-                  font-size: 12.5px !important;
-                  letter-spacing: -0.02em !important;
+                  font-size: 12.8px !important;
+                  letter-spacing: -0.01em !important;
+                  line-height: 1.4 !important;
                 }
               `}</style>
-                <div className={`hero-quote-card flex items-start gap-2.5 select-none ${language === 'fr' ? 'fr-quote' : ''}`}>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="#00ACC1"
-                    className="shrink-0 mt-0.5 opacity-90"
-                  >
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                  <p>
-                    {t('hero.quote').replace(/^["«]\s*|\s*["»]$/g, '')}
-                  </p>
+                <div className={`hero-quote-card flex flex-col select-none ${language === 'fr' ? 'fr-quote' : ''}`}>
+                  <div className="flex items-start gap-2.5">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="#00ACC1"
+                      className="shrink-0 mt-0.5 opacity-90"
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p>
+                      {t('hero.quote').replace(/^["«]\s*|\s*["»]$/g, '')}
+                    </p>
+                  </div>
+                  <div className="hero-quote-author font-inter text-[11px] font-medium text-[#0E223F] text-right mt-2 tracking-[0.01em] w-full">
+                    — {t('hero.quoteAuthor')}
+                  </div>
                 </div>
 
                 <img

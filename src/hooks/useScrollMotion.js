@@ -170,8 +170,10 @@ export default function useScrollMotion() {
             expertise.querySelector('.text-center') ||
             expertise.querySelector('h2')?.parentElement;
           addTarget(headerUnit, 0);
-          const cards = expertise.querySelectorAll('.grid > div, [class*="grid"] > div');
+          const cards = expertise.querySelectorAll('.desktop-grid > div');
           cards.forEach((card, idx) => addTarget(card, (idx % 4) * 120));
+          const mobileCarousel = expertise.querySelector('.mobile-carousel');
+          if (mobileCarousel) addTarget(mobileCarousel, 120);
         }
 
         // Process Section
@@ -190,10 +192,10 @@ export default function useScrollMotion() {
             testimonials.querySelector('.text-center') ||
             testimonials.querySelector('h2')?.parentElement;
           addTarget(headerUnit, 0);
-          const tCards = testimonials.querySelectorAll(
-            '.flex.gap-6 > div, .grid > div, [class*="gap-6"] > div'
-          );
+          const tCards = testimonials.querySelectorAll('.desktop-grid > div');
           tCards.forEach((card, idx) => addTarget(card, (idx % 3) * 140));
+          const mobileCarousel = testimonials.querySelector('.mobile-carousel');
+          if (mobileCarousel) addTarget(mobileCarousel, 120);
         }
 
         // Contact Section

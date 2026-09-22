@@ -2537,6 +2537,13 @@ html body #hero .hero-quote-card p {
   margin: 0 !important;
 }
 
+html body #hero .hero-quote-card .hero-quote-author {
+  text-align: right !important;
+  display: block !important;
+  width: 100% !important;
+  margin-left: auto !important;
+}
+
 /* Desktop Eyebrow (visible and left-aligned on desktop >= 768px) */
 html body .hero-eyebrow-desktop {
   display: inline-flex !important;
@@ -2553,14 +2560,27 @@ html body .hero-eyebrow-mobile {
 
   /* Eyebrow switching removed - same placement across all screens */
 
-  html body #hero,
+  html body #hero {
+    min-height: auto !important;
+    padding-top: 0px !important;
+    padding-bottom: 38px !important;
+  }
+
+  html body #hero > div {
+    padding-top: 0px !important;
+  }
+
+  html body #hero .grid {
+    padding-top: 0px !important;
+    row-gap: 16px !important;
+  }
+
   html body #about-hero {
     min-height: auto !important;
     padding-top: 14px !important;
     padding-bottom: 38px !important;
   }
 
-  html body #hero .grid,
   html body #about-hero .grid {
     row-gap: 16px !important;
   }
@@ -2608,7 +2628,7 @@ html body .hero-eyebrow-mobile {
     width: 100% !important;
     min-width: 0 !important;
     padding-right: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   html body .hero-img-wrapper {
@@ -2620,7 +2640,8 @@ html body .hero-eyebrow-mobile {
     display: flex !important;
     justify-content: center !important;
     align-items: flex-end !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    margin-bottom: 30px !important;
   }
 
   html body .hero-portrait-img {
@@ -2643,7 +2664,7 @@ html body .hero-eyebrow-mobile {
     display: flex !important;
     left: 0px !important;
     right: auto !important;
-    bottom: 12px !important;
+    bottom: -30px !important;
     top: auto !important;
     z-index: 25 !important;
     background: rgba(255, 255, 255, 0.92) !important;
@@ -2730,7 +2751,7 @@ html body #testimonials .testimonial-author-footer.is-dark {
   html body .hero-tag-line {
     font-size: 12px !important;
     letter-spacing: 0.24em !important;
-    color: #64748B !important;
+    color: #5F7087 !important;
   }
 
   /* 4. Hero subline paragraph text */

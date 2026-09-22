@@ -78,13 +78,17 @@ export default function Testimonials() {
         </div>
 
         <style>{`
-          .testimonial-carousel-container {
-            min-height: 640px;
+          .testimonial-carousel-stack {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: stretch;
           }
-          @media (min-width: 640px) {
-            .testimonial-carousel-container {
-              min-height: 580px;
-            }
+          .testimonial-carousel-slide {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+            width: 100%;
+            height: 100%;
           }
           
           /* Responsive Toggles */
@@ -108,7 +112,7 @@ export default function Testimonials() {
         {/* MOBILE CAROUSEL (< md) */}
         <div className="mobile-carousel w-full max-w-[800px] mx-auto">
           <div className="relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-            <div className="relative testimonial-carousel-container overflow-hidden">
+            <div className="testimonial-carousel-stack relative overflow-hidden">
               {testimonials.map((card, B) => {
                 const isActive = activeTab === B;
                 const isPast = B < activeTab;
@@ -124,7 +128,7 @@ export default function Testimonials() {
                 return (
                   <div
                     key={card.id}
-                    className={`absolute inset-0 will-change-transform ${isActive ? "pointer-events-auto" : "pointer-events-none"}`}
+                    className={`testimonial-carousel-slide will-change-transform ${isActive ? "pointer-events-auto z-10" : "pointer-events-none z-0"}`}
                     style={{
                       transform: transformValue,
                       opacity: opacityValue,

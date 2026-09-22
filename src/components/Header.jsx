@@ -47,19 +47,16 @@ export default function Header() {
         style={isScrolled ? { zIndex: 50, backgroundColor: 'rgba(14,34,63,0.95)', backdropFilter: 'blur(12px)', boxShadow: '0 8px 32px rgba(14,34,63,0.35)' } : { zIndex: 50 }}
       >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center group">
             <div className="flex flex-col justify-center">
-              <span className="font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-[1]">
+              <span className="font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-none">
                 GUERTIN
               </span>
-              <span className="font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-[1] mt-[3px]">
-                ISABELLE
-              </span>
               <span 
-                className="font-inter italic font-light tracking-[0.06em] text-white/60 leading-[1] mt-[16px] block origin-top-left scale-[0.75] md:scale-[0.833]" 
-                style={{ fontSize: "12px" }}
+                className="font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-none"
+                style={{ marginTop: '7.2px' }}
               >
-                {language === 'fr' ? 'Experte en sinistres' : 'Claims Adjuster'}
+                ISABELLE
               </span>
             </div>
           </Link>
@@ -152,10 +149,11 @@ export default function Header() {
             <div className="flex items-center gap-2 mt-2 pt-4 border-t border-white/10">
               <button 
                 onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }} 
-                className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none"
+                className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none py-1"
+                aria-label="Toggle language"
               >
                 <span className={language === 'en' ? 'font-semibold text-white' : ''}>EN</span>
-                <span className="mx-5 opacity-40">|</span>
+                <span className="inline-block opacity-40" style={{ margin: '0 18px' }}>|</span>
                 <span className={language === 'fr' ? 'font-semibold text-white' : ''}>FR</span>
               </button>
             </div>

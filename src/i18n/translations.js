@@ -12,7 +12,7 @@ export const translations = {
       callMe: "Call me:",
     },
     hero: {
-      eyebrow: "- INDEPENDENT EXPERTISE - 20 YEARS OF EXPERIENCE -",
+      eyebrow: "— INDEPENDENT EXPERTISE — 20 YEARS OF EXPERIENCE —",
       headlinePart1: "Informed decisions.",
       headlinePart2: "Fair outcomes.",
       body: "Independent claims adjuster specializing in municipal civil liability, property damage, and bodily injury — bringing that same expertise directly to policyholders navigating their own insurance claims.",
@@ -20,6 +20,7 @@ export const translations = {
       howIWorkBtn: "See how I work",
       bioCaption: "Isabelle Guertin - claims adjuster",
       quote: `"My role is to bring the technical knowledge and claims expertise my clients need to make informed decisions."`,
+      quoteAuthor: "Isabelle Guertin, claims adjuster",
     },
     approach: {
       eyebrow: "APPROACH",
@@ -137,6 +138,7 @@ export const translations = {
       p2: "Isabelle Guertin joined the family practice in 2016, bringing her own experience and gradually taking on a greater role in the firm. Over the years, she developed a particular expertise in municipal civil liability while working closely with the firm's clients and continuing the values on which the practice was built.",
       p3: "Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass. Today, she continues the firm's tradition of integrity, thoroughness and personal service while developing the practice in her own direction — maintaining its strong focus on municipal civil liability and making her claims expertise directly available to policyholders through public adjusting services.",
       portraitCaption: "Roy & Isabelle Guertin — Founding & Current Leadership",
+      portraitSubcaption: "Isabelle and Roy Guertin",
       timeline: {
         year2014Badge: "2014 • FOUNDATION",
         year2014Text: "R. Guertin & Ass. is founded by Roy Guertin, building a reputation rooted deeply in integrity and thoroughness.",
@@ -160,7 +162,7 @@ export const translations = {
       callMe: "Appelez-moi :",
     },
     hero: {
-      eyebrow: "- EXPERTISE INDÉPENDANTE - 20 ANS D'EXPÉRIENCE -",
+      eyebrow: "— EXPERTISE INDÉPENDANTE — 20 ANS D'EXPÉRIENCE —",
       headlinePart1: "Décisions éclairées.",
       headlinePart2: "Résultats équitables.",
       body: "Experte en sinistres indépendante, spécialisée en responsabilité civile municipale, dommages matériels et dommages corporels — mettant cette même expertise directement au service des assurés qui gèrent leurs propres réclamations d'assurance.",
@@ -168,6 +170,7 @@ export const translations = {
       howIWorkBtn: "Comment je travaille",
       bioCaption: "Isabelle Guertin - experte en sinistres",
       quote: "« Mon rôle est d'apporter à mes clients les connaissances techniques et l'expertise en sinistres dont ils ont besoin pour prendre des décisions éclairées. »",
+      quoteAuthor: "Isabelle Guertin, experte en sinistres",
     },
     approach: {
       eyebrow: "APPROCHE",
@@ -285,6 +288,7 @@ export const translations = {
       p2: "Isabelle Guertin a rejoint le cabinet familial en 2016, y apportant sa propre expérience et assumant progressivement un rôle grandissant au sein du cabinet. Au fil des années, elle a développé une expertise particulière en responsabilité civile municipale, tout en travaillant en étroite collaboration avec les clients du cabinet et en perpétuant les valeurs sur lesquelles la pratique a été bâtie.",
       p3: "À la suite de la retraite de Roy en 2026, Isabelle est devenue l'unique propriétaire de R. Guertin & Ass. Aujourd'hui, elle poursuit la tradition d'intégrité, de rigueur et de service personnalisé du cabinet tout en orientant la pratique dans sa propre direction — en maintenant un fort accent sur la responsabilité civile municipale et en mettant son expertise en sinistres directement à la disposition des assurés par le biais de services d'expert en sinistres au bénéfice de l'assuré.",
       portraitCaption: "Roy & Isabelle Guertin — Direction fondatrice et actuelle",
+      portraitSubcaption: "Isabelle et Roy Guertin",
       timeline: {
         year2014Badge: "2014 • FONDATION",
         year2014Text: "R. Guertin & Ass. est fondée par Roy Guertin, bâtissant une réputation profondément ancrée dans l'intégrité et la rigueur.",
