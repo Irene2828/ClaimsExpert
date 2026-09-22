@@ -118,10 +118,9 @@ export default function useScrollMotion() {
           const heroImgUnit = hero.querySelector('.hero-img-col') || hero.lastElementChild;
           const navLinks = document.querySelectorAll('header nav a');
 
-          // Apply inline styles to hold opacity: 0 BEFORE removing style tag
+          // Apply exact same slide-up arrive motion for right image unit (image & quote card) as left text unit
           applyStyle(heroTextUnit, '0', 36, 0, 150, 1.6);
-          // Simple slow fade-in without scaling to avoid motion sickness
-          applyStyle(heroImgUnit, '0', 0, 0, 320, 2.2, 'cubic-bezier(0.22, 1, 0.36, 1)', 1);
+          applyStyle(heroImgUnit, '0', 36, 0, 150, 1.6);
           
           navLinks.forEach((link, idx) => {
             applyStyle(link, '0', 0, 25, idx * 70 + 150, 1.0);
