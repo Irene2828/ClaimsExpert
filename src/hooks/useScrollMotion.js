@@ -7,6 +7,13 @@ export default function useScrollMotion() {
   const location = useLocation();
 
   useEffect(() => {
+    // Respect user motion preferences
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const initStyle = document.getElementById('premium-motion-init');
+      if (initStyle) initStyle.remove();
+      return;
+    }
+
     // Enable smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
 

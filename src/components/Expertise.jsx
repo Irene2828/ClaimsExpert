@@ -176,8 +176,17 @@ export default function Expertise() {
     const { line1, line2 } = getCardTitle(card);
     return (
       <div 
+        role="button"
+        tabIndex={0}
         onClick={() => handleSelect((activeTab + 1) % 3)}
-        className="exp-card backdrop-blur-[12px] border rounded-[24px] w-full h-full flex flex-col justify-between text-left relative overflow-hidden cursor-pointer"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleSelect((activeTab + 1) % 3);
+          }
+        }}
+        aria-label={`${line1} ${line2 || ''}`.trim()}
+        className="exp-card backdrop-blur-[12px] border rounded-[24px] w-full h-full flex flex-col justify-between text-left relative overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00ACC1]"
         style={{ paddingTop: '36px', paddingBottom: '48px', paddingLeft: '28px', paddingRight: '28px' }}
       >
         <div className="relative z-10 flex flex-col justify-between h-full w-full">
@@ -428,7 +437,8 @@ export default function Expertise() {
                 <button
                   key={B}
                   onClick={() => handleSelect(B)}
-                  aria-label={`Go to card ${B + 1}`}
+                  aria-label={`${language === 'fr' ? 'Aller au service' : 'Go to service'} ${B + 1}`}
+                  aria-current={activeTab === B ? 'true' : undefined}
                   className={`h-2 rounded-full shrink-0 border-0 p-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeTab === B ? "w-8 bg-white" : "w-2 bg-white/50 hover:bg-white/75"}`}
                   style={{
                     backgroundColor: activeTab === B ? '#FFFFFF' : 'rgba(255, 255, 255, 0.5)'

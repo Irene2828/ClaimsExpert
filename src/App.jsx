@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import LegalPage from './pages/LegalPage';
-import FeedbackWidget from './components/FeedbackWidget';
+import NotFound from './pages/NotFound';
 import useScrollMotion from './hooks/useScrollMotion';
 
 function ScrollToTop() {
@@ -46,8 +46,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/legal/:docId" element={<LegalPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <FeedbackWidget />
     </div>
   );
 }

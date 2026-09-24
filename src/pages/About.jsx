@@ -3,9 +3,21 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import royIsabellePortrait from '../assets/roy-isabelle-portrait.png';
 import { useLanguage } from '../i18n/LanguageContext';
+import usePageMeta from '../hooks/usePageMeta';
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  usePageMeta({
+    title: language === 'fr'
+      ? 'À propos du cabinet | R. Guertin & Associés | Isabelle Guertin'
+      : 'About the Practice | R. Guertin & Associates | Isabelle Guertin',
+    description: language === 'fr'
+      ? "Découvrez l'histoire du cabinet R. Guertin & Associés, fondé en 2014 par Roy Guertin. Isabelle Guertin poursuit la pratique avec intégrité, rigueur et indépendance."
+      : "Discover the history of R. Guertin & Associates, founded in 2014 by Roy Guertin. Isabelle Guertin carries forward the practice with integrity, thoroughness, and independence.",
+    path: '/about'
+  });
+
   return (
     <main>
       <style>{`

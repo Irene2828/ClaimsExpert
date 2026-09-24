@@ -119,8 +119,17 @@ export default function Approach() {
                     }}
                   >
                     <div
+                      role="button"
+                      tabIndex={0}
                       onClick={() => handleSelect((activeTab + 1) % 3)}
-                      className="rounded-[24px] p-6 lg:p-8 border border-[#0E223F]/15 shadow-none min-h-[320px] flex flex-col cursor-pointer"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelect((activeTab + 1) % 3);
+                        }
+                      }}
+                      aria-label={`${z.title} (${z.n})`}
+                      className="rounded-[24px] p-6 lg:p-8 border border-[#0E223F]/15 shadow-none min-h-[320px] flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00ACC1]"
                       style={{
                         background: "radial-gradient(ellipse 70% 60% at 10% 15%, rgba(218, 227, 238, 0.85) 0%, rgba(235, 241, 248, 0.55) 45%, #F5F6F8 80%)",
                       }}
@@ -149,7 +158,8 @@ export default function Approach() {
                   <button
                     key={B}
                     onClick={() => handleSelect(B)}
-                    aria-label={`Go to ${B + 1}`}
+                    aria-label={`${language === 'fr' ? 'Aller au principe' : 'Go to principle'} ${B + 1} - ${z.title}`}
+                    aria-current={activeTab === B ? 'true' : undefined}
                     className={`h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeTab === B ? "w-8 bg-[#0E223F]" : "w-2 bg-[#0E223F]/20 hover:bg-[#0E223F]/30"}`}
                   />
                 ))}

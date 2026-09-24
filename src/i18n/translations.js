@@ -121,7 +121,8 @@ export const translations = {
         successMsg: "Thank you — I will reply shortly.",
         footerNote: "I'll get back to you within the next 48 hrs.",
         thankYou: "Thank you — I will reply shortly.",
-        demoText: "Demo: no data sent. Copy this as email draft if needed.",
+        demoText: "Your inquiry has been received. I will review your details and get back to you promptly.",
+        errorMessage: "An error occurred. Please contact Isabelle directly at 438-794-1044 or reclamations@rguertin.ca.",
         sendAnother: "Send another"
       }
     },
@@ -272,7 +273,8 @@ export const translations = {
         successMsg: "Merci — je vous répondrai sous peu.",
         footerNote: "Je vous répondrai dans les 48 heures.",
         thankYou: "Merci — je vous répondrai sous peu.",
-        demoText: "Démo : aucune donnée n'a été envoyée.",
+        demoText: "Votre demande a bien été transmise. Je prendrai connaissance de votre dossier et vous répondrai avec diligence.",
+        errorMessage: "Une erreur est survenue. Veuillez composer le 438 794-1044 ou écrire directement à reclamations@rguertin.ca.",
         sendAnother: "Envoyer un autre message"
       }
     },

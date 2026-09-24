@@ -33,7 +33,7 @@ export default function Header() {
             <button 
               onClick={toggleLanguage} 
               className="hover:text-[#0E223F] hover:font-medium transition-colors ml-1 focus:outline-none"
-              aria-label="Toggle language"
+              aria-label={language === 'en' ? 'Passer au français' : 'Switch to English'}
             >
               <span className={language === 'en' ? 'font-semibold text-[#0E223F]' : ''}>EN</span>
               <span className="opacity-40" style={{ margin: '0 12.5px' }}>|</span>
@@ -118,7 +118,9 @@ export default function Header() {
             </a>
 
             <button
-              aria-label="Menu"
+              aria-label={mobileMenuOpen ? (language === 'fr' ? 'Fermer le menu' : 'Close menu') : (language === 'fr' ? 'Ouvrir le menu' : 'Open menu')}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav"
               className="lg:hidden w-10 h-10 rounded-full border border-white/15 bg-white/5 backdrop-blur-[12px] flex items-center justify-center shrink-0"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -130,7 +132,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-white/10 ${mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
+        <div id="mobile-nav" className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-white/10 ${mobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="px-6 py-8 bg-[#0E223F] flex flex-col gap-6">
             {navLinks.map((link) => (
               link.isRouterLink ? (
@@ -158,7 +160,7 @@ export default function Header() {
               <button 
                 onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }} 
                 className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none py-1"
-                aria-label="Toggle language"
+                aria-label={language === 'en' ? 'Passer au français' : 'Switch to English'}
               >
                 <span className={language === 'en' ? 'font-semibold text-white' : ''}>EN</span>
                 <span className="inline-block opacity-40" style={{ margin: '0 18px' }}>|</span>

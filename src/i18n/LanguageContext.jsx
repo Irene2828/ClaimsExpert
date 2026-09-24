@@ -4,15 +4,19 @@ import { translations } from './translations';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
-
-  // Load language from localStorage if available
-  useEffect(() => {
-    const savedLang = localStorage.getItem('app_language');
-    if (savedLang && (savedLang === 'en' || savedLang === 'fr')) {
-      setLanguage(savedLang);
+  const [language, setLanguage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('app_language');
+      if (savedLang === 'en' || savedLang === 'fr') return savedLang;
     }
-  }, []);
+    return 'fr';
+  });
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
 
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'fr' : 'en';
@@ -40,4 +44,5 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components, react/only-export-components
 export const useLanguage = () => useContext(LanguageContext);

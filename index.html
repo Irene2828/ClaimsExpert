@@ -1,16 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guertin Claims Advisory | Isabelle Guertin</title>
+    <title>Isabelle Guertin | Expert en règlement de sinistres indépendant | Guertin Claims Advisory</title>
+    <meta
+      name="description"
+      content="Cabinet d'expertise en règlement de sinistres indépendant à Montréal et au Québec fondé en 2014. Spécialisation en responsabilité civile municipale, accompagnement d'assurés et analyse technique."
+    />
+    
+    <!-- Canonical URL (dynamically updated per route via usePageMeta) -->
+    <link rel="canonical" href="https://rguertin.ca/" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:site_name" content="Guertin Claims Advisory | R. Guertin &amp; Ass." />
+    <meta property="og:title" content="Isabelle Guertin | Expert en règlement de sinistres indépendant" />
+    <meta
+      property="og:description"
+      content="Cabinet d'expertise en règlement de sinistres indépendant à Montréal et au Québec fondé en 2014. Spécialisation en responsabilité civile municipale, accompagnement d'assurés et analyse technique."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rguertin.ca/" />
+    <meta property="og:image" content="https://rguertin.ca/isabelle-portrait-opt.webp" />
+    <meta property="og:image:alt" content="Isabelle Guertin - Expert en règlement de sinistres indépendant" />
+    <meta property="og:locale" content="fr_CA" />
+    <meta property="og:locale:alternate" content="en_CA" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Isabelle Guertin | Expert en règlement de sinistres indépendant" />
+    <meta
+      name="twitter:description"
+      content="Cabinet d'expertise en règlement de sinistres indépendant à Montréal et au Québec. Responsabilité municipale et accompagnement d'assurés."
+    />
+    <meta name="twitter:image" content="https://rguertin.ca/isabelle-portrait-opt.webp" />
+
+    <!-- Performance: Lean Font Loading (Only Inter and Newsreader) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Dancing+Script:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Kalam:wght@400;700&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&family=Parisienne&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Reenie+Beanie&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Animation initial state with reduced motion and noscript fallbacks -->
     <style id="premium-motion-init">
       #hero .z-10,
       #hero .hero-img-col,
@@ -18,7 +52,112 @@
       header nav a {
         opacity: 0;
       }
+      @media (prefers-reduced-motion: reduce) {
+        #hero .z-10,
+        #hero .hero-img-col,
+        #hero .hero-quote-card,
+        header nav a {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
     </style>
+    <noscript>
+      <style>
+        #hero .z-10,
+        #hero .hero-img-col,
+        #hero .hero-quote-card,
+        header nav a {
+          opacity: 1 !important;
+        }
+      </style>
+    </noscript>
+
+    <!-- Schema.org JSON-LD Structured Data: Entity & Local Professional Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://rguertin.ca/#organization",
+          "name": "R. Guertin & Associés",
+          "alternateName": "Guertin Claims Advisory",
+          "url": "https://rguertin.ca",
+          "logo": "https://rguertin.ca/favicon.svg",
+          "image": "https://rguertin.ca/isabelle-portrait-opt.webp",
+          "telephone": "+1-438-794-1044",
+          "email": "reclamations@rguertin.ca",
+          "priceRange": "$$",
+          "founder": {
+            "@type": "Person",
+            "name": "Roy Guertin"
+          },
+          "foundingDate": "2014",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Montréal",
+            "addressRegion": "QC",
+            "addressCountry": "CA"
+          },
+          "areaServed": [
+            {
+              "@type": "AdministrativeArea",
+              "name": "Grand Montréal"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Province de Québec"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services d'expertise en sinistres",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Responsabilité civile municipale",
+                  "description": "Gestion et analyse indépendante des réclamations en responsabilité municipale."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Services d'expertise en sinistres pour assurés",
+                  "description": "Accompagnement et représentation indépendante pour le règlement équitable des réclamations d'assurance."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Évaluation des dommages et analyse technique",
+                  "description": "Chiffrage précis, analyse technique des devis et évaluation des dommages matériels."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://rguertin.ca/#isabelle-guertin",
+          "name": "Isabelle Guertin",
+          "jobTitle": "Expert en règlement de sinistres indépendant",
+          "worksFor": {
+            "@id": "https://rguertin.ca/#organization"
+          },
+          "telephone": "+1-438-794-1044",
+          "email": "reclamations@rguertin.ca",
+          "url": "https://rguertin.ca/about",
+          "image": "https://rguertin.ca/isabelle-portrait-opt.webp"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

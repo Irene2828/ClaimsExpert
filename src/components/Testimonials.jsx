@@ -20,6 +20,7 @@ export default function Testimonials() {
   const handleSelect = (idx) => {
     if (idx === activeTab) setActiveTab((idx + 1) % 3);
     else setActiveTab(idx);
+    // eslint-disable-next-line react/purity
     pauseUntilRef.current = Date.now() + 10000; // pause for 10s if user clicks
   };
 
@@ -33,6 +34,7 @@ export default function Testimonials() {
     if (Math.abs(diff) > 50) {
       if (diff < 0) setActiveTab((prev) => (prev + 1) % 3);
       else setActiveTab((prev) => (prev - 1 + 3) % 3);
+      // eslint-disable-next-line react/purity
       pauseUntilRef.current = Date.now() + 10000; // pause for 10s if user swipes
     }
     touchStartX.current = null;
@@ -136,8 +138,17 @@ export default function Testimonials() {
                     }}
                   >
                   <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => handleSelect((activeTab + 1) % 3)}
-                    className={`${card.isDark ? "bg-[#0E223F] border-white/15 shadow-[0_24px_64px_rgba(14,34,63,0.14)]" : "bg-white border-[#0E223F]/15 shadow-sm"} rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-6 border h-full flex flex-col justify-between text-left relative overflow-hidden cursor-pointer`}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleSelect((activeTab + 1) % 3);
+                      }
+                    }}
+                    aria-label={`${card.badge}: ${card.author}`}
+                    className={`${card.isDark ? "bg-[#0E223F] border-white/15 shadow-[0_24px_64px_rgba(14,34,63,0.14)]" : "bg-white border-[#0E223F]/15 shadow-sm"} rounded-[24px] pt-10 px-7 sm:px-8 lg:px-9 pb-6 border h-full flex flex-col justify-between text-left relative overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00ACC1]`}
                   >
                     {card.isDark && (
                       <>
