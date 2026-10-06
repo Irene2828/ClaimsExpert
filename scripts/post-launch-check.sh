@@ -72,6 +72,7 @@ redirects=(
     "/politique-de-cookies-ca"
     "/declaration-de-confidentialite-ca"
     "/resume-de-notre-politique-de-traitement-des-plaintes-et-de-reglement-des-differends"
+    "/en/"
     "/en/our-expertise"
     "/en/our-team"
     "/en/contact-us"
@@ -88,7 +89,7 @@ for url in "${redirects[@]}"; do
         all_redirects_pass=false
     fi
 done
-if $all_redirects_pass; then pass "All 12 legacy WP URLs redirect successfully"; fi
+if $all_redirects_pass; then pass "All 13 legacy WP URLs redirect successfully"; fi
 
 # 7. DNS Checks (MX, SPF, CNAMEs)
 echo "------------------------------------------------"
@@ -96,8 +97,8 @@ echo "Checking Email DNS Records (via 1.1.1.1)..."
 
 mx_records=$(dig +short MX rguertin.ca @1.1.1.1)
 if echo "$mx_records" | grep "10 mx-cluster-ca01.hornetsecurity.com." > /dev/null && \
-   echo "$mx_records" | grep "20 mx-cluster-ca03.hornetsecurity.com." > /dev/null && \
-   echo "$mx_records" | grep "30 mx-cluster-ca02.hornetsecurity.com." > /dev/null && \
+   echo "$mx_records" | grep "20 mx-cluster-ca02.hornetsecurity.com." > /dev/null && \
+   echo "$mx_records" | grep "30 mx-cluster-ca03.hornetsecurity.com." > /dev/null && \
    echo "$mx_records" | grep "40 mx-cluster-ca-fallback.hornetsecurity.com." > /dev/null; then
     pass "MX Records match Hornetsecurity"
 else
