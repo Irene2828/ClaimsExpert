@@ -9,11 +9,13 @@ export default function Contact() {
   const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  const [isError, setIsError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsError(false);
 
-    // Spam protection: honeypot check
+    // Spam protection: honeypot check (handled by backend but also caught here)
     if (honeypot) {
       setSubmitted(true);
       return;
@@ -28,36 +30,34 @@ export default function Contact() {
     setIsSubmitting(true);
     setLastSubmitTime(now);
 
-    const endpoint = import.meta.env.VITE_CONTACT_API_URL;
-    if (endpoint) {
-      fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          submittedAt: new Date().toISOString()
-        })
+    const endpoint = '/api/contact';
+    
+    fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        bot_field: honeypot
       })
-        .then(() => {
-          setIsSubmitting(false);
-          setSubmitted(true);
-        })
-        .catch(() => {
-          setIsSubmitting(false);
-          setSubmitted(true);
-        });
-    } else {
-      // Clean simulation / preparation without storing sensitive insurance data
-      setTimeout(() => {
+    })
+      .then(async (res) => {
         setIsSubmitting(false);
-        setSubmitted(true);
-      }, 300);
-    }
+        if (!res.ok) {
+          setIsError(true);
+        } else {
+          setSubmitted(true);
+        }
+      })
+      .catch((err) => {
+        console.error('Contact error:', err);
+        setIsSubmitting(false);
+        setIsError(true);
+      });
   };
 
   return (
@@ -140,7 +140,24 @@ export default function Contact() {
             </div>
           </div>
           <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] p-6 lg:p-8">
-            {submitted ? (
+            {isError ? (
+              <div className="py-16 text-center">
+                <div className="w-12 h-12 rounded-full bg-red-500/20 mx-auto flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F87171" strokeWidth="2" aria-hidden="true">
+                    <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="font-inter text-[14px] text-red-200 mt-6 max-w-[40ch] mx-auto leading-relaxed">
+                  {t('contact.form.errorMessage')}
+                </p>
+                <button
+                  onClick={() => setIsError(false)}
+                  className="font-inter mt-8 text-[13px] text-white/80 underline underline-offset-4 hover:text-white transition-colors"
+                >
+                  {t('contact.form.sendAnother')}
+                </button>
+              </div>
+            ) : submitted ? (
               <div className="py-16 text-center">
                 <div className="w-12 h-12 rounded-full bg-white mx-auto flex items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E223F" strokeWidth="2" aria-hidden="true">

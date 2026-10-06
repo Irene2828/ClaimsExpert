@@ -128,6 +128,10 @@ Current DNS (checked 2026-10-06): nameservers `ns1–4.supercp.com`, `A @ → 10
 10. Send a test email to `reclamations@rguertin.ca` to confirm email still works.
 
 **Still open**
-- **Contact form**: without `VITE_CONTACT_API_URL` the form only *pretends* to send. Connect a form service (Formspree, Resend, …) before launch, or remove the form.
 - Confirm with Isabelle: public email, street address, hours, exact ChAD credential wording (not on the site yet), testimonial consent.
 - Testimonials: the 3 cards currently share the same text (placeholder).
+
+### Contact Form Environment Variables (Vercel)
+The contact form uses a Vercel Serverless Function (`api/contact.js`) with the **Resend** transactional email service. To enable it, you must add the following environment variables in your Vercel Project Settings (Settings -> Environment Variables):
+- `RESEND_API_KEY`: Your Resend API key (required).
+- `RESEND_FROM_EMAIL`: The verified sender address (e.g. `noreply@rguertin.ca`). If not set, it defaults to `onboarding@resend.dev` (which only allows sending to the email registered with your Resend account).
