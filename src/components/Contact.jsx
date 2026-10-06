@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { BUSINESS, formatAddressLine } from '../seo/site';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -91,7 +92,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.phoneTitle')}</p>
-                  <p className="font-inter text-[14px] text-white mt-1">438 794-1044</p>
+                  <p className="font-inter text-[14px] text-white mt-1">
+                    <a href={BUSINESS.phoneHref} className="hover:underline underline-offset-4">{BUSINESS.phoneDisplay}</a>
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -103,7 +106,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.emailTitle')}</p>
-                  <p className="font-inter text-[14px] text-white mt-1">reclamations@rguertin.ca</p>
+                  <p className="font-inter text-[14px] text-white mt-1">
+                    <a href={`mailto:${BUSINESS.email}`} className="hover:underline underline-offset-4">{BUSINESS.email}</a>
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -116,6 +121,20 @@ export default function Contact() {
                 <div>
                   <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.territoryTitle')}</p>
                   <p className="font-inter text-[14px] text-white mt-1">{t('contact.territoryDetails')}</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden="true">
+                    <path d="M3 21h18" />
+                    <path d="M5 21V7l7-4 7 4v14" />
+                    <path d="M9 21v-6h6v6" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.addressTitle')}</p>
+                  <address className="not-italic font-inter text-[14px] text-white mt-1">{formatAddressLine()}</address>
+                  <p className="font-inter text-[13px] text-white/60 mt-1">{t('contact.hoursDetails')}</p>
                 </div>
               </div>
             </div>

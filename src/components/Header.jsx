@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
+import { BUSINESS } from '../seo/site';
+import { HTML_LANG } from '../seo/routing';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, t, lp, otherLanguage, switchLanguagePath } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +19,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const homePath = lp('/');
   const navLinks = [
-    { href: "/about", label: t('nav.about'), isRouterLink: true },
-    { href: "/#expertise", label: t('nav.expertise') },
-    { href: "/#testimonials", label: t('nav.testimonials') },
-    { href: "/#contact", label: t('nav.contact') }
+    { href: lp('/about'), label: t('nav.about'), isRouterLink: true },
+    { href: `${homePath}#expertise`, label: t('nav.expertise') },
+    { href: `${homePath}#testimonials`, label: t('nav.testimonials') },
+    { href: `${homePath}#contact`, label: t('nav.contact') }
   ];
+
+  const switchLabel = language === 'en' ? 'Passer au français' : 'Switch to English';
 
   return (
     <>
@@ -30,15 +35,17 @@ export default function Header() {
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[36px] flex items-center justify-end">
           <p className="font-inter text-[11px] tracking-[0.14em] text-[#0E223F]/70 uppercase font-normal top-bar-text-item flex items-center">
             {t('topBar.email')} <span className="mx-2 opacity-20">•</span> {t('topBar.region')} <span className="mx-2 opacity-20">•</span> 
-            <button 
-              onClick={toggleLanguage} 
+            <Link 
+              to={switchLanguagePath}
+              hrefLang={HTML_LANG[otherLanguage]}
+              lang={HTML_LANG[otherLanguage]}
               className="hover:text-[#0E223F] hover:font-medium transition-colors ml-1 focus:outline-none"
-              aria-label={language === 'en' ? 'Passer au français' : 'Switch to English'}
+              aria-label={switchLabel}
             >
               <span className={language === 'en' ? 'font-semibold text-[#0E223F]' : ''}>EN</span>
               <span className="opacity-40" style={{ margin: '0 12.5px' }}>|</span>
               <span className={language === 'fr' ? 'font-semibold text-[#0E223F]' : ''}>FR</span>
-            </button>
+            </Link>
           </p>
         </div>
       </div>
@@ -55,7 +62,7 @@ export default function Header() {
         style={isScrolled ? { zIndex: 50, backgroundColor: 'rgba(14,34,63,0.95)', backdropFilter: 'blur(12px)', boxShadow: '0 8px 32px rgba(14,34,63,0.35)' } : { zIndex: 50 }}
       >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
-          <Link to="/" className="flex items-center group">
+          <Link to={homePath} className="flex items-center group" aria-label={`${BUSINESS.name} — Isabelle Guertin`}>
             <div className="flex flex-col justify-center">
               <span className="font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-none">
                 GUERTIN
@@ -93,20 +100,20 @@ export default function Header() {
             {/* Desktop CTA (100% untouched original) */}
             <div className="hidden lg:flex items-center">
               <a
-                href="tel:4387941044"
+                href={BUSINESS.phoneHref}
                 className="font-inter inline-flex items-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full px-[18px] py-[9px] text-[13.65px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] header-cta-btn"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
                   <path d="M12 18h.01" />
                 </svg>
-                {t('nav.callMe')} 438-794-1044
+                {t('nav.callMe')} {BUSINESS.phoneDisplay}
               </a>
             </div>
 
             {/* Mobile-only CTA (Icon + 'Call me' / 'Appelez-moi' text ONLY) */}
             <a
-              href="tel:4387941044"
+              href={BUSINESS.phoneHref}
               className="lg:hidden font-inter inline-flex items-center justify-center gap-[6px] bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-full h-10 px-[18px] sm:px-[20px] text-[13px] font-medium tracking-[-0.01em] text-white transition-all hover:bg-white/10 shrink-0"
               aria-label={t('nav.callMe')}
             >
@@ -157,19 +164,22 @@ export default function Header() {
             ))}
             
             <div className="flex items-center gap-2 mt-2 pt-4 border-t border-white/10">
-              <button 
-                onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }} 
+              <Link 
+                to={switchLanguagePath}
+                hrefLang={HTML_LANG[otherLanguage]}
+                lang={HTML_LANG[otherLanguage]}
+                onClick={() => setMobileMenuOpen(false)} 
                 className="font-inter text-[13px] text-white/80 hover:text-white flex items-center focus:outline-none py-1"
-                aria-label={language === 'en' ? 'Passer au français' : 'Switch to English'}
+                aria-label={switchLabel}
               >
                 <span className={language === 'en' ? 'font-semibold text-white' : ''}>EN</span>
                 <span className="inline-block opacity-40" style={{ margin: '0 18px' }}>|</span>
                 <span className={language === 'fr' ? 'font-semibold text-white' : ''}>FR</span>
-              </button>
+              </Link>
             </div>
             
             <p className="font-inter text-[11px] tracking-wide text-white/50 mt-1">
-              438 794-1044 • {t('topBar.email').toLowerCase()}
+              {BUSINESS.phoneDisplay} • {BUSINESS.email}
             </p>
           </div>
         </div>

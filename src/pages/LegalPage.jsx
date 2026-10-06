@@ -1,25 +1,20 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import { legalDocs } from '../i18n/legalDocs';
 import Footer from '../components/Footer';
-import usePageMeta from '../hooks/usePageMeta';
+import NotFound from './NotFound';
 
+// <head> tags (title, description, canonical, hreflang) live in src/seo/pages.js.
 export default function LegalPage() {
   const { docId } = useParams();
-  const { language } = useLanguage();
+  const { language, lp } = useLanguage();
 
   // Validate the document ID
   const isValidDoc = ['privacy', 'cookies', 'complaints'].includes(docId);
   const doc = isValidDoc ? legalDocs[language]?.[docId] : null;
 
-  usePageMeta({
-    title: doc ? `${doc.title} | ${language === 'fr' ? 'R. Guertin & Associés' : 'Guertin Claims Advisory'}` : '',
-    description: doc ? (doc.intro?.[0]?.replace(/<[^>]*>/g, '') || doc.title) : '',
-    path: `/legal/${docId || ''}`
-  });
-
   if (!isValidDoc || !doc) {
-    return <Navigate to="/404" replace />;
+    return <NotFound />;
   }
 
   // Helper to check if a heading starts with a number (e.g. "1.", "1.1")
@@ -88,7 +83,7 @@ export default function LegalPage() {
             style={{ marginTop: '80px', paddingTop: '40px' }}
           >
             <Link 
-              to="/" 
+              to={lp('/')} 
               className="font-inter group inline-flex items-center font-medium tracking-[-0.01em] text-[#0E223F] hover:underline underline-offset-4 transition-colors"
               style={{
                 fontSize: '15.4px',

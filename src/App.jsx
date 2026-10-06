@@ -6,6 +6,8 @@ import About from './pages/About';
 import LegalPage from './pages/LegalPage';
 import NotFound from './pages/NotFound';
 import useScrollMotion from './hooks/useScrollMotion';
+import usePageMeta from './hooks/usePageMeta';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -37,18 +39,26 @@ function ScrollToTop() {
 
 function App() {
   useScrollMotion();
+  usePageMeta();
 
   return (
-    <div className="bg-white text-[#111827] antialiased selection:bg-[#0E223F] selection:text-white">
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/legal/:docId" element={<LegalPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <LanguageProvider>
+      <div className="bg-white text-[#111827] antialiased selection:bg-[#0E223F] selection:text-white">
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          {/* French (default) at the root */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/legal/:docId" element={<LegalPage />} />
+          {/* English under /en */}
+          <Route path="/en" element={<Home />} />
+          <Route path="/en/about" element={<About />} />
+          <Route path="/en/legal/:docId" element={<LegalPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </LanguageProvider>
   );
 }
 

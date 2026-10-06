@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { stripLangPrefix } from '../seo/routing';
 
 let hasAnimatedHero = false;
 
@@ -7,6 +8,9 @@ export default function useScrollMotion() {
   const location = useLocation();
 
   useEffect(() => {
+    // Language-neutral path: "/en/about" -> "/about", "/en" -> "/"
+    const pagePath = stripLangPrefix(location.pathname);
+
     // Respect user motion preferences
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const initStyle = document.getElementById('premium-motion-init');
@@ -47,7 +51,7 @@ export default function useScrollMotion() {
       });
     };
 
-    if (location.pathname === '/about') {
+    if (pagePath === '/about') {
       let attempts = 0;
       const initAbout = () => {
         attempts++;
@@ -89,7 +93,7 @@ export default function useScrollMotion() {
     }
 
     // If on sub-page (not Home and not About), do not run any reveal motion:
-    if (location.pathname !== '/') {
+    if (pagePath !== '/') {
       const initStyle = document.getElementById('premium-motion-init');
       if (initStyle) initStyle.remove();
       const navLinks = document.querySelectorAll('header nav a');

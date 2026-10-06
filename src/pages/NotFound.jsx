@@ -1,20 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 import Footer from '../components/Footer';
-import usePageMeta from '../hooks/usePageMeta';
 
+// <head> (title + noindex) is set from src/seo/pages.js (NOT_FOUND_META).
 export default function NotFound() {
-  const { language } = useLanguage();
-
-  usePageMeta({
-    title: language === 'fr'
-      ? '404 — Page non trouvée | R. Guertin & Associés'
-      : '404 — Page Not Found | Guertin Claims Advisory',
-    description: language === 'fr'
-      ? "La page demandée est introuvable."
-      : "The requested page could not be found.",
-    path: '/404'
-  });
+  const { language, lp } = useLanguage();
 
   const isFr = language === 'fr';
 
@@ -43,7 +33,7 @@ export default function NotFound() {
 
             <div className="mt-8">
               <Link
-                to="/"
+                to={lp('/')}
                 className="font-inter inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide text-white hover:brightness-110 transition-all hover:shadow-[0_10px_30px_rgba(14,34,63,0.18)] h-[48px] px-8 text-[14.5px] bg-[#0E223F]"
               >
                 <svg

@@ -1,10 +1,60 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/notre-expertise", "destination": "/", "statusCode": 301 },
+    { "source": "/notre-expertise/", "destination": "/", "statusCode": 301 },
+    { "source": "/notre-equipe", "destination": "/about", "statusCode": 301 },
+    { "source": "/notre-equipe/", "destination": "/about", "statusCode": 301 },
+    { "source": "/nous-joindre", "destination": "/", "statusCode": 301 },
+    { "source": "/nous-joindre/", "destination": "/", "statusCode": 301 },
+    { "source": "/politique-de-cookies-ca", "destination": "/legal/cookies", "statusCode": 301 },
+    { "source": "/politique-de-cookies-ca/", "destination": "/legal/cookies", "statusCode": 301 },
+    { "source": "/declaration-de-confidentialite-ca", "destination": "/legal/privacy", "statusCode": 301 },
+    { "source": "/declaration-de-confidentialite-ca/", "destination": "/legal/privacy", "statusCode": 301 },
+    { "source": "/resume-de-notre-politique-de-traitement-des-plaintes-et-de-reglement-des-differends", "destination": "/legal/complaints", "statusCode": 301 },
+    { "source": "/resume-de-notre-politique-de-traitement-des-plaintes-et-de-reglement-des-differends/", "destination": "/legal/complaints", "statusCode": 301 },
+
+    { "source": "/en/", "destination": "/en", "statusCode": 301 },
+    { "source": "/en/our-expertise", "destination": "/en", "statusCode": 301 },
+    { "source": "/en/our-expertise/", "destination": "/en", "statusCode": 301 },
+    { "source": "/en/our-team", "destination": "/en/about", "statusCode": 301 },
+    { "source": "/en/our-team/", "destination": "/en/about", "statusCode": 301 },
+    { "source": "/en/contact-us", "destination": "/en", "statusCode": 301 },
+    { "source": "/en/contact-us/", "destination": "/en", "statusCode": 301 },
+    { "source": "/en/cookie-statement-ca", "destination": "/en/legal/cookies", "statusCode": 301 },
+    { "source": "/en/cookie-statement-ca/", "destination": "/en/legal/cookies", "statusCode": 301 },
+    { "source": "/en/privacy-statement-ca", "destination": "/en/legal/privacy", "statusCode": 301 },
+    { "source": "/en/privacy-statement-ca/", "destination": "/en/legal/privacy", "statusCode": 301 },
+
+    { "source": "/category/non-classifiee", "destination": "/", "statusCode": 301 },
+    { "source": "/category/non-classifiee/", "destination": "/", "statusCode": 301 },
+
+    { "source": "/sitemap_index.xml", "destination": "/sitemap.xml", "statusCode": 301 },
+    { "source": "/page-sitemap.xml", "destination": "/sitemap.xml", "statusCode": 301 },
+    { "source": "/post-sitemap.xml", "destination": "/sitemap.xml", "statusCode": 301 },
+    { "source": "/wp-sitemap.xml", "destination": "/sitemap.xml", "statusCode": 301 }
+  ],
+  "headers": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "has": [{ "type": "host", "value": ".*\\.vercel\\.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
 }

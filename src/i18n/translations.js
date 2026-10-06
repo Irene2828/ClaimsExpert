@@ -107,7 +107,8 @@ export const translations = {
       phoneTitle: "PHONE",
       emailTitle: "EMAIL",
       territoryTitle: "TERRITORY",
-      territoryDetails: "Greater Montreal • Province of Quebec",
+      territoryDetails: "Greater Montreal • South Shore (Longueuil, Brossard) • Province of Quebec",
+      addressTitle: "OFFICE",
       hoursDetails: "Open weekdays: 9:00 AM – 5:00 PM",
       confidential: "All communications are strictly confidential.",
       form: {
@@ -127,7 +128,7 @@ export const translations = {
       }
     },
     footer: {
-      copyright: "© 2026 GUERTIN CLAIMS ADVISORY • MONTREAL, QC",
+      copyright: "© 2026 R. Guertin & Associés • Montréal, QC",
       cookies: "Cookie Statements (CA)",
       privacy: "Privacy statement (CA)",
       complaints: "Complaints Procedure"
@@ -135,7 +136,7 @@ export const translations = {
     about: {
       backBtn: "Back to Homepage",
       eyebrow: "— ABOUT THE PRACTICE — LEGACY —",
-      headline: "R. Guertin & Associates",
+      headline: "R. Guertin & Associés",
       p1: "R. Guertin & Ass. was founded in 2014 by Roy Guertin, building on his extensive experience in claims adjusting and a commitment to providing thorough, independent and personalized service.",
       p2: "Isabelle Guertin joined the family practice in 2016, bringing her own experience and gradually taking on a greater role in the firm. Over the years, she developed a particular expertise in municipal civil liability while working closely with the firm's clients and continuing the values on which the practice was built.",
       p3: "Following Roy's retirement in 2026, Isabelle became the sole owner of R. Guertin & Ass. Today, she continues the firm's tradition of integrity, thoroughness and personal service while developing the practice in her own direction — maintaining its strong focus on municipal civil liability and making her claims expertise directly available to policyholders through public adjusting services.",
@@ -259,7 +260,8 @@ export const translations = {
       phoneTitle: "TÉLÉPHONE",
       emailTitle: "COURRIEL",
       territoryTitle: "TERRITOIRE",
-      territoryDetails: "Grand Montréal • Province de Québec",
+      territoryDetails: "Grand Montréal • Rive-Sud (Longueuil, Brossard) • Province de Québec",
+      addressTitle: "BUREAU",
       hoursDetails: "Ouvert en semaine : 9h00 – 17h00",
       confidential: "Toutes les communications sont strictement confidentielles.",
       form: {
@@ -279,7 +281,7 @@ export const translations = {
       }
     },
     footer: {
-      copyright: "© 2026 Guertin Claims Advisory • Montréal, QC",
+      copyright: "© 2026 R. Guertin & Associés • Montréal, QC",
       cookies: "Politique de témoins (CA)",
       privacy: "Politique de confidentialité (CA)",
       complaints: "Traitement des plaintes"
