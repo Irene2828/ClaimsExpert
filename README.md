@@ -132,15 +132,15 @@ Current DNS (checked 2026-10-06): nameservers `ns1–4.supercp.com`, `A @ → 10
 - Testimonials: the 3 cards currently share the same text (placeholder).
 
 ### Contact Form Integration (Vercel Serverless Function)
-The contact form uses a Vercel Serverless Function (`api/contact.js`) with the **Resend** transactional email service. Because we must not touch the root DNS (MX/SPF records for `rguertin.ca` are managed by Hornetsecurity), you must set up Resend using a **verified subdomain** (e.g., `mail.rguertin.ca`).
+The contact form uses a Vercel Serverless Function (`api/contact.js`) with the **Resend** transactional email service. Because we must not touch the root DNS (MX/SPF records for `rguertin.ca` are managed by Hornetsecurity), you must set up Resend using a **verified subdomain** (e.g., `send.rguertin.ca`).
 
 **Setup Steps:**
 1. Create a free account at [Resend.com](https://resend.com).
-2. Go to **Domains** -> **Add Domain**. Add a subdomain like `mail.rguertin.ca`.
-3. Resend will provide TXT/MX records specifically for `mail.rguertin.ca`. Add these to your DNS host. *(This will not affect your root domain emails)*.
+2. Go to **Domains** -> **Add Domain**. Add a subdomain like `send.rguertin.ca`.
+3. Resend will provide TXT/MX records specifically for `send.rguertin.ca`. Add these to your DNS host. *(This will not affect your root domain emails)*.
 4. Once verified, go to your **Vercel Project** -> **Settings** -> **Environment Variables** and add the following two variables (ensure they are applied to Production and Preview):
    - `RESEND_API_KEY`: Your Resend API key (starts with `re_...`).
-   - `RESEND_FROM_EMAIL`: An email using your verified subdomain (e.g., `noreply@mail.rguertin.ca`).
+   - `RESEND_FROM_EMAIL`: An email using your verified subdomain (e.g., `noreply@send.rguertin.ca`).
 
 **Test Procedure (on Vercel Preview):**
 1. Wait for Vercel to rebuild the preview after adding the environment variables.
