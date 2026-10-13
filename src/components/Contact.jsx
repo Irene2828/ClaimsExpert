@@ -111,18 +111,7 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden="true">
-                    <path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z" />
-                    <circle cx="12" cy="10" r="2.5" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-inter text-[11px] tracking-[0.16em] uppercase text-white/50">{t('contact.territoryTitle')}</p>
-                  <p className="font-inter text-[14px] text-white mt-1">{t('contact.territoryDetails')}</p>
-                </div>
-              </div>
+
               <div className="flex gap-4">
                 <div className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden="true">
