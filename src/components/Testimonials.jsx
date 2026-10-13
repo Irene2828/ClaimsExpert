@@ -22,7 +22,7 @@ export default function Testimonials() {
       title: t('testimonials.card2Title'),
       body: t('testimonials.card2Body'),
       author: t('testimonials.card2Author'),
-      isDark: true,
+      isDark: false,
     },
   ];
 
