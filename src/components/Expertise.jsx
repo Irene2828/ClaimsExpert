@@ -114,7 +114,7 @@ export default function Expertise() {
           <div className="flex flex-col items-center w-full">
             <h3 className="c-title font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-center w-full">
               <span className="inline-flex items-center justify-center gap-3">
-                <span className="shrink-0 flex items-center">
+                <span className="shrink-0 flex items-center relative -top-[1.5px]">
                   {card.svg}
                 </span>
                 <span>{line1}</span>
@@ -199,7 +199,7 @@ export default function Expertise() {
             <div className="flex flex-col items-center w-full">
               <h3 className="c-title font-inter font-medium text-[18px] leading-[1.3] tracking-[-0.01em] text-center w-full">
                 <span className="inline-flex items-center justify-center gap-3">
-                  <span className="shrink-0 flex items-center">
+                  <span className="shrink-0 flex items-center relative -top-[1.5px]">
                     {card.svg}
                   </span>
                   <span>{line1}</span>
