@@ -2563,9 +2563,14 @@ html body .hero-eyebrow-mobile {
     min-height: auto !important;
     padding-top: 32px !important;
     padding-bottom: 38px !important;
+    background:
+      linear-gradient(180deg, rgba(206, 222, 240, 0.75) 0%, rgba(224, 234, 246, 0.40) 22%, rgba(255, 255, 255, 0) 48%),
+      #FFFFFF !important;
   }
 
   html body #hero > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     padding-top: 8px !important;
   }
 
@@ -2593,10 +2598,15 @@ html body .hero-eyebrow-mobile {
   }
 
   html body .hero-left-col h1 {
+    font-size: clamp(38px, 9.4vw, 44px) !important;
+    letter-spacing: -0.045em !important;
+    line-height: 1.04 !important;
     text-align: left !important;
   }
 
   html body .hero-left-col h1 div {
+    white-space: nowrap !important;
+    overflow: visible !important;
     text-align: left !important;
   }
 
@@ -2639,12 +2649,13 @@ html body .hero-eyebrow-mobile {
 
   html body .hero-img-wrapper {
     position: relative !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: calc(100% + 20px) !important;
+    max-width: none !important;
     min-width: 0 !important;
-    height: clamp(330px, 46vh, 440px) !important;
+    margin-right: -20px !important;
+    height: clamp(340px, 48vh, 460px) !important;
     display: flex !important;
-    justify-content: center !important;
+    justify-content: flex-end !important;
     align-items: flex-end !important;
     overflow: visible !important;
     margin-bottom: 30px !important;
@@ -2652,14 +2663,14 @@ html body .hero-eyebrow-mobile {
 
   html body .hero-portrait-img {
     position: relative !important;
-    width: 100% !important;
+    width: auto !important;
     height: 100% !important;
     max-height: 100% !important;
-    max-width: 100% !important;
+    max-width: 95% !important;
     min-width: 0 !important;
     object-fit: contain !important;
     object-position: bottom right !important;
-    margin-left: 0 !important;
+    margin-left: auto !important;
     margin-right: 0 !important;
     transform: none !important;
     filter: none !important;
@@ -2691,7 +2702,7 @@ html body .hero-eyebrow-mobile {
 /* Smallest Mobile Screens (< 390px, e.g., iPhone SE) */
 @media (max-width: 390px) {
   html body .hero-left-col h1 {
-    font-size: 34.6px !important;
+    font-size: 35px !important;
   }
   html body .hero-quote-card {
     padding: 10px 14px !important;
@@ -2809,6 +2820,11 @@ html body #testimonials .testimonial-author-footer.is-dark {
     font-size: clamp(46px, 4.6vw, 75px) !important;
   }
 
+  html[lang="fr"] body #hero h1,
+  html[lang^="fr"] body #hero h1 {
+    font-size: clamp(41.4px, 4.14vw, 67.5px) !important;
+  }
+
   html body .hero-img-col>div {
     max-width: 580px !important;
     height: clamp(470px, calc(100svh - 180px), 680px) !important;
@@ -2817,6 +2833,14 @@ html body #testimonials .testimonial-author-footer.is-dark {
   html body .hero-portrait-img {
     max-height: 680px !important;
     max-width: 540px !important;
+  }
+}
+
+/* French Hero Headline 10% smaller on standard desktop screens (>= 1024px) */
+@media (min-width: 1024px) and (max-width: 1669px) {
+  html[lang="fr"] body #hero h1,
+  html[lang^="fr"] body #hero h1 {
+    font-size: clamp(34.6px, 4.35vw, 67.5px) !important;
   }
 }
 
@@ -2857,5 +2881,14 @@ body {
 @media (min-width: 1024px) {
   html body .hero-portrait-img {
     transform: translate(13%, 36px) !important;
+  }
+}
+
+/* Contact Section Layout - 2 columns on tablet & desktop */
+@media (min-width: 768px) {
+  html body #contact .contact-grid {
+    display: grid !important;
+    grid-template-columns: 1.14fr 0.86fr !important;
+    align-items: start !important;
   }
 }

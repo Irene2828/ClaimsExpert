@@ -96,10 +96,11 @@ export default function Approach() {
               <span style={{ color: "#64748B" }}>{t('approach.headlinePart2')}</span>
             </h2>
             <p
-              className="font-inter font-normal text-[16px] leading-[1.68] text-[#4B5563] tracking-[0.01em] mt-6"
+              className="font-inter font-normal text-[16px] leading-[1.68] text-[#64748B] tracking-[0.01em] mt-6"
               style={{
                 fontSize: "16px",
                 lineHeight: "1.68",
+                color: "#64748B",
                 maxWidth: '52ch',
               }}
             >

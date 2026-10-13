@@ -12,7 +12,7 @@ export default function Hero() {
       style={{
         paddingBottom: "0px",
         background:
-          "radial-gradient(ellipse 75% 65% at 0% 0%, rgba(210, 222, 236, 0.92) 0%, rgba(218, 227, 238, 0.45) 45%, transparent 75%), radial-gradient(ellipse 75% 65% at 100% 0%, rgba(210, 222, 236, 0.92) 0%, rgba(218, 227, 238, 0.45) 45%, transparent 75%), #F2F5FA",
+          "radial-gradient(ellipse 70% 60% at 0% 0%, rgba(206, 222, 240, 0.85) 0%, rgba(224, 234, 246, 0.45) 40%, rgba(255, 255, 255, 0) 72%), radial-gradient(ellipse 70% 60% at 100% 0%, rgba(206, 222, 240, 0.85) 0%, rgba(224, 234, 246, 0.45) 40%, rgba(255, 255, 255, 0) 72%), #FFFFFF",
       }}
     >
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 w-full relative">
@@ -26,9 +26,11 @@ export default function Hero() {
               {t('hero.eyebrow')}
             </span>
             <h1
-              className="font-inter italic font-light tracking-[-0.03em] mt-4"
+              className="font-inter italic font-light tracking-[-0.03em] mt-4 hero-title"
               style={{
-                fontSize: "clamp(38.5px, 4.84vw, 75px)",
+                fontSize: language === 'fr' 
+                  ? "clamp(34.65px, 4.35vw, 67.5px)" 
+                  : "clamp(38.5px, 4.84vw, 75px)",
                 lineHeight: "1.05",
               }}
             >
@@ -182,7 +184,7 @@ export default function Hero() {
                     padding: 13px 14px !important;
                   }
                 }
-                @media (max-width: 1023px) {
+                @media (min-width: 768px) and (max-width: 1023px) {
                   html body .hero-img-wrapper {
                     height: auto !important;
                     margin-top: -30px !important;

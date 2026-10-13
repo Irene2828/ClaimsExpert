@@ -71,12 +71,12 @@ export default function Contact() {
         <div className="absolute top-[-40px] right-[30%] w-[180px] h-[180px] rounded-full bg-[#BFDBFE]/[0.06] blur-[24px] hidden lg:block" />
       </div>
       <div className="max-w-[1336px] mx-auto px-8 lg:px-12 py-20 lg:py-32 relative z-10">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
-          <div className="flex flex-col items-start">
+        <div className="contact-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.14fr_0.86fr] gap-10 md:gap-8 lg:gap-16 items-start">
+          <div className="flex flex-col items-start min-w-0">
             <span className="font-inter inline-flex items-center px-3.5 py-1 rounded-full bg-[#F5F6F8] text-[#0E223F] border border-transparent text-[10.5px] tracking-[0.18em] uppercase font-medium">
               {t('contact.eyebrow')}
             </span>
-            <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[32px] lg:text-[42px] mt-6 max-w-[16ch] text-left">
+            <h2 className="font-inter italic font-light tracking-[-0.03em] leading-[1.05] text-white text-[32px] sm:text-[36px] lg:text-[40px] xl:text-[42px] mt-6 max-w-none md:whitespace-nowrap text-left">
               {t('contact.headline')}
             </h2>
             <p className="font-inter text-[15px] lg:text-[16px] leading-[1.7] text-white/70 mt-6 max-w-[50ch]">
@@ -139,7 +139,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] p-6 lg:p-8">
+          <div className="bg-white/5 backdrop-blur-[12px] border border-white/15 rounded-[24px] p-6 lg:p-8 min-w-0 w-full">
             {isError ? (
               <div className="py-16 text-center">
                 <div className="w-12 h-12 rounded-full bg-red-500/20 mx-auto flex items-center justify-center">

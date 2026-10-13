@@ -366,12 +366,15 @@ export default function Expertise() {
         }
 
         /* Responsive Toggles */
-        .mobile-carousel { display: block; }
-        .desktop-grid { display: none; }
+        #expertise .mobile-carousel { display: block; }
+        #expertise .desktop-grid { display: none; }
         
         @media (min-width: 768px) {
-          .mobile-carousel { display: none !important; }
-          .desktop-grid { display: grid !important; }
+          #expertise .mobile-carousel { display: none !important; }
+          #expertise .desktop-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+          }
         }
       `}</style>
       <div

@@ -1,6 +1,6 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import { Link } from 'react-router-dom';
-import { BUSINESS, formatAddressLine } from '../seo/site';
+import { BUSINESS } from '../seo/site';
 
 export default function Footer() {
   const { t, lp } = useLanguage();
@@ -11,9 +11,8 @@ export default function Footer() {
           <span className="font-inter text-[11px] tracking-[0.18em] text-white/60 uppercase">
             {t('footer.copyright')}
           </span>
-          {/* NAP (Name, Address, Phone) — must stay identical to the contact section and JSON-LD (src/seo/site.js) */}
           <address className="not-italic font-inter text-[12px] leading-[1.6] text-white/50">
-            {BUSINESS.name} • {formatAddressLine()} •{' '}
+            {BUSINESS.name} •{' '}
             <a href={BUSINESS.phoneHref} className="text-white/80 hover:text-white transition-colors whitespace-nowrap">
               {BUSINESS.phoneDisplay}
             </a>{' '}

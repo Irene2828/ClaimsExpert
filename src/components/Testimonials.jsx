@@ -7,39 +7,6 @@ export default function Testimonials() {
   const pauseUntilRef = useRef(0);
   const touchStartX = useRef(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      // Disable autoloop on mobile screens (< 768px)
-      if (window.innerWidth < 768) return;
-      if (Date.now() < pauseUntilRef.current) return;
-      setActiveTab((prev) => (prev + 1) % 3);
-    }, 6000); // 6 seconds auto-loop on desktop only
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleSelect = (idx) => {
-    if (idx === activeTab) setActiveTab((idx + 1) % 3);
-    else setActiveTab(idx);
-    // eslint-disable-next-line react/purity
-    pauseUntilRef.current = Date.now() + 10000; // pause for 10s if user clicks
-  };
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e) => {
-    if (touchStartX.current === null) return;
-    const diff = e.changedTouches[0].clientX - touchStartX.current;
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) setActiveTab((prev) => (prev + 1) % 3);
-      else setActiveTab((prev) => (prev - 1 + 3) % 3);
-      // eslint-disable-next-line react/purity
-      pauseUntilRef.current = Date.now() + 10000; // pause for 10s if user swipes
-    }
-    touchStartX.current = null;
-  };
-
   const testimonials = [
     {
       id: 1,
@@ -57,15 +24,40 @@ export default function Testimonials() {
       author: t('testimonials.card2Author'),
       isDark: true,
     },
-    {
-      id: 3,
-      badge: t('testimonials.card3Badge'),
-      title: t('testimonials.card3Title'),
-      body: t('testimonials.card3Body'),
-      author: t('testimonials.card3Author'),
-      isDark: false,
-    },
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // Disable autoloop on mobile screens (< 768px)
+      if (window.innerWidth < 768) return;
+      if (Date.now() < pauseUntilRef.current) return;
+      setActiveTab((prev) => (prev + 1) % testimonials.length);
+    }, 6000); // 6 seconds auto-loop on desktop only
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  const handleSelect = (idx) => {
+    if (idx === activeTab) setActiveTab((idx + 1) % testimonials.length);
+    else setActiveTab(idx);
+    // eslint-disable-next-line react/purity
+    pauseUntilRef.current = Date.now() + 10000; // pause for 10s if user clicks
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) setActiveTab((prev) => (prev + 1) % testimonials.length);
+      else setActiveTab((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      // eslint-disable-next-line react/purity
+      pauseUntilRef.current = Date.now() + 10000; // pause for 10s if user swipes
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section id="testimonials" className="bg-white border-t border-[#E5E7EB]">
@@ -94,19 +86,20 @@ export default function Testimonials() {
           }
           
           /* Responsive Toggles */
-          .mobile-carousel {
+          #testimonials .mobile-carousel {
             display: block;
           }
-          .desktop-grid {
+          #testimonials .desktop-grid {
             display: none;
           }
           
           @media (min-width: 768px) {
-            .mobile-carousel {
+            #testimonials .mobile-carousel {
               display: none !important;
             }
-            .desktop-grid {
+            #testimonials .desktop-grid {
               display: grid !important;
+              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             }
           }
         `}</style>
@@ -140,11 +133,11 @@ export default function Testimonials() {
                   <div
                     role="button"
                     tabIndex={0}
-                    onClick={() => handleSelect((activeTab + 1) % 3)}
+                    onClick={() => handleSelect((activeTab + 1) % testimonials.length)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        handleSelect((activeTab + 1) % 3);
+                        handleSelect((activeTab + 1) % testimonials.length);
                       }
                     }}
                     aria-label={`${card.badge}: ${card.author}`}
@@ -209,7 +202,7 @@ export default function Testimonials() {
         </div>
 
         {/* DESKTOP GRID (>= md) */}
-        <div className="desktop-grid w-full grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1280px] mx-auto items-stretch">
+        <div className="desktop-grid w-full grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-[1080px] mx-auto items-stretch">
           {testimonials.map((card) => (
             <div
               key={card.id}
