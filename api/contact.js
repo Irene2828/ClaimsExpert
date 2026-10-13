@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   }
 
   const resend = new Resend(apiKey);
-  const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+  const fromEmail = process.env.RESEND_FROM_EMAIL || 'contact@staging.rguertin.ca';
   const toEmail = process.env.NOTIFICATION_EMAIL || 'iryna.herts@gmail.com';
 
   console.log(`[Contact API] Processing submission for ${name} (${email}) -> notification target: ${toEmail}`);
