@@ -2598,7 +2598,7 @@ html body .hero-eyebrow-mobile {
   }
 
   html body .hero-left-col h1 {
-    font-size: clamp(38px, 9.4vw, 44px) !important;
+    font-size: clamp(42px, 10.5vw, 48px) !important;
     letter-spacing: -0.045em !important;
     line-height: 1.04 !important;
     text-align: left !important;
@@ -2633,7 +2633,7 @@ html body .hero-eyebrow-mobile {
     width: 100% !important;
     min-width: 0 !important;
     justify-content: center !important;
-    margin-top: 48px !important;
+    margin-top: 30px !important;
   }
 
   html body .hero-img-col {
@@ -2702,7 +2702,7 @@ html body .hero-eyebrow-mobile {
 /* Smallest Mobile Screens (< 390px, e.g., iPhone SE) */
 @media (max-width: 390px) {
   html body .hero-left-col h1 {
-    font-size: 35px !important;
+    font-size: 39px !important;
   }
   html body .hero-quote-card {
     padding: 10px 14px !important;

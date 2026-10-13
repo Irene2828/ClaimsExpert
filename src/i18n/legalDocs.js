@@ -83,14 +83,14 @@ export const legalDocs = {
           body: [
             "[PLACEHOLDER: Insert official Law 25 Privacy Officer Designation here]",
             "Isabelle Guertin",
-            "4388 rue St-Denis, Bureau 200, Montreal, Qc. H2J 2L1",
+            "4388, rue Saint-Denis, Bureau 200, Montréal, Qc H2J 2L1",
             "Canada",
             "<em>Website:</em> https://rguertin.ca",
             "<em>Email:</em> isabelle.guertin@rguertin.ca",
             "<em>Phone number:</em> 438-794-1044",
             "We have appointed a contact person for the organization’s policies and practices and to whom complaints or inquiries can be forwarded:",
             "Isabelle Guertin",
-            "4388 rue St-Denis, Bureau 200, Montreal, Qc. H2J 2L1"
+            "4388, rue Saint-Denis, Bureau 200, Montréal, Qc H2J 2L1"
           ]
         }
       ]
@@ -143,7 +143,7 @@ export const legalDocs = {
           body: [
             "For questions and/or comments about our Cookie Policy and this statement, please contact us by using the following contact details:",
             "Isabelle Guertin",
-            "4388 rue St-Denis, Bureau 200, Montreal, Qc. H2J 2L1",
+            "4388, rue Saint-Denis, Bureau 200, Montréal, Qc H2J 2L1",
             "Canada",
             "<em>Website:</em> https://rguertin.ca",
             "<em>Email:</em> isabelle.guertin@rguertin.ca",
@@ -167,8 +167,8 @@ export const legalDocs = {
         "<em>Phone:</em> 438-794-1044",
         "<em>Email:</em> administration@rguertin.ca",
         "<em>Address:</em> R. Guertin & Ass.",
-        "4388 Saint-Denis, Suite 200",
-        "Montreal, Qc H2L 2J1",
+        "4388, rue Saint-Denis, bureau 200",
+        "Montréal, Qc H2J 2L1",
         "Our offices are open <strong>Monday to Friday from 9 am to 5 pm.</strong>",
         "<strong>Questions?</strong> Contact us to learn more about how we handle complaints."
       ],
@@ -310,7 +310,7 @@ export const legalDocs = {
           body: [
             "[ESPACE RÉSERVÉ : Insérer ici la désignation officielle du responsable de la protection de la vie privée - Loi 25]",
             "Isabelle Guertin",
-            "4388 rue St-Denis, Bureau 200, Montréal, Qc. H2J 2L1",
+            "4388, rue Saint-Denis, bureau 200, Montréal, Qc H2J 2L1",
             "Canada",
             "<em>Site web :</em> https://rguertin.ca",
             "<em>Courriel :</em> isabelle.guertin@rguertin.ca",
@@ -367,7 +367,7 @@ export const legalDocs = {
           body: [
             "Pour toute question et/ou commentaire sur notre Politique de cookies et cette déclaration, veuillez nous contacter en utilisant les coordonnées suivantes :",
             "Isabelle Guertin",
-            "4388 rue St-Denis, Bureau 200, Montréal, Qc. H2J 2L1",
+            "4388, rue Saint-Denis, bureau 200, Montréal, Qc H2J 2L1",
             "Canada",
             "<em>Site web :</em> https://rguertin.ca",
             "<em>Courriel :</em> isabelle.guertin@rguertin.ca",
@@ -391,8 +391,8 @@ export const legalDocs = {
         "<em>Téléphone :</em> 438-794-1044",
         "<em>Courriel :</em> administration@rguertin.ca",
         "<em>Adresse :</em> R. Guertin & Ass.",
-        "4388 Saint-Denis, Suite 200",
-        "Montréal, Qc H2L 2J1",
+        "4388, rue Saint-Denis, bureau 200",
+        "Montréal, Qc H2J 2L1",
         "Nos bureaux sont ouverts <strong>du lundi au vendredi de 9 am à 5 pm.</strong>",
         "<strong>Des questions?</strong> Communiquez avec nous pour connaître la façon dont nous traitons les plaintes."
       ],

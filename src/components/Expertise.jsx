@@ -191,6 +191,11 @@ export default function Expertise() {
       >
         <div className="relative z-10 flex flex-col justify-between h-full w-full">
           <div>
+            <div className="flex items-center justify-end w-full mb-3">
+              <span className="font-inter font-semibold text-[12px] tracking-[0.16em] text-white/50 select-none">
+                {card.id + 1}/3
+              </span>
+            </div>
             <div className="flex flex-col items-center w-full">
               <h3 className="c-title font-inter font-medium text-[18px] leading-[1.3] tracking-[-0.01em] text-center w-full">
                 <span className="inline-flex items-center justify-center gap-3">
@@ -245,18 +250,10 @@ export default function Expertise() {
         </div>
         
         {card.footerKey && (
-          <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left mt-6 mb-2 pr-12">
+          <p className="c-body font-inter text-[14.5px] leading-[1.65] text-left mt-6 mb-2">
             {t(card.footerKey)}
           </p>
         )}
-      </div>
-
-      {/* 1/3, 2/3, 3/3 in prominent off-white on bottom right */}
-      <div 
-        className="absolute bottom-6 right-7 font-inter font-semibold text-[13px] tracking-[0.16em] select-none z-30 pointer-events-none"
-        style={{ color: '#F5F6F8' }}
-      >
-        {card.id + 1}/3
       </div>
     </div>
   );
