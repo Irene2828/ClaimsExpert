@@ -102,8 +102,33 @@ export default function Expertise() {
     };
   };
 
-  const renderDesktopCard = (card) => {
+  // Heading is centred on its own; the icon hangs off the left edge of the
+  // first line (absolutely positioned) so it never shifts the text off-centre.
+  // Symmetric side padding reserves room for the icon (24px + 12px gap).
+  const renderCardTitle = (card, sizeClass) => {
     const { line1, line2 } = getCardTitle(card);
+    return (
+      <h3 className={`c-title font-inter font-medium ${sizeClass} leading-[1.3] tracking-[-0.01em] text-center w-full px-9`}>
+        <span className="relative">
+          <span
+            aria-hidden="true"
+            className="absolute flex items-center pointer-events-none"
+            style={{ left: 0, top: '0.65em', transform: 'translate(calc(-100% - 12px), -50%)' }}
+          >
+            {card.svg}
+          </span>
+          {line1}
+        </span>
+        {line2 && (
+          <span className="block text-center mt-0.5 leading-[1.1]">
+            {line2}
+          </span>
+        )}
+      </h3>
+    );
+  };
+
+  const renderDesktopCard = (card) => {
     return (
       <div 
         key={card.id}
@@ -112,19 +137,7 @@ export default function Expertise() {
       >
         <div className="relative z-10">
           <div className="flex flex-col items-center w-full">
-            <h3 className="c-title font-inter font-medium text-[19px] leading-[1.3] tracking-[-0.01em] text-center w-full">
-              <span className="inline-flex items-center justify-center gap-3">
-                <span className="shrink-0 flex items-center relative -top-[1.5px]">
-                  {card.svg}
-                </span>
-                <span>{line1}</span>
-              </span>
-              {line2 && (
-                <span className="block text-center mt-0.5 leading-[1.1]">
-                  {line2}
-                </span>
-              )}
-            </h3>
+            {renderCardTitle(card, 'text-[19px]')}
             <p className="c-tag font-inter text-[11px] tracking-[0.16em] uppercase mt-2 font-medium text-center">
               {t(card.tagKey)}
             </p>
@@ -197,19 +210,7 @@ export default function Expertise() {
               </span>
             </div>
             <div className="flex flex-col items-center w-full">
-              <h3 className="c-title font-inter font-medium text-[18px] leading-[1.3] tracking-[-0.01em] text-center w-full">
-                <span className="inline-flex items-center justify-center gap-3">
-                  <span className="shrink-0 flex items-center relative -top-[1.5px]">
-                    {card.svg}
-                  </span>
-                  <span>{line1}</span>
-                </span>
-                {line2 && (
-                  <span className="block text-center mt-0.5 leading-[1.1]">
-                    {line2}
-                  </span>
-                )}
-              </h3>
+              {renderCardTitle(card, 'text-[18px]')}
               <p className="c-tag font-inter text-[11px] tracking-[0.16em] uppercase mt-2 font-medium text-center">
                 {t(card.tagKey)}
               </p>

@@ -52,7 +52,7 @@ export const BUSINESS = {
   ],
 
   image: '/isabelle-portrait-opt.webp',
-  logo: '/favicon.svg',
+  logo: '/images/logo-rguertin.png',
 };
 
 /** "4388, rue Saint-Denis, bureau 200, Montréal (QC) H2J 2L1" */

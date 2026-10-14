@@ -62,18 +62,19 @@ export default function Header() {
         style={isScrolled ? { zIndex: 50, backgroundColor: 'rgba(14,34,63,0.95)', backdropFilter: 'blur(12px)', boxShadow: '0 8px 32px rgba(14,34,63,0.35)' } : { zIndex: 50 }}
       >
         <div className="max-w-[1336px] mx-auto px-8 lg:px-12 h-[72px] flex items-center justify-between relative">
-          <Link to={homePath} className="flex items-center group" aria-label={`${BUSINESS.name} — Isabelle Guertin`}>
-            <div className="flex flex-col justify-center">
-              <span className="font-inter text-[13px] font-semibold tracking-[0.18em] uppercase text-white leading-none">
-                GUERTIN
-              </span>
-              <span 
-                className="font-inter text-[9.5px] tracking-[0.18em] uppercase text-white/55 leading-none"
-                style={{ marginTop: '7.2px' }}
-              >
-                ISABELLE
-              </span>
-            </div>
+          <Link to={homePath} className="flex items-center gap-3 group shrink-0" aria-label={`${BUSINESS.name} — Isabelle Guertin`}>
+            <img
+              src="/images/logo-rguertin.png"
+              alt=""
+              aria-hidden="true"
+              width="43"
+              height="44"
+              className="w-[38px] sm:w-[43px] h-auto block transition-transform duration-300 group-hover:scale-[1.04]"
+              decoding="async"
+            />
+            <span className="font-inter text-[11px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-white leading-[1.35] whitespace-nowrap">
+              R. Guertin<br className="sm:hidden" /> &amp; Associés
+            </span>
           </Link>
           <nav className="hidden lg:flex items-center gap-8" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
             {navLinks.map((link) => (
